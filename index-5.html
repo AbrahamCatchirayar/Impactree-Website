@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Resilience Through Data</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            min-height: 100vh;
+        }
+
+        /* Navigation Styles */
+      /* Navigation Styles */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .logo {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0;
+            position: relative;
+        }
+
+        .logo::after {
+            content: ;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            margin-left: 3rem;
+        }
+
+        .nav-links a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #6366f1;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-right .btn {
+            margin-top: 0;
+            padding: 0.75rem 1.5rem;
+            background: #5b21b6;
+            color: white;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-right .btn:hover {
+            background: #4c1d95;
+            transform: translateY(-1px);
+        }
+
+        /* Button Styles */
+        .btn {
+            margin-top: 4rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-gradient-purple {
+            background:#340584;
+            color: #ffffff;
+        }
+
+        .btn-gradient-purple:hover {
+            background: #e16f66;
+            transform: translateY(-2px);
+        }
+
+        .btn-gradient-red {
+            background: #340584;
+            color: #ffffff;
+            padding: 1rem 2rem;
+        }
+
+        .btn-gradient-red:hover {
+            background: #e16f66;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #4b5563;
+            color: #000000;
+            background: transparent;
+            padding: 1rem 2rem;
+        }
+
+        .btn-outline:hover {
+            border-color: #9ca3af;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            max-width: 72rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: #340584;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Trusted By Section */
+        .trusted-by {
+            padding: 0 1rem 3rem;
+        }
+
+        .trusted-by p {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .company-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            opacity: 0.6;
+        }
+
+        .company-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #9ca3af;
+        }
+
+        .company-icon {
+            width: 2rem;
+            height: 2rem;
+            background-color: #6b7280;
+            border-radius: 0.25rem;
+        }
+
+        .company-icon.rounded {
+            border-radius: 50%;
+        }
+
+        .company-icon.bordered {
+            border: 2px solid #9ca3af;
+        }
+
+        .refractional-bars {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .refractional-bar {
+            width: 0.5rem;
+            height: 1.5rem;
+            background-color: #6b7280;
+        }
+
+        /* Animated Cards Section Styles */
+        .animated-cards-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        .animated-cards-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cards-container {
+            display: flex;
+            gap: 2rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            overflow: hidden;
+            width: 320px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Network Effect Section */
+        .network-effect-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            margin: 2rem 0;
+        }
+
+        .network-effect-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .network-effect-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .network-effect-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .network-effect-title .highlight {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+        }
+
+        .network-effect-subtitle {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .network-card {
+            background: #111;
+            border-radius: 1.5rem;
+            padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: flex-start;
+            min-height: 380px;
+        }
+        .network-card-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .network-card-image img {
+    width: 520px;      /* or your preferred width */
+    height: 200px;     /* or your preferred height */
+    object-fit: cover; /* ensures the image fills the area nicely */
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+        .network-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        .network-card-description {
+            color: #a0aec0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        .network-card-highlight {
+            color: #ff9900;
+            font-weight: 500;
+        }
+        .network-card-mockup {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+            width: 90%;
+            max-width: 320px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        @media (max-width: 768px) {
+            .network-card {
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+                min-height: 260px;
+            }
+            .network-card-mockup {
+                width: 100%;
+                padding: 1rem 0.5rem;
+            }
+        }
+
+        .code-mockup {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        .code-line {
+            margin: 0.25rem 0;
+        }
+
+        .code-keyword {
+            color: #ff6b6b;
+        }
+
+        .code-string {
+            color: #4ecdc4;
+        }
+
+        .code-function {
+            color: #45b7d1;
+        }
+
+        .code-comment {
+            color: #95a5a6;
+        }
+
+        .chat-mockup {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            background: #4f46e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .chat-content {
+            flex: 1;
+        }
+
+        .chat-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .chat-time {
+            color: #a0aec0;
+            font-size: 0.75rem;
+        }
+
+        .chat-message {
+            background: rgba(79, 70, 229, 0.2);
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .pricing-mockup {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .pricing-input {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .pricing-button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .pricing-button:hover {
+            background: #4338ca;
+        }
+
+        .map-mockup {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            position: relative;
+            height: 120px;
+        }
+
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .map-label {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-right-links {
+                display: none;
+            }
+
+            nav {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                margin-top: 5rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .company-logos {
+                gap: 1.5rem;
+            }
+
+            .company-logo {
+                font-size: 1.25rem;
+            }
+
+            .cards-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .card {
+                width: 90vw;
+                height: 180px;
+            }
+
+            .network-effect-title {
+                font-size: 2rem;
+            }
+
+            .network-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .network-card {
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+            }
+            .network-card-mockup {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .hero h1 {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .cards-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .card {
+                width: 90vw;
+                height: 180px;
+            }
+        }
+
+        /* Animation Effects */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        a:focus,
+        button:focus {
+            outline: 2px solid #9333ea;
+            outline-offset: 2px;
+        }
+
+        /* Impactree Hero Section Styles */
+        .impactree-hero {
+            max-width: 900px;
+            margin: 1rem auto 0 auto;
+            text-align: center;
+            padding: 2rem 1rem 2rem 1rem;
+            background: #fff;
+        }
+        .impactree-hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .impactree-btn-purple {
+            background: #340584;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 2rem;
+            padding: 0.9rem 2.2rem;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .impactree-btn-purple:hover {
+            background: #2a046a;
+        }
+        .impactree-btn-outline {
+            background: #fff;
+            color: #000;
+            border: 2px solid #340584;
+            border-radius: 2rem;
+            padding: 0.9rem 2.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .impactree-btn-outline:hover {
+            background: #340584;
+            color: #fff;
+        }
+        .impactree-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #111;
+            line-height: 1.2;
+        }
+        .impactree-highlight {
+            color: #340584;
+            font-weight: 700;
+            font-size: 2.5rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .impactree-subtitle {
+            color: #666;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+        }
+        .impactree-core {
+            color: #ff9900;
+            font-weight: 600;
+        }
+        @media (max-width: 600px) {
+            .impactree-hero h1, .impactree-highlight {
+                font-size: 1.5rem;
+            }
+            .impactree-hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Impactree Four Pillars Section */
+        .impactree-pillars-row {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2.5rem;
+            margin: 0rem auto 0rem auto;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+        .impactree-pillar-card {
+            background: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 2.5rem 2rem 2rem 2rem;
+            text-align: center;
+            width: 260px;
+            min-width: 220px;
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s;
+        }
+        .impactree-pillar-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+        .impactree-pillar-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 1rem;
+        }
+        .impactree-pillar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ff8b32;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        .impactree-pillar-desc {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) {
+            .impactree-pillars-row {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+            .impactree-pillar-card {
+                width: 90vw;
+                min-width: unset;
+            }
+        }
+        @media (max-width: 600px) {
+            .impactree-pillars-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .impactree-pillar-card {
+                width: 100%;
+                padding: 1.5rem 1rem;
+            }
+            .impactree-pillar-number {
+                font-size: 2rem;
+            }
+            .impactree-pillar-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Impactree Transform Section */
+        .impactree-transform-section {
+            max-width: 1200px;
+            margin: 4rem auto 0 auto;
+            padding: 3rem 1rem 4rem 1rem;
+            text-align: center;
+        }
+        .impactree-transform-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+        .impactree-transform-title .highlight {
+            color: #340584;
+            font-style: italic;
+        }
+        .impactree-transform-subtitle {
+            color: #666;
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .impactree-transform-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            justify-content: center;
+        }
+        .impactree-transform-cards .transform-fractals-card {
+            grid-column: 1 / span 2;
+            width: 100%;
+            max-width: unset;
+            justify-self: stretch;
+        }
+        .impactree-transform-card {
+            background: #232323;
+            color: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 2.5rem 2rem 2rem 2rem;
+            text-align: left;
+            width: 350px;
+            min-width: 260px;
+            flex: 1 1 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s;
+            margin-bottom: 2rem;
+        }
+        .impactree-transform-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        .impactree-transform-card-desc {
+            color: #ccc;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .impactree-transform-card-mockup {
+            background: #181818;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            width: 100%;
+            margin-top: auto;
+        }
+        .impactree-transform-code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.95rem;
+            color: #b5e0ff;
+            line-height: 1.5;
+            white-space: pre;
+        }
+        .impactree-transform-chat {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .impactree-transform-avatar {
+            width: 36px;
+            height: 36px;
+            background: #2d3a5a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+        .impactree-transform-chat-content {
+            flex: 1;
+        }
+        .impactree-transform-chat-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.15rem;
+        }
+        .impactree-transform-chat-time {
+            color: #a0aec0;
+            font-size: 0.8rem;
+        }
+        .impactree-transform-chat-message {
+            background: #232e4d;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .impactree-transform-cards {
+                grid-template-columns: 1fr;
+            }
+            .impactree-transform-cards .transform-fractals-card {
+                grid-column: auto;
+                width: 100%;
+            }
+        }
+
+        /* Compass & Navigator Hero Section */
+        .compass-navigator-hero {
+            max-width: 900px;
+            margin: 1rem auto 0 auto;
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+            background: #fff;
+        }
+        .compass-navigator-hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .compass-navigator-btn-purple {
+            background: #340584;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 2rem;
+            padding: 0.9rem 2.2rem;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .compass-navigator-btn-purple:hover {
+            background: #e16f66;
+        }
+        .compass-navigator-btn-outline {
+            background: #fff;
+            color: #000;
+            border: 2px solid #340584;
+            border-radius: 2rem;
+            padding: 0.9rem 2.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .compass-navigator-btn-outline:hover {
+            background: #340584;
+            color: #fff;
+        }
+        .compass-navigator-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #111;
+            line-height: 1.2;
+        }
+        .compass-navigator-highlight {
+            color: #340584;
+            font-weight: 700;
+            font-size: 2.5rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .compass-navigator-subtitle {
+            color: #666;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+        }
+        .compass-navigator-core {
+            color: #ff9900;
+            font-weight: 600;
+        }
+        @media (max-width: 600px) {
+            .compass-navigator-hero h1, .compass-navigator-highlight {
+                font-size: 1.5rem;
+            }
+            .compass-navigator-hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Compass & Navigator Cards Section */
+        .compass-navigator-cards-section {
+            max-width: 1100px;
+            margin: 3rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        .compass-navigator-card {
+            display: flex;
+            background: #181818;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            align-items: stretch;
+            min-height: 220px;
+            height: 100px;
+            transition: transform 0.5s cubic-bezier(.4,0,.2,1), box-shadow 0.2s, z-index 0.2s;
+        }
+        .compass-navigator-card:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+        .card-content {
+            flex: 1 1 50%;
+            padding: 1.2rem 1rem;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .phase-label {
+            color: #fff;
+            background: #232323;
+            border-radius: 1rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.3rem 1rem;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            opacity: 0.8;
+        }
+        .card-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .card-title .compass {
+            color: #ff9900;
+        }
+        .card-title .navigator {
+            color: #ff9900;
+        }
+        .card-desc {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        .card-btn {
+            background: #340584;
+            color: #fff;
+            border: none;
+            border-radius: 2rem;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: fit-content;
+        }
+        .card-btn:hover {
+            background: #e16f66;
+        }
+        .card-image {
+            flex: 1 1 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #232323;
+            width: 100%;
+            height: 100%;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 1.5rem 1.5rem 0;
+        }
+        @media (max-width: 900px) {
+            .compass-navigator-card {
+                flex-direction: column;
+                min-height: unset;
+            }
+            .card-image img {
+                border-radius: 0 0 1.5rem 1.5rem;
+                max-width: 100%;
+                max-height: 220px;
+            }
+            .card-content {
+                padding: 2rem 1rem;
+            }
+        }
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            max-width: 1200px;
+            margin: 5rem auto 0 auto;
+            padding: 0 1rem 4rem 1rem;
+        }
+        .testimonial-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .testimonial-models {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .testimonial-models-btn {
+            background: #fff;
+            color: #000;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 2rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .testimonial-models-btn:hover {
+            background: #f3f4f6;
+        }
+        .testimonial-readmore {
+            color: #888;
+            font-size: 1rem;
+        }
+        .testimonial-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            color: #111;
+            line-height: 1.2;
+        }
+        .testimonial-subtitle {
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background: #181818;
+            color: #fff;
+            border-radius: 1rem;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            display: flex;
+            flex-direction: column;
+            min-height: 220px;
+            position: relative;
+        }
+        .testimonial-quote {
+            color: #ff4d4f;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.7rem;
+            line-height: 1;
+        }
+        .testimonial-text {
+            font-size: 1.08rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .testimonial-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+        }
+        .testimonial-role {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            .testimonial-cards {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .testimonial-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .testimonial-section {
+                padding: 0 0.2rem 2rem 0.2rem;
+            }
+        }
+
+        /* Footer Section */
+        .custom-footer {
+            background: #fff;
+            color: #111;
+            padding: 3rem 1rem 1.5rem 1rem;
+            margin-top: 2rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .footer-col {
+            min-width: 150px;
+        }
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.7rem;
+        }
+        .footer-col ul li a {
+            color: #888;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #340584;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.5;
+        }
+        .footer-social a img {
+            width: 28px;
+            height: 28px;
+        }
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1rem;
+            color: #888;
+        }
+        .footer-links {
+            margin-bottom: 0.2rem;
+        }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 0.2rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #340584;
+        }
+        @media (max-width: 900px) {
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .footer-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .scroll-container {
+            width: 100vw;
+            max-width: 100vw;
+            overflow-x: hidden;
+    }
+
+    .horizontal-wrapper {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .item {
+      width: 600px;
+      height: 350px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: absolute;
+      transition: transform 0.2s ease-out, width 0.2s, height 0.2s, opacity 0.2s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      will-change: transform, width, height, opacity;
+    }
+
+    .item img,
+    .item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .left-image {
+      left: calc(50% - 620px);
+      z-index: 5;
+    }
+
+    .right-image {
+      left: calc(50% + 620px - 600px);
+      z-index: 5;
+    }
+
+    .center-video {
+      left: 50%;
+      transform: translateX(-50%) scale(1);
+      z-index: 10;
+    }
+
+    .compass-navigator-card#phase01,
+    .compass-navigator-card#phase02 {
+        position: relative;
+        z-index: 1;
+    }
+    .compass-navigator-card#phase02.stacked {
+        transform: translateY(-140px); /* increased overlap */
+        z-index: 10;
+        box-shadow: 0 12px 32px rgba(52,5,132,0.18);
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <!-- Logo -->
+            <div class="logo"></div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Pricing</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="btn btn-gradient-purple">
+                Contact Us
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>
+            Building
+            <span class="gradient-text">Resilience</span>
+            <br />
+            Through Data
+        </h1>
+        
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+            <button class="btn btn-gradient-red">
+                Get Started
+            </button>
+            <button class="btn btn-outline">
+                Learn More
+                <span>→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Trusted By Section -->
+    <div class="trusted-by">
+        <p>Trusted by teams at</p>
+        
+        <div class="company-logos">
+            <div class="company-logo">Acme Corp</div>
+            <div class="company-logo">
+                <div class="company-icon"></div>
+                Codecraft_
+            </div>
+            <div class="company-logo">
+                <svg class="company-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                </svg>
+                Magnolia
+            </div>
+            <div class="company-logo">
+                <div class="refractional-bars">
+                    <div class="refractional-bar"></div>
+                    <div class="refractional-bar"></div>
+                    <div class="refractional-bar"></div>
+                </div>
+                Refractional
+            </div>
+            <div class="company-logo">
+                <div class="company-icon rounded"></div>
+                45 Degrees°
+            </div>
+            <div class="company-logo">
+                <div class="company-icon rounded bordered"></div>
+                waveless
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-container">
+        <div class="horizontal-wrapper">
+          <!-- Left image -->
+          <div class="item left-image" id="leftImage">
+            <img src="assets/images/1ima.jpg" alt="Left Image" />
+          </div>
+    
+          <!-- Center video -->
+          <div class="item center-video" id="centerVideo">
+            <video autoplay loop muted playsinline>
+              <source src="assets/images/final.mp4" type="video/mp4" />
+            </video>
+          </div>
+    
+          <!-- Right image -->
+          <div class="item right-image" id="rightImage">
+            <img src="assets/images/2ima.jpg" alt="Right Image" />
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Network Effect Section -->
+    <div class="network-effect-section">
+        <div class="network-effect-container">
+            <div class="network-effect-header">
+                <h2 class="network-effect-title">
+                    The <span class="highlight">Cost of Ignoring Sustainability</span>
+                </h2>
+                <p class="network-effect-subtitle">
+                    Organizations that overlook sustainability aren't just missing out on purpose — they're missing out on profit, resilience, and long-term relevance. Here's what's at stake:
+                </p>
+            </div>
+
+            <div class="network-grid">
+                <!-- Regulators Card -->
+                <div class="network-card">
+                    <div class="network-card-image">
+                        <img src="assets/images/regulator.jpg" alt="Regulators"  />
+                    </div>
+                    <div class="network-card-title">Invisible Gaps, Invisible Gains</div>
+                    <div class="network-card-description">
+                        Without sustainability Indicators, <span class="network-card-highlight">You Can't Improve</span>   What You Don't Measure
+                    </div>
+                  
+                </div>
+
+                <!-- Customers Card -->
+                <div class="network-card">
+                    <div class="network-card-image">
+                        <img src="assets/images/customer.jpg" alt="Customers" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);" />
+                    </div>
+                    <div class="network-card-title">Shorter Lifespans, Shrinking Relevance</div>
+                    <div class="network-card-description">
+                        Companies <span class="network-card-highlight"> That Ignore sustainability Die Younger</span>.
+                    </div>
+                    
+                </div>
+
+                <!-- Investors Card -->
+                <div class="network-card">
+                    <div class="network-card-image">
+                        <img src="assets/images/investor.jpg" alt="Investors" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);" />
+                    </div>
+                    <div class="network-card-title">Reputations Crash Faster Than Markets</div>
+                    <div class="network-card-description">
+                        Without Sustainability, <span class="network-card-highlight"> Risk & Impact Unmanaged</span> — Until It's Too Late
+                    </div>
+                    
+                </div>
+
+                <!-- Technology Card -->
+                <div class="network-card">
+                    <div class="network-card-image">
+                        <img src="assets/images/technology.jpg" alt="Technology" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    </div>
+                    <div class="network-card-title">Sustainability is the New Growth Engine</div>
+                    <div class="network-card-description">
+                        Sustainability <span class="network-card-highlight"> Isn't a Cost — It's a Competitive Advantage</span>.
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth hover animations and interactions
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add click animations
+        document.querySelectorAll('a, button').forEach(element => {
+            element.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Add fade-in animation on page load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Scroll animation for animated cards section
+        window.addEventListener('scroll', function() {
+            const section = document.getElementById('animatedCardsSection');
+            if (!section) return;
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            if (rect.top < windowHeight - 100) {
+                section.classList.add('visible');
+            }
+        });
+    </script>
+    <!-- Impactree Hero Section (from screenshot) -->
+    <div class="impactree-hero">
+        <div class="impactree-hero-buttons">
+            <button class="btn impactree-btn-purple">Get Started</button>
+            <button class="btn impactree-btn-outline">Learn More <span>→</span></button>
+        </div>
+        <h1>
+            Not Just ESG. Not Just Compliance.
+            <span class="impactree-highlight">A New Kind of Intelligence.</span>
+        </h1>
+        <p class="impactree-subtitle">
+            Sustainability is no longer a report you submit. It's a <span class="impactree-core">strategic</span></br> core you build. Here's what that means at Impactree:
+        </p>
+    </div>
+
+    <!-- Impactree Four Pillars Section -->
+    <div class="impactree-pillars-row">
+        <div class="impactree-pillar-card">
+            <div class="impactree-pillar-number">01</div>
+            <div class="impactree-pillar-title">Performance-First Sustainability</div>
+            <div class="impactree-pillar-desc">ESG is not a checkbox — it's a lever for cost savings, risk mitigation, and growth.</div>
+        </div>
+        <div class="impactree-pillar-card">
+            <div class="impactree-pillar-number">02</div>
+            <div class="impactree-pillar-title">Real-Time Insights</div>
+            <div class="impactree-pillar-desc">Dynamic dashboards and AI validation ensure you're not just reporting the past, but anticipating the future.</div>
+        </div>
+        <div class="impactree-pillar-card">
+            <div class="impactree-pillar-number">03</div>
+            <div class="impactree-pillar-title">Cross-Stakeholder Communication</div>
+            <div class="impactree-pillar-desc">Speak the language of investors, regulators, and customers — all from a single source of verified data.</div>
+        </div>
+        <div class="impactree-pillar-card">
+            <div class="impactree-pillar-number">04</div>
+            <div class="impactree-pillar-title">Tailored Strategy, Industry Context</div>
+            <div class="impactree-pillar-desc">Move beyond templates. Our intelligence adapts to your sector, size, and sustainability ambition.</div>
+        </div>
+    </div>
+
+    <!-- Compass & Navigator Hero Section -->
+    <div class="compass-navigator-hero" style="max-width:900px;margin:4rem auto 0 auto;text-align:center;padding:4rem 1rem 2rem 1rem;background:#fff;">
+        <div style="display:flex;justify-content:center;gap:1.5rem;margin-bottom:2.5rem;">
+            <button class="btn" style="background:#340584;color:#fff;font-weight:600;border-radius:2rem;padding:0.9rem 2.2rem;border:none;font-size:1.1rem;cursor:pointer;transition:background 0.3s;">Get Started</button>
+            <button class="btn" style="background:#fff;color:#000;border:2px solid #340584;border-radius:2rem;padding:0.9rem 2.2rem;font-weight:600;font-size:1.1rem;cursor:pointer;transition:background 0.3s, color 0.3s;">Learn More <span>→</span></button>
+        </div>
+        <h1 style="font-size:2.5rem;font-weight:700;margin-bottom:1.2rem;color:#111;line-height:1.2;">
+            Conquer <span style="color:#340584;font-style:italic;">your</span> Everest
+        </h1>
+        <div style="font-size:2rem;font-weight:500;margin-bottom:1.2rem;">
+            Elevate Your Business with Our <span style="color:#340584;font-weight:700;">Compass</span> and <span style="color:#340584;font-weight:700;">Navigator</span> Series
+        </div>
+        <p style="color:#666;font-size:1.15rem;margin-top:1.5rem;">
+            No two companies scale the same mountain.<br>
+            That's why we built two tracks.
+        </p>
+    </div>
+
+    <!-- Compass & Navigator Cards Section -->
+    <div class="compass-navigator-cards-section">
+        <div class="compass-navigator-card fade-in-on-scroll" id="phase01">
+            <div class="card-content">
+                <div class="phase-label">Phase | 01</div>
+                <div class="card-title"><span class="compass">The Compass</span> Series</div>
+                <div class="card-desc">
+                    Your 360° sustainability view.<br>
+            
+                </div>
+             
+            </div>
+            <div class="card-image">
+                <img src="assets/images/step1.jpg" alt="Compass Series" />
+            </div>
+        </div>
+        <div class="compass-navigator-card fade-in-on-scroll" id="phase02">
+            <div class="card-content">
+                <div class="phase-label">Phase | 02</div>
+                <div class="card-title"><span class="navigator">The Navigator</span> Series</div>
+                <div class="card-desc">
+                    Built for the future you're designing.<br>          
+                </div>
+            </div>
+            <div class="card-image">
+                <img src="assets/images/step2.jpg" alt="Navigator Series" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fade-in animation for Compass & Navigator cards
+        function handleFadeInOnScroll() {
+            document.querySelectorAll('.fade-in-on-scroll').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', handleFadeInOnScroll);
+        window.addEventListener('load', handleFadeInOnScroll);
+
+        // Card stacking scroll animation for Compass & Navigator
+        (function() {
+          const phase01 = document.getElementById('phase01');
+          const phase02 = document.getElementById('phase02');
+
+          function handleCardStacking() {
+            if (!phase01 || !phase02) return;
+            const rect2 = phase02.getBoundingClientRect();
+            const rect1 = phase01.getBoundingClientRect();
+            // When phase02's top is above the bottom of phase01, stack it
+            if (rect2.top < rect1.bottom - 40) { // tweaked from -100 to -40
+              phase02.classList.add('stacked');
+            } else {
+              phase02.classList.remove('stacked');
+            }
+          }
+
+          window.addEventListener('scroll', handleCardStacking);
+          window.addEventListener('resize', handleCardStacking);
+          window.addEventListener('load', handleCardStacking);
+        })();
+
+        // Improved image scroller animation based on section scroll
+        const scrollContainer = document.querySelector('.scroll-container');
+        const center = document.getElementById('centerVideo');
+    const left = document.getElementById('leftImage');
+    const right = document.getElementById('rightImage');
+
+        function animateScroller() {
+          const rect = scrollContainer.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          // If section is out of view (above or below), hide the center video and side images and reset styles
+          if (rect.bottom <= 0 || rect.top >= windowHeight) {
+            center.style.display = 'none';
+            left.style.display = 'none';
+            right.style.display = 'none';
+            // Reset position in case it was fixed
+            center.style.position = '';
+            center.style.left = '';
+            center.style.top = '';
+            center.style.width = '';
+            center.style.height = '';
+            center.style.transform = '';
+            center.style.zIndex = '';
+            return;
+          } else {
+            center.style.display = '';
+            left.style.display = '';
+            right.style.display = '';
+          }
+
+          // progress: 0 when top of section at bottom of viewport, 1 when bottom of section at top of viewport
+          let progress = 1 - (rect.bottom / (rect.height + windowHeight));
+          progress = Math.max(0, Math.min(progress, 1));
+
+          // Center video: scale up to cover the viewport
+      const minWidth = 600;
+          const minHeight = 350;
+          const maxWidth = window.innerWidth;
+          const maxHeight = window.innerHeight;
+          const width = minWidth + (maxWidth - minWidth) * progress;
+          const height = minHeight + (maxHeight - minHeight) * progress;
+
+          center.style.width = width + 'px';
+          center.style.height = height + 'px';
+          center.style.transform = `translateX(-50%) scale(${1 + 0.25 * progress})`;
+
+          // When fully scrolled, make it fixed and full screen
+          if (progress > 0.98 && rect.bottom > 0) {
+            center.style.position = 'fixed';
+            center.style.left = '50%';
+            center.style.top = '0';
+            center.style.width = '100vw';
+            center.style.height = '100vh';
+            center.style.transform = 'translateX(-50%) scale(1)';
+            center.style.zIndex = '100';
+          } else {
+            center.style.position = 'absolute';
+            center.style.left = '50%';
+            center.style.top = '';
+            center.style.zIndex = '10';
+          }
+
+          // Left/Right images: move out of the viewport and fade out
+          const offsetX = (window.innerWidth / 2 + 400) * progress; // 400 is extra to ensure it's out
+          left.style.transform = `translateX(-${offsetX}px) scale(${1 - 0.5 * progress})`;
+          right.style.transform = `translateX(${offsetX}px) scale(${1 - 0.5 * progress})`;
+          left.style.opacity = 1 - progress;
+          right.style.opacity = 1 - progress;
+        }
+
+        window.addEventListener('scroll', animateScroller);
+        window.addEventListener('resize', animateScroller);
+        window.addEventListener('load', animateScroller);
+    </script>
+
+    <!-- Counter Section (Modern Design) -->
+    <section class="counter-section" style="max-width:1200px;margin:4rem auto 0 auto;padding:0 1rem 4rem 1rem;">
+      <h2 style="text-align:center;font-size:2.2rem;font-weight:700;color:#340584;margin-bottom:2rem;">Our Reach</h2>
+      <div style="margin-bottom:2.5rem;">
+        <img src="assets/images/map.png" alt="Our Reach Map" style="width:100%;max-width:100%;height:auto;max-height:80vh;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.10);" />
+      </div>
+      <div class="counter-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;">
+        <div class="counter-card" style="background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.08);padding:2.5rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;">
+          <div class="counter-value" style="font-size:2.5rem;font-weight:700;color:#340584;">2017</div>
+          <div class="counter-label" style="color:#888;font-size:1.1rem;margin-top:0.5rem;">Year of Establishment</div>
+        </div>
+        <div class="counter-card" style="background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.08);padding:2.5rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;">
+          <div class="counter-value" style="font-size:2.5rem;font-weight:700;color:#340584;">80<span style="font-size:2rem;color:#ff9900;">+</span></div>
+          <div class="counter-label" style="color:#888;font-size:1.1rem;margin-top:0.5rem;">Clients</div>
+        </div>
+        <div class="counter-card" style="background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.08);padding:2.5rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;">
+          <div class="counter-value" style="font-size:2.5rem;font-weight:700;color:#340584;">26<span style="font-size:2rem;color:#ff9900;">M</span></div>
+          <div class="counter-label" style="color:#888;font-size:1.1rem;margin-top:0.5rem;">Data Points Tracked</div>
+        </div>
+        <div class="counter-card" style="background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.08);padding:2.5rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;">
+          <div class="counter-value" style="font-size:2.5rem;font-weight:700;color:#340584;">10</div>
+          <div class="counter-label" style="color:#888;font-size:1.1rem;margin-top:0.5rem;">Business Partners</div>
+        </div>
+        <div class="counter-card" style="background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.08);padding:2.5rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;">
+          <div class="counter-value" style="font-size:2.5rem;font-weight:700;color:#340584;">2<span style="font-size:2rem;color:#ff9900;">M</span></div>
+          <div class="counter-label" style="color:#888;font-size:1.1rem;margin-top:0.5rem;">People Impacted</div>
+        </div>
+      </div>
+    </section>
+    <!-- End Counter Section -->
+
+    <!-- Testimonial Section -->
+    <div class="testimonial-section">
+        <div class="testimonial-header">
+            <div class="testimonial-models">
+                <button class="testimonial-models-btn">More AI models</button>
+                <span class="testimonial-readmore">Read more</span>
+            </div>
+            <h2 class="testimonial-title">Transformative Results with<br>Profound Impact on Success</h2>
+            <div class="testimonial-subtitle">
+                Hear directly from our clients about their experiences and the impact our technology has had on their operations
+            </div>
+        </div>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“</div>
+                <div class="testimonial-text">
+                    Impactree's expertise streamlined our maintenance process, reducing hours and costs significantly—an operational game-changer    
+                </div>
+                <div class="testimonial-user">
+                    <img src="assets/images/resource/author-1.png" alt="Alex Johnson" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Arabian Castles</div>
+            
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“</div>
+                <div class="testimonial-text">
+                    Impactree exceeded expectations on two major projects with deep understanding and dedicated delivery. A truly exceptional collaboration.   
+                </div>
+                <div class="testimonial-user">
+                    <img src="assets/images/resource/author-2.png" alt="Emily Davis" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Buddy4Study</div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“</div>
+                <div class="testimonial-text">
+                    Insightful partnership—Impactree helped shape our ESG readiness with data-driven clarity and improvement opportunities.   
+                </div>
+                <div class="testimonial-user">
+                    <img src="assets/images/resource/author-3.png" alt="Michael Lee" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Autoline</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“</div>
+                <div class="testimonial-text">
+                    We value Impactree's adaptability and seamless support in meeting our unique needs. A commendable collaboration.   
+                </div>
+                <div class="testimonial-user">
+                    <img src="assets/images/resource/author-4.png" alt="Sarah Martinez" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">St. Jude India</div>
+                   
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“</div>
+                <div class="testimonial-text">
+                    Thanks to Impactree's strategic support and clear impact reporting, we secured our first CSR grant.  
+                </div>
+                <div class="testimonial-user">
+                    <img src="assets/images/resource/author-5.png" alt="James Wilson" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Veruschka Foundation</div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“</div>
+                <div class="testimonial-text">
+                    It has been a pleasure collaborating with Impactree, and we sincerely appreciate Impactree's contributions to our ESG/BRSR/CSR effort   
+                </div>
+                <div class="testimonial-user">
+                    <img src="assets/images/resource/author-6.png" alt="John Thompson" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">TVS supply chain</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="custom-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <div class="footer-title">Explore</div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Features</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Support</div>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Others</div>
+                <ul>
+                    <li><a href="#">Style Guide</a></li>
+                    <li><a href="#">Changelog</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-title">Utility</div>
+                <ul>
+                    <li><a href="#">Password</a></li>
+                    <li><a href="#">Instruction</a></li>
+                    <li><a href="#">License</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="assets/images/icons/social-1.png" alt="Twitter"></a>
+            <a href="#"><img src="assets/images/icons/social-3.png" alt="Facebook"></a>
+            <a href="#"><img src="assets/images/icons/social-4.png" alt="Instagram"></a>
+            <a href="#"><img src="assets/images/icons/social-5.png" alt="GitHub"></a>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">License</a> | 
+                <a href="#">Style Guide</a> | 
+                <a href="#">Customize</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright ©
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

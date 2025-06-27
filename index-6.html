@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scroll Zoom Effect</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      overflow-x: hidden;
+      background: #fff;
+    }
+
+    .scroll-container {
+      height: 300vh;
+      position: relative;
+    }
+
+    .horizontal-wrapper {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .item {
+      width: 600px;
+      height: 350px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: absolute;
+      transition: transform 0.2s ease-out;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .item img,
+    .item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .left-image {
+      left: calc(50% - 620px);
+      z-index: 5;
+    }
+
+    .right-image {
+      left: calc(50% + 620px - 600px);
+      z-index: 5;
+    }
+
+    .center-video {
+      left: 50%;
+      transform: translateX(-50%) scale(1);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="horizontal-wrapper">
+      <!-- Left image -->
+      <div class="item left-image" id="leftImage">
+        <img src="assets/images/1ima.jpg" alt="Left Image" />
+      </div>
+
+      <!-- Center video -->
+      <div class="item center-video" id="centerVideo">
+        <video autoplay loop muted playsinline>
+          <source src="assets/images/flow.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Right image -->
+      <div class="item right-image" id="rightImage">
+        <img src="assets/images/2ima.jpg" alt="Right Image" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const center = document.getElementById('centerVideo');
+    const left = document.getElementById('leftImage');
+    const right = document.getElementById('rightImage');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const progress = scrollY / maxScroll;
+
+      // 1. Scale center video up
+      const scaleCenter = 1 + progress * 0.5;
+      center.style.transform = `translateX(-50%) scale(${scaleCenter})`;
+
+      // 2. Scale side images up and shift them out
+      const scaleSide = 1 + progress * 0.5;
+      const offsetX = progress * 600; // how far side images move outward
+
+      left.style.transform = `translateX(-${offsetX}px) scale(${scaleSide})`;
+      right.style.transform = `translateX(${offsetX}px) scale(${scaleSide})`;
+    });
+  </script>
+</body>
+</html>
