@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Intelligence</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 48px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      height: 80px;
+      position: relative;
+      z-index: 100;
+    }
+    .navbar .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .navbar .menu {
+      display: flex;
+      gap: 32px;
+      transition: max-height 0.3s;
+      align-items: center;
+      z-index: 110;
+      position: relative;
+    }
+    .navbar .menu a {
+      text-decoration: none;
+      color: #222;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navbar .menu a:hover {
+      color: #6c2eb7;
+    }
+    .navbar .contact-btn {
+      background: #6c2eb7;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 16px;
+    }
+    .navbar .contact-btn:hover {
+      background: #4b1e8a;
+    }
+    .navbar .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      margin-left: 16px;
+      z-index: 120;
+      position: relative;
+    }
+    .navbar .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #6c2eb7;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        height: auto;
+        align-items: flex-start;
+        z-index: 100;
+      }
+      .navbar .logo {
+        margin-bottom: 0;
+      }
+      .navbar .hamburger {
+        display: flex;
+        position: absolute;
+        right: 16px;
+        top: 20px;
+        z-index: 120;
+      }
+      .navbar .menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: flex-start;
+        background: #fff;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        transition: max-height 0.3s;
+        z-index: 110;
+      }
+      .navbar .menu.open {
+        max-height: 350px;
+        padding: 16px 0 10px 32px;
+      }
+      .navbar .contact-btn {
+        display: none;
+      }
+      .navbar .menu .contact-btn {
+        display: block;
+        width: 90%;
+        margin: 16px auto 0 auto;
+        align-self: center;
+        font-size: 1.1rem;
+        padding: 14px 0;
+      }
+    }
+    /* Business Intelligence Section */
+    .business-intel-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 32px 16px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .business-intel-title {
+      text-align: center;
+      color: #7c3aed;
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 32px;
+      font-family: 'Inter', sans-serif;
+    }
+    .business-intel-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 0;
+      min-height: 480px;
+      border: 1.5px solid #222;
+    }
+    .business-intel-image {
+      flex: 1 1 50%;
+      min-width: 320px;
+      background: #b2e0db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .business-intel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .business-intel-text {
+      flex: 1 1 50%;
+      min-width: 320px;
+      background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+      color: #7c3aed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 32px;
+      font-size: 1.15rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .business-intel-content {
+        flex-direction: column;
+        min-height: unset;
+      }
+      .business-intel-image, .business-intel-text {
+        min-width: 0;
+        width: 100%;
+        padding: 24px 12px;
+      }
+    }
+    .business-intel-header-row {
+      display: flex;
+      align-items: stretch;
+      border: 1.5px solid #222;
+      margin-top: 24px;
+      background: #fff;
+      min-height: 340px;
+    }
+    .business-intel-header-img {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #b2e0db;
+      overflow: hidden;
+    }
+    .business-intel-header-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 340px;
+      display: block;
+    }
+    .business-intel-header-text {
+      flex: 0 0 50%;
+      background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+      color: #7c3aed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 32px;
+      font-size: 1.15rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .team-section {
+      max-width: 900px;
+      margin: 48px auto 0 auto;
+      padding: 32px 16px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .team-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #6c2eb7;
+      margin-bottom: 32px;
+      font-family: 'Inter', sans-serif;
+    }
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .team-row {
+      display: grid;
+      gap: 32px;
+    }
+    .team-row:first-child {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .team-row:last-child {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .team-member {
+      background: #f7f7fa;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+    .team-member img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #e0e0e0;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .team-row:first-child {
+        grid-template-columns: 1fr;
+      }
+      .team-row:last-child {
+        grid-template-columns: 1fr;
+      }
+    }
+    .impact-section {
+      max-width: 900px;
+      margin: 48px auto 0 auto;
+      padding: 32px 16px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .impact-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #6c2eb7;
+      margin-bottom: 32px;
+      font-family: 'Inter', sans-serif;
+    }
+    .impact-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .impact-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .trusted-by-grid-section {
+      max-width: 1100px;
+      margin: 48px auto 0 auto;
+      padding: 40px 24px 48px 24px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 32px rgba(44, 41, 72, 0.08);
+      text-align: center;
+    }
+    .trusted-by-grid-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #181818;
+      margin-bottom: 40px;
+      font-family: 'Inter', sans-serif;
+    }
+    .trusted-by-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 36px 48px;
+      align-items: center;
+      justify-items: center;
+    }
+    /* Center last row if not full (works for 2 or 3 images in last row) */
+    .trusted-by-grid > img:nth-last-child(2):nth-child(odd) {
+      grid-column: 2 / span 1;
+    }
+    .trusted-by-grid > img:nth-last-child(1):nth-child(odd) {
+      grid-column: 2 / span 1;
+    }
+    .trusted-by-grid > img:nth-last-child(1):nth-child(even) {
+      grid-column: 3 / span 1;
+    }
+    .trusted-by-grid img {
+      max-width: 140px;
+      max-height: 48px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(0.2);
+      transition: filter 0.2s, transform 0.2s;
+      background: #fff;
+      padding: 8px 0;
+    }
+    .trusted-by-grid img:hover {
+      filter: none;
+      transform: scale(1.07);
+    }
+    @media (max-width: 700px) {
+      .trusted-by-grid-section {
+        padding: 24px 4px 32px 4px;
+        border-radius: 12px;
+      }
+      .trusted-by-grid-title {
+        font-size: 1.2rem;
+        margin-bottom: 24px;
+      }
+      .trusted-by-grid {
+        gap: 18px 8px;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      }
+      .trusted-by-grid img {
+        max-width: 90px;
+        max-height: 32px;
+      }
+    }
+  </style>
+  <!-- Add Leaflet CSS/JS in the head -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+        <img src="assets/images/logo2.png" alt="Logo">
+    </div>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="menu">
+      <a href="#">Products</a>
+      <a href="#">Industries</a>
+      <a href="#">Why us</a>
+      <a href="#">Resources</a>
+      <a href="#">Company</a>
+      <button class="contact-btn">Demo</button>
+    </div>
+  </nav>
+  <section class="business-intel-section">
+    <h1 class="business-intel-title">Business Intelligence</h1>
+    <div class="business-intel-header-row">
+      <div class="business-intel-header-img">
+        <img src="assets/images/bi.jpg" alt="Business Intelligence">
+      </div>
+      <div class="business-intel-header-text">
+        <p>Most organizations struggle to turn vast, unstructured data into real intelligence. Reports pile up, dashboards look pretty, but insights remain shallow. We built EDEN to change this. Powered by agentic AI Sentinels and proprietary Fractals, it uncovers hidden patterns, validates data, and delivers clarity where others see noise.</p>
+        <p>Fractals combine rating algorithms, dynamic data frameworks, and our CODEx knowledge base to form a trusted foundation. Sentinels—specialized AI models—automate everything from text consolidation to competitor benchmarking. Together, they transform raw information into structured, explainable intelligence that empowers you to act decisively and outperform your competition.</p>
+        <p>While conventional BI platforms stop at visualization, EDEN delivers actionable recommendations backed by transparent scoring and dynamic benchmarking. Our Sentinels continuously monitor your data landscape, surfacing emerging trends and potential risks before they impact your business. This proactive intelligence helps you stay ahead with confidence and precision.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Move Team section here -->
+  <section class="team-section">
+    <h2 class="team-title">Meet the Visionaries Behind the Scenes</h2>
+    <div class="team-grid">
+      <div class="team-row">
+        <div class="team-member"><img src="assets/images/resource/member-1.jpg" alt="Team Member 1"></div>
+        <div class="team-member"><img src="assets/images/resource/member-2.jpg" alt="Team Member 2"></div>
+        <div class="team-member"><img src="assets/images/resource/member-3.jpg" alt="Team Member 3"></div>
+      </div>
+      <div class="team-row">
+        <div class="team-member"><img src="assets/images/resource/member-4.jpg" alt="Team Member 4"></div>
+        <div class="team-member"><img src="assets/images/resource/member-5.jpg" alt="Team Member 5"></div>
+        <div class="team-member"><img src="assets/images/resource/member-6.jpg" alt="Team Member 6"></div>
+        <div class="team-member"><img src="assets/images/resource/member-6.jpg" alt="Team Member 7"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Impact section next -->
+  <section class="impact-section">
+    <h2 class="impact-title">Our Impact</h2>
+    <div class="impact-image-wrapper">
+      <img src="assets/images/our impact.png" alt="Our Impact" class="impact-image">
+    </div>
+  </section>
+
+  <!-- Trusted By section at the end -->
+  <section class="trusted-by-grid-section">
+    <h2 class="trusted-by-grid-title">Trusted by forward-thinking enterprises globally</h2>
+    <div class="trusted-by-grid">
+      <img src="assets/images/clients/acgc.png" alt="ACGC">
+      <img src="assets/images/clients/Autoline.jpg" alt="Autoline">
+      <img src="assets/images/clients/fine.png" alt="Fine">
+      <img src="assets/images/clients/l_t.png" alt="L&T">
+      <img src="assets/images/clients/navin.png" alt="Navin">
+      <img src="assets/images/clients/orient.png" alt="Orient">
+      <img src="assets/images/clients/piramal.png" alt="Piramal">
+      <img src="assets/images/clients/redington.png" alt="Redington">
+      <img src="assets/images/clients/skf.png" alt="SKF">
+      <img src="assets/images/clients/stjude.png" alt="St Jude">
+      <img src="assets/images/clients/tvs.jpg" alt="TVS">
+      <img src="assets/images/clients/ver 2.png" alt="Ver 2">
+    </div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="locations-section">
+    <h2 class="locations-title">Office Locations</h2>
+    <div class="locations-map-container">
+      <div id="interactive-map" style="width: 100%; height: 400px; border-radius: 16px; margin: 0 auto;"></div>
+    </div>
+  </section>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.navbar .menu');
+    hamburger.addEventListener('click', function() {
+      menu.classList.toggle('open');
+    });
+    // Optional: Close menu when clicking outside (mobile UX)
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+  <style>
+.locations-section {
+  max-width: 1100px;
+  margin: 48px auto 48px auto;
+  padding: 40px 24px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(44, 41, 72, 0.08);
+}
+.locations-map-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+#interactive-map {
+  width: 100%;
+  height: 400px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.leaflet-tooltip.custom-tooltip {
+  background: #fff;
+  color: #232323;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44,41,72,0.12);
+  font-size: 1rem;
+  padding: 10px 16px;
+  border: 1.5px solid #6c2eb7;
+  font-family: 'Inter', sans-serif;
+  min-width: 220px;
+  max-width: 320px;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.locations-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #6c2eb7;
+  margin-bottom: 32px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+</style>
+<script>
+  // Coordinates for the offices
+  const locations = [
+    {
+      name: "Chennai Office",
+      address: `Impactree Data Technologies PVT. LTD<br>
+        8A, Polyhose Towers, 8th Floor Western Wing, 86, Anna Salai, Guindy, Chennai,<br>
+        Tamil Nadu - 600032`,
+      lat: 13.0108,
+      lng: 80.2206
+    },
+    {
+      name: "Mumbai Office",
+      address: `Impactree Data Technologies PVT. LTD<br>
+        Centre for Incubation and Business Acceleration (CIBA) 6th Floor, Agnel Technical Complex, Sector 9A, Vashi, Navi Mumbai,<br>
+        Maharashtra - 400703.`,
+      lat: 19.07283,
+      lng: 72.99862
+    },
+    {
+      name: "Singapore Office",
+      address: `Impactree Data Technologies PTE. LTD<br>
+        3 PEMIMPIN Drive, #03-03, LIP Hing Industrial Building,<br>
+        Singapore - 576147`,
+      lat: 1.35083,
+      lng: 103.84417
+    }
+  ];
+
+  // Initialize the map and fit bounds to all markers
+  var map = L.map('interactive-map');
+  var bounds = L.latLngBounds(locations.map(loc => [loc.lat, loc.lng]));
+  map.fitBounds(bounds, {padding: [40, 40]});
+
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Add markers and popups
+  locations.forEach(loc => {
+    var marker = L.marker([loc.lat, loc.lng]).addTo(map);
+    marker.bindPopup(
+      `<b>${loc.name}</b><br>${loc.address}`,
+      { className: 'custom-tooltip', autoPan: true, maxWidth: 320 }
+    );
+    marker.on('mouseover', function(e) {
+      this.openPopup();
+    });
+    marker.on('mouseout', function(e) {
+      this.closePopup();
+    });
+  });
+</script>
+</body>
+</html>

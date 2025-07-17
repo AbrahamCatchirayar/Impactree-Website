@@ -1,110 +1,1486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Scroll Zoom Effect</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impactree - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       overflow-x: hidden;
-      background: #fff;
     }
-
-    .scroll-container {
-      height: 300vh;
+    
+    /* Navbar styles (keeping original) */
+    .navbar-custom {
+      background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 50%, #d1ecf1 100%);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: relative;
+      z-index: 1001;
     }
-
-    .horizontal-wrapper {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
+    .navbar-custom .navbar-brand {
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-decoration: none;
     }
-
-    .item {
-      width: 600px;
-      height: 350px;
-      border-radius: 24px;
-      overflow: hidden;
+    .navbar-custom .nav-link {
+      color: #1e293b;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #4da6ff;
+    }
+    .navbar-custom .nav-link i {
+      color: #1e293b;
+    }
+    .navbar-custom .navbar-toggler .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'><path stroke=\'rgba(30,41,59,1)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/></svg>');
+    }
+    .navbar-custom .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    .navbar-custom .btn-danger {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    .navbar-custom .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .navbar-custom .btn-danger:hover {
+      background-color: #c82333;
+      border-color: #c82333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    }
+    
+    /* Mega menu styles (keeping original) */
+    .mega-menu {
       position: absolute;
-      transition: transform 0.2s ease-out;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      top: 100%;
+      left: 0;
+      width: 100vw;
+      background-color: #fff;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 1000;
+      margin-top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
     }
-
-    .item img,
-    .item video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .mega-menu.show {
       display: block;
     }
-
-    .left-image {
-      left: calc(50% - 620px);
-      z-index: 5;
+    .mega-menu-container {
+      display: flex;
+      max-height: 100vh;
+    }
+    .mega-menu-sidebar {
+      width: 250px;
+      background-color: #f8f9fa;
+      padding: 1.5rem 0;
+      border-right: 1px solid #e9ecef;
+      flex-shrink: 0;
+    }
+    .sidebar-section {
+      margin-bottom: 1rem;
+    }
+    .sidebar-title {
+      color: #007bff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 0.5rem;
+      background-color: #e7f3ff;
+      border-left: 4px solid #007bff;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .sidebar-title:hover {
+      background-color: #d1ecf1;
+    }
+    .sidebar-title i {
+      margin-right: 0.5rem;
+    }
+    .sidebar-title.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .sidebar-arrow {
+      margin-left: auto;
+      transition: transform 0.3s ease;
+    }
+    .sidebar-title.active .sidebar-arrow {
+      transform: rotate(90deg);
+    }
+    .mega-menu-content {
+      flex: 1;
+      padding: 1.5rem;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+    .mega-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+    }
+    .mega-menu-card {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      height: fit-content;
+    }
+    .mega-menu-card:hover {
+      background-color: #fff !important;
+      border: 1px solid #e9ecef !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+      transform: translateY(-2px);
+    }
+    .mega-menu-card-title {
+      color: #1e4d72;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .mega-menu-card-title i {
+      margin-right: 0.5rem;
+      color: #007bff;
+    }
+    .mega-menu-card-subtitle {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .mega-menu-card-link {
+      display: block;
+      color: #495057;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      padding-left: 0.75rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .mega-menu-card-link:hover {
+      color: #007bff;
+      border-left-color: #007bff;
+      background-color: #f8f9fa;
+      text-decoration: none;
+    }
+    .new-badge {
+      background-color: #ffc107;
+      color: #000;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    .nav-item.dropdown {
+      position: static;
+    }
+    .language-selector {
+      color: #fff;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+    .language-selector:hover {
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .innovation-card {
+      background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
+      border: 1px solid #c3e6c3;
+    }
+    .innovation-card .mega-menu-card-title {
+      color: #28a745;
+    }
+    .innovation-card .mega-menu-card-link:hover {
+      color: #28a745;
+      border-left-color: #28a745;
     }
 
-    .right-image {
-      left: calc(50% + 620px - 600px);
-      z-index: 5;
+    /* Enhanced Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 50%, #d1ecf1 100%);
+      /* min-height: 100vh; */
+      min-height: unset;
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem 0 1.5rem 0;
     }
-
-    .center-video {
-      left: 50%;
-      transform: translateX(-50%) scale(1);
-      z-index: 10;
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.1) 0%, transparent 50%);
+      animation: gradientShift 20s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0.5rem 0;
+      min-height: unset;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-text {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 450;
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+      background: linear-gradient(45deg, #1e4d72, #007bff, #4da6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes textGlow {
+      from { filter: brightness(1); }
+      to { filter: brightness(1.2); }
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #4a5568;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      max-width: 95%;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-hero-primary {
+      background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+      color: white;
+    }
+    
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #667eea;
+      color: #667eea;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .btn-hero-secondary:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    }
+    
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .stat-item {
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1e4d72;
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Enhanced Video Section */
+    .video-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1s ease-out 0.3s both;
+      margin-top: 0; /* Remove negative margin */
+      max-height: 350px;
+      width: 100%;
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .video-wrapper {
+      position: relative;
+      max-width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 
+        0 20px 40px rgba(30, 77, 114, 0.15),
+        0 10px 20px rgba(30, 77, 114, 0.1);
+      background: transparent;
+      padding: 0;
+      transition: all 0.3s ease;
+      max-height: 350px;
+    }
+    
+    .video-wrapper:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 30px 60px rgba(30, 77, 114, 0.2),
+        0 15px 30px rgba(30, 77, 114, 0.15);
+    }
+    
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      max-height: 350px;
+      border-radius: 20px;
+      display: block;
+      transition: all 0.3s ease;
+      object-fit: cover;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 20px;
+    }
+    
+    .video-wrapper:hover .video-overlay {
+      opacity: 1;
+    }
+    
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .floating-element:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+    
+    .floating-element:nth-child(2) {
+      top: 60%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+    
+    .floating-element:nth-child(3) {
+      bottom: 20%;
+      left: 15%;
+      animation-delay: 4s;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 991.98px) {
+      .mega-menu {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        max-height: none;
+      }
+      .mega-menu-container {
+        flex-direction: column;
+        max-height: none;
+      }
+      .mega-menu-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .mega-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .mega-menu-content {
+        padding: 1rem;
+      }
+      
+      .hero-content {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-stats {
+        justify-content: center;
+      }
+      
+      .video-wrapper {
+        max-width: 95%;
+      }
+      .video-container, .video-wrapper, .hero-video {
+        max-height: 220px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-stats {
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        flex: 1;
+      }
+      
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .video-container, .video-wrapper, .hero-video {
+        max-height: 160px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="scroll-container">
-    <div class="horizontal-wrapper">
-      <!-- Left image -->
-      <div class="item left-image" id="leftImage">
-        <img src="assets/images/1ima.jpg" alt="Left Image" />
-      </div>
-
-      <!-- Center video -->
-      <div class="item center-video" id="centerVideo">
-        <video autoplay loop muted playsinline>
-          <source src="assets/images/flow.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <!-- Right image -->
-      <div class="item right-image" id="rightImage">
-        <img src="assets/images/2ima.jpg" alt="Right Image" />
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logo2.png" alt="Logo" style="height: 40px; vertical-align: middle;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index-6.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="productsDropdown" role="button">
+            Products <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="productsMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-sidebar">
+                <div class="sidebar-section">
+                  <div class="sidebar-title active" data-section="products">
+                   Compass Series
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+                <div class="sidebar-section">
+                  <div class="sidebar-title" data-section="innovations">
+                   Navigator Series
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-content">
+                <div class="content-section" id="products-content">
+                  <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#energy" style="color:inherit; text-decoration:none;">Energy Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#performance" style="color:inherit; text-decoration:none;">Performance Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#carbon" style="color:inherit; text-decoration:none;">Carbon Management</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem;">
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#vendor" style="color:inherit; text-decoration:none;">Vendor Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#safety" style="color:inherit; text-decoration:none;">Safety Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#social" style="color:inherit; text-decoration:none;">Social Impact Management</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-section" id="innovations-content" style="display: none;">
+                  <div class="mega-menu-grid">
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="navigator.html#portfolio" style="color:inherit; text-decoration:none;">Portfolio Navigator</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="navigator.html#corporate" style="color:inherit; text-decoration:none;">Corporate Navigator</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="navigator.html#wealth" style="color:inherit; text-decoration:none;">Wealth Predictor</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="innovationsDropdown" role="button">
+            Innovations <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="innovationsMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-sidebar">
+                <div class="sidebar-section">
+                  <div class="sidebar-title active" data-section="fractals">
+                    Our Fractals
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+                <div class="sidebar-section">
+                  <div class="sidebar-title"data-section="eden">
+                    Eden
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-content">
+                <div class="content-section" id="fractals-content">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            CODEX
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Ratings Algorithms
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Frameworks
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                            Data Validation
+                            </div>
+                          </div>
+                      </div>
+                </div>
+                <div class="content-section" id="eden-content" style="display: none;">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Text Consolidation Sentinel
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Text Analysis Sentinel
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Ratings Sentinel
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                            Competitor Benchmarking Sentinel
+                            </div>
+                          </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="industriesDropdown" role="button">
+            Solutions <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="industriesMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-content">
+                <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
+                  <div>
+                    <div class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BY INDUSTRY</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                      <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-car"></i> Automobile</a>
+                      <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-flask"></i> Chemicals</a>
+                      <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-truck"></i> Logistics</a>
+                    </div>
+                  </div>
+                  <div style="margin-top: 0.5rem;">
+                    <a href="#" class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;">BY STAKEHOLDERS</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="aboutDropdown" role="button">
+            About Us <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="aboutMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-content">
+                <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
+                  <div>
+                    <div class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BUSINESS INTELLIGENCE</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                      
+                    </div>
+                  </div>
+                  <div style="margin-top: 0.5rem;">
+                    <a href="about.html" class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;"> OUR COMPANY</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-danger">Book a Demo</button>
       </div>
     </div>
   </div>
+</nav>
 
-  <script>
-    const center = document.getElementById('centerVideo');
-    const left = document.getElementById('leftImage');
-    const right = document.getElementById('rightImage');
+<!-- Enhanced Hero Section -->
+<section class="hero-section">
+  <!-- Floating Elements -->
+  <div class="floating-element">
+    <i class="fas fa-leaf" style="font-size: 3rem; color: #28a745;"></i>
+  </div>
+  <div class="floating-element">
+    <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #007bff;"></i>
+  </div>
+  <div class="floating-element">
+    <i class="fas fa-globe" style="font-size: 3.5rem; color: #6f42c1;"></i>
+  </div>
+  
+  <div class="container hero-content">
+    <div class="row align-items-center justify-content-center flex-lg-row flex-column-reverse">
+      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-rocket me-2"></i>
+            Build resilience through data
+          </div>
+          <h1 class="hero-title">
+            AI Product Suite to achieve your sustainability Goal
+          </h1>
+          <p class="hero-subtitle">
+            Harness Environmental, Social, Governance (ESG) Data Intelligence, Optimize sustainability Intervention, and report across global standards with Impactree's Rubicr platform powered by AI & 26 Million Data Points
+          </p>
+          
+          <div class="hero-cta">
+            <a href="#" class="btn-hero-secondary">
+              <i class="fas fa-calendar me-2"></i>
+              Book a Demo
+            </a>
+          </div>
+          
+      
+        </div>
+      </div>
+      
+      <div class="col-lg-6 col-md-12 d-flex justify-content-center mb-4 mb-lg-0">
+        <div class="video-container">
+          <div class="video-wrapper">
+            <video 
+              class="hero-video" 
+              autoplay 
+              loop 
+              muted 
+              playsinline
+              poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1wYWN0cmVlIERlbW88L3RleHQ+Cjwvc3ZnPgo="
+            >
+              <source src="assets/images/final.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const progress = scrollY / maxScroll;
+<!-- International Sustainability Benchmarks Section -->
+<section class="benchmarks-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 0rem 0 2rem 0;">
+  <div class="container">
+    <div class="benchmarks-logos-wrapper" >
+      <div class="benchmarks-logos">
+        <div class="benchmarks-logo"><img src="assets/images/standards/brsr.svg" alt="BRSR"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/carbon.png" alt="Carbon"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/certified.jpg" alt="Certified"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/csrd2.png" alt="CSRD"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/ghg.png" alt="GHG"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/gri.png" alt="GRI"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sasb.jpg" alt="SASB"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sbt.jpg" alt="SBT"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/tcfd.png" alt="TCFD"></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="benchmarks-logo"><img src="assets/images/standards/brsr.svg" alt="BRSR"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/carbon.png" alt="Carbon"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/certified.jpg" alt="Certified"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/csrd2.png" alt="CSRD"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/ghg.png" alt="GHG"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/gri.png" alt="GRI"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sasb.jpg" alt="SASB"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sbt.jpg" alt="SBT"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/tcfd.png" alt="TCFD"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // 1. Scale center video up
-      const scaleCenter = 1 + progress * 0.5;
-      center.style.transform = `translateX(-50%) scale(${scaleCenter})`;
+<!-- Impact Outcomes Section -->
+<section class="impact-outcomes-section" style="background: linear-gradient(135deg, #e7f3ff 0%, #f8fafc 100%); padding: 2.5rem 0 2rem 0;">
+  <div class="container">
+    <h2 style="color:#1e4d72; font-size:2rem; font-weight:700; margin-bottom:2.5rem; text-align:left;">Organizations using Impactree’s platforms have<br> achieved remarkable outcomes</h2>
+    <div class="row justify-content-center align-items-stretch" style="gap:2rem;">
+      <div class="col-md-4 col-10">
+        <div class="impact-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); padding: 2.5rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; height: 100%; transition: box-shadow 0.3s;">
+          <div class="impact-number" style="font-size: 5.5rem; font-weight: 800; color: #007bff; margin-bottom: 1rem; letter-spacing: -2px;">40X</div>
+          <div class="impact-desc" style="font-size: 1.1rem; color: #1e4d72; font-weight: 500;">Return for Organizations having used our ESG and Social Impact Solutions</div>
+        </div>
+      </div>
+      <div class="col-md-4 col-10">
+        <div class="impact-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); padding: 2.5rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; height: 100%; transition: box-shadow 0.3s;">
+          <div class="impact-number" style="font-size: 5.5rem; font-weight: 800; color: #28a745; margin-bottom: 1rem; letter-spacing: -2px;">388cr</div>
+          <div class="impact-desc" style="font-size: 1.1rem; color: #1e4d72; font-weight: 500;">Cumulative Cost Savings, Increased Revenue and New Fundraise by Clients using Impactree’s Compass platforms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // 2. Scale side images up and shift them out
-      const scaleSide = 1 + progress * 0.5;
-      const offsetX = progress * 600; // how far side images move outward
 
-      left.style.transform = `translateX(-${offsetX}px) scale(${scaleSide})`;
-      right.style.transform = `translateX(${offsetX}px) scale(${scaleSide})`;
+
+<!-- Industries Map Section -->
+<section class="industries-map-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 2.5rem 0 2rem 0;">
+  <div class="container d-flex justify-content-center align-items-center flex-column">
+    <h2 style="text-align:center; color:#1e4d72; font-size:2rem; font-weight:700; margin-bottom:2rem;">Industries We Serve. Impact We Deliver.</h2>
+    <img src="assets/images/Industries_map.svg" alt="Industries Map" style="max-width:100%; height:auto; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); background: #fff; padding: 1rem;">
+  </div>
+</section>
+<!-- Client Section: Trusted by teams at -->
+<section class="trusted-by-section" style="background: linear-gradient(135deg, #e7f3ff 0%, #f8fafc 100%); padding: 2.5rem 0 2rem 0;">
+  <div class="container">
+    <p style="text-align:center; color:#6c757d; font-size:1.15rem; margin-bottom:2rem; font-weight:500;">Trusted by teams at</p>
+    <div class="scrolling-logos-wrapper" style="overflow:hidden; width:100%;">
+      <div class="company-logos" style="display:flex; align-items:center; gap:2.5rem; opacity:0.85; width:max-content; animation:slideLogos 30s linear infinite;">
+        <div class="company-logo"><img src="assets/images/clients/acgc.png" alt="Client 1"></div>
+        <div class="company-logo"><img src="assets/images/clients/Autoline1.png" alt="Client 2"></div>
+        <div class="company-logo"><img src="assets/images/clients/fine1.png" alt="Client 3"></div>
+        <div class="company-logo"><img src="assets/images/clients/l_t.png" alt="Client 4"></div>
+        <div class="company-logo"><img src="assets/images/clients/navin.png" alt="Client 5"></div>
+        <div class="company-logo"><img src="assets/images/clients/orient.png" alt="Client 6"></div>
+        <div class="company-logo"><img src="assets/images/clients/piramal.png" alt="Client 7"></div>
+        <div class="company-logo"><img src="assets/images/clients/redington.png" alt="Client 8"></div>
+        <div class="company-logo"><img src="assets/images/clients/skf.png" alt="Client 9"></div>
+        <div class="company-logo"><img src="assets/images/clients/tvs1.png" alt="Client 10"></div>
+        <!-- Duplicate logos for seamless loop -->
+        <div class="company-logo"><img src="assets/images/clients/acgc.png" alt="Client 1"></div>
+        <div class="company-logo"><img src="assets/images/clients/Autoline1.png" alt="Client 2"></div>
+        <div class="company-logo"><img src="assets/images/clients/fine1.png" alt="Client 3"></div>
+        <div class="company-logo"><img src="assets/images/clients/l_t.png" alt="Client 4"></div>
+        <div class="company-logo"><img src="assets/images/clients/navin.png" alt="Client 5"></div>
+        <div class="company-logo"><img src="assets/images/clients/orient.png" alt="Client 6"></div>
+        <div class="company-logo"><img src="assets/images/clients/piramal.png" alt="Client 7"></div>
+        <div class="company-logo"><img src="assets/images/clients/redington.png" alt="Client 8"></div>
+        <div class="company-logo"><img src="assets/images/clients/skf.png" alt="Client 9"></div>
+        <div class="company-logo"><img src="assets/images/clients/tvs1.png" alt="Client 10"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sustainability Matters Content Section (Enhanced) -->
+<section class="sustainability-matters-content-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 3.5rem 0 2.5rem 0;">
+  <div class="container">
+    <h2 style="text-align:center; color:#1e4d72; font-size:2.3rem; font-weight:800; margin-bottom:2.2rem; letter-spacing:-1px; position:relative;">
+      Sustainability Matters
+    </h2>
+    <!-- New row for the two top lines -->
+    <div class="row g-4 justify-content-center align-items-start">
+      <div class="col-lg-6 col-md-12">
+        <div class="sm-top-text" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0;">
+          With deep experience in sustainability management, we help organizations move from intent to impact.
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="sm-top-text" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0;">
+          Failing to act on sustainability isn’t just risky—it’s expensive.
+        </div>
+      </div>
+    </div>
+    <!-- Cards row, now perfectly aligned -->
+    <div class="row g-4 justify-content-center align-items-start mt-3">
+      <!-- Left Column -->
+      <div class="col-lg-6 col-md-12">
+        <div class="d-flex flex-column gap-3">
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-chart-bar"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Turn Data into Business Intelligence</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">By connecting sustainability metrics to business outcomes, we uncover actionable insights that inform better decisions.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-road"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Build a Future-Ready Roadmap</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">We co-create long-term ESG strategies tailored to your business context, unlocking resilience and growth.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-robot"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Leverage AI to Track and Optimize Data</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Through smart automation and AI-powered tools, we simplify ESG data collection, monitoring, and performance tracking.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-file-alt"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Simplify Reporting & Compliance</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Our platform ensures seamless ESG reporting aligned with global standards—saving time, reducing risk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column -->
+      <div class="col-lg-6 col-md-12">
+        <div class="d-flex flex-column gap-3">
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-hourglass-end"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Shortened Business Lifespan</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Research shows companies lacking built-in sustainability resilience may not survive beyond 18 years.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-chart-line"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Lost Growth Opportunities</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Companies without sustainability at the core lose out to competitors who align with global ESG expectations.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-coins"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Missed Financial Optimization</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Without ESG metrics, businesses leave value untapped—from operational efficiencies to investor interest.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-bolt"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Brand Damage Happens Fast</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">A lack of ESG transparency erodes trust, tarnishing your reputation in an increasingly conscious market.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Climb Your Everest With Confidence Section (Cards Top/Bottom Left) -->
+<section class="everest-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 3.5rem 0 2.5rem 0;">
+  <div class="container">
+    <h2 style="text-align:center; color:#1e4d72; font-size:2.2rem; font-weight:800; margin-bottom:1.2rem; letter-spacing:-1px;">Climb Your Everest With Confidence</h2>
+    <div style="text-align:center; color:#4a5568; font-size:1.15rem; font-weight:500; max-width:800px; margin:0 auto 0.7rem auto;">Every organization faces its own Everest—a sustainability challenge that seems vast and complex. But with the right direction, even the steepest path becomes strategic.</div>
+    <div style="text-align:center; color:#4a5568; font-size:1.08rem; font-weight:500; max-width:800px; margin:0 auto 2.2rem auto;">Impactree’s Compass and Navigator Series are the tools to the climb - designed to help you assess where you stand, navigate with precision, and scale with resilience.</div>
+    <div class="everest-image-wrapper" style="position:relative; display:flex; justify-content:center; align-items:center;">
+      <img src="assets/images/Everest landing.jpg" alt="Everest" style="max-width:100%; border-radius:22px; box-shadow:0 8px 32px rgba(30,77,114,0.13);">
+      <!-- Overlayed Cards (Left and Right) -->
+      <div class="d-none d-md-block">
+        <a href="compass.html" style="text-decoration:none; color:inherit;">
+        <div class="everest-card-left everest-card" style="cursor:pointer;">
+          <div style="font-size:1.15rem; font-weight:700; color:#007bff; margin-bottom:0.5rem;">The Compass Series</div>
+          <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Your 360° ESG Starting Point</div>
+          <div style="font-size:0.98rem; color:#4a5568; margin-bottom:0.7rem;">Before you can climb, you must scope the ground. The Compass suite helps you set a baseline, define Sustainability goals, and set targets across 15 core sustainability pillars—so you can move from insight to action with clarity.</div>
+          <div style="font-size:0.98rem; color:#28a745; font-weight:600;">Scope the ground—Everest becomes easy.</div>
+        </div>
+        </a>
+        <a href="navigator.html" style="text-decoration:none; color:inherit;">
+        <div class="everest-card-right everest-card navigator" style="cursor:pointer;">
+          <div style="font-size:1.15rem; font-weight:700; color:#8b6be5; margin-bottom:0.5rem;">The Navigator Series</div>
+          <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Custom-Built for the Journey Ahead</div>
+          <div style="font-size:0.98rem; color:#4a5568;">When you know your Everest, you need precision tools to scale it. The Navigator series delivers bespoke, customized solutions tailored to your organization’s evolving ESG and sustainability needs—from risk intelligence to future forecasting.</div>
+        </div>
+        </a>
+      </div>
+    </div>
+    <!-- Mobile Cards (stacked below image) -->
+    <div class="d-flex d-md-none flex-column gap-4 mt-4">
+      <a href="compass.html" style="text-decoration:none; color:inherit;">
+      <div class="everest-card" style="cursor:pointer;">
+        <div style="font-size:1.15rem; font-weight:700; color:#007bff; margin-bottom:0.5rem;">The Compass Series</div>
+        <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Your 360° ESG Starting Point</div>
+        <div style="font-size:0.98rem; color:#4a5568; margin-bottom:0.7rem;">Before you can climb, you must scope the ground. The Compass suite helps you set a baseline, define Sustainability goals, and set targets across 15 core sustainability pillars—so you can move from insight to action with clarity.</div>
+        <div style="font-size:0.98rem; color:#28a745; font-weight:600;">Scope the ground—Everest becomes easy.</div>
+      </div>
+      </a>
+      <a href="navigator.html" style="text-decoration:none; color:inherit;">
+      <div class="everest-card navigator" style="cursor:pointer;">
+        <div style="font-size:1.15rem; font-weight:700; color:#8b6be5; margin-bottom:0.5rem;">The Navigator Series</div>
+        <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Custom-Built for the Journey Ahead</div>
+        <div style="font-size:0.98rem; color:#4a5568;">When you know your Everest, you need precision tools to scale it. The Navigator series delivers bespoke, customized solutions tailored to your organization’s evolving ESG and sustainability needs—from risk intelligence to future forecasting.</div>
+      </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes slideLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.company-logo img {
+  width: 80px;
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: transform 0.3s ease, filter 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+.company-logo:hover img {
+  transform: scale(1.1);
+  filter: grayscale(1);
+}
+@media (max-width: 768px) {
+  .company-logos {
+    gap: 1.5rem !important;
+  }
+  .company-logo {
+    font-size: 1.25rem;
+  }
+  .company-logo img {
+    width: 56px;
+    height: 28px;
+  }
+}
+.benchmarks-logos-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+ 
+}
+.benchmarks-logos {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  min-width: 2000px;
+  width: max-content;
+  margin-top: 30px;
+}
+.benchmarks-logos-wrapper:hover .benchmarks-logos {
+  animation: slideBenchmarks 28s linear infinite;
+}
+.benchmarks-logo {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(30,77,114,0.04);
+  padding: 8px;
+}
+@keyframes slideBenchmarks {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.benchmarks-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(0.2) contrast(1.1);
+  transition: filter 0.3s, transform 0.3s;
+  display: block;
+}
+.benchmarks-logo img:hover {
+  filter: grayscale(0) contrast(1.2) drop-shadow(0 2px 8px rgba(30,77,114,0.08));
+  transform: scale(1.08);
+}
+.benchmarks-logos::-webkit-scrollbar {
+  display: none;
+}
+.benchmarks-logos-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media (max-width: 768px) {
+  .benchmarks-logos {
+    gap: 1.2rem;
+    min-width: 1200px;
+  }
+  .benchmarks-logo {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+  }
+}
+.everest-card {
+  min-height: 340px;
+  max-width: 320px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,77,114,0.10);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 5px solid #007bff;
+  overflow: hidden;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+.everest-card.navigator {
+  border-left: 5px solid #8b6be5;
+}
+.everest-cards-stack {
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 2;
+}
+.everest-card-left {
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  width: 320px;
+  z-index: 2;
+}
+.everest-card-right {
+  position: absolute;
+  top: 6%;
+  right: 3%;
+  width: 320px;
+  z-index: 2;
+}
+@media (max-width: 767.98px) {
+  .everest-card {
+    min-height: unset;
+    max-width: 100%;
+  }
+}
+.sm-top-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.13rem;
+  color: #1e4d72;
+  font-weight: 600;
+}
+.sm-card:nth-child(4) {
+  min-height: 120px; /* Ensures 4th card in each column matches height */
+}
+/* --- Improved mobile responsiveness for hero section --- */
+@media (max-width: 991.98px) {
+  .hero-section {
+    padding: 1.2rem 0 1rem 0;
+  }
+  .hero-content {
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    padding: 0.5rem 0 !important;
+    text-align: center;
+  }
+  .hero-text {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  .hero-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero-badge {
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    margin-bottom: 0.7rem;
+    display: inline-block;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  .video-container, .video-wrapper, .hero-video {
+    max-height: 180px !important;
+    min-height: unset;
+  }
+  .video-wrapper {
+    max-width: 98%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 0.7rem 0 0.5rem 0;
+  }
+  .hero-title {
+    font-size: 1.1rem !important;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.7rem;
+  }
+  .hero-badge {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .hero-cta {
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+  .video-container, .video-wrapper, .hero-video {
+    max-height: 120px !important;
+  }
+}
+/* --- End of mobile hero section refinements --- */
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+  dropdownItems.forEach(function(dropdown) {
+    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+    const megaMenu = dropdown.querySelector('.mega-menu');
+    let hoverTimeout;
+    dropdown.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+      document.querySelectorAll('.mega-menu').forEach(menu => {
+        if (menu !== megaMenu) {
+          menu.classList.remove('show');
+        }
+      });
+      if (megaMenu) {
+        megaMenu.classList.add('show');
+      }
     });
-  </script>
+    dropdown.addEventListener('mouseleave', function() {
+      hoverTimeout = setTimeout(() => {
+        if (megaMenu) {
+          megaMenu.classList.remove('show');
+        }
+      }, 150);
+    });
+    if (megaMenu) {
+      megaMenu.addEventListener('mouseenter', function() {
+        clearTimeout(hoverTimeout);
+      });
+      megaMenu.addEventListener('mouseleave', function() {
+        megaMenu.classList.remove('show');
+      });
+    }
+    const sidebarTitles = megaMenu ? megaMenu.querySelectorAll('.sidebar-title') : [];
+    const contentSections = megaMenu ? megaMenu.querySelectorAll('.content-section') : [];
+    sidebarTitles.forEach(function(title) {
+      title.addEventListener('mouseenter', function() {
+        const targetSection = this.dataset.section;
+        sidebarTitles.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        contentSections.forEach(section => {
+          section.style.display = 'none';
+        });
+        const targetContent = megaMenu.querySelector('#' + targetSection + '-content');
+        if (targetContent) {
+          targetContent.style.display = 'block';
+        }
+      });
+    });
+  });
+  
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.nav-item.dropdown')) {
+      document.querySelectorAll('.mega-menu').forEach(menu => {
+        menu.classList.remove('show');
+      });
+    }
+  });
+  
+  if (window.innerWidth <= 991) {
+    dropdownItems.forEach(function(dropdown) {
+      const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+      const megaMenu = dropdown.querySelector('.mega-menu');
+      dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (megaMenu) {
+          megaMenu.classList.toggle('show');
+        }
+        document.querySelectorAll('.mega-menu').forEach(menu => {
+          if (menu !== megaMenu) {
+            menu.classList.remove('show');
+          }
+        });
+      });
+    });
+  }
+  
+  // Animate stats on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = entry.target.dataset.delay || '0s';
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.stat-item').forEach((item, index) => {
+    item.dataset.delay = `${index * 0.2}s`;
+    observer.observe(item);
+  });
+  
+  // Add smooth scroll behavior
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Add parallax effect to floating elements
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.floating-element');
+    
+    parallaxElements.forEach((element, index) => {
+      const speed = 0.5 + (index * 0.1);
+      element.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+});
+</script>
 </body>
 </html>

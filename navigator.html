@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Features Hero Section</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(16px, 4vw, 48px);
+      background: #1e4d72;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      height: 80px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: clamp(16px, 3vw, 32px);
+      align-items: center;
+      z-index: 110;
+      position: relative;
+    }
+
+    .navbar .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: clamp(16px, 1.8vw, 18px);
+      font-weight: 500;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .navbar .menu a:hover {
+      color: #007bff;
+    }
+
+    .navbar .contact-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 28px;
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 16px;
+      white-space: nowrap;
+    }
+
+    .navbar .contact-btn:hover {
+      background: #0056b3;
+    }
+
+    .navbar .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      z-index: 120;
+      position: relative;
+    }
+
+    .navbar .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #007bff;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Hero Image Section */
+    .hero-image-section {
+      position: relative;
+      width: clamp(90%, 92vw, 1100px);
+      height: clamp(250px, 40vw, 420px);
+      overflow: hidden;
+      border-radius: clamp(12px, 1.5vw, 16px);
+      margin: clamp(20px, 4vw, 40px) auto 0 auto;
+      background: #e7f3ff;
+      margin-bottom: 30px;
+    }
+
+    .hero-image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30,77,114,0.25);
+      z-index: 1;
+      pointer-events: none;
+      border-radius: clamp(12px, 1.5vw, 16px);
+    }
+
+    .hero-text-bottom-left,
+    .hero-text-top-right,
+    .hero-text-top-left,
+    .hero-text-bottom-right {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .hero-text-top-left {
+      left: clamp(20px, 4vw, 40px);
+      top: clamp(20px, 4vw, 40px);
+      color: #1e4d72;
+      text-align: left;
+    }
+
+    .hero-text-top-left h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      margin: 0;
+      color: #1e4d72;
+      line-height: 1.2;
+      background: linear-gradient(90deg, #1e4d72 30%, #007bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text-bottom-right {
+      right: clamp(20px, 4vw, 40px);
+      bottom: clamp(20px, 4vw, 40px);
+      color: #1e4d72;
+      text-align: right;
+      max-width: 60%;
+    }
+
+    .hero-text-bottom-right > div:first-child {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .hero-text-bottom-right > div:last-child {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: clamp(40px, 8vw, 60px) 0;
+      background: #f8fafc;
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 20px);
+    }
+
+    .feature-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: clamp(20px, 5vw, 40px);
+      margin-bottom: clamp(40px, 8vw, 60px);
+    }
+
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-item.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .feature-content {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+
+    .feature-content h3 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: clamp(8px, 2vw, 12px);
+      color: #007bff;
+      line-height: 1.2;
+    }
+
+    .feature-content p {
+      color: #4a5568;
+      margin-bottom: clamp(16px, 3vw, 24px);
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 12px;
+      font-size: clamp(0.95rem, 1.8vw, 1rem);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #1e4d72;
+    }
+
+    .feature-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list li i {
+      color: #007bff;
+      font-size: 1.1em;
+      flex-shrink: 0;
+    }
+
+    .feature-image {
+      flex: 1 1 300px;
+      min-width: 260px;
+      text-align: center;
+    }
+
+    .feature-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: clamp(12px, 2vw, 18px);
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+    }
+
+    /* Compass Description Section */
+    .compass-description-section {
+      background: linear-gradient(90deg, #e7f3ff 0%, #f8fafc 100%);
+      padding: clamp(24px, 5vw, 48px) 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .compass-description-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      text-align: center;
+    }
+    .compass-description-container p {
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: #1e4d72;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 768px) {
+      .compass-description-container {
+        padding: 18px 10px;
+      }
+      .compass-description-container p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .compass-description-section {
+        padding: 18px 0;
+      }
+      .compass-description-container {
+        padding: 12px 4px;
+      }
+    }
+
+    /* ESG Tabs Section */
+    .esg-tabs-section {
+      background: #fff;
+      margin-top: 100px;
+      padding: clamp(32px, 6vw, 56px) 0 clamp(24px, 4vw, 40px) 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .esg-tabs-container {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      text-align: center;
+      border: 1.5px solid rgba(30,77,114,0.08);
+    }
+    .esg-tabs-btn-group-wrapper {
+      padding: 0;
+      background: none;
+      border-radius: 0;
+      margin: 0;
+      box-shadow: none;
+      max-width: 100%;
+    }
+    .esg-tabs-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 2px solid #e7f3ff;
+      background: none;
+      padding: 0;
+      position: relative;
+    }
+    .esg-tab-btn {
+      background: #e7f3ff;
+      color: #007bff;
+      border: none;
+      border-radius: 14px 14px 0 0;
+      padding: 14px 28px 12px 28px;
+      font-size: clamp(1rem, 2vw, 1.13rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      outline: none;
+      box-shadow: none;
+      position: relative;
+      margin-bottom: -2px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      z-index: 1;
+    }
+    .esg-tab-btn.active {
+      background: #fff;
+      color: #007bff;
+      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
+      border-bottom: 2px solid #007bff;
+      z-index: 2;
+    }
+    .esg-tab-btn:not(.active) {
+      border-bottom: 2px solid #e7f3ff;
+    }
+    .esg-tab-btn:hover:not(.active) {
+      background: #f8fafc;
+      color: #1e4d72;
+    }
+    .esg-tabs-content {
+      margin-top: 0;
+    }
+    .esg-tab-content {
+      display: none;
+      font-size: clamp(1.05rem, 2vw, 1.18rem);
+      color: #1e4d72;
+      font-weight: 500;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      min-height: 80px;
+      padding: 18px 0 0 0;
+      animation: fadeInTab 0.3s;
+    }
+    .esg-tab-content.active {
+      display: block;
+    }
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .esg-tabs-container {
+        padding: 14px 2vw;
+      }
+      .esg-tab-btn {
+        padding: 10px 12px 8px 12px;
+        font-size: 0.98rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .esg-tabs-section {
+        padding: 12px 0 8px 0;
+      }
+      .esg-tabs-container {
+        padding: 8px 2px;
+      }
+      .esg-tab-btn {
+        padding: 8px 6px 6px 6px;
+        font-size: 0.93rem;
+      }
+      .esg-tab-content {
+        font-size: 0.98rem;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .navbar .menu {
+        gap: 20px;
+      }
+      
+      .hero-image-section {
+        height: clamp(200px, 35vw, 300px);
+      }
+      
+      .feature-item {
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 16px;
+        height: 70px;
+      }
+      
+      .navbar .hamburger {
+        display: flex;
+        position: absolute;
+        right: 16px;
+        top: 15px;
+      }
+      
+      .navbar .menu {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        align-items: flex-start;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: max-height 0.3s ease;
+      }
+      
+      .navbar .menu.open {
+        max-height: 400px;
+        padding: 20px;
+      }
+      
+      .navbar .menu a {
+        padding: 12px 0;
+        width: 100%;
+        font-size: 16px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      
+      .navbar .menu a:last-of-type {
+        border-bottom: none;
+      }
+      
+      .navbar .contact-btn {
+        display: none;
+      }
+      
+      .navbar .menu .contact-btn {
+        display: block;
+        width: 100%;
+        margin: 16px 0 0 0;
+        padding: 14px 0;
+        text-align: center;
+        font-size: 16px;
+      }
+      
+      .hero-image-section {
+        width: 95%;
+        height: clamp(180px, 30vw, 250px);
+        margin: 20px auto 0 auto;
+      }
+      
+      .hero-text-bottom-right {
+        max-width: 70%;
+      }
+      
+      .feature-item,
+      .feature-item.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      
+      .feature-content {
+        text-align: center;
+        min-width: 100%;
+      }
+      
+      .feature-image {
+        min-width: 100%;
+      }
+      
+      .feature-image img {
+        max-width: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0 12px;
+        height: 60px;
+      }
+      
+      .navbar .hamburger {
+        top: 10px;
+        right: 12px;
+      }
+      
+      .navbar .menu {
+        top: 60px;
+        padding: 16px;
+      }
+      
+      .hero-image-section {
+        width: 95%;
+        height: clamp(160px, 35vw, 200px);
+        margin: 16px auto 0 auto;
+      }
+      
+      .hero-text-top-left {
+        left: 16px;
+        top: 16px;
+      }
+      
+      .hero-text-bottom-right {
+        right: 16px;
+        bottom: 16px;
+        max-width: 75%;
+      }
+      
+      .features-section {
+        padding: 30px 0;
+      }
+      
+      .feature-item {
+        margin-bottom: 40px;
+        gap: 20px;
+      }
+      
+      .feature-content {
+        padding: 0 8px;
+      }
+      
+      .feature-image img {
+        max-width: 320px;
+      }
+      
+      .feature-list li {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .hero-image-section {
+        height: clamp(140px, 40vw, 180px);
+      }
+      
+      .hero-text-top-left h1 {
+        font-size: 1.4rem;
+      }
+      
+      .hero-text-bottom-right > div:first-child {
+        font-size: 0.9rem;
+      }
+      
+      .hero-text-bottom-right > div:last-child {
+        font-size: 0.8rem;
+      }
+      
+      .feature-content h3 {
+        font-size: 1.3rem;
+      }
+      
+      .feature-content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Large screens */
+    @media (min-width: 1400px) {
+      .features-container {
+        max-width: 1400px;
+      }
+      
+      .feature-image img {
+        max-width: 550px;
+      }
+    }
+
+    /* Compass Hero Section Redesign */
+    .compass-hero-section {
+      position: relative;
+      padding: 0;
+      background: #fff;
+      z-index: 2;
+      overflow: visible;
+    }
+    .compass-hero-bg {
+      display: none;
+    }
+    .compass-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 48px 16px 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .compass-hero-title {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 800;
+      color: #1e4d72;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #1e4d72 30%, #8b6be5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
+    }
+    .compass-description-container {
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
+      border: 1.5px solid rgba(30,77,114,0.08);
+    }
+    .compass-description-container p {
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      color: #1e4d72;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .esg-tabs-container {
+      margin-top: 0;
+      background: #fff;
+      box-shadow: none;
+      border-radius: 0;
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
+      border: none;
+    }
+    .esg-tabs-btn-group {
+      border-bottom: none;
+      background: none;
+      margin-bottom: 0;
+      gap: 8px;
+      justify-content: center;
+    }
+    .esg-tab-btn {
+      background: #e7f3ff;
+      color: #007bff;
+      border: none;
+      border-radius: 14px 14px 0 0;
+      padding: 14px 28px 12px 28px;
+      font-size: clamp(1rem, 2vw, 1.13rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      outline: none;
+      box-shadow: none;
+      position: relative;
+      margin-bottom: -2px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .esg-tab-btn.active {
+      background: #fff;
+      color: #007bff;
+      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
+      border-bottom: 2px solid #007bff;
+    }
+    .esg-tab-content {
+      transition: opacity 0.4s, transform 0.4s;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      min-height: 80px;
+    }
+    .esg-tab-content.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: fadeInTab 0.5s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .hero-text-top-left h1,
+    .hero-text-top-left,
+    .hero-text-bottom-right,
+    .hero-text-bottom-right > div {
+      color: #fff !important;
+      background: none !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .slide-in-left.visible {
+      animation: slideInLeft 0.8s cubic-bezier(.77,0,.18,1) both;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .feature-item:first-child .feature-content {
+      margin-left: 48px;
+    }
+    @media (max-width: 768px) {
+      .feature-item:first-child .feature-content {
+        margin-left: 0;
+      }
+    }
+    .feature-item:not(.reverse) .feature-content {
+      margin-left: 100px;
+    }
+    @media (max-width: 768px) {
+      .feature-item:not(.reverse) .feature-content {
+        margin-left: 0;
+      }
+    }
+    .compass-description-plain {
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      color: #1e4d72;
+      font-weight: 500;
+      margin: 0 0 32px 0;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 16px;
+    }
+    /* Moved from tab3 content */
+    .tab3-compact-list-area {
+      background: #f4f8fd;
+      border-radius: 10px;
+      padding: 14px 18px 10px 18px;
+      margin: 14px 0 10px 0;
+      box-shadow: 0 2px 8px rgba(30,77,114,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .tab3-compact-list-title {
+      font-weight: 700;
+      color: #007bff;
+      font-size: 1.08em;
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .tab3-compact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tab3-compact-list li {
+      margin-bottom: 0;
+      font-size: 0.97em;
+      line-height: 1.5;
+      color: #1e4d72;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding-left: 0;
+    }
+    .tab3-compact-list li .fa-check-circle {
+      color: #4bb543;
+      font-size: 1.1em;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .tab3-compact-list {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+      }
+    }
+    .tab3-compact-p {
+      margin: 0 0 10px 0;
+      font-size: 0.99em;
+      text-align: center;
+    }
+    .tab3-compact-divider {
+      border: none;
+      border-top: 1px solid #e0e7ef;
+      margin: 12px 0 12px 0;
+      width: 60%;
+      align-self: center;
+    }
+    .tab3-compact-end {
+      margin-top: 12px;
+      font-size: 0.99em;
+      text-align: center;
+    }
+  </style>
+  <!-- Add Bootstrap and FontAwesome for the new navbar -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .navbar-custom {
+      background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 50%, #d1ecf1 100%);
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1001;
+    }
+    .navbar-custom .navbar-brand {
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .navbar-custom .nav-link {
+      color: #1e293b;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #4da6ff;
+    }
+    .navbar-custom .nav-link i {
+      color: #1e293b;
+    }
+    .navbar-custom .navbar-toggler .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'><path stroke=\'rgba(30,41,59,1)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/></svg>');
+    }
+    .navbar-custom .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    .navbar-custom .btn-danger {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    .navbar-custom .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .navbar-custom .btn-danger:hover {
+      background-color: #c82333;
+      border-color: #c82333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    }
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100vw;
+      background-color: #fff;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 1000;
+      margin-top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+    .mega-menu.show {
+      display: block;
+    }
+    .mega-menu-container {
+      display: flex;
+      max-height: 100vh;
+    }
+    .mega-menu-sidebar {
+      width: 250px;
+      background-color: #f8f9fa;
+      padding: 1.5rem 0;
+      border-right: 1px solid #e9ecef;
+      flex-shrink: 0;
+    }
+    .sidebar-section {
+      margin-bottom: 1rem;
+    }
+    .sidebar-title {
+      color: #007bff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 0.5rem;
+      background-color: #e7f3ff;
+      border-left: 4px solid #007bff;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .sidebar-title:hover {
+      background-color: #d1ecf1;
+    }
+    .sidebar-title i {
+      margin-right: 0.5rem;
+    }
+    .sidebar-title.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .sidebar-arrow {
+      margin-left: auto;
+      transition: transform 0.3s ease;
+    }
+    .sidebar-title.active .sidebar-arrow {
+      transform: rotate(90deg);
+    }
+    .mega-menu-content {
+      flex: 1;
+      padding: 1.5rem;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+    .mega-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+    }
+    .mega-menu-card {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      height: fit-content;
+    }
+    .mega-menu-card:hover {
+      background-color: #fff !important;
+      border: 1px solid #e9ecef !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+      transform: translateY(-2px);
+    }
+    .mega-menu-card-title {
+      color: #1e4d72;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .mega-menu-card-title i {
+      margin-right: 0.5rem;
+      color: #007bff;
+    }
+    .mega-menu-card-subtitle {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .mega-menu-card-link {
+      display: block;
+      color: #495057;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      padding-left: 0.75rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .mega-menu-card-link:hover {
+      color: #007bff;
+      border-left-color: #007bff;
+      background-color: #f8f9fa;
+      text-decoration: none;
+    }
+    .new-badge {
+      background-color: #ffc107;
+      color: #000;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    .nav-item.dropdown {
+      position: static;
+    }
+    .language-selector {
+      color: #fff;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+    .language-selector:hover {
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .innovation-card {
+      background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
+      border: 1px solid #c3e6c3;
+    }
+    .innovation-card .mega-menu-card-title {
+      color: #28a745;
+    }
+    .innovation-card .mega-menu-card-link:hover {
+      color: #28a745;
+      border-left-color: #28a745;
+    }
+    @media (max-width: 991.98px) {
+      .mega-menu {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        max-height: none;
+      }
+      .mega-menu-container {
+        flex-direction: column;
+        max-height: none;
+      }
+      .mega-menu-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .mega-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .mega-menu-content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/logo2.png" alt="Logo" style="height: 40px; vertical-align: middle;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index-6.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="productsDropdown" role="button">
+              Products <i class="fas fa-chevron-down ms-1"></i>
+            </a>
+            <div class="mega-menu" id="productsMegaMenu">
+              <div class="mega-menu-container">
+                <div class="mega-menu-sidebar">
+                  <div class="sidebar-section">
+                    <div class="sidebar-title active" data-section="products">
+                     Compass Series
+                      <i class="fas fa-chevron-right sidebar-arrow"></i>
+                    </div>
+                  </div>
+                  <div class="sidebar-section">
+                    <div class="sidebar-title" data-section="innovations">
+                     Navigator Series
+                      <i class="fas fa-chevron-right sidebar-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-content">
+                  <div class="content-section" id="products-content">
+                    <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr);">
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="compass.html#energy" style="color:inherit; text-decoration:none;">Energy Management</a>
+                        </div>
+                      </div>
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="compass.html#performance" style="color:inherit; text-decoration:none;">Performance Management</a>
+                        </div>
+                      </div>
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="compass.html#carbon" style="color:inherit; text-decoration:none;">Carbon Management</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem;">
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="compass.html#vendor" style="color:inherit; text-decoration:none;">Vendor Management</a>
+                        </div>
+                      </div>
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="compass.html#safety" style="color:inherit; text-decoration:none;">Safety Management</a>
+                        </div>
+                      </div>
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="compass.html#social" style="color:inherit; text-decoration:none;">Social Impact Management</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content-section" id="innovations-content" style="display: none;">
+                    <div class="mega-menu-grid">
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="navigator.html#portfolio" style="color:inherit; text-decoration:none;">Portfolio Navigator</a>
+                        </div>
+                      </div>
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="navigator.html#corporate" style="color:inherit; text-decoration:none;">Corporate Navigator</a>
+                        </div>
+                      </div>
+                      <div class="mega-menu-card">
+                        <div class="mega-menu-card-title">
+                          <a href="navigator.html#wealth" style="color:inherit; text-decoration:none;">Wealth Predictor</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="innovationsDropdown" role="button">
+              Innovations <i class="fas fa-chevron-down ms-1"></i>
+            </a>
+            <div class="mega-menu" id="innovationsMegaMenu">
+              <div class="mega-menu-container">
+                <div class="mega-menu-sidebar">
+                  <div class="sidebar-section">
+                    <div class="sidebar-title active" data-section="fractals">
+                      Our Fractals
+                      <i class="fas fa-chevron-right sidebar-arrow"></i>
+                    </div>
+                  </div>
+                  <div class="sidebar-section">
+                    <div class="sidebar-title"data-section="eden">
+                      Eden
+                      <i class="fas fa-chevron-right sidebar-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-content">
+                  <div class="content-section" id="fractals-content">
+                      <div class="mega-menu-grid">
+                          <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                              CODEX
+                            </div>
+                          </div>
+                          <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                              Ratings Algorithms
+                            </div>
+                          </div>
+                          <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                              Frameworks
+                            </div>
+                          </div>
+                          <div class="mega-menu-card">
+                              <div class="mega-menu-card-title">
+                              Data Validation
+                              </div>
+                            </div>
+                        </div>
+                  </div>
+                  <div class="content-section" id="eden-content" style="display: none;">
+                      <div class="mega-menu-grid">
+                          <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                              Text Consolidation Sentinel
+                            </div>
+                          </div>
+                          <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                              Text Analysis Sentinel
+                            </div>
+                          </div>
+                          <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                              Ratings Sentinel
+                            </div>
+                          </div>
+                          <div class="mega-menu-card">
+                              <div class="mega-menu-card-title">
+                              Competitor Benchmarking Sentinel
+                              </div>
+                            </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="industriesDropdown" role="button">
+              Solutions <i class="fas fa-chevron-down ms-1"></i>
+            </a>
+            <div class="mega-menu" id="industriesMegaMenu">
+              <div class="mega-menu-container">
+                <div class="mega-menu-content">
+                  <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
+                    <div>
+                      <div class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BY INDUSTRY</div>
+                      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                        <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-car"></i> Automobile</a>
+                        <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-flask"></i> Chemicals</a>
+                        <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-truck"></i> Logistics</a>
+                      </div>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                      <a href="#" class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;">BY STAKEHOLDERS</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="aboutDropdown" role="button">
+              About Us <i class="fas fa-chevron-down ms-1"></i>
+            </a>
+            <div class="mega-menu" id="aboutMegaMenu">
+              <div class="mega-menu-container">
+                <div class="mega-menu-content">
+                  <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
+                    <div>
+                      <div class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BUSINESS INTELLIGENCE</div>
+                      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                        
+                      </div>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                      <a href="about.html" class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;"> OUR COMPANY</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Resources</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-danger">Book a Demo</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Add Bootstrap JS for navbar functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+      dropdownItems.forEach(function(dropdown) {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const megaMenu = dropdown.querySelector('.mega-menu');
+        let hoverTimeout;
+        dropdown.addEventListener('mouseenter', function() {
+          clearTimeout(hoverTimeout);
+          document.querySelectorAll('.mega-menu').forEach(menu => {
+            if (menu !== megaMenu) {
+              menu.classList.remove('show');
+            }
+          });
+          if (megaMenu) {
+            megaMenu.classList.add('show');
+          }
+        });
+        dropdown.addEventListener('mouseleave', function() {
+          hoverTimeout = setTimeout(() => {
+            if (megaMenu) {
+              megaMenu.classList.remove('show');
+            }
+          }, 150);
+        });
+        if (megaMenu) {
+          megaMenu.addEventListener('mouseenter', function() {
+            clearTimeout(hoverTimeout);
+          });
+          megaMenu.addEventListener('mouseleave', function() {
+            megaMenu.classList.remove('show');
+          });
+        }
+        const sidebarTitles = megaMenu ? megaMenu.querySelectorAll('.sidebar-title') : [];
+        const contentSections = megaMenu ? megaMenu.querySelectorAll('.content-section') : [];
+        sidebarTitles.forEach(function(title) {
+          title.addEventListener('mouseenter', function() {
+            const targetSection = this.dataset.section;
+            sidebarTitles.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            contentSections.forEach(section => {
+              section.style.display = 'none';
+            });
+            const targetContent = megaMenu.querySelector('#' + targetSection + '-content');
+            if (targetContent) {
+              targetContent.style.display = 'block';
+            }
+          });
+        });
+      });
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nav-item.dropdown')) {
+          document.querySelectorAll('.mega-menu').forEach(menu => {
+            menu.classList.remove('show');
+          });
+        }
+      });
+      if (window.innerWidth <= 991) {
+        dropdownItems.forEach(function(dropdown) {
+          const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+          const megaMenu = dropdown.querySelector('.mega-menu');
+          dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (megaMenu) {
+              megaMenu.classList.toggle('show');
+            }
+            document.querySelectorAll('.mega-menu').forEach(menu => {
+              if (menu !== megaMenu) {
+                menu.classList.remove('show');
+              }
+            });
+          });
+        });
+      }
+    });
+    </script>
+  <!-- Hero Image Section -->
+  <div class="hero-image-section">
+    <img src="assets/images/navigator series everst banner (3).jpg" alt="Compass Series Hero">
+    <div class="hero-image-overlay"></div>
+    <div class="hero-text-top-left">
+      <h1>The Navigator Series</h1>
+    </div>
+    <div class="hero-text-bottom-right">
+      <div>Three platforms, One purpose: Strategic Resilience</div>
+      <div>Data-driven insights for future-proof decisions.</div>
+    </div>
+  </div>
+  <!-- Compass Hero Section (Redesigned) -->
+  <section class="compass-hero-section">
+    <div class="compass-hero-bg"></div>
+    <div class="compass-hero-content">
+
+      <p class="compass-description-plain">
+        The Navigator Series is a set of advanced tools…turn ESG insights into a competitive edge.
+      </p>
+      <div class="esg-tabs-container">
+        <div class="esg-tabs-btn-group-wrapper">
+          <div class="esg-tabs-btn-group">
+            <button class="esg-tab-btn active" data-tab="tab1">ESG Intelligence for High-Impact Leaders</button>
+            <button class="esg-tab-btn" data-tab="tab2">From Compliance to Competitive Edge</button>
+            <button class="esg-tab-btn" data-tab="tab3">Smarter Moves with ESG-Backed Strategy</button>
+          </div>
+        </div>
+        <div class="esg-tabs-content">
+          <div class="esg-tab-content active" id="tab1">
+            The Navigator Series is a premium suite of 3 advanced solutions—blending data platforms with tailored consulting—to help experienced organizations unlock strategic value from their ESG and sustainability initiatives. Built for decision-makers, these tools empower you to integrate ESG deeply into investment, operational, and corporate strategy decisions.
+          </div>
+          <div class="esg-tab-content" id="tab2">
+            Ideal for businesses and funds that already have ESG systems and goals in place, and are looking to expand their impact, optimize performance, and future-proof decisions. Whether you’re a fund manager, a corporate strategist, or a sustainability lead, Navigator gives you the tools to move from compliance to competitive advantage.
+          </div>
+          <div class="esg-tab-content" id="tab3" style="font-size:0.98rem; line-height:1.5; padding:10px 0 0 0;">
+            <div class="tab3-compact-p">
+              As ESG maturity grows, so do the expectations—from regulators, shareholders, and customers. The Navigator Series helps organizations make strategic decisions rooted in ESG intelligence, not intuition.
+
+            </div>
+            <div class="tab3-compact-p">
+              Industries like private equity, asset management, large corporates, conglomerates, and infrastructure & real estate benefit from:
+
+            </div>
+            <div class="tab3-compact-list-area">
+              <div class="tab3-compact-list-title">Key Benefits</div>
+              <ul class="tab3-compact-list">
+                <li><i class="fa fa-check-circle"></i>Identifying high-ROI sustainability strategies</li>
+                <li><i class="fa fa-check-circle"></i>Benchmarking performance across departments or portfolios</li>
+                <li><i class="fa fa-check-circle"></i>Building risk-resilient investment theses</li>
+                <li><i class="fa fa-check-circle"></i>Empowering leadership with clear, contextual ESG insights</li>
+              </ul>
+            </div>
+            <hr class="tab3-compact-divider" />
+            <div class="tab3-compact-end">
+              Navigator transforms ESG data into a strategic asset—helping organizations not just respond to change, but lead it
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Compass Hero Section -->
+  
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-container">
+      
+      <!-- Portfolio Navigator -->
+      <div class="feature-item" id="portfolio">
+        <div class="feature-content">
+          <h3>Portfolio Navigator</h3>
+          <p>Manage ESG Risk Across Your Investments</p>
+          <h4>Features:</h4>
+          <ul class="feature-list">
+            <li><i class="fa fa-check-circle"></i>Multi-company ESG score tracking</li>
+            <li><i class="fa fa-check-circle"></i>Sector-based resilience comparisons</li>
+            <li><i class="fa fa-check-circle"></i>Dynamic risk heatmaps</li>
+            <li><i class="fa fa-check-circle"></i>Fund-level dashboards with capital flow insights</li>
+          </ul>
+          <h4 style="margin-top: 20px;">Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fa fa-check-circle"></i>Detect ESG underperformance across portfolios</li>
+            <li><i class="fa fa-check-circle"></i>Optimize capital allocation based on resilience and sustainability potential</li>
+            <li><i class="fa fa-check-circle"></i>Reduce exposure to long-term ESG risks</li>
+            <li><i class="fa fa-check-circle"></i>Strengthen investor trust with transparent fund reporting</li>
+          </ul>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/portfolio Navigator (1).jpg" alt="Performance Management">
+        </div>
+      </div>
+
+      <!-- Wealth Predictor -->
+      <div class="feature-item reverse" id="wealth">
+        <div class="feature-content">
+          <h3>Wealth Predictor</h3>
+          <p>The Future of Data-Led Investing</p>
+          <h4>Features:</h4>
+          <ul class="feature-list">
+            <li><i class="fa fa-check-circle"></i>Predictive modeling of ESG impact on ROI</li>
+            <li><i class="fa fa-check-circle"></i>Longitudinal financial performance forecasting</li>
+            <li><i class="fa fa-check-circle"></i>Integration with external financial & market systems</li>
+            <li><i class="fa fa-check-circle"></i>Intelligent alerts for ESG risks and opportunities</li>
+          </ul>
+          <h4 style="margin-top: 20px;">Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fa fa-check-circle"></i>Future-proof your investment decisions</li>
+            <li><i class="fa fa-check-circle"></i>Identify long-term value creators early</li>
+            <li><i class="fa fa-check-circle"></i>Align financial and ESG metrics in real time</li>
+            <li><i class="fa fa-check-circle"></i>Drive smart investing with a sustainability lens</li>
+          </ul>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/wealth Predictor (5).jpg" alt="Performance Management">
+        </div>
+      </div>
+
+      <!-- Corporate Navigator -->
+      <div class="feature-item" id="corporate">
+        <div class="feature-content">
+          <h3>Corporate Navigator</h3>
+          <p>Where Strategy Meets Sustainability</p>
+          <h4>Features:</h4>
+          <ul class="feature-list">
+            <li><i class="fa fa-check-circle"></i>ESG-adjusted performance benchmarking across business units</li>
+            <li><i class="fa fa-check-circle"></i>Department-level resilience scorecards</li>
+            <li><i class="fa fa-check-circle"></i>Scenario modeling and action planning tools</li>
+            <li><i class="fa fa-check-circle"></i>Custom dashboards for CXOs, boards, and investors</li>
+          </ul>
+          <h4 style="margin-top: 20px;">Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fa fa-check-circle"></i>Make ESG a strategic enabler at the leadership level</li>
+            <li><i class="fa fa-check-circle"></i>Align cross-functional teams to shared sustainability goals</li>
+            <li><i class="fa fa-check-circle"></i>Simulate and plan for future regulatory or market shifts</li>
+            <li><i class="fa fa-check-circle"></i>Turn complex ESG data into strategic boardroom intelligence</li>
+          </ul>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/corporate navigator (3).jpg" alt="Performance Management">
+        </div>
+      </div>
+
+      
+
+    </div>
+  </section>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.navbar .menu');
+    if (hamburger && menu) {
+      hamburger.addEventListener('click', function() {
+        menu.classList.toggle('open');
+      });
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('open');
+        }
+      });
+      // Close menu when window is resized to desktop
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          menu.classList.remove('open');
+        }
+      });
+    }
+
+    // ESG Tabs switching logic
+    document.querySelectorAll('.esg-tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        // Remove active from all buttons
+        document.querySelectorAll('.esg-tab-btn').forEach(function(b) {
+          b.classList.remove('active');
+        });
+        // Add active to clicked button
+        btn.classList.add('active');
+        // Hide all tab contents
+        document.querySelectorAll('.esg-tab-content').forEach(function(tab) {
+          tab.classList.remove('active');
+        });
+        // Show the selected tab
+        var tabId = btn.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Fade in on scroll for .compass-hero-content
+    function revealOnScroll() {
+      var el = document.querySelector('.compass-hero-content');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('visible');
+      }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    // Slide-in animation for feature content
+    function handleSlideInLeft() {
+      document.querySelectorAll('.feature-content').forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    document.querySelectorAll('.feature-content').forEach(function(el) {
+      el.classList.add('slide-in-left');
+    });
+    window.addEventListener('scroll', handleSlideInLeft);
+    window.addEventListener('DOMContentLoaded', handleSlideInLeft);
+  </script>
+</body>
+</html>

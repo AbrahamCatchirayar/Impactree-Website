@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automotive ESG Impact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 48px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      height: 80px;
+      position: relative;
+      z-index: 100;
+    }
+    .navbar .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .navbar .menu {
+      display: flex;
+      gap: 32px;
+      transition: max-height 0.3s;
+      align-items: center;
+      z-index: 110;
+      position: relative;
+    }
+    .navbar .menu a {
+      text-decoration: none;
+      color: #222;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navbar .menu a:hover {
+      color: #6c2eb7;
+    }
+    .navbar .contact-btn {
+      background: #6c2eb7;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 16px;
+    }
+    .navbar .contact-btn:hover {
+      background: #4b1e8a;
+    }
+    .navbar .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      margin-left: 16px;
+      z-index: 120;
+      position: relative;
+    }
+    .navbar .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #6c2eb7;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px 20px;
+      position: relative;
+      background: url('assets/images/step1.jpg') center center/cover no-repeat;
+      color: #fff;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 20, 60, 0.45);
+      z-index: 1;
+      border-radius: 0;
+    }
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin: 0 0 32px 0;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .hero p {
+      color: #f3f3f3;
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 0 auto;
+      font-weight: 500;
+    }
+
+    /* Trusted By Section */
+    .trusted-by {
+      padding: 0 1rem 3rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .trusted-by p {
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+    }
+
+    .company-logos {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      opacity: 0.8;
+      animation: slideLogos 30s linear infinite;
+      width: max-content;
+      position: relative;
+    }
+
+    .company-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 0.5rem 0;
+    }
+
+    .company-logo img {
+      max-height: 48px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .company-logo:hover img {
+      transform: scale(1.1);
+    }
+
+    @keyframes slideLogos {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        height: auto;
+        align-items: flex-start;
+        z-index: 100;
+      }
+      .navbar .logo {
+        margin-bottom: 0;
+      }
+      .navbar .hamburger {
+        display: flex;
+        position: absolute;
+        right: 16px;
+        top: 20px;
+        z-index: 120;
+      }
+      .navbar .menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: flex-start;
+        background: #fff;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        transition: max-height 0.3s;
+        z-index: 110;
+      }
+      .navbar .menu.open {
+        max-height: 350px;
+        padding: 16px 0 10px 32px;
+      }
+      .navbar .contact-btn {
+        display: none;
+      }
+      .navbar .menu .contact-btn {
+        display: block;
+        width: 90%;
+        margin: 16px auto 0 auto;
+        align-self: center;
+        font-size: 1.1rem;
+        padding: 14px 0;
+      }
+      .hero {
+        min-height: 220px;
+        padding: 40px 10px 20px 10px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .company-logos {
+        gap: 1.5rem;
+      }
+
+      .company-logo {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Disconnected Systems Section */
+    .disconnected-section {
+      max-width: 1200px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1rem;
+    }
+    .disconnected-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: #222;
+      line-height: 1.15;
+    }
+    .disconnected-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr) 1.2fr;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .disconnected-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 140px;
+    }
+    .alert-card {
+      grid-column: span 1;
+      grid-row: span 1;
+      border: 1.5px solid #f3f3f3;
+      align-items: flex-start;
+    }
+    .alert-icon {
+      color: #e53935;
+      font-size: 1.6rem;
+      margin-bottom: 0.7rem;
+    }
+    .alert-text {
+      color: #222;
+      font-size: 1.15rem;
+      font-weight: 400;
+    }
+    .alert-text b {
+      font-weight: 700;
+    }
+    .stat-card {
+      grid-row: 1 / span 2;
+      grid-column: 3 / 4;
+      background: #e8f0fa url('assets/images/step1.jpg') center center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(232, 240, 250, 0.85);
+      z-index: 1;
+    }
+    .stat-card .stat-value,
+    .stat-card .stat-desc {
+      position: relative;
+      z-index: 2;
+    }
+    .stat-value {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 0.7rem;
+    }
+    .stat-desc {
+      color: #444;
+      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+    }
+    .stat-img {
+      width: 90px;
+      max-width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .disconnected-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 1.2rem;
+      }
+      .stat-card {
+        grid-row: auto;
+        grid-column: auto;
+        order: 5;
+        margin-top: 1.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .disconnected-title {
+        font-size: 1.3rem;
+      }
+      .disconnected-card {
+        padding: 1.2rem 0.7rem;
+      }
+      .stat-value {
+        font-size: 2rem;
+      }
+      .stat-desc {
+        font-size: 1rem;
+      }
+    }
+
+    /* Connected Solutions Tabbed Section */
+    .connected-section {
+      background: #181818;
+      padding: 3rem 0 4rem 0;
+      margin-top: 3rem;
+    }
+    .connected-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      background: #111;
+      border-radius: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      width: 100%;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+    }
+    .tab-btn {
+      flex: 1 1 0;
+      min-width: 180px;
+      max-width: 220px;
+      height: 54px;
+      background: #232323;
+      color: #fff;
+      border: none;
+      border-radius: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+      margin: 0;
+      border-right: 1px solid #181818;
+    }
+    .tab-btn:last-child {
+      border-right: none;
+    }
+    .tab-btn.active, .tab-btn:focus {
+      background: #6c2eb7;
+      color: #fff;
+      z-index: 2;
+    }
+    .tab-btn:not(.active):hover {
+      background: #222;
+      color: #fff;
+    }
+    .connected-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 2.5rem 2rem;
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .connected-flex {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .connected-img {
+      flex: 1 1 50%;
+      min-width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .connected-img img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      background: #f3f3f3;
+    }
+    .connected-info {
+      flex: 1 1 45%;
+      min-width: 300px;
+      color: #232323;
+    }
+    .connected-label {
+      display: inline-block;
+      background: #e8f0fa;
+      color: #232323;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 0.7rem;
+      padding: 0.3rem 1.1rem;
+      margin-bottom: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .connected-label.cmms { background: #e8f0fa; color: #232323; }
+    .connected-label.refrigeration { background: #e0f7fa; color: #00796b; }
+    .connected-label.monitoring { background: #f3e8ff; color: #6c2eb7; }
+    .connected-label.energy { background: #fff3e0; color: #e65100; }
+    .connected-label.analytics { background: #fce4ec; color: #ad1457; }
+    .connected-info h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #181818;
+    }
+    .connected-info p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    .connected-info p:last-of-type {
+      margin-bottom: 1.5rem;
+    }
+    .connected-link {
+      color: #6c2eb7;
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 1.2rem;
+      font-size: 1.05rem;
+      transition: color 0.2s;
+    }
+    .connected-link:hover {
+      color: #4b1e8a;
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .connected-tabs {
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+      .tab-btn {
+        min-width: 120px;
+        height: 44px;
+        font-size: 1rem;
+      }
+      .connected-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+      .connected-content {
+        padding: 1.2rem 0.5rem;
+      }
+      .connected-info h3 {
+        font-size: 1.3rem;
+      }
+      .connected-img img {
+        height: 300px;
+      }
+    }
+    @media (max-width: 600px) {
+      .connected-section {
+        padding: 1.5rem 0 2rem 0;
+      }
+      .tab-btn {
+        min-width: 90px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+      .connected-info h3 {
+        font-size: 1.1rem;
+      }
+      .connected-img img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+        <img src="assets/images/logo2.png" alt="Logo">
+    </div>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="menu">
+      <a href="#">Products</a>
+      <a href="#">Industries</a>
+      <a href="#">Why us</a>
+      <a href="#">Resources</a>
+      <a href="#">Company</a>
+      <button class="contact-btn">Demo</button>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-bg-overlay"></div>
+    <h1>Driving ESG impact across the <br>Automotive supply chain</h1>
+    <p>Sustainability is a strategic driver in the auto ancillary sector—reducing costs, supporting compliance, and meeting the growing demand for greener&nbsp;mobility.</p>
+  </section>
+
+  <!-- Trusted By Section -->
+  <div class="trusted-by">
+    <p>Trusted by teams at</p>
+    
+    <div class="company-logos">
+      <div class="company-logo">
+        <img src="assets/images/clients/acgc.png" alt="Client 1">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/Autoline.jpg" alt="Client 2">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/fine.png" alt="Client 3">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/l_t.png" alt="Client 4">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/navin.png" alt="Client 5">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/orient.png" alt="Client 6">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/piramal.png" alt="Client 7">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/redington.png" alt="Client 8">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/skf.png" alt="Client 9">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/tvs.jpg" alt="Client 10">
+      </div>
+      
+      <!-- Duplicate logos for seamless loop -->
+      <div class="company-logo">
+        <img src="assets/images/clients/acgc.png" alt="Client 1">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/Autoline.jpg" alt="Client 2">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/fine.png" alt="Client 3">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/l_t.png" alt="Client 4">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/navin.png" alt="Client 5">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/orient.png" alt="Client 6">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/piramal.png" alt="Client 7">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/redington.png" alt="Client 8">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/skf.png" alt="Client 9">
+      </div>
+      <div class="company-logo">
+        <img src="assets/images/clients/tvs.jpg" alt="Client 10">
+      </div>
+    </div>
+  </div>
+
+  <!-- Disconnected Systems Section -->
+  <section class="disconnected-section">
+    <h2 class="disconnected-title">The Roadblocks to Success in the Automobile Industry</h2>
+    <div class="disconnected-grid">
+      <div class="disconnected-card alert-card">
+        <div class="alert-icon">&#9888;</div>
+        <div class="alert-text">
+          <strong>Scope 3 Emissions Visibility</strong><br><br>
+          Difficulty in tracking and managing emissions across a complex, multi-tier supply chain.
+        </div>
+      </div>
+      <div class="disconnected-card alert-card">
+        <div class="alert-icon">&#9888;</div>
+        <div class="alert-text">
+          <strong>Tightening Regulatory Landscape</strong><br><br>
+          Constantly evolving global and regional compliance requirements demand agility and foresight. 
+        </div>
+      </div>
+      <div class="disconnected-card alert-card">
+        <div class="alert-icon">&#9888;</div>
+        <div class="alert-text">
+          <strong>Rising Demand for Sustainable Vehicles</strong><br><br>
+          Consumers expect eco-friendly products, pushing manufacturers to innovate sustainably. 
+        </div>
+      </div>
+      <div class="disconnected-card alert-card">
+        <div class="alert-icon">&#9888;</div>
+        <div class="alert-text">
+          <strong>Lack of Supplier ESG Transparency</strong><br><br>
+          Limited insight into suppliers' practices makes it difficult to enforce sustainability standards.
+         </div>
+      </div>
+      <div class="disconnected-card stat-card">
+        <div class="stat-value">80%</div>
+        <div class="stat-desc">Of total carbon emissions in the automotive sector come from Scope 3 sources</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.navbar .menu');
+    hamburger.addEventListener('click', function() {
+      menu.classList.toggle('open');
+    });
+    // Optional: Close menu when clicking outside (mobile UX)
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+
+  <!-- Connected Solutions Tabbed Section -->
+  <section class="connected-section">
+    <div class="connected-tabs">
+      <button class="tab-btn active" data-tab="cmms">Scope 3 Management</button>
+      <button class="tab-btn" data-tab="refrigeration">Regulatory Compliance</button>
+      <button class="tab-btn" data-tab="monitoring">Custom Dashboards</button>
+      <button class="tab-btn" data-tab="energy">Supplier collaboration</button>
+    </div>
+    <div class="connected-content">
+      <!-- Tab Panels -->
+      <div class="tab-panel active" id="tab-cmms">
+        <div class="connected-flex">
+          <div class="connected-img">
+            <img src="assets/images/Dashboard.png" alt="CMMS Dashboard" />
+          </div>
+          <div class="connected-info">
+            <h3>Scope 3 Management</h3>
+            <p>A centralized, intelligent feature designed to help auto ancillary manufacturers measure, manage, and mitigate Scope 3 emissions across their entire supply chain. This feature combines supplier data integration, real-time analytics, and collaboration tools to bring complete transparency and control to emissions that traditionally lie outside your direct operations.</p>
+            <p>By addressing all tiers of your supply chain—including raw material providers, component suppliers, logistics partners, and assembly vendors—we empower organizations to align with sustainability goals while remaining compliant and competitive in a fast-evolving regulatory environment.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-refrigeration">
+        <div class="connected-flex">
+          <div class="connected-img">
+            <img src="assets/images/technology.jpg" alt="Refrigeration" />
+          </div>
+          <div class="connected-info">
+            <h3>Regulatory Compliance</h3>
+            <p>Real-time regulatory radar. It provides localized, up-to-date insights into emissions regulations across regions—helping auto ancillary businesses stay compliant without constantly chasing shifting rules.            </p>
+            <p>With automated alerts, built-in policy trackers, and integration with global compliance frameworks (like EU’s CSRD or India’s BRSR), we ensure you're always audit-ready and aligned with the latest legal expectations. It simplifies the complexity of reporting and reduces the risk of non-compliance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-monitoring">
+        <div class="connected-flex">
+          <div class="connected-img">
+            <img src="assets/images/step2.jpg" alt="Remote Monitoring" />
+          </div>
+          <div class="connected-info">
+
+            <h3>Custom Dashboards</h3>
+            <p>We deliver dynamic, site-level and equipment-specific emissions dashboards tailored for auto ancillary manufacturers. This feature helps you visualize emissions across factories, lines, or individual machines—enabling data-driven reduction strategies and precise targeting of high-emission zones.            </p>
+            <p>Whether you’re looking to benchmark facilities, optimize equipment performance, or prepare ESG reports, Impactree makes complex emissions data actionable and accessible for all stakeholders.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-energy">
+        <div class="connected-flex">
+          <div class="connected-img">
+            <img src="assets/images/sustainability Engine  (2).jpg" alt="Energy" />
+          </div>
+          <div class="connected-info">
+            <h3>Supplier collaboration</h3>
+            <p>Bridges the transparency gap in your supply chain by enabling seamless engagement with suppliers on sustainability goals. Through shared dashboards, ESG performance tracking, and structured data requests, it ensures consistent and reliable sustainability reporting from all upstream partners.</p>
+            <p>The platform also supports onboarding new suppliers with ESG scorecards, automates check-ins, and fosters continuous improvement through progress tracking and incentives for greener practices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Tab switching logic
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const tab = this.getAttribute('data-tab');
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

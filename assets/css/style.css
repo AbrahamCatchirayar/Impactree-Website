@@ -7857,3 +7857,7 @@
     /* ensures spacing between logos */
     min-height: 140px;
 }
+
+.ai-product-suite-title {
+  font-size: 2.2rem !important;
+}

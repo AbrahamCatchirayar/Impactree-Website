@@ -42,8 +42,7 @@
 
         .logo {
             width: 3rem;
-            height: 3rem;
-            background: linear-gradient(135deg, #4ade80, #22c55e);
+            height: 3rem;    
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -55,8 +54,14 @@
             position: relative;
         }
 
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
         .logo::after {
-            content: ;
             font-size: 1.5rem;
         }
 
@@ -103,7 +108,7 @@
         .nav-right .btn {
             margin-top: 0;
             padding: 0.75rem 1.5rem;
-            background: #5b21b6;
+            background:#340584 ;
             color: white;
             border-radius: 2rem;
             font-weight: 600;
@@ -111,7 +116,7 @@
         }
 
         .nav-right .btn:hover {
-            background: #4c1d95;
+            background:  #e16f66;
             transform: translateY(-1px);
         }
 
@@ -201,6 +206,8 @@
         /* Trusted By Section */
         .trusted-by {
             padding: 0 1rem 3rem;
+            overflow: hidden;
+            position: relative;
         }
 
         .trusted-by p {
@@ -212,35 +219,41 @@
 
         .company-logos {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
-            gap: 3rem;
-            opacity: 0.6;
+            gap: 2.5rem;
+            opacity: 0.8;
+            animation: slideLogos 30s linear infinite;
+            width: max-content;
+            position: relative;
         }
 
         .company-logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #9ca3af;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 0.5rem 0;
         }
 
-        .company-icon {
-            width: 2rem;
-            height: 2rem;
-            background-color: #6b7280;
-            border-radius: 0.25rem;
+        .company-logo img {
+            max-height: 48px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
         }
 
-        .company-icon.rounded {
-            border-radius: 50%;
+        .company-logo:hover img {
+            transform: scale(1.1);
         }
 
-        .company-icon.bordered {
-            border: 2px solid #9ca3af;
+        @keyframes slideLogos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .refractional-bars {
@@ -997,8 +1010,8 @@
             overflow: hidden;
             box-shadow: 0 4px 24px rgba(0,0,0,0.10);
             align-items: stretch;
-            min-height: 220px;
-            height: 100px;
+            min-height: 350px;
+            height: 350px;
             transition: transform 0.5s cubic-bezier(.4,0,.2,1), box-shadow 0.2s, z-index 0.2s;
         }
         .compass-navigator-card:not(:last-child) {
@@ -1077,7 +1090,7 @@
             }
             .card-image img {
                 border-radius: 0 0 1.5rem 1.5rem;
-                max-width: 100%;
+                max-width:150%;
                 max-height: 220px;
             }
             .card-content {
@@ -1352,6 +1365,107 @@
         box-shadow: 0 12px 32px rgba(52,5,132,0.18);
     }
 
+        /* --- Mega Menu Styles --- */
+        .mega-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.0);
+        }
+        .mega-menu {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 70px;
+            margin: 0 auto;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            min-height: 340px;
+            min-width: 900px;
+            z-index: 2000;
+            overflow: hidden;
+            transition: opacity 0.2s;
+        }
+        .mega-menu-inner {
+            display: flex;
+            height: 100%;
+        }
+        .mega-menu-sidebar {
+            background: #f0f6ff;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 2rem 0;
+        }
+        .mega-menu-sidebar .sidebar-item {
+            padding: 1.2rem 2rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mega-menu-sidebar .sidebar-item.active, .mega-menu-sidebar .sidebar-item:hover {
+            background: #e6f0ff;
+            color: #2563eb;
+            border-left: 4px solid #2563eb;
+        }
+        .mega-menu-sidebar .sidebar-item::after {
+            content: "→";
+            font-size: 1.2rem;
+            color: #2563eb;
+            opacity: 0.7;
+        }
+        .mega-menu-content {
+            flex: 1;
+            background: #fff;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .mega-menu-panel { display: none; }
+        .mega-menu-panel.active { display: block; }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem 2rem;
+        }
+        .products-group h4 {
+            color: #2563eb;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .products-group p {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .products-group {
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 1100px) {
+            .mega-menu { min-width: 0; max-width: 98vw; }
+            .products-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 800px) {
+            .mega-menu-inner { flex-direction: column; }
+            .mega-menu-sidebar { flex-direction: row; min-width: 0; padding: 0; }
+            .mega-menu-sidebar .sidebar-item { flex: 1; border-left: none; border-top: 4px solid transparent; border-radius: 0; padding: 1rem; }
+            .mega-menu-sidebar .sidebar-item.active, .mega-menu-sidebar .sidebar-item:hover { border-left: none; border-top: 4px solid #2563eb; }
+            .mega-menu-content { padding: 1.2rem 1rem; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -1359,23 +1473,87 @@
     <nav>
         <div class="nav-left">
             <!-- Logo -->
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="assets/images/logo2.png" alt="Logo">
+            </div>
             
             <!-- Navigation Links -->
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
                 <li><a href="#">Products</a></li>
-                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Industries</a></li>
+                <li><a href="#">Why us</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Company</a></li>
             </ul>
         </div>
         
         <div class="nav-right">
             <button class="btn btn-gradient-purple">
-                Contact Us
+              Demo
             </button>
         </div>
     </nav>
+
+    <!-- Mega Menu Overlay and Panel -->
+    <div class="mega-menu-overlay" id="megaMenuOverlay"></div>
+    <div class="mega-menu" id="megaMenu">
+      <div class="mega-menu-inner">
+        <div class="mega-menu-sidebar">
+          <div class="sidebar-item active" data-menu="products">Products</div>
+          <div class="sidebar-item" data-menu="innovations">Innovations</div>
+        </div>
+        <div class="mega-menu-content">
+          <div class="mega-menu-panel active" id="products-panel">
+            <div class="products-grid">
+              <div class="products-group">
+                <h4>Core HR</h4>
+                <p>One Mobile-First Platform, Infinite Possibilities</p>
+                <h4>Performance Management</h4>
+                <p>Unlock Your Employees' True Potential</p>
+                <h4>People Analytics</h4>
+                <p>Democratize Data & Unleash the Power of AI</p>
+                <h4>Employee Onboarding</h4>
+                <p>Get Off to a Great Start</p>
+              </div>
+              <div class="products-group">
+                <h4>Engage</h4>
+                <p>Surveys, Engagement Index, & Action Planning</p>
+                <h4>Recruitment</h4>
+                <p>Grow with Us</p>
+                <h4>Journeys</h4>
+                <p>Personalized Support for the Pivotal Moments</p>
+                <h4>Rewards & Recognition</h4>
+                <p>A New Approach to Celebrate Success</p>
+              </div>
+              <div class="products-group">
+                <h4>Travel & Expense</h4>
+                <p>Corporate Travel Made Easy</p>
+                <h4>Payroll</h4>
+                <p>100% Online and Audit-Ready Always</p>
+                <h4>Time & Attendance</h4>
+                <p>Save Time, Boost Productivity</p>
+                <h4>Localization</h4>
+                <p>Run Global HR Operations with Local Precision.</p>
+              </div>
+              <div class="products-group">
+                <h4>HR Service Management</h4>
+                <p>Gen-AI Virtual Assistant + Helpdesk</p>
+                <h4>VibeX</h4>
+                <p>Seamless Engagement, Recognition, and Connection</p>
+                <h4>Compensation Planning</h4>
+                <p>Your Key to Employee Retention</p>
+                <h4>Employee Helpdesk</h4>
+                <p>Help Your Employees Help Themselves</p>
+              </div>
+            </div>
+          </div>
+          <div class="mega-menu-panel" id="innovations-panel">
+            <div style="font-size:1.3rem;color:#2563eb;font-weight:700;margin-bottom:1.2rem;">Innovations Coming Soon</div>
+            <div style="color:#64748b;">Stay tuned for our latest innovations in HR Tech and AI-driven solutions!</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -1403,32 +1581,67 @@
         <p>Trusted by teams at</p>
         
         <div class="company-logos">
-            <div class="company-logo">Acme Corp</div>
             <div class="company-logo">
-                <div class="company-icon"></div>
-                Codecraft_
+                <img src="assets/images/clients/acgc.png" alt="Client 1">
             </div>
             <div class="company-logo">
-                <svg class="company-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                </svg>
-                Magnolia
+                <img src="assets/images/clients/Autoline.jpg" alt="Client 2">
             </div>
             <div class="company-logo">
-                <div class="refractional-bars">
-                    <div class="refractional-bar"></div>
-                    <div class="refractional-bar"></div>
-                    <div class="refractional-bar"></div>
-                </div>
-                Refractional
+                <img src="assets/images/clients/fine.png" alt="Client 3">
             </div>
             <div class="company-logo">
-                <div class="company-icon rounded"></div>
-                45 Degrees°
+                <img src="assets/images/clients/l_t.png" alt="Client 4">
             </div>
             <div class="company-logo">
-                <div class="company-icon rounded bordered"></div>
-                waveless
+                <img src="assets/images/clients/navin.png" alt="Client 5">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/orient.png" alt="Client 6">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/piramal.png" alt="Client 7">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/redington.png" alt="Client 8">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/skf.png" alt="Client 9">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/tvs.jpg" alt="Client 10">
+            </div>
+            
+            <!-- Duplicate logos for seamless loop -->
+            <div class="company-logo">
+                <img src="assets/images/clients/acgc.png" alt="Client 1">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/Autoline.jpg" alt="Client 2">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/fine.png" alt="Client 3">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/l_t.png" alt="Client 4">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/navin.png" alt="Client 5">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/orient.png" alt="Client 6">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/piramal.png" alt="Client 7">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/redington.png" alt="Client 8">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/skf.png" alt="Client 9">
+            </div>
+            <div class="company-logo">
+                <img src="assets/images/clients/tvs.jpg" alt="Client 10">
             </div>
         </div>
     </div>
@@ -1437,7 +1650,7 @@
         <div class="horizontal-wrapper">
           <!-- Left image -->
           <div class="item left-image" id="leftImage">
-            <img src="assets/images/1ima.jpg" alt="Left Image" />
+            <img src="assets/images/prabhaav_dashbpard (1).png" alt="Left Image" />
           </div>
     
           <!-- Center video -->
@@ -1449,11 +1662,10 @@
     
           <!-- Right image -->
           <div class="item right-image" id="rightImage">
-            <img src="assets/images/2ima.jpg" alt="Right Image" />
+            <img src="assets/images/Dashboard.png" alt="Right Image" />
           </div>
         </div>
       </div>
-
 
     <!-- Network Effect Section -->
     <div class="network-effect-section">
@@ -1471,7 +1683,7 @@
                 <!-- Regulators Card -->
                 <div class="network-card">
                     <div class="network-card-image">
-                        <img src="assets/images/regulator.jpg" alt="Regulators"  />
+                        <img src="assets/images/Invisble Gap  5.jpg" alt="Regulators"  />
                     </div>
                     <div class="network-card-title">Invisible Gaps, Invisible Gains</div>
                     <div class="network-card-description">
@@ -1483,7 +1695,7 @@
                 <!-- Customers Card -->
                 <div class="network-card">
                     <div class="network-card-image">
-                        <img src="assets/images/customer.jpg" alt="Customers" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);" />
+                        <img src="assets/images/Comapny Life sapn 1 (1).jpg" alt="Customers" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);" />
                     </div>
                     <div class="network-card-title">Shorter Lifespans, Shrinking Relevance</div>
                     <div class="network-card-description">
@@ -1495,19 +1707,18 @@
                 <!-- Investors Card -->
                 <div class="network-card">
                     <div class="network-card-image">
-                        <img src="assets/images/investor.jpg" alt="Investors" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);" />
+                        <img src="assets/images/Reputation Crash faster  (1).jpg" alt="Investors" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);" />
                     </div>
                     <div class="network-card-title">Reputations Crash Faster Than Markets</div>
                     <div class="network-card-description">
                         Without Sustainability, <span class="network-card-highlight"> Risk & Impact Unmanaged</span> — Until It's Too Late
-                    </div>
-                    
+                    </div>    
                 </div>
 
                 <!-- Technology Card -->
                 <div class="network-card">
                     <div class="network-card-image">
-                        <img src="assets/images/technology.jpg" alt="Technology" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                        <img src="assets/images/sustainability Engine  (2).jpg" alt="Technology" style=" width: 80%; height: 200px; object-fit: cover; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
                     </div>
                     <div class="network-card-title">Sustainability is the New Growth Engine</div>
                     <div class="network-card-description">
@@ -1634,7 +1845,7 @@
              
             </div>
             <div class="card-image">
-                <img src="assets/images/step1.jpg" alt="Compass Series" />
+                <img src="assets/images/Compass Series.png" alt="Compass Series" />
             </div>
         </div>
         <div class="compass-navigator-card fade-in-on-scroll" id="phase02">
@@ -1646,7 +1857,7 @@
                 </div>
             </div>
             <div class="card-image">
-                <img src="assets/images/step2.jpg" alt="Navigator Series" />
+                <img src="assets/images/Navigator Series.png" alt="Navigator Series" />
             </div>
         </div>
     </div>
@@ -1721,8 +1932,8 @@
           let progress = 1 - (rect.bottom / (rect.height + windowHeight));
           progress = Math.max(0, Math.min(progress, 1));
 
-          // Center video: scale up to cover the viewport
-      const minWidth = 600;
+          // Center video: scale up to cover the section, but never full screen or fixed
+          const minWidth = 600;
           const minHeight = 350;
           const maxWidth = window.innerWidth;
           const maxHeight = window.innerHeight;
@@ -1733,21 +1944,11 @@
           center.style.height = height + 'px';
           center.style.transform = `translateX(-50%) scale(${1 + 0.25 * progress})`;
 
-          // When fully scrolled, make it fixed and full screen
-          if (progress > 0.98 && rect.bottom > 0) {
-            center.style.position = 'fixed';
-            center.style.left = '50%';
-            center.style.top = '0';
-            center.style.width = '100vw';
-            center.style.height = '100vh';
-            center.style.transform = 'translateX(-50%) scale(1)';
-            center.style.zIndex = '100';
-          } else {
-            center.style.position = 'absolute';
-            center.style.left = '50%';
-            center.style.top = '';
-            center.style.zIndex = '10';
-          }
+          // Always keep the video absolutely positioned within the scroll section
+          center.style.position = 'absolute';
+          center.style.left = '50%';
+          center.style.top = '40px'; // or adjust as needed
+          center.style.zIndex = '10';
 
           // Left/Right images: move out of the viewport and fade out
           const offsetX = (window.innerWidth / 2 + 400) * progress; // 400 is extra to ensure it's out
@@ -1766,7 +1967,9 @@
     <section class="counter-section" style="max-width:1200px;margin:4rem auto 0 auto;padding:0 1rem 4rem 1rem;">
       <h2 style="text-align:center;font-size:2.2rem;font-weight:700;color:#340584;margin-bottom:2rem;">Our Reach</h2>
       <div style="margin-bottom:2.5rem;">
-        <img src="assets/images/map.png" alt="Our Reach Map" style="width:100%;max-width:100%;height:auto;max-height:80vh;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.10);" />
+        <!-- Interactive Map Start -->
+        <div id="chartdiv" style="width:100%;height:600px;"></div>
+        <!-- Interactive Map End -->
       </div>
       <div class="counter-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;">
         <div class="counter-card" style="background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px rgba(52,5,132,0.08);padding:2.5rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;">
@@ -1800,19 +2003,17 @@
                 <button class="testimonial-models-btn">More AI models</button>
                 <span class="testimonial-readmore">Read more</span>
             </div>
-            <h2 class="testimonial-title">Transformative Results with<br>Profound Impact on Success</h2>
-            <div class="testimonial-subtitle">
-                Hear directly from our clients about their experiences and the impact our technology has had on their operations
-            </div>
+            <h2 class="testimonial-title">Testimonials</h2>
+           
         </div>
         <div class="testimonial-cards">
             <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
+                <div class="testimonial-quote">"</div>
                 <div class="testimonial-text">
                     Impactree's expertise streamlined our maintenance process, reducing hours and costs significantly—an operational game-changer    
                 </div>
                 <div class="testimonial-user">
-                    <img src="assets/images/resource/author-1.png" alt="Alex Johnson" class="testimonial-avatar">
+                    <img src="assets/images/clients/acgc.png" alt="Alex Johnson" class="testimonial-avatar">
                     <div>
                         <div class="testimonial-name">Arabian Castles</div>
             
@@ -1820,12 +2021,12 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
+                <div class="testimonial-quote">"</div>
                 <div class="testimonial-text">
                     Impactree exceeded expectations on two major projects with deep understanding and dedicated delivery. A truly exceptional collaboration.   
                 </div>
                 <div class="testimonial-user">
-                    <img src="assets/images/resource/author-2.png" alt="Emily Davis" class="testimonial-avatar">
+                    <img src="assets/images/buddy.png" alt="Emily Davis" class="testimonial-avatar">
                     <div>
                         <div class="testimonial-name">Buddy4Study</div>
                         
@@ -1833,24 +2034,24 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
+                <div class="testimonial-quote">"</div>
                 <div class="testimonial-text">
                     Insightful partnership—Impactree helped shape our ESG readiness with data-driven clarity and improvement opportunities.   
                 </div>
                 <div class="testimonial-user">
-                    <img src="assets/images/resource/author-3.png" alt="Michael Lee" class="testimonial-avatar">
+                    <img src="assets/images/clients/Autoline.jpg" alt="Michael Lee" class="testimonial-avatar">
                     <div>
                         <div class="testimonial-name">Autoline</div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
+                <div class="testimonial-quote">"</div>
                 <div class="testimonial-text">
                     We value Impactree's adaptability and seamless support in meeting our unique needs. A commendable collaboration.   
                 </div>
                 <div class="testimonial-user">
-                    <img src="assets/images/resource/author-4.png" alt="Sarah Martinez" class="testimonial-avatar">
+                    <img src="assets/images/clients/stjude.png" alt="Sarah Martinez" class="testimonial-avatar">
                     <div>
                         <div class="testimonial-name">St. Jude India</div>
                    
@@ -1858,12 +2059,12 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
+                <div class="testimonial-quote">"</div>
                 <div class="testimonial-text">
                     Thanks to Impactree's strategic support and clear impact reporting, we secured our first CSR grant.  
                 </div>
                 <div class="testimonial-user">
-                    <img src="assets/images/resource/author-5.png" alt="James Wilson" class="testimonial-avatar">
+                    <img src="assets/images/clients/ver 2.png" alt="James Wilson" class="testimonial-avatar">
                     <div>
                         <div class="testimonial-name">Veruschka Foundation</div>
                        
@@ -1871,12 +2072,12 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
+                <div class="testimonial-quote">"</div>
                 <div class="testimonial-text">
                     It has been a pleasure collaborating with Impactree, and we sincerely appreciate Impactree's contributions to our ESG/BRSR/CSR effort   
                 </div>
                 <div class="testimonial-user">
-                    <img src="assets/images/resource/author-6.png" alt="John Thompson" class="testimonial-avatar">
+                    <img src="assets/images/clients/tvs.jpg" alt="John Thompson" class="testimonial-avatar">
                     <div>
                         <div class="testimonial-name">TVS supply chain</div>
 
@@ -1888,11 +2089,11 @@
 
     <!-- Footer Section -->
     <footer class="custom-footer">
-        <div class="footer-top">
+        <!-- <div class="footer-top">
             <div class="footer-col">
                 <div class="footer-title">Explore</div>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Solutions</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Features</a></li>
                 </ul>
@@ -1927,17 +2128,268 @@
             <a href="#"><img src="assets/images/icons/social-3.png" alt="Facebook"></a>
             <a href="#"><img src="assets/images/icons/social-4.png" alt="Instagram"></a>
             <a href="#"><img src="assets/images/icons/social-5.png" alt="GitHub"></a>
-        </div>
+        </div> -->
         <div class="footer-bottom">
-            <div class="footer-links">
+            <!-- <div class="footer-links">
                 <a href="#">License</a> | 
                 <a href="#">Style Guide</a> | 
                 <a href="#">Customize</a>
-            </div>
+            </div> -->
             <div class="footer-copyright">
-                Copyright ©
+                Copyright © Impactree Data Technologies
             </div>
         </div>
     </footer>
+
+    <!-- amCharts Map Scripts -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 600px;
+      }
+      .custom-tooltip {
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        min-width: 150px;
+        pointer-events: none;
+      }
+      .flag-img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+      }
+      .country-name {
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+        margin: 0;
+        order: -1;
+      }
+    </style>
+    <script>
+      am5.ready(function () {
+        var root = am5.Root.new("chartdiv");
+        
+        root.setThemes([am5themes_Animated.new(root)]);
+        
+        var chart = root.container.children.push(
+          am5map.MapChart.new(root, {
+            panX: "rotateX",
+            panY: "none",
+            projection: am5map.geoMercator(),
+          })
+        );
+        
+        var polygonSeries = chart.series.push(
+          am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            include: ["IN", "AE", "SA", "VN", "SG"],
+            exclude: ["AQ"],
+          })
+        );
+        
+        const countryData = {
+          IN: {  flag: "assets/images/India (2).jpg", lat: 20.5937, lon: 78.9629 },
+          AE: {  flag: "assets/images/UAE (1).jpg", lat: 23.4241, lon: 53.8478 },
+          SA: {  flag: "assets/images/saudi arabia (2).jpg", lat: 23.8859, lon: 45.0792 },
+          VN: {  flag: "assets/images/vietnam.jpg", lat: 14.0583, lon: 108.2772 },
+          SG: {  flag: "assets/images/Singapore (2).jpg", lat: 1.3521, lon: 103.8198 },
+        };
+        
+        // Configure polygon templates
+        polygonSeries.mapPolygons.template.setAll({
+          interactive: true,
+          fill: am5.color("#1f77b4"),
+          stroke: am5.color("#ffffff"),
+          strokeWidth: 2,
+        });
+        
+        // Create tooltip for polygons
+        polygonSeries.mapPolygons.template.set("tooltip", am5.Tooltip.new(root, {
+          getFillFromSprite: false,
+          autoTextColor: false,
+          pointerOrientation: "vertical"
+        }));
+        
+        polygonSeries.mapPolygons.template.get("tooltip").get("background").setAll({
+          fill: am5.color("#ffffff"),
+          stroke: am5.color("#cccccc"),
+          strokeWidth: 1
+        });
+        
+        // Set tooltip HTML
+        polygonSeries.mapPolygons.template.set("tooltipHTML", `
+          <div class="custom-tooltip">
+            <img src="{flag}" alt="{name}" class="flag-img" />
+          </div>
+        `);
+        
+        // Add hover effects for polygons
+        polygonSeries.mapPolygons.template.states.create("hover", {
+          fill: am5.color("#2980b9"),
+          stroke: am5.color("#ffffff"),
+          strokeWidth: 3
+        });
+        
+        // Set data for polygons with country information
+        polygonSeries.data.setAll(
+          Object.keys(countryData).map(code => ({
+            id: code,
+            name: countryData[code].name,
+            flag: countryData[code].flag
+          }))
+        );
+        
+        // Background greyed out countries
+        const backgroundSeries = chart.series.unshift(
+          am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            exclude: ["AQ", "IN", "AE", "SA", "VN", "SG"],
+          })
+        );
+        
+        backgroundSeries.mapPolygons.template.setAll({
+          fill: am5.color("#d3d3d3"),
+          stroke: am5.color("#ffffff"),
+          strokeWidth: 1,
+          interactive: false
+        });
+        
+        // Add red marker pointers
+        let pointSeries = chart.series.push(am5map.MapPointSeries.new(root, {
+          latitudeField: "latitude",
+          longitudeField: "longitude"
+        }));
+        
+        // Add data to point series
+        for (let code in countryData) {
+          pointSeries.data.push({
+            latitude: countryData[code].lat,
+            longitude: countryData[code].lon,
+            name: countryData[code].name,
+            flag: countryData[code].flag
+          });
+        }
+        
+        // Create bullets for markers
+        let circleTemplate = am5.Template.new({});
+        
+        pointSeries.bullets.push(function (root, series, dataItem) {
+          let circle = am5.Circle.new(root, {
+            radius: 8,
+            fill: am5.color("#e74c3c"),
+            stroke: am5.color("#ffffff"),
+            strokeWidth: 2,
+            cursorOverStyle: "pointer"
+          }, circleTemplate);
+          
+          // Create tooltip for markers
+          circle.set("tooltip", am5.Tooltip.new(root, {
+            getFillFromSprite: false,
+            autoTextColor: false,
+            pointerOrientation: "vertical"
+          }));
+          
+          circle.get("tooltip").get("background").setAll({
+            fill: am5.color("#ffffff"),
+            stroke: am5.color("#cccccc"),
+            strokeWidth: 1
+          });
+          
+          // Set tooltip HTML for markers
+          circle.set("tooltipHTML", `
+            <div class="custom-tooltip">
+              <div class="country-name">{name}</div>
+              <img src="{flag}" alt="{name}" class="flag-img" />
+            </div>
+          `);
+          
+          // Add hover state for markers
+          circle.states.create("hover", {
+            radius: 10,
+            fill: am5.color("#c0392b")
+          });
+          
+          return am5.Bullet.new(root, {
+            sprite: circle
+          });
+        });
+        
+        // Zoom to region including all selected countries
+        polygonSeries.events.once("datavalidated", function () {
+          chart.zoomToGeoPoint({ latitude: 15, longitude: 85 }, 3.5, true);
+        });
+      });
+    </script>
+
+    <script>
+// ... existing code ...
+// Mega Menu JS
+(function() {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const productsNav = Array.from(navLinks).find(a => a.textContent.trim().toLowerCase() === 'products');
+  const megaMenu = document.getElementById('megaMenu');
+  const overlay = document.getElementById('megaMenuOverlay');
+  const sidebarItems = document.querySelectorAll('.mega-menu-sidebar .sidebar-item');
+  const panels = document.querySelectorAll('.mega-menu-panel');
+
+  function showMenu() {
+    megaMenu.style.display = 'block';
+    overlay.style.display = 'block';
+    setTimeout(() => {
+      megaMenu.style.opacity = '1';
+      overlay.style.opacity = '1';
+    }, 10);
+  }
+  function hideMenu() {
+    megaMenu.style.opacity = '0';
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+      megaMenu.style.display = 'none';
+      overlay.style.display = 'none';
+    }, 200);
+  }
+
+  if (productsNav) {
+    productsNav.addEventListener('mouseenter', showMenu);
+    productsNav.addEventListener('focus', showMenu);
+  }
+  megaMenu.addEventListener('mouseenter', showMenu);
+  megaMenu.addEventListener('mouseleave', hideMenu);
+  overlay.addEventListener('mouseenter', hideMenu);
+  overlay.addEventListener('click', hideMenu);
+  productsNav.addEventListener('mouseleave', function(e) {
+    // Only hide if not moving into the mega menu
+    if (!megaMenu.matches(':hover')) hideMenu();
+  });
+
+  sidebarItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      sidebarItems.forEach(i => i.classList.remove('active'));
+      this.classList.add('active');
+      const menu = this.getAttribute('data-menu');
+      panels.forEach(panel => panel.classList.remove('active'));
+      document.getElementById(menu + '-panel').classList.add('active');
+    });
+  });
+})();
+// ... existing code ...
+    </script>
 </body>
 </html>
+

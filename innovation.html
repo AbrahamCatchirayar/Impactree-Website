@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unlock the Future with AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700,900&display=swap">
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 48px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        height: 80px;
+        position: relative;
+        z-index: 100;
+      }
+      .navbar .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .navbar .menu {
+        display: flex;
+        gap: 32px;
+        transition: max-height 0.3s;
+        align-items: center;
+        z-index: 110;
+        position: relative;
+      }
+      .navbar .menu a {
+        text-decoration: none;
+        color: #222;
+        font-size: 18px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .navbar .menu a:hover {
+        color: #6c2eb7;
+      }
+      .navbar .contact-btn {
+        background: #6c2eb7;
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        padding: 12px 28px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-left: 16px;
+      }
+      .navbar .contact-btn:hover {
+        background: #4b1e8a;
+      }
+      .navbar .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        margin-left: 16px;
+        z-index: 120;
+        position: relative;
+      }
+      .navbar .hamburger span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        background: #6c2eb7;
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+      @media (max-width: 700px) {
+        .navbar {
+          flex-direction: column;
+          gap: 10px;
+          padding: 10px;
+          height: auto;
+          align-items: flex-start;
+          z-index: 100;
+        }
+        .navbar .logo {
+          margin-bottom: 0;
+        }
+        .navbar .hamburger {
+          display: flex;
+          position: absolute;
+          right: 16px;
+          top: 20px;
+          z-index: 120;
+        }
+        .navbar .menu {
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          align-items: flex-start;
+          background: #fff;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          right: 0;
+          max-height: 0;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+          transition: max-height 0.3s;
+          z-index: 110;
+        }
+        .navbar .menu.open {
+          max-height: 350px;
+          padding: 16px 0 10px 32px;
+        }
+        .navbar .contact-btn {
+          display: none;
+        }
+        .navbar .menu .contact-btn {
+          display: block;
+          width: 90%;
+          margin: 16px auto 0 auto;
+          align-self: center;
+          font-size: 1.1rem;
+          padding: 14px 0;
+        }
+      }
+      body {
+        font-family: "Inter", Arial, sans-serif;
+        background: #fff;
+        margin: 0;
+      }
+      .hero {
+        text-align: center;
+        padding: 20px 20px 20px 20px;
+      }
+      .hero .sub-btn {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 24px;
+        padding: 8px 24px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        display: inline-block;
+      }
+      .hero h1 {
+        font-size: 64px;
+        font-weight: 700;
+        margin: 24px 0;
+      }
+      .hero .btn-group {
+        margin-top: 32px;
+      }
+      .hero .btn-group .main-btn {
+        background: #3d0072;
+        color: #fff;
+        border-radius: 24px;
+        padding: 16px 36px;
+        font-size: 20px;
+        font-weight: 600;
+        border: none;
+        margin-right: 16px;
+      }
+      .hero .btn-group .outline-btn {
+        background: #fff;
+        color: #222;
+        border: 2px solid #222;
+        border-radius: 24px;
+        padding: 16px 36px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .hero-image {
+        margin: 40px auto 0 auto;
+        max-width: 700px;
+        border-radius: 32px;
+        overflow: hidden;
+      }
+      .hero-image img {
+        width: 100%;
+        display: block;
+      }
+      @media (max-width: 700px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+        .hero-image {
+          max-width: 100%;
+        }
+      }
+      .network-effect-subtitle {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/images/logo2.png" alt="Logo" />
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="menu">
+        <a href="#">Products</a>
+        <a href="#">Industries</a>
+        <a href="#">Why us</a>
+        <a href="#">Resources</a>
+        <a href="#">Company</a>
+        <button class="contact-btn">Demo</button>
+      </div>
+    </nav>
+    <section class="hero">
+      <h1>Our Impact</h1>
+      <p class="network-effect-subtitle">
+        Organizations that overlook sustainability aren't just missing out on
+        purpose — they're missing out on profit, resilience, and long-term
+        relevance. Here's what's at stake:
+      </p>
+      <div class="hero-video" style="margin: 40px auto 0 auto; max-width: 1000px; border-radius: 32px; overflow: hidden;">
+        <video autoplay muted loop playsinline style="width: 100%; border-radius: 32px; display: block;">
+          <source src="assets/images/final.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    <!-- Capabilities Section Start -->
+    <section class="capabilities" style="padding: 60px 0; background: #f8f9fb;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Our Fractals</h2>
+        <p class="network-effect-subtitle">
+            Organizations that overlook sustainability aren't just missing out on
+            purpose — they're missing out on profit, resilience, and long-term
+            relevance. Here's what's at stake:
+          </p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 30px;">
+          <!-- Card 1 -->
+          <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; flex: 1 1 300px; height: 420px; background: #fff;">
+            <img src="assets/images/robot.png" alt="CODEX" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;" onerror="this.onerror=null;this.src='assets/images/feat1.jpg';">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">CODEX</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              A powerful AI engine for code generation and automation.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; flex: 1 1 300px; height: 420px; background: #fff;">
+            <img src="assets/images/feat2.jpg" alt="Rating Algorithms" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">Rating Algorithms</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              Advanced algorithms to rate and evaluate data efficiently.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; flex: 1 1 300px; height: 420px; background: #fff;">
+            <img src="assets/images/feat3.jpg" alt="Data Frameworks" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">Data Frameworks</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              Robust frameworks for managing and structuring data.
+            </p>
+          </div>
+        </div>
+        <!-- Wide Card Row -->
+        <div style="display: flex; justify-content: center; margin-top: 52px;">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1084px; height: 420px; background: #fff;">
+            <img src="assets/images/feat3.jpg" alt="Data Validations" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">Data Validations</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              Ensure data accuracy and integrity with automated validation tools.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+   <!-- Our Fractals section -->
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center; margin-top: 32px;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Our Fractals</h2>
+        <p class="network-effect-subtitle">
+            Organizations that overlook sustainability aren't just missing out on
+            purpose — they're missing out on profit, resilience, and long-term
+            relevance. Here's what's at stake:
+          </p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 30px;">
+          <!-- Card 1 -->
+          <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; flex: 1 1 300px; height: 420px; background: #fff;">
+            <img src="assets/images/robot.png" alt="CODEX" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;" onerror="this.onerror=null;this.src='assets/images/feat1.jpg';">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">CODEX</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              A powerful AI engine for code generation and automation.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; flex: 1 1 300px; height: 420px; background: #fff;">
+            <img src="assets/images/feat2.jpg" alt="Rating Algorithms" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">Rating Algorithms</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              Advanced algorithms to rate and evaluate data efficiently.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div style="display: flex; flex-direction: column; align-items: center; max-width: 340px; flex: 1 1 300px; height: 420px; background: #fff;">
+            <img src="assets/images/feat3.jpg" alt="Data Frameworks" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">Data Frameworks</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              Robust frameworks for managing and structuring data.
+            </p>
+          </div>
+        </div>
+        <!-- Wide Card Row -->
+        <div style="display: flex; justify-content: center; margin-top: 52px;">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1084px; height: 420px; background: #fff;">
+            <img src="assets/images/feat3.jpg" alt="Data Validations" style="width: 100%; height: 320px; border-radius: 24px; margin-bottom: 24px; object-fit: cover;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0; text-align: center;">Data Validations</h3>
+            <p style="font-size: 1rem; color: #555; text-align: center; margin: 12px 0 0 0;">
+              Ensure data accuracy and integrity with automated validation tools.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Capabilities Section End -->
+    <!-- Data Validation Section Start -->
+    <!-- Data Validation Section End -->
+  </body>
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.navbar .menu');
+    hamburger.addEventListener('click', function() {
+      menu.classList.toggle('open');
+    });
+    // Optional: Close menu when clicking outside (mobile UX)
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+</html>
