@@ -1,1475 +1,1580 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Braine Digital Agency Business HTML-5 Template | Homepage 01</title>
-<!-- Stylesheets -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/meanmenu.min.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impactree - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Navbar styles (keeping original) */
+    .navbar-custom {
+      background: #FFF8E6;
+      /* background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 50%, #d1ecf1 100%); */
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1001;
+    }
+    .navbar-custom .navbar-brand {
+      color: #4A3F35;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    .navbar-custom .nav-link {
+      color: #4A3F35;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #4da6ff;
+    }
+    .navbar-custom .nav-link i {
+      color: #4A3F35;
+    }
+    .navbar-custom .navbar-toggler .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'><path stroke=\'rgba(30,41,59,1)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/></svg>');
+    }
+    .navbar-custom .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    .navbar-custom .btn-danger {
+      background-color: #D9310B;
+      border-color: #D9310B;
+      color: #FAFAFA;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    .navbar-custom .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .navbar-custom .btn-danger:hover {
+      background-color: #b92508;
+      border-color: #b92508;
+      color: #FAFAFA;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217, 49, 11, 0.3);
+    }
+    
+    /* Mega menu styles (keeping original) */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100vw;
+      background-color: #fff;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 1000;
+      margin-top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+    .mega-menu.show {
+      display: block;
+    }
+    .mega-menu-container {
+      display: flex;
+      max-height: 100vh;
+    }
+    .mega-menu-sidebar {
+      width: 250px;
+      background-color: #f8f9fa;
+      padding: 1.5rem 0;
+      border-right: 1px solid #e9ecef;
+      flex-shrink: 0;
+    }
+    .sidebar-section {
+      margin-bottom: 1rem;
+    }
+    .sidebar-title {
+      color: #007bff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 0.5rem;
+      background-color: #e7f3ff;
+      border-left: 4px solid #007bff;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .sidebar-title:hover {
+      background-color: #d1ecf1;
+    }
+    .sidebar-title i {
+      margin-right: 0.5rem;
+    }
+    .sidebar-title.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .sidebar-arrow {
+      margin-left: auto;
+      transition: transform 0.3s ease;
+    }
+    .sidebar-title.active .sidebar-arrow {
+      transform: rotate(90deg);
+    }
+    .mega-menu-content {
+      flex: 1;
+      padding: 1.5rem;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+    .mega-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+    }
+    .mega-menu-card {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      height: fit-content;
+    }
+    .mega-menu-card:hover {
+      background-color: #fff !important;
+      border: 1px solid #e9ecef !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+      transform: translateY(-2px);
+    }
+    .mega-menu-card-title {
+      color: #1e4d72;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .mega-menu-card-title i {
+      margin-right: 0.5rem;
+      color: #007bff;
+    }
+    .mega-menu-card-subtitle {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .mega-menu-card-link {
+      display: block;
+      color: #495057;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      padding-left: 0.75rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .mega-menu-card-link:hover {
+      color: #007bff;
+      border-left-color: #007bff;
+      background-color: #f8f9fa;
+      text-decoration: none;
+    }
+    .new-badge {
+      background-color: #ffc107;
+      color: #000;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    .nav-item.dropdown {
+      position: static;
+    }
+    .language-selector {
+      color: #fff;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+    .language-selector:hover {
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .innovation-card {
+      background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
+      border: 1px solid #c3e6c3;
+    }
+    .innovation-card .mega-menu-card-title {
+      color: #28a745;
+    }
+    .innovation-card .mega-menu-card-link:hover {
+      color: #28a745;
+      border-left-color: #28a745;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-<link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
-
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
+    /* Enhanced Hero Section */
+    .hero-section {
+      background: #FFF8E6 !important;
+      /* background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 50%, #d1ecf1 100%); */
+      min-height: unset;
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem 0 1.5rem 0;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.1) 0%, transparent 50%);
+      animation: gradientShift 20s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0.5rem 0;
+      min-height: unset;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-text {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: #6CA2E8;
+      color: #FAFAFA;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      font-weight: 450;
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+      background: linear-gradient(45deg, #1e4d72, #007bff, #4da6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes textGlow {
+      from { filter: brightness(1); }
+      to { filter: brightness(1.2); }
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1rem);
+      color: #4a5568;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      max-width: 95%;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-hero-primary {
+      background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+      color: white;
+    }
+    
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #667eea;
+      color: #667eea;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .btn-hero-secondary:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    }
+    
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .stat-item {
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1e4d72;
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Enhanced Video Section */
+    .video-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1s ease-out 0.3s both;
+      margin-top: 0; /* Remove negative margin */
+      max-height: 350px;
+      width: 100%;
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .video-wrapper {
+      position: relative;
+      max-width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 
+        0 20px 40px rgba(30, 77, 114, 0.15),
+        0 10px 20px rgba(30, 77, 114, 0.1);
+      background: transparent;
+      padding: 0;
+      transition: all 0.3s ease;
+      max-height: 350px;
+    }
+    
+    .video-wrapper:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 30px 60px rgba(30, 77, 114, 0.2),
+        0 15px 30px rgba(30, 77, 114, 0.15);
+    }
+    
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      max-height: 350px;
+      border-radius: 20px;
+      display: block;
+      transition: all 0.3s ease;
+      object-fit: cover;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 20px;
+    }
+    
+    .video-wrapper:hover .video-overlay {
+      opacity: 1;
+    }
+    
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .floating-element:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+    
+    .floating-element:nth-child(2) {
+      top: 60%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+    
+    .floating-element:nth-child(3) {
+      bottom: 20%;
+      left: 15%;
+      animation-delay: 4s;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 991.98px) {
+      .mega-menu {
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        max-height: none;
+      }
+      .mega-menu-container {
+        flex-direction: column;
+        max-height: none;
+      }
+      .mega-menu-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .mega-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .mega-menu-content {
+        padding: 1rem;
+      }
+      
+      .hero-content {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-stats {
+        justify-content: center;
+      }
+      
+      .video-wrapper {
+        max-width: 95%;
+      }
+      .video-container, .video-wrapper, .hero-video {
+        max-height: 220px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-stats {
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        flex: 1;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .video-container, .video-wrapper, .hero-video {
+        max-height: 160px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="page-wrapper">
-	
-	<!-- Cursor -->
-	<div class="cursor"></div>
-	<div class="cursor-follower"></div>
-	<!-- Cursor End -->
- 	
-	<!-- Preloader -->
-	<div class="loader-wrap">
-		<div class="preloader">
-			<div class="preloader-close">x</div>
-			<div id="handle-preloader" class="handle-preloader">
-				<div class="animation-preloader">
-					<div class="txt-loading">
-						<span data-text-preloader="L" class="letters-loading">L</span>
-						<span data-text-preloader="O" class="letters-loading">O</span>
-						<span data-text-preloader="A" class="letters-loading">A</span>
-						<span data-text-preloader="D" class="letters-loading">D</span>
-						<span data-text-preloader="I" class="letters-loading">I</span>
-						<span data-text-preloader="N" class="letters-loading">N</span>
-						<span data-text-preloader="G" class="letters-loading">G</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-	
-	<!-- Main Header -->
-	<header class="main-header header-style-one">
-		
-		<!-- Header Lower -->
-		<div class="header-lower">
-			<div class="auto-container">
-				<div class="inner-container">
-					<div class="d-flex justify-content-between align-items-center flex-wrap">
-						
-						<div class="logo-box">
-							<div class="logo"><a href="index.html"><img src="assets/images/logo.svg" alt="" title=""></a></div>
-						</div>
-						
-						<div class="nav-outer d-flex flex-wrap">
-							<!-- Main Menu -->
-							<nav class="main-menu navbar-expand-md">
-								<div class="navbar-header">
-									<!-- Toggle Button -->    	
-									<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-								</div>
-								
-								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-									<ul class="navigation clearfix">
-										<li class="dropdown"><a href="#">Home</a>
-											<ul>
-												<li><a href="index.html">HomePage 01</a></li>
-												<li><a href="index-2.html">HomePage 02</a></li>
-												<li><a href="index-3.html">HomePage 03</a></li>
-												<li class="dropdown"><a href="#">Header Style</a>
-													<ul>
-														<li><a href="index.html">Header 01</a></li>
-														<li><a href="index-2.html">Header 02</a></li>
-														<li><a href="index-3.html">Header 03</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li><a href="about.html">About</a></li>
-										<li class="dropdown"><a href="#">Pages</a>
-											<ul>
-												<li><a href="faq.html">Faq</a></li>
-												<li><a href="pricing.html">Price</a></li>
-												<li><a href="testimonial.html">Testimonial</a></li>
-												<li><a href="login.html">Login</a></li>
-												<li><a href="register.html">Register</a></li>
-												<li><a href="reset.html">Forgot password</a></li>
-												<li class="dropdown"><a href="#">Team</a>
-													<ul>
-														<li><a href="team.html">Team</a></li>
-														<li><a href="team-detail.html">Team detail</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="dropdown"><a href="#">Services</a>
-											<ul>
-												<li><a href="services.html">Services</a></li>
-												<li><a href="service-detail.html">Services detail</a></li>
-											</ul>
-										</li>
-										<li class="dropdown"><a href="#">Blog</a>
-											<ul>
-												<li><a href="blog.html">Blog grid</a></li>
-												<li><a href="blog-classic.html">Blog classic</a></li>
-												<li><a href="news-detail.html">Blog detail</a></li>
-												<li><a href="not-found.html">Not found</a></li>
-											</ul>
-										</li>
-										<li><a href="contact.html">Contact</a></li>
-									</ul>
-								</div>
-							</nav>
-						</div>
-
-						<!-- Main Menu End-->
-						<div class="outer-box d-flex align-items-center flex-wrap">
-
-							<!-- Language DropDown -->
-							<div class="language-dropdown">
-								<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-									<span class="flag"><img src="assets/images/icons/flag.png" alt="" /></span> <span class="fa-solid fa-angle-down fa-fw"></span>
-								</button>
-								<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-									<li><a class="dropdown-item" href="#"><span class="flag"><img src="assets/images/icons/flag.png" alt="" /></span> English</a></li>
-									<li><a class="dropdown-item" href="#"><span class="flag"><img src="assets/images/icons/arabic.png" alt="" /></span> Arbic</a></li>
-									<li><a class="dropdown-item" href="#"><span class="flag"><img src="assets/images/icons/germany.png" alt="" /></span> German</a></li>
-									<li><a class="dropdown-item" href="#"><span class="flag"><img src="assets/images/icons/france.png" alt="" /></span> French</a></li>
-								</ul>
-							</div>
-
-							<!-- Button Box -->
-							<div class="main-header_buttons">
-								<a href="#" class="template-btn btn-style-two">
-									<span class="btn-wrap">
-										<span class="text-one">Login</span>
-										<span class="text-two">Login</span>
-									</span>
-								</a>
-								<a href="#" class="template-btn btn-style-one">
-									<span class="btn-wrap">
-										<span class="text-one">Join now</span>
-										<span class="text-two">Join now</span>
-									</span>
-								</a>
-							</div>
-
-							<!-- Mobile Navigation Toggler -->
-							<div class="mobile-nav-toggler">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
-							</div>
-
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--End Header Lower-->
-		
-		<!-- Mobile Menu  -->
-		<div class="mobile-menu">
-			<div class="menu-backdrop"></div>
-			<div class="close-btn"><span class="icon fa-solid fa-xmark fa-fw"></span></div>
-			
-			<nav class="menu-box">
-				<div class="nav-logo"><a href="index.html"><img src="assets/images/mobile-logo.svg" alt="" title=""></a></div>
-				<div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-			</nav>
-		</div>
-		<!-- End Mobile Menu -->
-	
-	</header>
-	<!-- End Main Header -->
-	
-	<!-- Slider One -->
-	<section class="slider-one">
-		<div class="main-slider swiper-container">
-			<div class="swiper-wrapper">
-
-				<!-- Slide -->
-				<div class="swiper-slide">
-					<div class="slider-one_icon" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-					<div class="slider-one_icon-two" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-					<div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/pattern-1.png)"></div>
-					<div class="slider-one_pattern-two" style="background-image:url(assets/images/main-slider/pattern-2.png)"></div>
-					<div class="slider-one_pattern-four" style="background-image:url(assets/images/main-slider/pattern-4.png)"></div>
-					<div class="auto-container">
-						<div class="row clearfix">
-							<!-- Content Column -->
-							<div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
-								<div class="slider-one_content-inner">
-									<div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i> AI makes content fast & easy</div>
-									<h1 class="slider-one_heading">Crafting digital brilliance AI-Driven copywriting</h1>
-									<div class="slider-one_text">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</div>
-									<div class="slider-one_button d-flex align-items-center flex-wrap">
-										<a href="about.html" class="template-btn btn-style-one">
-											<span class="btn-wrap">
-												<span class="text-one">Get started free</span>
-												<span class="text-two">Get started free</span>
-											</span>
-										</a>
-										<div class="slider-one_video">
-											<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-video play-box"><span class="fa fa-play"></span></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Image Column -->
-							<div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-								<div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-								<div class="slider-one_image-outer">
-									<!-- Slider One Author -->
-									<div class="slider-one_author">
-										<i><img src="assets/images/main-slider/icon-2.png" alt="" /></i>
-										<h5 class="slider-one_author-name">Sara Ven</h5>
-										<div class="slider-one_author-text">Social media manger</div>
-									</div>
-									<!-- Slider One Percent -->
-									<div class="slider-one_percentage">
-										<i class="fa-solid fa-arrow-up fa-fw"></i>
-										<div class="slider-one_percent">90<sub>%</sub></div>
-										<div class="slider-one_percentage-text">efficiency</div>
-									</div>
-									<div class="slider-one_graph">
-										<div class="slider-one_graph-title">Annual goal <span>$98,541 <sup><i class="fa-solid fa-caret-up fa-fw"></i>110%</sup></span></div>
-										<img src="assets/images/main-slider/graph.png" alt="" />
-									</div>
-									<div class="slider-one_image">
-										<img src="assets/images/main-slider/image-1.png" alt="" />
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="swiper-slide">
-					<div class="slider-one_icon" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-					<div class="slider-one_icon-two" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-					<div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/pattern-1.png)"></div>
-					<div class="slider-one_pattern-two" style="background-image:url(assets/images/main-slider/pattern-2.png)"></div>
-					<div class="slider-one_pattern-four" style="background-image:url(assets/images/main-slider/pattern-4.png)"></div>
-					<div class="auto-container">
-						<div class="row clearfix">
-							<!-- Content Column -->
-							<div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
-								<div class="slider-one_content-inner">
-									<div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i> AI makes content fast & easy</div>
-									<h1 class="slider-one_heading">Crafting digital brilliance <span>AI-Driven</span> copywriting</h1>
-									<div class="slider-one_text">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</div>
-									<div class="slider-one_button d-flex align-items-center flex-wrap">
-										<a href="about.html" class="template-btn btn-style-one">
-											<span class="btn-wrap">
-												<span class="text-one">Get started free</span>
-												<span class="text-two">Get started free</span>
-											</span>
-										</a>
-										<div class="slider-one_video">
-											<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-video play-box"><span class="fa fa-play"></span></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Image Column -->
-							<div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-								<div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-								<div class="slider-one_image-outer">
-									<!-- Slider One Author -->
-									<div class="slider-one_author">
-										<i><img src="assets/images/main-slider/icon-2.png" alt="" /></i>
-										<h5 class="slider-one_author-name">Sara Ven</h5>
-										<div class="slider-one_author-text">Social media manger</div>
-									</div>
-									<!-- Slider One Percent -->
-									<div class="slider-one_percentage">
-										<i class="fa-solid fa-arrow-up fa-fw"></i>
-										<div class="slider-one_percent">90<sub>%</sub></div>
-										<div class="slider-one_percentage-text">efficiency</div>
-									</div>
-									<div class="slider-one_graph">
-										<div class="slider-one_graph-title">Annual goal <span>$98,541 <sup><i class="fa-solid fa-caret-up fa-fw"></i>110%</sup></span></div>
-										<img src="assets/images/main-slider/graph.png" alt="" />
-									</div>
-									<div class="slider-one_image">
-										<img src="assets/images/main-slider/image-1.png" alt="" />
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="swiper-slide">
-					<div class="slider-one_icon" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-					<div class="slider-one_icon-two" style="background-image:url(assets/images/main-slider/icon-1.png)"></div>
-					<div class="slider-one_pattern" style="background-image:url(assets/images/main-slider/pattern-1.png)"></div>
-					<div class="slider-one_pattern-two" style="background-image:url(assets/images/main-slider/pattern-2.png)"></div>
-					<div class="slider-one_pattern-four" style="background-image:url(assets/images/main-slider/pattern-4.png)"></div>
-					<div class="auto-container">
-						<div class="row clearfix">
-							<!-- Content Column -->
-							<div class="slider-one_content col-lg-7 col-md-12 col-sm-12">
-								<div class="slider-one_content-inner">
-									<div class="slider-one_title"><i><img src="assets/images/main-slider/hand.png" alt="" /></i> AI makes content fast & easy</div>
-									<h1 class="slider-one_heading">Crafting digital brilliance <span>AI-Driven</span> copywriting</h1>
-									<div class="slider-one_text">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</div>
-									<div class="slider-one_button d-flex align-items-center flex-wrap">
-										<a href="about.html" class="template-btn btn-style-one">
-											<span class="btn-wrap">
-												<span class="text-one">Get started free</span>
-												<span class="text-two">Get started free</span>
-											</span>
-										</a>
-										<div class="slider-one_video">
-											<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-video play-box"><span class="fa fa-play"></span></a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Image Column -->
-							<div class="slider-one_image-column col-lg-5 col-md-12 col-sm-12">
-								<div class="slider-one_pattern-three" style="background-image:url(assets/images/main-slider/pattern-3.png)"></div>
-								<div class="slider-one_image-outer">
-									<!-- Slider One Author -->
-									<div class="slider-one_author">
-										<i><img src="assets/images/main-slider/icon-2.png" alt="" /></i>
-										<h5 class="slider-one_author-name">Sara Ven</h5>
-										<div class="slider-one_author-text">Social media manger</div>
-									</div>
-									<!-- Slider One Percent -->
-									<div class="slider-one_percentage">
-										<i class="fa-solid fa-arrow-up fa-fw"></i>
-										<div class="slider-one_percent">90<sub>%</sub></div>
-										<div class="slider-one_percentage-text">efficiency</div>
-									</div>
-									<div class="slider-one_graph">
-										<div class="slider-one_graph-title">Annual goal <span>$98,541 <sup><i class="fa-solid fa-caret-up fa-fw"></i>110%</sup></span></div>
-										<img src="assets/images/main-slider/graph.png" alt="" />
-									</div>
-									<div class="slider-one_image">
-										<img src="assets/images/main-slider/image-1.png" alt="" />
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End Main Slider Section -->
-
-	<!-- Services One -->
-	<section class="services-one">
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<div class="sec-title_title">Our Service</div>
-				<h2 class="sec-title_heading">Experience our latest <br> <span>new features</span></h2>
-			</div>
-			<div class="row clearfix">
-
-				<!-- Service Block One -->
-				<div class="service-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="service-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="service-block_one-icon">
-							<i class="icon-speaker1"></i>
-						</div>
-						<h5 class="service-block_one-heading"><a href="service-detail.html">Digital marketers</a></h5>
-						<div class="service-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et <span>massa mi. Aliquam</span> in hendrerit urna..</div>
-						<div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
-							<div class="service-block_one-number">01</div>
-							<a class="service-block_one-join" href="service-detail.html">Join now <i class="fa-solid fa-plus fa-fw"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Service Block One -->
-				<div class="service-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="service-block_one-inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="service-block_one-icon">
-							<i class="icon-marketing"></i>
-						</div>
-						<h5 class="service-block_one-heading"><a href="service-detail.html">Content marketers</a></h5>
-						<div class="service-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et <span>massa mi. Aliquam</span> in hendrerit urna..</div>
-						<div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
-							<div class="service-block_one-number">02</div>
-							<a class="service-block_one-join" href="service-detail.html">Join now <i class="fa-solid fa-plus fa-fw"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Service Block One -->
-				<div class="service-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="service-block_one-inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="service-block_one-icon">
-							<i class="icon-users"></i>
-						</div>
-						<h5 class="service-block_one-heading"><a href="service-detail.html">Founders</a></h5>
-						<div class="service-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et <span>massa mi. Aliquam</span> in hendrerit urna..</div>
-						<div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
-							<div class="service-block_one-number">03</div>
-							<a class="service-block_one-join" href="service-detail.html">Join now <i class="fa-solid fa-plus fa-fw"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Service Block One -->
-				<div class="service-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="service-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="service-block_one-icon">
-							<i class="icon-copyright"></i>
-						</div>
-						<h5 class="service-block_one-heading"><a href="service-detail.html">Copywriters</a></h5>
-						<div class="service-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et <span>massa mi. Aliquam</span> in hendrerit urna..</div>
-						<div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
-							<div class="service-block_one-number">04</div>
-							<a class="service-block_one-join" href="service-detail.html">Join now <i class="fa-solid fa-plus fa-fw"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Service Block One -->
-				<div class="service-block_one col-lg-4 col-md-6 col-sm-12">
-					<div class="service-block_one-inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="service-block_one-icon">
-							<i class="icon-tag"></i>
-						</div>
-						<h5 class="service-block_one-heading"><a href="service-detail.html">SEO specialists</a></h5>
-						<div class="service-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et <span>massa mi. Aliquam</span> in hendrerit urna..</div>
-						<div class="lower-box d-flex justify-content-between align-items-center flex-wrap">
-							<div class="service-block_one-number">05</div>
-							<a class="service-block_one-join" href="service-detail.html">Join now <i class="fa-solid fa-plus fa-fw"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Service Block Two -->
-				<div class="service-block_two col-lg-4 col-md-6 col-sm-12">
-					<div class="service-block_two-inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="service-block_two-sideicon" style="background-image:url(assets/images/icons/service-1.png)"></div>
-						<div class="service-block_two-icon">
-							<img src="assets/images/icons/service.png" alt="" />
-						</div>
-						<h5 class="service-block_two-heading"><a href="service-detail.html">More service</a></h5>
-						<div class="service-block_two-text">Lorem ipsum dolor sit ame consectetur.</div>
-						<div class="service-block_two-button">
-							<a href="service.html" class="template-btn btn-style-one">
-								<span class="btn-wrap">
-									<span class="text-one">learn more</span>
-									<span class="text-two">learn more</span>
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End Services One -->
-	
-	<!-- About One -->
-	<section class="about-one">
-		<div class="about-one_pattern" style="background-image:url(assets/images/background/about-pattern.png)"></div>
-		<div class="about-one_icon" style="background-image:url(assets/images/icons/about-1.png)"></div>
-		<div class="about-one_icon-two" style="background-image:url(assets/images/icons/about-2.png)"></div>
-		<div class="auto-container">
-			<div class="row clearfix">
-
-				<!-- Tab Column -->
-				<div class="about-one_tab-column col-xl-6 col-lg-6 col-md-12 col-sm-12">
-					<div class="about-one_tab-outer">
-						<div class="about-one_tab-shadow" style="background-image:url(assets/images/background/tab-shadow.png)"></div>
-						<div class="about-one_tab-image">
-							<img src="assets/images/resource/tabs.png" alt="" />
-						</div>
-					</div>
-				</div>
-
-				<!-- Tab Column -->
-				<div class="about-one_content-column col-xl-6 col-lg-6 col-md-12 col-sm-12">
-					<div class="about-one_content-outer">
-						<!-- Sec Title -->
-						<div class="sec-title">
-							<div class="sec-title_title">About us</div>
-							<h2 class="sec-title_heading">Crafting of your digital <span>narrative discover</span> our journey</h2>
-						</div>
-						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. <span>Pellentesque sit amet</span> sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.</p>
-						<p>Lorem ipsum dolor sit amet consectetur adipiscing vitae mattis tellus. Nullam quis mattis ligula consectetur.</p>
-						<div class="about-one_options d-flex align-items-center flex-wrap">
-							<a href="about.html" class="template-btn btn-style-one">
-								<span class="btn-wrap">
-									<span class="text-one">Know more</span>
-									<span class="text-two">Know more</span>
-								</span>
-							</a>
-							<div class="about-one_rating-box d-flex align-items-center flex-wrap">
-								4.7
-								<div class="about-one_rating">
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<i>Customer rating</i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End About One -->
-	
-	<!-- Choose One -->
-	<section class="choose-one">
-		<div class="auto-container">
-			<div class="inner-container">
-				<!-- Sec Title -->
-				<div class="sec-title light centered">
-					<div class="sec-title_title">why chose us</div>
-					<h2 class="sec-title_heading">Reason to chose our <br> <span>platform</span></h2>
-				</div>
-				<div class="row clearfix">
-
-					<!-- Counter Block One -->
-					<div class="counter-block_one col-lg-4 col-md-6 col-sm-12">
-						<div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="counter-block_one-icon fa-brands fa-instagram fa-fw"></div>
-							<div class="counter-block_one-count"><span class="odometer" data-count="8000"></span><i>+</i></div>
-							<div class="counter-block_one-text">More than 8,000 customers have experimented with Kafkai</div>
-						</div>
-					</div>
-
-					<!-- Counter Block One -->
-					<div class="counter-block_one col-lg-4 col-md-6 col-sm-12">
-						<div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
-							<div class="counter-block_one-icon fa-brands fa-instagram fa-fw"></div>
-							<div class="counter-block_one-count"><span class="odometer" data-count="500000"></span><i>+</i></div>
-							<div class="counter-block_one-text">More than 8,000 customers have experimented with Kafkai</div>
-						</div>
-					</div>
-
-					<!-- Counter Block One -->
-					<div class="counter-block_one col-lg-4 col-md-6 col-sm-12">
-						<div class="counter-block_one-inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-							<div class="counter-block_one-icon fa-brands fa-instagram fa-fw"></div>
-							<div class="counter-block_one-count"><span class="odometer" data-count="200000"></span><i>+</i></div>
-							<div class="counter-block_one-text">More than 8,000 customers have experimented with Kafkai</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Choose One -->
-
-	<!-- Answer One -->
-	<section class="answer-one">
-		<div class="auto-container">
-			<div class="row clearfix">
-
-				<!-- Tab Column -->
-				<div class="answer-one_title-column col-lg-5 col-md-12 col-sm-12">
-					<div class="answer-one_title-outer">
-						<!-- Sec Title -->
-						<div class="sec-title title-anim">
-							<div class="sec-title_title">AI ANSWERS</div>
-							<h2 class="sec-title_heading">Gain <span>full control</span> of your information docs and many more</h2>
-						</div>
-						<ul class="answer-one_list">
-							<li><i class="fa-solid fa-check fa-fw"></i>Create a personalized knowledge base on your own Braine library</li>
-							<li><i class="fa-solid fa-check fa-fw"></i>Use your trusted sources to find the answers you need</li>
-							<li><i class="fa-solid fa-check fa-fw"></i>Stay in the know with AI Q&A and semantic search</li>
-						</ul>
-						<div class="answer-one_button">
-							<a href="about.html" class="template-btn btn-style-one">
-								<span class="btn-wrap">
-									<span class="text-one">Know more</span>
-									<span class="text-two">Know more</span>
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Tab Column -->
-				<div class="answer-one_content-column col-lg-7 col-md-12 col-sm-12">
-					<div class="answer-one_content-outer">
-						<div class="answer-one_pattern" style="background-image:url(assets/images/background/faq-shadow.png)"></div>
-						<div class="answer-one_image">
-							<img src="assets/images/resource/faq.png" alt="" />
-						</div>		
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End Answer One -->
-
-	<!-- Testimonial One -->
-	<section class="testimonial-one">
-		<div class="auto-container">
-			<div class="inner-container" style="background-image:url(assets/images/background/testimonial-one_bg.png)">
-				<!-- Sec Title -->
-				<div class="sec-title centered">
-					<div class="sec-title_title">Testimonials</div>
-					<h2 class="sec-title_heading">What our respectable <br> <span>clients says</span></h2>
-				</div>
-				<div class="three-item_carousel swiper-container">
-					<div class="swiper-wrapper">
-		
-						<!-- Slide -->
-						<div class="swiper-slide">
-							<!-- Testimonial Block One -->
-							<div class="testimonial-block_one">
-								<div class="testimonial-block_one-inner">
-									<div class="testimonial-block_one-rating">
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-									<div class="testimonial-block_one-text">Lorem ipsum amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit <span>Pellentesque sit amet</span> sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.</div>
-									<div class="testimonial-block_one-author_box">
-										<div class="testimonial-block_one-author-image">
-											<img src="assets/images/resource/author-2.png" alt="" />
-										</div>
-										Larry K. Lund <span>Social Media Manger</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Slide -->
-						<div class="swiper-slide">
-							<!-- Testimonial Block One -->
-							<div class="testimonial-block_one">
-								<div class="testimonial-block_one-inner">
-									<div class="testimonial-block_one-rating">
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-									<div class="testimonial-block_one-text">Lorem ipsum amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit <span>Pellentesque sit amet</span> sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.</div>
-									<div class="testimonial-block_one-author_box">
-										<div class="testimonial-block_one-author-image">
-											<img src="assets/images/resource/author-3.png" alt="" />
-										</div>
-										Marian R. Vieira <span>Social Media Manger</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Slide -->
-						<div class="swiper-slide">
-							<!-- Testimonial Block One -->
-							<div class="testimonial-block_one">
-								<div class="testimonial-block_one-inner">
-									<div class="testimonial-block_one-rating">
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-									<div class="testimonial-block_one-text">Lorem ipsum amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit <span>Pellentesque sit amet</span> sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.</div>
-									<div class="testimonial-block_one-author_box">
-										<div class="testimonial-block_one-author-image">
-											<img src="assets/images/resource/author-4.png" alt="" />
-										</div>
-										Bob E. Wiggins <span>Social Media Manger</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-					<!-- If we need pagination -->
-					<div class="three-item_carousel-pagination"></div>
-
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End Testimonial One -->
-
-	<!-- Steps One -->
-	<section class="steps-one">
-		<div class="steps-one_bg" style="background-image:url(assets/images/background/step-1_bg.png)"></div>
-		<div class="steps-one_icon" style="background-image:url(assets/images/icons/step.png)"></div>
-		<div class="auto-container">
-			<div class="inner-container">
-				<div class="circle-layer"></div>
-				<div class="dots-layer">
-					<span class="dot-one"></span>
-					<span class="dot-two"></span>
-				</div>
-			
-				<!-- Sec Title -->
-				<div class="sec-title">
-					<div class="sec-title_title">How its work</div>
-					<h2 class="sec-title_heading">Braine <span>typically operate</span> in <br> a three steps</h2>
-				</div>
-				<div class="steps-one_button">
-					<a href="about.html" class="template-btn btn-style-two">
-						<span class="btn-wrap">
-							<span class="text-one">Know more</span>
-							<span class="text-two">Know more</span>
-						</span>
-					</a>
-				</div>
-				<div class="row clearfix">
-					<!-- Column -->
-					<div class="column col-lg-6 col-md-12 col-sm-12">
-						<!-- Step Block One -->
-						<div class="step-block_one">
-							<div class="step-block_one-inner">
-								<div class="step-block_one-steps">step 01</div>
-								<h5 class="step-block_one-title">Algorithm processing</h5>
-								<div class="step-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna..</div>
-								<div class="step-block_one-content">
-									<div class="image">
-										<img src="assets/images/resource/step-1.png" alt="" />
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Column -->
-					<div class="column col-lg-6 col-md-12 col-sm-12">
-
-						<!-- Step Block One -->
-						<div class="step-block_one">
-							<div class="step-block_one-inner">
-								<div class="step-block_one-steps">step 02</div>
-								<h5 class="step-block_one-title">Input & data gathering</h5>
-								<div class="step-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna..</div>
-								<div class="step-block_one-content">
-									<div class="image">
-										<img src="assets/images/resource/step-2.png" alt="" />
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Step Block One -->
-						<div class="step-block_one">
-							<div class="step-block_one-inner">
-								<div class="step-block_one-steps">step 03</div>
-								<h5 class="step-block_one-title">Content generation & refinement</h5>
-								<div class="step-block_one-text">Lorem ipsum dolor sit ame consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna..</div>
-								<div class="step-block_one-content">
-									<div class="image">
-										<img src="assets/images/resource/step-3.png" alt="" />
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Steps One -->
-
-	<!-- Price One -->
-	<section class="price-one">
-		<div class="price-one_bg" style="background-image:url(assets/images/background/price-bg.png)"></div>
-		<div class="auto-container">
-			<div class="inner-container">
-				<!-- Sec Title -->
-				<div class="sec-title title-anim centered">
-					<div class="sec-title_title">Our Peicing</div>
-					<h2 class="sec-title_heading">Join for <span>free</span> Today</h2>
-				</div>
-				<div class="pricing-tabs tabs-box">
-					
-					<!--Tab Btns-->
-					<div class="buttons-outer">
-						<ul class="tab-buttons clearfix">
-							<li data-tab="#prod-monthly" class="tab-btn active-btn">Monthly</li>
-							<li data-tab="#prod-yearly" class="tab-btn">Yearly</li>
-						</ul>
-					</div>
-
-					<!--Tabs Container-->
-					<div class="tabs-content">
-						
-						<!-- Tab -->
-						<div class="tab active-tab" id="prod-monthly">
-							<div class="content">
-								<div class="row clearfix">
-
-									<!-- Price Block One -->
-									<div class="price-block_one col-lg-4 col-md-6 col-sm-12">
-										<div class="price-block_one-inner">
-											<div class="price-block_one-title">Starter</div>
-											<div class="price-block_one-subtitle">Up to 2,000 words / mo</div>
-											<div class="price-block_one-content">
-												<div class="d-flex justify-content-between align-items-end flex-wrap">
-													<div class="price-block_one-price"><sup>$</sup>3<sub>/mo</sub></div>
-													<div class="price-block_one-text">*Get Braine tailored</div>
-												</div>
-												<div class="price-block_one-button">
-													<a class="template-btn price-one_button" href="#">Start 1 month free trail</a>
-												</div>
-												<ul class="price-block_one-list">
-													<li><i class="fa-solid fa-check fa-fw"></i>Up to 10,000 words</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to basic tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to AI copywriting tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Email support only</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Advance 700+ tools</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-
-									<!-- Price Block One -->
-									<div class="price-block_one active col-lg-4 col-md-6 col-sm-12">
-										<div class="price-block_one-inner">
-											<div class="price-one_stars" style="background-image:url(assets/images/icons/price-stars.png)"></div>
-											<div class="price-block_one-title">Professional</div>
-											<div class="price-block_one-subtitle">Up to 10,000 words / mo</div>
-											<div class="price-block_one-content">
-												<div class="d-flex justify-content-between align-items-end flex-wrap">
-													<div class="price-block_one-price"><sup>$</sup>9<sub>/mo</sub></div>
-													<div class="price-block_one-text">*Get Braine tailored</div>
-												</div>
-												<div class="price-block_one-button">
-													<a class="template-btn price-one_button" href="#">Start 1 month free trail</a>
-												</div>
-												<ul class="price-block_one-list">
-													<li><i class="fa-solid fa-check fa-fw"></i>Up to 10,000 words</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to basic tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to AI copywriting tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Email support only</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Advance 700+ tools</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-
-									<!-- Price Block One -->
-									<div class="price-block_one col-lg-4 col-md-6 col-sm-12">
-										<div class="price-block_one-inner">
-											<div class="price-block_one-title">Enterprise</div>
-											<div class="price-block_one-subtitle">Up to 10,000 words / mo</div>
-											<div class="price-block_one-content">
-												<div class="d-flex justify-content-between align-items-end flex-wrap">
-													<div class="price-block_one-price"><sup>$</sup>18<sub>/mo</sub></div>
-													<div class="price-block_one-text">*Get Braine tailored</div>
-												</div>
-												<div class="price-block_one-button">
-													<a class="template-btn price-one_button" href="#">Start 1 month free trail</a>
-												</div>
-												<ul class="price-block_one-list">
-													<li><i class="fa-solid fa-check fa-fw"></i>Up to 10,000 words</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to basic tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to AI copywriting tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Email support only</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Advance 700+ tools</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-						<!-- Tab -->
-						<div class="tab" id="prod-yearly">
-							<div class="content">
-								<div class="row clearfix">
-									<!-- Price Block One -->
-									<div class="price-block_one col-lg-4 col-md-6 col-sm-12">
-										<div class="price-block_one-inner">
-											<div class="price-block_one-title">Starter</div>
-											<div class="price-block_one-subtitle">Up to 2,000 words / mo</div>
-											<div class="price-block_one-content">
-												<div class="d-flex justify-content-between align-items-end flex-wrap">
-													<div class="price-block_one-price"><sup>$</sup>3<sub>/mo</sub></div>
-													<div class="price-block_one-text">*Get Braine tailored</div>
-												</div>
-												<div class="price-block_one-button">
-													<a class="template-btn price-one_button" href="#">Start 1 month free trail</a>
-												</div>
-												<ul class="price-block_one-list">
-													<li><i class="fa-solid fa-check fa-fw"></i>Up to 10,000 words</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to basic tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to AI copywriting tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Email support only</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Advance 700+ tools</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-
-									<!-- Price Block One -->
-									<div class="price-block_one active col-lg-4 col-md-6 col-sm-12">
-										<div class="price-block_one-inner">
-											<div class="price-one_stars" style="background-image:url(assets/images/icons/price-stars.png)"></div>
-											<div class="price-block_one-title">Professional</div>
-											<div class="price-block_one-subtitle">Up to 10,000 words / mo</div>
-											<div class="price-block_one-content">
-												<div class="d-flex justify-content-between align-items-end flex-wrap">
-													<div class="price-block_one-price"><sup>$</sup>9<sub>/mo</sub></div>
-													<div class="price-block_one-text">*Get Braine tailored</div>
-												</div>
-												<div class="price-block_one-button">
-													<a class="template-btn price-one_button" href="#">Start 1 month free trail</a>
-												</div>
-												<ul class="price-block_one-list">
-													<li><i class="fa-solid fa-check fa-fw"></i>Up to 10,000 words</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to basic tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to AI copywriting tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Email support only</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Advance 700+ tools</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-
-									<!-- Price Block One -->
-									<div class="price-block_one col-lg-4 col-md-6 col-sm-12">
-										<div class="price-block_one-inner">
-											<div class="price-block_one-title">Enterprise</div>
-											<div class="price-block_one-subtitle">Up to 10,000 words / mo</div>
-											<div class="price-block_one-content">
-												<div class="d-flex justify-content-between align-items-end flex-wrap">
-													<div class="price-block_one-price"><sup>$</sup>18<sub>/mo</sub></div>
-													<div class="price-block_one-text">*Get Braine tailored</div>
-												</div>
-												<div class="price-block_one-button">
-													<a class="template-btn price-one_button" href="#">Start 1 month free trail</a>
-												</div>
-												<ul class="price-block_one-list">
-													<li><i class="fa-solid fa-check fa-fw"></i>Up to 10,000 words</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to basic tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Access to AI copywriting tools</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Email support only</li>
-													<li><i class="fa-solid fa-check fa-fw"></i>Advance 700+ tools</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Price One -->
-
-	<!-- Faq One -->
-	<section class="faq-one">
-		<div class="faq-one_bg" style="background-image:url(assets/images/background/faq-bg.png)"></div>
-		<div class="faq-one_icon" style="background-image:url(assets/images/icons/step.png)"></div>
-		<div class="auto-container">
-			<div class="row clearfix">
-
-				<!-- Tab Column -->
-				<div class="faq-one_title-column col-lg-5 col-md-12 col-sm-12">
-					<div class="faq-one_title-outer">
-						<!-- Sec Title -->
-						<div class="sec-title title-anim">
-							<div class="sec-title_title">faq</div>
-							<h2 class="sec-title_heading">Frequently asked <span>questions</span></h2>
-							<div class="sec-title_text">Lorem ipsum dolor sit amet consectetur adipiscing vitae mattis tellus. Nullam quis mattis ligula consectetur.</div>
-						</div>
-						<div class="faq-one_button">
-							<a href="contact.html" class="template-btn btn-style-one">
-								<span class="btn-wrap">
-									<span class="text-one">Contact now</span>
-									<span class="text-two">Contact now</span>
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Accordian Column -->
-				<div class="faq-one_accordian-column col-lg-7 col-md-12 col-sm-12">
-					<div class="faq-one_accordian-outer">
-
-						<!-- Accordion Box -->
-						<ul class="accordion-box_two">
-									
-							<!-- Block -->
-							<li class="accordion block">
-								<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa-solid fa-plus fa-fw"></span></div>How does your AI copywriting tool work?</div>
-								<div class="acc-content">
-									<div class="content">
-										<div class="text">Our AI copywriting tool uses sophisticated algorithms to understand context, tone, and language nuances. Users input specific details or prompts, and the AI generates high-quality content based on that input, refining.</div>
-									</div>
-								</div>
-							</li>
-										
-							<!-- Block -->
-							<li class="accordion block">
-								<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa-solid fa-plus fa-fw"></span></div>What is AI copywriting?</div>
-								<div class="acc-content">
-									<div class="content">
-										<div class="text">Our AI copywriting tool uses sophisticated algorithms to understand context, tone, and language nuances. Users input specific details or prompts, and the AI generates high-quality content based on that input, refining.</div>
-									</div>
-								</div>
-							</li>
-
-							<!-- Block -->
-							<li class="accordion block">
-								<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa-solid fa-plus fa-fw"></span></div>Can I trust the content generated by AI?</div>
-								<div class="acc-content">
-									<div class="content">
-										<div class="text">Our AI copywriting tool uses sophisticated algorithms to understand context, tone, and language nuances. Users input specific details or prompts, and the AI generates high-quality content based on that input, refining.</div>
-									</div>
-								</div>
-							</li>
-
-							<!-- Block -->
-							<li class="accordion block">
-								<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa-solid fa-plus fa-fw"></span></div>What types of content can your AI generate?</div>
-								<div class="acc-content">
-									<div class="content">
-										<div class="text">Our AI copywriting tool uses sophisticated algorithms to understand context, tone, and language nuances. Users input specific details or prompts, and the AI generates high-quality content based on that input, refining.</div>
-									</div>
-								</div>
-							</li>
-
-							<!-- Block -->
-							<li class="accordion block">
-								<div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa-solid fa-plus fa-fw"></span></div>What languages does your AI support?</div>
-								<div class="acc-content">
-									<div class="content">
-										<div class="text">Our AI copywriting tool uses sophisticated algorithms to understand context, tone, and language nuances. Users input specific details or prompts, and the AI generates high-quality content based on that input, refining.</div>
-									</div>
-								</div>
-							</li>
-
-						</ul>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End Faq One -->
-
-	<!-- Social One -->
-	<section class="social-one">
-		<div class="social-one_bg-shadow" style="background-image:url(assets/images/background/social-bg.png)"></div>
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<div class="sec-title_title">Integrations</div>
-				<h2 class="sec-title_heading">Incorporate our tool into <br> <span>your everyday tasks</span></h2>
-			</div>
-			<div class="social-one_logo">
-				<span><img src="assets/images/icons/social-logo.png" alt="" /></span>
-			</div>
-			<div class="inner-container">
-				<div class="social-one_bg" style="background-image:url(assets/images/background/social-one_pattern.png)"></div>
-				<div class="social-one_bg-two" style="background-image:url(assets/images/background/social-one_pattern-two.png)"></div>
-				
-				<div class="social-box_one">
-					<div class="animation_mode">
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-1.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-2.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-3.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-4.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-5.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-6.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-7.png" alt="" />
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="social-box">
-					<div class="animation_mode_two">
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-8.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-9.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-10.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-11.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-12.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-13.png" alt="" />
-							</a>
-						</div>
-						<!-- Icon -->
-						<div class="social_icon-box">
-							<a href="#">
-								<img src="assets/images/icons/social-14.png" alt="" />
-							</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- End Social One -->
-
-	<!-- News One -->
-	<section class="news-one">
-		<div class="news-one_shadow" style="background-image:url(assets/images/background/news-shadow-1.png)"></div>
-		<div class="news-one_shadow-two" style="background-image:url(assets/images/background/news-shadow-2.png)"></div>
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title title-anim centered">
-				<div class="sec-title_title">our blog</div>
-				<h2 class="sec-title_heading">Read our latest <span>blogs</span></h2>
-			</div>
-			<div class="three-item_carousel swiper-container">
-				<div class="swiper-wrapper">
-	
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<!-- News Block One -->
-						<div class="news-block_one">
-							<div class="news-block_one-inner">
-								<div class="news-block_one-image">
-									<a href="news-detail.html"><img src="assets/images/resource/news-1.jpg" alt="" /></a>
-								</div>
-								<div class="news-block_one-content">
-									<h5 class="news-block_one-title"><a href="news-detail.html">Transforming industries and shaping the future</a></h5>
-									<div  class="news-block_one-text">Lorem ipsum dolor sit amet consectetur adipiscing vitae mattis tellus. Nullam quis mattis ligula consectetur.</div>
-									<div class="news-block_one-button">
-										<a href="blog.html" class="template-btn btn-style-two">
-											<span class="btn-wrap">
-												<span class="text-one">Read more</span>
-												<span class="text-two">Read more</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<!-- News Block One -->
-						<div class="news-block_one">
-							<div class="news-block_one-inner">
-								<div class="news-block_one-image">
-									<a href="news-detail.html"><img src="assets/images/resource/news-2.jpg" alt="" /></a>
-								</div>
-								<div class="news-block_one-content">
-									<h5 class="news-block_one-title"><a href="news-detail.html">Exploring the cutting-edge of artificial intelligence</a></h5>
-									<div  class="news-block_one-text">Lorem ipsum dolor sit amet consectetur adipiscing vitae mattis tellus. Nullam quis mattis ligula consectetur.</div>
-									<div class="news-block_one-button">
-										<a href="blog.html" class="template-btn btn-style-two">
-											<span class="btn-wrap">
-												<span class="text-one">Read more</span>
-												<span class="text-two">Read more</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Slide -->
-					<div class="swiper-slide">
-						<!-- News Block One -->
-						<div class="news-block_one">
-							<div class="news-block_one-inner">
-								<div class="news-block_one-image">
-									<a href="news-detail.html"><img src="assets/images/resource/news-3.jpg" alt="" /></a>
-								</div>
-								<div class="news-block_one-content">
-									<h5 class="news-block_one-title"><a href="news-detail.html">Understanding the basics of artificial intelligence</a></h5>
-									<div  class="news-block_one-text">Lorem ipsum dolor sit amet consectetur adipiscing vitae mattis tellus. Nullam quis mattis ligula consectetur.</div>
-									<div class="news-block_one-button">
-										<a href="blog.html" class="template-btn btn-style-two">
-											<span class="btn-wrap">
-												<span class="text-one">Read more</span>
-												<span class="text-two">Read more</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<!-- If we need pagination -->
-				<div class="three-item_carousel-pagination"></div>
-			</div>
-		</div>
-	</section>
-	<!-- End News One -->
-
-	<!-- CTA One -->
-	<section class="cta-one">
-		<div class="auto-container">
-			<div class="inner-container">
-				<div class="cta-icon_one" style="background-image:url(assets/images/icons/cta-icon-1.png)"></div>
-				<div class="cta-icon_two" style="background-image:url(assets/images/icons/cta-icon-2.png)"></div>
-				<div class="cta-one_card">
-					<img src="assets/images/icons/cta-card.png" alt="" />
-				</div>
-				<div class="row clearfix">
-					<!-- Column -->
-					<div class="cta-one_title-column col-lg-6 col-md-12 col-sm-12">
-						<div class="cta-one_title-outer">
-							<h2 class="cta-one_title">Craft your next great <span>content now.</span></h2>
-							<div class="cta-one_button">
-								<a href="about.html" class="template-btn btn-style-three">
-									<span class="btn-wrap">
-										<span class="text-one">Get started free</span>
-										<span class="text-two">Get started free</span>
-									</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<!-- Column -->
-					<div class="cta-one_image-column col-lg-6 col-md-12 col-sm-12">
-						<div class="cta-one_image-outer">
-							<div class="cta-one_cards">
-								<img src="assets/images/icons/cta-cards.png" alt="" />
-							</div>
-							<div class="image">
-								<img src="assets/images/resource/cta.png" alt="" />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End CTA One -->
-
-	<!-- Main Footer -->
-	<footer class="main-footer">
-		<div class="footer_pattern" style="background-image: url(assets/images/background/footer-pattern.png)"></div>
-		<div class="auto-container">
-			<div class="inner-container">
-				<!-- Widgets Section -->
-				<div class="widgets-section">
-					<div class="row clearfix">
-						
-						<!-- Big Column -->
-						<div class="big-column col-lg-5 col-md-12 col-sm-12">
-							<div class="footer-newsletter">
-								<h5 class="footer-title">Newsletter</h5>
-								<div class="footer-newsletter_text">Lorem ipsum dolor sit amet consectetur adipiscing vitae mattis tellus. Nullam quis mattis.</div>
-								<div class="newsletter-box">
-									<form method="post" action="contact.html">
-										<div class="form-group">
-											<span class="icon fa-regular fa-envelope fa-fw"></span>
-											<input type="email" name="search-field" value="" placeholder="Enter your mail" required>
-											<button type="submit" class="template-btn btn-style-one">
-												<span class="btn-wrap">
-													<span class="text-one">Subscribe</span>
-													<span class="text-two">Subscribe</span>
-												</span>
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<!-- Big Column -->
-						<div class="big-column col-lg-7 col-md-12 col-sm-12">
-							<div class="footer-lists_outer">
-								<div class="row clearfix">
-									<!-- Column -->
-									<div class="column col-lg-5 col-md-4 col-sm-6">
-										<h5 class="footer-title">Services</h5>
-										<ul class="footer-pages_list">
-											<li><a href="#">AI-powered copywriting</a></li>
-											<li><a href="#">Blog post generation</a></li>
-											<li><a href="#">Social media content</a></li>
-											<li><a href="#">Product descriptions</a></li>
-											<li><a href="#">Email campaigns</a></li>
-											<li><a href="#">Copy writings</a></li>
-											<li><a href="#">SEO specialist</a></li>
-										</ul>
-									</div>
-									<!-- Column -->
-									<div class="column col-lg-3 col-md-4 col-sm-6">
-										<h5 class="footer-title">resources</h5>
-										<ul class="footer-pages_list">
-											<li><a href="#">Blog</a></li>
-											<li><a href="#">FAQs</a></li>
-											<li><a href="#">Help center</a></li>
-											<li><a href="#">case studies</a></li>
-											<li><a href="#">whitepapers</a></li>
-											<li><a href="#">Services</a></li>
-										</ul>
-									</div>
-									<!-- Column -->
-									<div class="column col-lg-4 col-md-4 col-sm-6">
-										<h5 class="footer-title">about us</h5>
-										<ul class="footer-pages_list">
-											<li><a href="#">Our story</a></li>
-											<li><a href="#">Team</a></li>
-											<li><a href="#">Careers</a></li>
-											<li><a href="#">Testimonials</a></li>
-											<li><a href="#">Error 404</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="auto-container">
-				<div class="inner-container d-flex justify-content-between align-items-center flex-wrap">
-					<div class="footer-logo"><a href="index.html"><img src="assets/images/logo.svg" alt="" title=""></a></div>
-					<div class="footer-copyright">&copy; 2024 <a href="index.html">Braine.</a> All rights reserved.</div>
-					<!-- Social Box -->
-					<div class="footer-social_box">
-						<a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-						<a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-						<a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-						<a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-
-</div>
-<!-- End PageWrapper -->
-
-<div class="progress-wrap">
-	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-	</svg>
-</div>
-
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/parallax.min.js"></script>
-<script src="assets/js/tilt.jquery.min.js"></script>
-<script src="assets/js/jquery.paroller.min.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/swiper.min.js"></script>
-<script src="assets/js/backtotop.js"></script>
-<script src="assets/js/odometer.js"></script>
-<script src="assets/js/parallax-scroll.js"></script>
-
-<script src="assets/js/gsap.min.js"></script>
-<script src="assets/js/SplitText.min.js"></script>
-<script src="assets/js/ScrollTrigger.min.js"></script>
-<script src="assets/js/ScrollToPlugin.min.js"></script>
-<script src="assets/js/ScrollSmoother.min.js"></script>
-
-<script src="assets/js/touchspin.js"></script>
-<script src="assets/js/jquery.marquee.min.js"></script>
-<script src="assets/js/magnific-popup.min.js"></script>
-<script src="assets/js/nav-tool.js"></script>
-<script src="assets/js/jquery-ui.js"></script>
-<script src="assets/js/element-in-view.js"></script>
-<script src="assets/js/script.js"></script>
-
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container"> <!-- Changed from container-fluid to container -->
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logo2.png" alt="Logo" style="height: 55px; vertical-align: middle;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto" style="display: flex; gap: 2rem;"> <!-- Added gap between menu items -->
+        <li class="nav-item">
+          <a class="nav-link" href="index-6.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="productsDropdown" role="button">
+            Products <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="productsMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-sidebar">
+                <div class="sidebar-section">
+                  <div class="sidebar-title active" data-section="products">
+                   Compass Series
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+                <div class="sidebar-section">
+                  <div class="sidebar-title" data-section="innovations">
+                   Navigator Series
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-content">
+                <div class="content-section" id="products-content">
+                  <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#energy" style="color:inherit; text-decoration:none;">Energy Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#performance" style="color:inherit; text-decoration:none;">Performance Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#carbon" style="color:inherit; text-decoration:none;">Carbon Management</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem;">
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#vendor" style="color:inherit; text-decoration:none;">Vendor Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#safety" style="color:inherit; text-decoration:none;">Safety Management</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="compass.html#social" style="color:inherit; text-decoration:none;">Social Impact Management</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-section" id="innovations-content" style="display: none;">
+                  <div class="mega-menu-grid">
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="navigator.html#portfolio" style="color:inherit; text-decoration:none;">Portfolio Navigator</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="navigator.html#corporate" style="color:inherit; text-decoration:none;">Corporate Navigator</a>
+                      </div>
+                    </div>
+                    <div class="mega-menu-card">
+                      <div class="mega-menu-card-title">
+                        <a href="navigator.html#wealth" style="color:inherit; text-decoration:none;">Wealth Predictor</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="innovationsDropdown" role="button">
+            Innovations <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="innovationsMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-sidebar">
+                <div class="sidebar-section">
+                  <div class="sidebar-title active" data-section="fractals">
+                    Our Fractals
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+                <div class="sidebar-section">
+                  <div class="sidebar-title"data-section="eden">
+                    Eden
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-content">
+                <div class="content-section" id="fractals-content">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            CODEX
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Ratings Algorithms
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Frameworks
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                            Data Validation
+                            </div>
+                          </div>
+                      </div>
+                </div>
+                <div class="content-section" id="eden-content" style="display: none;">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Text Consolidation Sentinel
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Text Analysis Sentinel
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                          <div class="mega-menu-card-title">
+                            Ratings Sentinel
+                          </div>
+                        </div>
+                        <div class="mega-menu-card">
+                            <div class="mega-menu-card-title">
+                            Competitor Benchmarking Sentinel
+                            </div>
+                          </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- Removed Solutions tab here -->
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="aboutDropdown" role="button">
+            About Us <i class="fas fa-chevron-down ms-1"></i>
+          </a>
+          <div class="mega-menu" id="aboutMegaMenu">
+            <div class="mega-menu-container">
+              <div class="mega-menu-content">
+                <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
+                  <div>
+                    <div class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BUSINESS INTELLIGENCE</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                      
+                    </div>
+                  </div>
+                  <div style="margin-top: 0.5rem;">
+                    <a href="about.html" class="mega-menu-card-title" style="color: #8b6be5; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;"> OUR COMPANY</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-danger">Book a Demo</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Enhanced Hero Section -->
+<section class="hero-section">
+  <!-- Floating Elements -->
+  <div class="floating-element">
+    <i class="fas fa-leaf" style="font-size: 3rem; color: #28a745;"></i>
+  </div>
+  <div class="floating-element">
+    <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #007bff;"></i>
+  </div>
+  <div class="floating-element">
+    <i class="fas fa-globe" style="font-size: 3.5rem; color: #6f42c1;"></i>
+  </div>
+  
+  <div class="container hero-content">
+    <div class="row align-items-center justify-content-center flex-lg-row flex-column-reverse">
+      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-rocket me-2"></i>
+            Build resilience through data
+          </div>
+          <h1 class="hero-title">
+            AI Product Suite to achieve your sustainability Goal
+          </h1>
+          <p class="hero-subtitle">
+            Harness Environmental, Social, Governance (ESG) Data Intelligence, Optimize sustainability Intervention, and report across global standards with Impactree's Rubicr platform powered by AI & 26 Million Data Points
+          </p>
+          
+          <div class="hero-cta">
+            <a href="#" class="btn-hero-secondary">
+              <i class="fas fa-calendar me-2"></i>
+              Book a Demo
+            </a>
+          </div>
+          
+      
+        </div>
+      </div>
+      
+      <div class="col-lg-6 col-md-12 d-flex justify-content-center mb-4 mb-lg-0">
+        <div class="video-container">
+          <div class="video-wrapper">
+            <video 
+              class="hero-video" 
+              autoplay 
+              loop 
+              muted 
+              playsinline
+            >
+              <source src="assets/images/final.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- International Sustainability Benchmarks Section -->
+<section class="benchmarks-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 0rem 0 2rem 0;">
+  <div class="container">
+    <div class="benchmarks-logos-wrapper" >
+      <div class="benchmarks-logos">
+        <div class="benchmarks-logo"><img src="assets/images/standards/brsr.svg" alt="BRSR"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/carbon.png" alt="Carbon"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/certified.jpg" alt="Certified"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/csrd2.png" alt="CSRD"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/ghg.png" alt="GHG"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/gri.png" alt="GRI"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sasb.jpg" alt="SASB"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sbt.jpg" alt="SBT"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/tcfd.png" alt="TCFD"></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="benchmarks-logo"><img src="assets/images/standards/brsr.svg" alt="BRSR"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/carbon.png" alt="Carbon"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/certified.jpg" alt="Certified"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/csrd2.png" alt="CSRD"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/ghg.png" alt="GHG"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/gri.png" alt="GRI"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sasb.jpg" alt="SASB"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/sbt.jpg" alt="SBT"></div>
+        <div class="benchmarks-logo"><img src="assets/images/standards/tcfd.png" alt="TCFD"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Outcomes Section -->
+<section class="impact-outcomes-section" style="background: linear-gradient(135deg, #e7f3ff 0%, #f8fafc 100%); padding: 2.5rem 0 2rem 0;">
+  <div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 1100px;">
+    <div class="row align-items-center justify-content-center w-100" style="gap: 1.5rem 0;">
+      <!-- Left: Heading -->
+      <div class="col-lg-6 col-12 d-flex align-items-center justify-content-center mb-3 mb-lg-0" style="min-height: 100%;">
+        <h2 style="color:#1e4d72; font-size:4rem; font-weight:700; text-align:left; margin-bottom:0;">Organizations using Impactree's platforms have<br> achieved remarkable outcomes</h2>
+      </div>
+      <!-- Right: Cards stacked vertically -->
+      <div class="col-lg-6 col-12 d-flex flex-column gap-3 align-items-center" style="align-items: stretch !important;">
+        <div class="impact-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); padding: 2.5rem 2.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 950px; height: 220px; max-width: 100%; gap: 1.2rem;">
+          <div class="impact-number" style="font-size: 5rem; font-weight: 800; color: #007bff; margin-bottom: 0; letter-spacing: -2px; text-align: center; line-height: 1;">40X</div>
+          <div class="impact-desc" style="font-size: 1.18rem; color: #1e4d72; font-weight: 500; margin-bottom: 0; text-align: center; line-height: 1.3;">Return for Organizations having used our ESG and Social Impact Solutions</div>
+        </div>
+        <div class="impact-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); padding: 2.5rem 2.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 950px; height: 220px; max-width: 100%; gap: 1.2rem;">
+          <div class="impact-number" style="font-size: 5rem; font-weight: 800; color: #28a745; margin-bottom: 0; letter-spacing: -2px; text-align: center; line-height: 1;">388cr</div>
+          <div class="impact-desc" style="font-size: 1.18rem; color: #1e4d72; font-weight: 500; margin-bottom: 0; text-align: center; line-height: 1.3;">Cumulative Cost Savings, Increased Revenue and New Fundraise by Clients using Impactree's Compass platforms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Industries Map Section -->
+<section class="industries-map-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 2.5rem 0 2rem 0;">
+  <div class="container d-flex justify-content-center align-items-center flex-column">
+    <h2 style="text-align:center; color:#1e4d72; font-size:2rem; font-weight:700; margin-bottom:2rem;">Industries We Serve. Impact We Deliver.</h2>
+    <img src="assets/images/Industries_map.svg" alt="Industries Map" style="max-width:100%; height:auto; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); background: #fff; padding: 1rem;">
+  </div>
+</section>
+<!-- Client Section: Trusted by teams at -->
+<section class="trusted-by-section" style="background: linear-gradient(135deg, #e7f3ff 0%, #f8fafc 100%); padding: 2.5rem 0 2rem 0;">
+  <div class="container">
+    <p style="text-align:center; color:#6c757d; font-size:1.15rem; margin-bottom:2rem; font-weight:500;">Trusted by teams at</p>
+    <div class="scrolling-logos-wrapper" style="overflow:hidden; width:100%;">
+      <div class="company-logos" style="display:flex; align-items:center; gap:2.5rem; opacity:0.85; width:max-content; animation:slideLogos 30s linear infinite;">
+        <div class="company-logo"><img src="assets/images/clients/acgc.png" alt="Client 1"></div>
+        <div class="company-logo"><img src="assets/images/clients/Autoline1.png" alt="Client 2"></div>
+        <div class="company-logo"><img src="assets/images/clients/fine1.png" alt="Client 3"></div>
+        <div class="company-logo"><img src="assets/images/clients/l_t.png" alt="Client 4"></div>
+        <div class="company-logo"><img src="assets/images/clients/navin.png" alt="Client 5"></div>
+        <div class="company-logo"><img src="assets/images/clients/orient.png" alt="Client 6"></div>
+        <div class="company-logo"><img src="assets/images/clients/piramal.png" alt="Client 7"></div>
+        <div class="company-logo"><img src="assets/images/clients/redington.png" alt="Client 8"></div>
+        <div class="company-logo"><img src="assets/images/clients/skf.png" alt="Client 9"></div>
+        <div class="company-logo"><img src="assets/images/clients/tvs1.png" alt="Client 10"></div>
+        <!-- Duplicate logos for seamless loop -->
+        <div class="company-logo"><img src="assets/images/clients/acgc.png" alt="Client 1"></div>
+        <div class="company-logo"><img src="assets/images/clients/Autoline1.png" alt="Client 2"></div>
+        <div class="company-logo"><img src="assets/images/clients/fine1.png" alt="Client 3"></div>
+        <div class="company-logo"><img src="assets/images/clients/l_t.png" alt="Client 4"></div>
+        <div class="company-logo"><img src="assets/images/clients/navin.png" alt="Client 5"></div>
+        <div class="company-logo"><img src="assets/images/clients/orient.png" alt="Client 6"></div>
+        <div class="company-logo"><img src="assets/images/clients/piramal.png" alt="Client 7"></div>
+        <div class="company-logo"><img src="assets/images/clients/redington.png" alt="Client 8"></div>
+        <div class="company-logo"><img src="assets/images/clients/skf.png" alt="Client 9"></div>
+        <div class="company-logo"><img src="assets/images/clients/tvs1.png" alt="Client 10"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sustainability Matters Content Section (Enhanced) -->
+<section class="sustainability-matters-content-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 3.5rem 0 2.5rem 0;">
+  <div class="container">
+    <h2 style="text-align:center; color:#1e4d72; font-size:2.3rem; font-weight:800; margin-bottom:2.2rem; letter-spacing:-1px; position:relative;">
+      Sustainability Matters
+    </h2>
+    <!-- New row for the two top lines -->
+    <div class="row g-4 justify-content-center align-items-start">
+      <div class="col-lg-6 col-md-12">
+        <div class="sm-top-text" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0;">
+          With deep experience in sustainability management, we help organizations move from intent to impact.
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="sm-top-text d-none d-lg-block" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0;">
+          Failing to act on sustainability isn't just risky—it's expensive.
+        </div>
+      </div>
+    </div>
+    <!-- Cards row, now perfectly aligned -->
+    <div class="row g-4 justify-content-center align-items-start mt-3">
+      <!-- Left Column -->
+      <div class="col-lg-6 col-md-12">
+        <div class="d-flex flex-column gap-3">
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-chart-bar"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Turn Data into Business Intelligence</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Link ESG metrics to business outcomes and uncover clear, actionable insights.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-road"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Build a Future-Ready Roadmap</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Co-create long-term ESG strategies that drive resilience and growth.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-robot"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Leverage AI to Track and Optimize Data</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Use automation and smart tools to track, analyze, and improve ESG performance.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-file-alt"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Simplify Reporting & Compliance</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Simplify ESG reporting while meeting global standards with ease.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column -->
+      <div class="col-lg-6 col-md-12">
+        <div class="d-flex flex-column gap-3">
+          <!-- Mobile only: show 'Failing to act...' above the first red card -->
+          <div class="sm-top-text d-block d-lg-none" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">
+            Failing to act on sustainability isn't just risky—it's expensive.
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-hourglass-end"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Shortened Business Lifespan</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Companies without sustainability resilience risk fading in under 18 years.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-chart-line"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Lost Growth Opportunities</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Failing to align with ESG means losing ground to forward-thinking competitors.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-coins"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Missed Financial Optimization</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">Lack of ESG tracking leads to wasted efficiencies and missed investor interest.</span>
+            </div>
+          </div>
+          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
+            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-bolt"></i></span>
+            <div>
+              <strong style="font-size:1.08rem;">Brand Damage Happens Fast</strong><br>
+              <span style="color:#4a5568; font-size:0.98rem;">ESG gaps can quickly damage brand trust in today's conscious market.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Climb Your Everest With Confidence Section (Cards Top/Bottom Left) -->
+<section class="everest-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 3.5rem 0 2.5rem 0;">
+  <div class="container">
+    <h2 style="text-align:center; color:#1e4d72; font-size:2.2rem; font-weight:800; margin-bottom:1.2rem; letter-spacing:-1px;">Climb Your Everest With Confidence</h2>
+    <div style="text-align:center; color:#4a5568; font-size:1.15rem; font-weight:500; max-width:800px; margin:0 auto 2.2rem auto;">
+      Every organization faces its own sustainability Everest. With the right tools, the climb becomes strategic—not overwhelming.<span style="font-weight:1000; font-style:italic;"> Impactree's Compass and Navigator Series </span>help you assess your baseline, plan smartly, and scale with resilience.
+    </div>
+    <div class="everest-image-wrapper" style="position:relative; display:flex; justify-content:center; align-items:center;">
+      <img src="assets/images/Everest landing.jpg" alt="Everest" style="max-width:100%; border-radius:22px; box-shadow:0 8px 32px rgba(30,77,114,0.13);">
+      <!-- Overlayed Cards (Left and Right) -->
+      <div class="d-none d-md-block">
+        <a href="compass.html" style="text-decoration:none; color:inherit;">
+        <div class="everest-card-left everest-card" style="cursor:pointer;">
+          <div style="font-size:1.15rem; font-weight:700; color:#007bff; margin-bottom:0.5rem;">The Compass Series</div>
+          <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Your 360° ESG Starting Point</div>
+          <div style="font-size:0.98rem; color:#4a5568; margin-bottom:0.7rem;">Set your sustainability baseline, define clear goals, and track progress across 15 ESG pillars—from insight to action.
+          </div>
+          <div style="font-size:0.98rem; color:#28a745; font-weight:600;">Scope the ground—Everest becomes easy.</div>
+        </div>
+        </a>
+        <a href="navigator.html" style="text-decoration:none; color:inherit;">
+        <div class="everest-card-right everest-card navigator" style="cursor:pointer;">
+          <div style="font-size:1.15rem; font-weight:700; color:#8b6be5; margin-bottom:0.5rem;">The Navigator Series</div>
+          <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Custom-Built for the Journey Ahead</div>
+          <div style="font-size:0.98rem; color:#4a5568;">Once you know your path, Navigator helps you climb smarter—with bespoke, customized tools for ESG risk, forecasting, and strategy.
+          </div>
+          <div style="font-size:0.98rem; color:#28a745; font-weight:600;">With the right map, every summit is within reach.</div>
+        </div>
+        </a>
+      </div>
+    </div>
+    <!-- Mobile Cards (stacked below image) -->
+    <div class="d-flex d-md-none flex-column gap-4 mt-4">
+      <a href="compass.html" style="text-decoration:none; color:inherit;">
+      <div class="everest-card" style="cursor:pointer;">
+        <div style="font-size:1.15rem; font-weight:700; color:#007bff; margin-bottom:0.5rem;">The Compass Series</div>
+        <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Your 360° ESG Starting Point</div>
+        <div style="font-size:0.98rem; color:#4a5568; margin-bottom:0.7rem;">Before you can climb, you must scope the ground. The Compass suite helps you set a baseline, define Sustainability goals, and set targets across 15 core sustainability pillars—so you can move from insight to action with clarity.</div>
+        <div style="font-size:0.98rem; color:#28a745; font-weight:600;">Scope the ground—Everest becomes easy.</div>
+      </div>
+      </a>
+      <a href="navigator.html" style="text-decoration:none; color:inherit;">
+      <div class="everest-card navigator" style="cursor:pointer;">
+        <div style="font-size:1.15rem; font-weight:700; color:#8b6be5; margin-bottom:0.5rem;">The Navigator Series</div>
+        <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Custom-Built for the Journey Ahead</div>
+        <div style="font-size:0.98rem; color:#4a5568;">When you know your Everest, you need precision tools to scale it. The Navigator series delivers bespoke, customized solutions tailored to your organization's evolving ESG and sustainability needs—from risk intelligence to future forecasting.</div>
+      </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes slideLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.company-logo img {
+  width: 80px;
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: transform 0.3s ease, filter 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+.company-logo:hover img {
+  transform: scale(1.1);
+  filter: grayscale(1);
+}
+@media (max-width: 768px) {
+  .company-logos {
+    gap: 1.5rem !important;
+  }
+  .company-logo {
+    font-size: 1.25rem;
+  }
+  .company-logo img {
+    width: 56px;
+    height: 28px;
+  }
+}
+.benchmarks-logos-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+ 
+}
+.benchmarks-logos {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  min-width: 2000px;
+  width: max-content;
+  margin-top: 30px;
+  animation: slideBenchmarks 28s linear infinite;
+}
+@keyframes slideBenchmarks {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.benchmarks-logo {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(30,77,114,0.04);
+  padding: 8px;
+}
+.benchmarks-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(0.2) contrast(1.1);
+  transition: filter 0.3s, transform 0.3s;
+  display: block;
+}
+.benchmarks-logo img:hover {
+  filter: grayscale(0) contrast(1.2) drop-shadow(0 2px 8px rgba(30,77,114,0.08));
+  transform: scale(1.08);
+}
+.benchmarks-logos::-webkit-scrollbar {
+  display: none;
+}
+.benchmarks-logos-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media (max-width: 768px) {
+  .benchmarks-logos {
+    gap: 1.2rem;
+    min-width: 1200px;
+  }
+  .benchmarks-logo {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+  }
+}
+.everest-card {
+  min-height: 260px;         /* Slightly increased height */
+  max-width: 300px;          /* Slightly increased width */
+  width: 300px;              /* Force same width for both cards */
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,77,114,0.10);
+  padding: 1.2rem 1.1rem;    /* Slightly increased padding for balance */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 5px solid #007bff;
+  overflow: hidden;
+  word-break: break-word;
+  box-sizing: border-box;
+  gap: 0.8rem;               /* Slightly increased gap between children */
+}
+.everest-card.navigator {
+  border-left: 5px solid #8b6be5;
+  /* No width/height override, inherits from .everest-card */
+}
+/* Add gap between paragraphs inside the cards and consistent line spacing */
+.everest-card > div {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+.everest-card > div:last-child {
+  margin-bottom: 0;
+}
+.everest-cards-stack {
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 2;
+}
+.everest-card-left {
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  width: 320px;
+  z-index: 2;
+}
+.everest-card-right {
+  position: absolute;
+  top: 6%;
+  right: 3%;
+  width: 320px;
+  z-index: 2;
+}
+@media (max-width: 767.98px) {
+  .everest-card {
+    min-height: unset;
+    max-width: 100%;
+  }
+}
+.sm-top-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.13rem;
+  color: #1e4d72;
+  font-weight: 600;
+}
+.sm-card:nth-child(4) {
+  min-height: 120px; /* Ensures 4th card in each column matches height */
+}
+/* --- Improved mobile responsiveness for hero section --- */
+@media (max-width: 991.98px) {
+  .hero-section {
+    padding: 1.2rem 0 1rem 0;
+  }
+  .hero-content {
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    padding: 0.5rem 0 !important;
+    text-align: center;
+  }
+  .hero-text {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  .hero-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero-badge {
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    margin-bottom: 0.7rem;
+    display: inline-block;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  .video-container, .video-wrapper, .hero-video {
+    max-height: 300px !important;
+    min-height: unset;
+  }
+  .video-wrapper {
+    max-width: 98%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 0.7rem 0 0.5rem 0;
+  }
+  .hero-title {
+    font-size: 1.1rem !important;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.7rem;
+  }
+  .hero-badge {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .hero-cta {
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+  .video-container, .video-wrapper, .hero-video {
+    max-height: 220px !important;
+  }
+}
+/* --- End of mobile hero section refinements --- */
+@media (max-width: 991.98px) {
+  .mega-menu {
+    position: relative;
+    width: 100vw;
+    left: 0 !important;
+    right: 0 !important;
+    min-width: 0;
+    max-width: 100vw;
+    overflow-x: auto;
+    box-shadow: none;
+    background-color: #f8f9fa;
+    padding: 1rem 0.5rem;
+    margin-top: 0.5rem;
+    max-height: none;
+  }
+  .mega-menu-content {
+    padding: 1rem 0.5rem;
+    min-width: 0;
+    max-width: 100vw;
+    overflow-x: auto;
+  }
+  .mega-menu-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+    min-width: 0;
+    max-width: 100vw;
+  }
+}
+@media (max-width: 991.98px) {
+  .nav-item.dropdown .fa-chevron-down {
+    transition: transform 0.3s;
+  }
+  .nav-item.dropdown.open .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+@media (max-width: 991.98px) {
+  .impact-card {
+    width: 100% !important;
+    height: auto !important;
+    min-width: unset !important;
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .impact-card {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 1rem !important;
+    padding: 2rem 1rem !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .impact-number {
+    min-width: unset !important;
+  }
+  .impact-desc {
+    font-size: 1.05rem !important;
+    justify-content: center !important;
+  }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+  dropdownItems.forEach(function(dropdown) {
+    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+    const megaMenu = dropdown.querySelector('.mega-menu');
+    let hoverTimeout;
+    dropdown.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+      document.querySelectorAll('.mega-menu').forEach(menu => {
+        if (menu !== megaMenu) {
+          menu.classList.remove('show');
+        }
+      });
+      if (megaMenu) {
+        megaMenu.classList.add('show');
+      }
+    });
+    dropdown.addEventListener('mouseleave', function() {
+      hoverTimeout = setTimeout(() => {
+        if (megaMenu) {
+          megaMenu.classList.remove('show');
+        }
+      }, 150);
+    });
+    if (megaMenu) {
+      megaMenu.addEventListener('mouseenter', function() {
+        clearTimeout(hoverTimeout);
+      });
+      megaMenu.addEventListener('mouseleave', function() {
+        megaMenu.classList.remove('show');
+      });
+    }
+  });
+  
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.nav-item.dropdown')) {
+      document.querySelectorAll('.mega-menu').forEach(menu => {
+        menu.classList.remove('show');
+      });
+    }
+  });
+  
+  if (window.innerWidth <= 991) {
+    dropdownItems.forEach(function(dropdown) {
+      const dropdownToggle = dropdown.querySelector('.nav-link');
+      const megaMenu = dropdown.querySelector('.mega-menu');
+      dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Toggle this menu
+        const isOpen = dropdown.classList.contains('open');
+        // Close all other menus
+        document.querySelectorAll('.nav-item.dropdown').forEach(item => {
+          item.classList.remove('open');
+          const menu = item.querySelector('.mega-menu');
+          if (menu) menu.classList.remove('show');
+        });
+        // Toggle this one
+        if (!isOpen) {
+          dropdown.classList.add('open');
+          if (megaMenu) megaMenu.classList.add('show');
+        }
+      });
+      // Sidebar accordion logic for mobile
+      if (megaMenu) {
+        const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
+        const contentSections = megaMenu.querySelectorAll('.content-section');
+        sidebarTitles.forEach(function(title) {
+          title.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = this.dataset.section;
+            const isActive = this.classList.contains('active');
+            // Collapse all
+            sidebarTitles.forEach(t => t.classList.remove('active'));
+            contentSections.forEach(section => {
+              section.style.display = 'none';
+            });
+            // Expand if not already active
+            if (!isActive) {
+              this.classList.add('active');
+              const targetContent = megaMenu.querySelector('#' + targetSection + '-content');
+              if (targetContent) {
+                targetContent.style.display = 'block';
+              }
+            }
+          });
+        });
+      }
+    });
+  } else {
+    // Desktop hover logic for sidebar
+    dropdownItems.forEach(function(dropdown) {
+      const megaMenu = dropdown.querySelector('.mega-menu');
+      const sidebarTitles = megaMenu ? megaMenu.querySelectorAll('.sidebar-title') : [];
+      const contentSections = megaMenu ? megaMenu.querySelectorAll('.content-section') : [];
+      sidebarTitles.forEach(function(title) {
+        title.addEventListener('mouseenter', function() {
+          const targetSection = this.dataset.section;
+          sidebarTitles.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          contentSections.forEach(section => {
+            section.style.display = 'none';
+          });
+          const targetContent = megaMenu.querySelector('#' + targetSection + '-content');
+          if (targetContent) {
+            targetContent.style.display = 'block';
+          }
+        });
+      });
+    });
+  }
+  
+  // Animate stats on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = entry.target.dataset.delay || '0s';
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.stat-item').forEach((item, index) => {
+    item.dataset.delay = `${index * 0.2}s`;
+    observer.observe(item);
+  });
+  
+  // Add smooth scroll behavior
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Add parallax effect to floating elements
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.floating-element');
+    
+    parallaxElements.forEach((element, index) => {
+      const speed = 0.5 + (index * 0.1);
+      element.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+});
+</script>
 </body>
 </html>
