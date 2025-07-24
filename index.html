@@ -116,7 +116,7 @@
                   </div>
                 </div>
                 <div class="sidebar-section">
-                  <div class="sidebar-title"data-section="eden">
+                  <div class="sidebar-title" data-section="eden">
                     Eden
                     <i class="fas fa-chevron-right sidebar-arrow"></i>
                   </div>
@@ -169,10 +169,11 @@
                             Competitor Benchmarking Sentinel
                             </div>
                           </div>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
-          </div>
         </li>
        
         <li class="nav-item dropdown">
@@ -202,7 +203,7 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-        <button class="btn btn-danger">Book a Demo</button>
+        <a href="demo.html" class="btn btn-danger">Book a Demo</a>
       </div>
     </div>
   </div>
@@ -222,31 +223,10 @@
   </div>
   
   <div class="container hero-content">
-    <div class="row align-items-center justify-content-center flex-lg-row flex-column-reverse">
-      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
-        <div class="hero-text">
-          <div class="hero-badge">
-            <i class="fas fa-rocket me-2"></i>
-            Build resilience through data
-          </div>
-          <h1 class="hero-title">
-            AI Product Suite to achieve your sustainability Goal
-          </h1>
-          <p class="hero-subtitle">
-            Harness Environmental, Social, Governance (ESG) Data Intelligence, Optimize sustainability Intervention, and report across global standards with Impactree's Rubicr platform powered by AI & 26 Million Data Points
-          </p>
-          
-          <div class="hero-cta">
-            <a href="#" class="btn-hero-secondary">
-              <i class="fas fa-calendar me-2"></i>
-              Book a Demo
-            </a>
-          </div>
-          
+    <!-- Changed order of columns for desktop (flex-lg-row-reverse) -->
+    <div class="row align-items-center justify-content-center flex-lg-row-reverse flex-column-reverse">
       
-        </div>
-      </div>
-      
+      <!-- Video Column - now on the right for large screens -->
       <div class="col-lg-6 col-md-12 d-flex justify-content-center mb-4 mb-lg-0">
         <div class="video-container">
           <div class="video-wrapper">
@@ -264,13 +244,36 @@
           </div>
         </div>
       </div>
+
+      <!-- Text Column - now on the left for large screens -->
+      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-rocket me-2"></i>
+            Build resilience through data
+          </div>
+          <h1 class="hero-title">
+            AI Product Suite to achieve your sustainability Goal
+          </h1>
+          <p class="hero-subtitle">
+            Harness Environmental, Social, Governance (ESG) Data Intelligence, Optimize sustainability Intervention, and report across global standards with Impactree's Rubicr platform powered by AI & 26 Million Data Points
+          </p>
+          
+          <div class="hero-cta">
+            <a href="demo.html" class="btn btn-hero-secondary">
+              <i class="fas fa-calendar me-2"></i> Book a Demo
+            </a>
+          </div>
+          
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- International Sustainability Benchmarks Section -->
-<section class="benchmarks-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 0rem 0 2rem 0;">
-  <div class="container">
+<section class="benchmarks-section" style="background: #E7E8E2; padding: 0rem 0 2rem 0;">
+  <div class="container benchmarks-container">
     <div class="benchmarks-logos-wrapper" >
       <div class="benchmarks-logos">
         <div class="benchmarks-logo"><img src="assets/images/standards/brsr.svg" alt="BRSR"></div>
@@ -298,22 +301,38 @@
 </section>
 
 <!-- Impact Outcomes Section -->
-<section class="impact-outcomes-section" style="background: linear-gradient(135deg, #e7f3ff 0%, #f8fafc 100%); padding: 2.5rem 0 2rem 0;">
+<section class="impact-outcomes-section" style="background: #FFFFFF; padding: 2.5rem 0 2rem 0;">
   <div class="container d-flex flex-column align-items-center justify-content-center" style="max-width: 1100px;">
     <div class="row align-items-center justify-content-center w-100" style="gap: 1.5rem 0;">
       <!-- Left: Heading -->
       <div class="col-lg-6 col-12 d-flex align-items-center justify-content-center mb-3 mb-lg-0" style="min-height: 100%;">
         <h2 style="color:#1e4d72; font-size:4rem; font-weight:700; text-align:left; margin-bottom:0;">Organizations using Impactree's platforms have<br> achieved remarkable outcomes</h2>
       </div>
-      <!-- Right: Cards stacked vertically -->
+      <!-- Right: Flippable Cards -->
       <div class="col-lg-6 col-12 d-flex flex-column gap-3 align-items-center" style="align-items: stretch !important;">
-        <div class="impact-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); padding: 2.5rem 2.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 950px; height: 220px; max-width: 100%; gap: 1.2rem;">
-          <div class="impact-number" style="font-size: 5rem; font-weight: 800; color: #007bff; margin-bottom: 0; letter-spacing: -2px; text-align: center; line-height: 1;">40X</div>
-          <div class="impact-desc" style="font-size: 1.18rem; color: #1e4d72; font-weight: 500; margin-bottom: 0; text-align: center; line-height: 1.3;">Return for Organizations having used our ESG and Social Impact Solutions</div>
+        <div class="flip-card-container">
+          <div class="flip-card">
+            <div class="flip-card-front">
+              <div class="flip-number">40X</div>
+              <div class="flip-desc">Return for Organizations having used our ESG and Social Impact Solutions</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-number">40X</div>
+              <div class="flip-desc">Our clients achieve 40 times greater returns on their sustainability investments compared to industry averages.</div>
+            </div>
+          </div>
         </div>
-        <div class="impact-card" style="background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); padding: 2.5rem 2.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 950px; height: 220px; max-width: 100%; gap: 1.2rem;">
-          <div class="impact-number" style="font-size: 5rem; font-weight: 800; color: #28a745; margin-bottom: 0; letter-spacing: -2px; text-align: center; line-height: 1;">388cr</div>
-          <div class="impact-desc" style="font-size: 1.18rem; color: #1e4d72; font-weight: 500; margin-bottom: 0; text-align: center; line-height: 1.3;">Cumulative Cost Savings, Increased Revenue and New Fundraise by Clients using Impactree's Compass platforms</div>
+        <div class="flip-card-container">
+          <div class="flip-card">
+            <div class="flip-card-front">
+              <div class="flip-number">388cr</div>
+              <div class="flip-desc">Cumulative Cost Savings, Increased Revenue and New Fundraise by Clients using Impactree's Compass platforms</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-number">388cr</div>
+              <div class="flip-desc">Impactree clients have collectively achieved ₹388 crores in financial benefits through cost savings, revenue growth, and new funding.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -323,14 +342,14 @@
 
 
 <!-- Industries Map Section -->
-<section class="industries-map-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 2.5rem 0 2rem 0;">
+<section class="industries-map-section" style="background: #E7E8E2; padding: 2.5rem 0 2rem 0;">
   <div class="container d-flex justify-content-center align-items-center flex-column">
     <h2 style="text-align:center; color:#1e4d72; font-size:2rem; font-weight:700; margin-bottom:2rem;">Industries We Serve. Impact We Deliver.</h2>
     <img src="assets/images/Industries_map.svg" alt="Industries Map" style="max-width:100%; height:auto; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); background: #fff; padding: 1rem;">
   </div>
 </section>
 <!-- Client Section: Trusted by teams at -->
-<section class="trusted-by-section" style="background: linear-gradient(135deg, #e7f3ff 0%, #f8fafc 100%); padding: 2.5rem 0 2rem 0;">
+<section class="trusted-by-section" style="background: #FFFFFF; padding: 2.5rem 0 2rem 0;">
   <div class="container">
     <p style="text-align:center; color:#6c757d; font-size:1.15rem; margin-bottom:2rem; font-weight:500;">Trusted by teams at</p>
     <div class="scrolling-logos-wrapper" style="overflow:hidden; width:100%;">
@@ -345,7 +364,7 @@
         <div class="company-logo"><img src="assets/images/clients/redington.png" alt="Client 8"></div>
         <div class="company-logo"><img src="assets/images/clients/skf.png" alt="Client 9"></div>
         <div class="company-logo"><img src="assets/images/clients/tvs1.png" alt="Client 10"></div>
-        <!-- Duplicate logos for seamless loop -->
+        <!-- Duplicate for seamless loop -->
         <div class="company-logo"><img src="assets/images/clients/acgc.png" alt="Client 1"></div>
         <div class="company-logo"><img src="assets/images/clients/Autoline1.png" alt="Client 2"></div>
         <div class="company-logo"><img src="assets/images/clients/fine1.png" alt="Client 3"></div>
@@ -361,93 +380,81 @@
   </div>
 </section>
 
-<!-- Sustainability Matters Content Section (Enhanced) -->
-<section class="sustainability-matters-content-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 3.5rem 0 2.5rem 0;">
+<!-- Sustainability Matters Content Section -->
+<section class="sustainability-matters-content-section">
   <div class="container">
-    <h2 style="text-align:center; color:#1e4d72; font-size:2.3rem; font-weight:800; margin-bottom:2.2rem; letter-spacing:-1px; position:relative;">
-      Sustainability Matters
-    </h2>
-    <!-- New row for the two top lines -->
-    <div class="row g-4 justify-content-center align-items-start">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-5">
+        <h2 class="sm-main-title">Sustainability Matters</h2>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
       <div class="col-lg-6 col-md-12">
-        <div class="sm-top-text" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0;">
-          With deep experience in sustainability management, we help organizations move from intent to impact.
+        <div class="sm-top-text">
+          We help organizations turn sustainability goals into measurable results.
+        </div>
+        <div class="sm-cards-container">
+          <div class="sm-card">
+            <span class="sm-card-icon"><i class="fas fa-chart-bar"></i></span>
+            <div>
+              <h3 class="sm-card-title">Turn Data into Business Intelligence</h3>
+              <p class="sm-card-desc">Link ESG metrics to business outcomes and uncover clear, actionable insights.</p>
+            </div>
+          </div>
+          <div class="sm-card">
+            <span class="sm-card-icon"><i class="fas fa-road"></i></span>
+            <div>
+              <h3 class="sm-card-title">Build a Future-Ready Roadmap</h3>
+              <p class="sm-card-desc">Co-create long-term ESG strategies that drive resilience and growth.</p>
+            </div>
+          </div>
+          <div class="sm-card">
+            <span class="sm-card-icon"><i class="fas fa-robot"></i></span>
+            <div>
+              <h3 class="sm-card-title">Leverage AI to Track and Optimize Data</h3>
+              <p class="sm-card-desc">Use automation and smart tools to track, analyze, and improve ESG performance.</p>
+            </div>
+          </div>
+          <div class="sm-card">
+            <span class="sm-card-icon"><i class="fas fa-file-alt"></i></span>
+            <div>
+              <h3 class="sm-card-title">Simplify Reporting & Compliance</h3>
+              <p class="sm-card-desc">Simplify ESG reporting while meeting global standards with ease and accuracy.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-6 col-md-12">
-        <div class="sm-top-text d-none d-lg-block" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0;">
+        <div class="sm-top-text">
           Failing to act on sustainability isn't just risky—it's expensive.
         </div>
-      </div>
-    </div>
-    <!-- Cards row, now perfectly aligned -->
-    <div class="row g-4 justify-content-center align-items-start mt-3">
-      <!-- Left Column -->
-      <div class="col-lg-6 col-md-12">
-        <div class="d-flex flex-column gap-3">
-          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-chart-bar"></i></span>
+        <div class="sm-cards-container">
+          <div class="sm-card danger-card">
+            <span class="sm-card-icon danger-icon"><i class="fas fa-hourglass-end"></i></span>
             <div>
-              <strong style="font-size:1.08rem;">Turn Data into Business Intelligence</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Link ESG metrics to business outcomes and uncover clear, actionable insights.</span>
+              <h3 class="sm-card-title">Shortened Business Lifespan</h3>
+              <p class="sm-card-desc">Companies without sustainability resilience risk fading in under 18 years.</p>
             </div>
           </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-road"></i></span>
+          <div class="sm-card danger-card">
+            <span class="sm-card-icon danger-icon"><i class="fas fa-chart-line"></i></span>
             <div>
-              <strong style="font-size:1.08rem;">Build a Future-Ready Roadmap</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Co-create long-term ESG strategies that drive resilience and growth.</span>
+              <h3 class="sm-card-title">Lost Growth Opportunities</h3>
+              <p class="sm-card-desc">Failing to align with ESG means losing ground to forward-thinking competitors.</p>
             </div>
           </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-robot"></i></span>
+          <div class="sm-card danger-card">
+            <span class="sm-card-icon danger-icon"><i class="fas fa-coins"></i></span>
             <div>
-              <strong style="font-size:1.08rem;">Leverage AI to Track and Optimize Data</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Use automation and smart tools to track, analyze, and improve ESG performance.</span>
+              <h3 class="sm-card-title">Missed Financial Optimization</h3>
+              <p class="sm-card-desc">Lack of ESG tracking leads to wasted efficiencies and missed investor interest.</p>
             </div>
           </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #007bff; border-radius:14px; box-shadow:0 4px 24px rgba(30,77,114,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#e7f3ff; color:#007bff; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-file-alt"></i></span>
+          <div class="sm-card danger-card">
+            <span class="sm-card-icon danger-icon"><i class="fas fa-bolt"></i></span>
             <div>
-              <strong style="font-size:1.08rem;">Simplify Reporting & Compliance</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Simplify ESG reporting while meeting global standards with ease.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Right Column -->
-      <div class="col-lg-6 col-md-12">
-        <div class="d-flex flex-column gap-3">
-          <!-- Mobile only: show 'Failing to act...' above the first red card -->
-          <div class="sm-top-text d-block d-lg-none" style="font-size:1.13rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">
-            Failing to act on sustainability isn't just risky—it's expensive.
-          </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-hourglass-end"></i></span>
-            <div>
-              <strong style="font-size:1.08rem;">Shortened Business Lifespan</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Companies without sustainability resilience risk fading in under 18 years.</span>
-            </div>
-          </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-chart-line"></i></span>
-            <div>
-              <strong style="font-size:1.08rem;">Lost Growth Opportunities</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Failing to align with ESG means losing ground to forward-thinking competitors.</span>
-            </div>
-          </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-coins"></i></span>
-            <div>
-              <strong style="font-size:1.08rem;">Missed Financial Optimization</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">Lack of ESG tracking leads to wasted efficiencies and missed investor interest.</span>
-            </div>
-          </div>
-          <div class="sm-card" style="background:#fff; border-left:5px solid #dc3545; border-radius:14px; box-shadow:0 4px 24px rgba(220,53,69,0.10); padding:1.5rem 1.2rem; display:flex; align-items:flex-start; gap:1rem; transition:box-shadow 0.3s, transform 0.3s;">
-            <span style="background:#fbeaec; color:#dc3545; border-radius:50%; padding:0.7rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem;"><i class="fas fa-bolt"></i></span>
-            <div>
-              <strong style="font-size:1.08rem;">Brand Damage Happens Fast</strong><br>
-              <span style="color:#4a5568; font-size:0.98rem;">ESG gaps can quickly damage brand trust in today's conscious market.</span>
+              <h3 class="sm-card-title">Brand Damage Happens Fast</h3>
+              <p class="sm-card-desc">ESG gaps can damage brand trust in today's conscious market.</p>
             </div>
           </div>
         </div>
@@ -456,60 +463,192 @@
   </div>
 </section>
 
-<!-- Climb Your Everest With Confidence Section (Cards Top/Bottom Left) -->
-<section class="everest-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e7f3ff 100%); padding: 3.5rem 0 2.5rem 0;">
+<!-- Climb Your Everest With Confidence Section -->
+<section class="everest-section">
   <div class="container">
-    <h2 style="text-align:center; color:#1e4d72; font-size:2.2rem; font-weight:800; margin-bottom:1.2rem; letter-spacing:-1px;">Climb Your Everest With Confidence</h2>
-    <div style="text-align:center; color:#4a5568; font-size:1.15rem; font-weight:500; max-width:800px; margin:0 auto 2.2rem auto;">
-      Every organization faces its own sustainability Everest. With the right tools, the climb becomes strategic—not overwhelming.<span style="font-weight:1000; font-style:italic;"> Impactree's Compass and Navigator Series </span>help you assess your baseline, plan smartly, and scale with resilience.
+    <div class="everest-header text-center">
+      <h2 class="everest-title">Climb Your Everest With Confidence</h2>
+      <p class="everest-subtitle">
+        Every organization faces its own sustainability Everest. With the right tools, the climb becomes strategic—not overwhelming. 
+        <span class="highlight">Impactree's Compass and Navigator Series</span> help you assess your baseline, plan smartly, and scale with resilience.
+      </p>
     </div>
-    <div class="everest-image-wrapper" style="position:relative; display:flex; justify-content:center; align-items:center;">
-      <img src="assets/images/Everest landing.jpg" alt="Everest" style="max-width:100%; border-radius:22px; box-shadow:0 8px 32px rgba(30,77,114,0.13);">
-      <!-- Overlayed Cards (Left and Right) -->
-      <div class="d-none d-md-block">
-        <a href="compass.html" style="text-decoration:none; color:inherit;">
-        <div class="everest-card-left everest-card" style="cursor:pointer;">
-          <div style="font-size:1.15rem; font-weight:700; color:#007bff; margin-bottom:0.5rem;">The Compass Series</div>
-          <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Your 360° ESG Starting Point</div>
-          <div style="font-size:0.98rem; color:#4a5568; margin-bottom:0.7rem;">Set your sustainability baseline, define clear goals, and track progress across 15 ESG pillars—from insight to action.
+    
+    <div class="everest-content-wrapper">
+      <div class="everest-background">
+        <!-- Background image will be set via CSS -->
+      </div>
+      
+      <div class="everest-cards-container">
+        <div class="everest-card compass-card">
+          <div class="card-icon">
+            <i class="fas fa-compass"></i>
           </div>
-          <div style="font-size:0.98rem; color:#28a745; font-weight:600;">Scope the ground—Everest becomes easy.</div>
+          <h3 class="card-title">The Compass Series</h3>
+          <p class="card-subtitle">Your 360° ESG Starting Point</p>
+          <p class="card-description">
+            Set your sustainability baseline, define clear goals, and track progress across 15 ESG pillars—from insight to action.
+          </p>
+          <p class="card-tagline">Scope the ground—Everest becomes easy.</p>
+          <a href="compass.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
-        </a>
-        <a href="navigator.html" style="text-decoration:none; color:inherit;">
-        <div class="everest-card-right everest-card navigator" style="cursor:pointer;">
-          <div style="font-size:1.15rem; font-weight:700; color:#8b6be5; margin-bottom:0.5rem;">The Navigator Series</div>
-          <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Custom-Built for the Journey Ahead</div>
-          <div style="font-size:0.98rem; color:#4a5568;">Once you know your path, Navigator helps you climb smarter—with bespoke, customized tools for ESG risk, forecasting, and strategy.
+        
+        <div class="everest-card navigator-card">
+          <div class="card-icon">
+            <i class="fas fa-map-signs"></i>
           </div>
-          <div style="font-size:0.98rem; color:#28a745; font-weight:600;">With the right map, every summit is within reach.</div>
+          <h3 class="card-title">The Navigator Series</h3>
+          <p class="card-subtitle">Custom-Built for the Journey Ahead</p>
+          <p class="card-description">
+            Once you know your path, Navigator helps you climb smarter—with bespoke, customized tools for ESG risk, forecasting, and strategy.
+          </p>
+          <p class="card-tagline">With the right map, every summit is within reach.</p>
+          <a href="navigator.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
-        </a>
       </div>
-    </div>
-    <!-- Mobile Cards (stacked below image) -->
-    <div class="d-flex d-md-none flex-column gap-4 mt-4">
-      <a href="compass.html" style="text-decoration:none; color:inherit;">
-      <div class="everest-card" style="cursor:pointer;">
-        <div style="font-size:1.15rem; font-weight:700; color:#007bff; margin-bottom:0.5rem;">The Compass Series</div>
-        <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Your 360° ESG Starting Point</div>
-        <div style="font-size:0.98rem; color:#4a5568; margin-bottom:0.7rem;">Before you can climb, you must scope the ground. The Compass suite helps you set a baseline, define Sustainability goals, and set targets across 15 core sustainability pillars—so you can move from insight to action with clarity.</div>
-        <div style="font-size:0.98rem; color:#28a745; font-weight:600;">Scope the ground—Everest becomes easy.</div>
-      </div>
-      </a>
-      <a href="navigator.html" style="text-decoration:none; color:inherit;">
-      <div class="everest-card navigator" style="cursor:pointer;">
-        <div style="font-size:1.15rem; font-weight:700; color:#8b6be5; margin-bottom:0.5rem;">The Navigator Series</div>
-        <div style="font-size:1.02rem; color:#1e4d72; font-weight:600; margin-bottom:0.7rem;">Custom-Built for the Journey Ahead</div>
-        <div style="font-size:0.98rem; color:#4a5568;">When you know your Everest, you need precision tools to scale it. The Navigator series delivers bespoke, customized solutions tailored to your organization's evolving ESG and sustainability needs—from risk intelligence to future forecasting.</div>
-      </div>
-      </a>
     </div>
   </div>
 </section>
 
+<!-- Footer Section -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <h5 style="color: #fff; font-weight: 700; margin-bottom: 1.5rem;">Impactree</h5>
+        <p style="color: #bbb;">Driving sustainable impact through data intelligence and innovative solutions.</p>
+        <div class="social-links mt-3">
+          <a href="#" style="color: #bbb; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" style="color: #bbb; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color: #bbb; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" style="color: #bbb; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 style="color: #fff; font-weight: 700; margin-bottom: 1.5rem;">Products</h5>
+        <ul class="list-unstyled">
+          <li style="margin-bottom: 0.7rem;"><a href="compass.html" style="color: #bbb; text-decoration: none;">Compass Series</a></li>
+          <li style="margin-bottom: 0.7rem;"><a href="navigator.html" style="color: #bbb; text-decoration: none;">Navigator Series</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 style="color: #fff; font-weight: 700; margin-bottom: 1.5rem;">Innovations</h5>
+        <ul class="list-unstyled">
+          <li style="margin-bottom: 0.7rem;"><a href="#" style="color: #bbb; text-decoration: none;">Our Fractals</a></li>
+          <li style="margin-bottom: 0.7rem;"><a href="#" style="color: #bbb; text-decoration: none;">Eden</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 style="color: #fff; font-weight: 700; margin-bottom: 1.5rem;">About Us</h5>
+        <ul class="list-unstyled">
+          <li style="margin-bottom: 0.7rem;"><a href="about.html" style="color: #bbb; text-decoration: none;">Our Company</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 style="color: #fff; font-weight: 700; margin-bottom: 1.5rem;">Resources</h5>
+        <ul class="list-unstyled">
+          <li style="margin-bottom: 0.7rem;"><a href="#" style="color: #bbb; text-decoration: none;">Blog</a></li>
+          <li style="margin-bottom: 0.7rem;"><a href="#" style="color: #bbb; text-decoration: none;">Case Studies</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr style="border-color: #3a5f86; margin-top: 2rem; margin-bottom: 1.5rem;">
+    <div class="row">
+      <div class="col-12 text-center" style="color: #bbb;">
+        &copy; 2025 Impactree. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mega Menu functionality
+    const productsDropdown = document.getElementById('productsDropdown');
+    const productsMegaMenu = document.getElementById('productsMegaMenu');
+    const innovationsDropdown = document.getElementById('innovationsDropdown');
+    const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
+    const aboutDropdown = document.getElementById('aboutDropdown');
+    const aboutMegaMenu = document.getElementById('aboutMegaMenu');
+
+    function toggleMegaMenu(dropdown, megaMenu) {
+      const isShowing = megaMenu.classList.contains('show');
+      // Close all other mega menus
+      document.querySelectorAll('.mega-menu.show').forEach(menu => {
+        if (menu !== megaMenu) {
+          menu.classList.remove('show');
+          menu.previousElementSibling.classList.remove('open'); // Remove 'open' class from parent dropdown
+        }
+      });
+      // Toggle current mega menu
+      megaMenu.classList.toggle('show');
+      dropdown.classList.toggle('open', !isShowing); // Add/remove 'open' class for arrow rotation
+    }
+
+    productsDropdown.addEventListener('click', function(event) {
+      event.preventDefault();
+      toggleMegaMenu(this, productsMegaMenu);
+    });
+
+    innovationsDropdown.addEventListener('click', function(event) {
+      event.preventDefault();
+      toggleMegaMenu(this, innovationsMegaMenu);
+    });
+
+    aboutDropdown.addEventListener('click', function(event) {
+      event.preventDefault();
+      toggleMegaMenu(this, aboutMegaMenu);
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!productsDropdown.contains(event.target) && !productsMegaMenu.contains(event.target) &&
+          !innovationsDropdown.contains(event.target) && !innovationsMegaMenu.contains(event.target) &&
+          !aboutDropdown.contains(event.target) && !aboutMegaMenu.contains(event.target)) {
+        productsMegaMenu.classList.remove('show');
+        productsDropdown.classList.remove('open');
+        innovationsMegaMenu.classList.remove('show');
+        innovationsDropdown.classList.remove('open');
+        aboutMegaMenu.classList.remove('show');
+        aboutDropdown.classList.remove('open');
+      }
+    });
+
+    // Sidebar functionality for Products and Innovations Mega Menus
+    function setupSidebar(megaMenuId) {
+      const megaMenu = document.getElementById(megaMenuId);
+      if (!megaMenu) return;
+
+      const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
+      const contentSections = megaMenu.querySelectorAll('.content-section');
+
+      sidebarTitles.forEach(title => {
+        title.addEventListener('click', function() {
+          const targetSectionId = this.dataset.section + '-content';
+
+          sidebarTitles.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+
+          contentSections.forEach(content => {
+            if (content.id === targetSectionId) {
+              content.style.display = 'block';
+            } else {
+              content.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Set initial active state
+      if (sidebarTitles.length > 0) {
+        sidebarTitles[0].click();
+      }
+    }
+    <!--Testimonial Section -->
+
+    setupSidebar('productsMegaMenu');
+    setupSidebar('innovationsMegaMenu');
+  });
+</script>
 </body>
 </html>
