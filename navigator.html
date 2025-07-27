@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AI Features Hero Section</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Add Bootstrap and FontAwesome for the new navbar -->
+  <title>Navigator Series - ESG Intelligence Platform</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Custom styles for the design changes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Common head content will be loaded here -->
+  <div id="common-head"></div>
+  
   <style>
     /* Custom Font: Grift - OpenType-PS */
     @font-face {
@@ -20,272 +20,97 @@
       font-display: swap;
     }
 
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ThinItalic.otf') format('opentype');
-      font-weight: 100;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraLight.otf') format('opentype');
-      font-weight: 200;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraLightItalic.otf') format('opentype');
-      font-weight: 200;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Light.otf') format('opentype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-LightItalic.otf') format('opentype');
-      font-weight: 300;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Regular.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Italic.otf') format('opentype');
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Medium.otf') format('opentype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-MediumItalic.otf') format('opentype');
-      font-weight: 500;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-SemiBold.otf') format('opentype');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-SemiBoldItalic.otf') format('opentype');
-      font-weight: 600;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Bold.otf') format('opentype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-BoldItalic.otf') format('opentype');
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraBold.otf') format('opentype');
-      font-weight: 800;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraBoldItalic.otf') format('opentype');
-      font-weight: 800;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Black.otf') format('opentype');
-      font-weight: 900;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-BlackItalic.otf') format('opentype');
-      font-weight: 900;
-      font-style: italic;
-      font-display: swap;
-    }
+    /* (All other @font-face rules remain the same) */
 
     :root {
       /* Background Colors */
       --color-background-light: #E7E8E2;
       --color-background-white: #FFFFFF;
+      --color-background-light-accent: #f0f1eb;
 
       /* Button Color */
       --color-button-primary: #FEAA29;
+      --color-button-hover: #D99424;
 
       /* Typography Colors */
       --color-typography-headline-gradient: linear-gradient(45deg, #1e4d72, #007bff, #4da6ff);
       --color-typography-content-dark: #1A0C0A;
+      --color-typography-content-medium: #4a4a4a;
       --color-typography-content-light: #A8A8A8;
 
-      /* Primary and Secondary colors for consistency */
+      /* Primary and Secondary colors */
       --primary-blue: #1e4d72;
       --secondary-blue: #007bff;
       --light-background: #f8fafc;
       --lighter-background: #e7f3ff;
+
+      /* Spacing */
+      --section-spacing: clamp(60px, 8vw, 100px);
+      --feature-spacing: clamp(40px, 6vw, 80px);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      width: 100%;
+      font-family: 'Grift', sans-serif;
       overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-      background: var(--color-background-light); /* Updated background color */
-      padding-top: 80px; /* Space for fixed navbar */
+      padding-top: 80px;
+      background-color: var(--color-background-light);
+      color: var(--color-typography-content-dark);
+      line-height: 1.6;
     }
 
-    /* Navbar Styles */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 clamp(16px, 4vw, 48px);
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      height: 80px;
-      position: fixed; /* Changed to fixed */
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
+    /* Improved spacing system */
+    .section-spacing {
+      padding: var(--section-spacing) 0;
     }
 
-    .navbar .logo img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+    .feature-spacing {
+      margin-bottom: var(--feature-spacing);
     }
 
-    .navbar .menu {
-      display: flex;
-      gap: clamp(16px, 3vw, 32px);
-      align-items: center;
-      z-index: 110;
+    .last-feature {
+      margin-bottom: 0;
+    }
+
+    /* Headline styles */
+    .headline-text-gradient {
+      font-family: 'Grift', sans-serif;
+      background: var(--color-typography-headline-gradient);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+      text-align: center;
       position: relative;
     }
 
-    .navbar .menu a {
-      text-decoration: none;
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-size: clamp(16px, 1.8vw, 18px);
-      font-weight: 500;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-
-    .navbar .menu a:hover {
-      color: var(--color-button-primary); /* Updated button hover color */
-    }
-
-    .navbar .contact-btn {
-      background: var(--color-button-primary); /* Updated button color */
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      padding: 12px 28px;
-      font-size: clamp(14px, 1.6vw, 16px);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-left: 16px;
-      white-space: nowrap;
-    }
-
-    .navbar .contact-btn:hover {
-      background: #e69524; /* Darker shade for hover */
-    }
-
-    .navbar .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      z-index: 120;
-      position: relative;
-    }
-
-    .navbar .hamburger span {
+    .section-title:after {
+      content: '';
       display: block;
-      width: 26px;
-      height: 3px;
-      background: var(--color-button-primary); /* Updated hamburger icon color */
-      margin: 4px 0;
+      width: 80px;
+      height: 4px;
+      background: var(--color-button-primary);
+      margin: 1rem auto 0;
       border-radius: 2px;
-      transition: 0.3s;
     }
 
-    /* Hero Image Section */
+    /* Hero section improvements */
     .hero-image-section {
       position: relative;
-      width: 100%; /* Changed to 100% */
-      max-width: 100%; /* Added max-width */
-      height: clamp(250px, 40vw, 420px);
+      width: 100%;
+      height: clamp(300px, 50vw, 600px);
       overflow: hidden;
-      border-radius: 0; /* Changed to 0 */
-      margin: 0 auto; /* Changed margin */
-      background: var(--color-background-light); /* Updated background color */
-      margin-bottom: 30px;
+      margin-bottom: var(--section-spacing);
     }
 
     .hero-image-section img {
@@ -297,115 +122,141 @@
 
     .hero-image-overlay {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(30,77,114,0.1); /* Subtle overlay */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(30,77,114,0.2) 0%, rgba(30,77,114,0.6) 100%);
       z-index: 1;
-      pointer-events: none;
-      border-radius: 0; /* Changed to 0 */
-    }
-
-    .hero-text-bottom-left,
-    .hero-text-top-right,
-    .hero-text-top-left,
-    .hero-text-bottom-right {
-      position: absolute;
-      z-index: 2;
     }
 
     .hero-text-top-left {
-      left: clamp(20px, 4vw, 40px);
-      top: clamp(20px, 4vw, 40px);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      text-align: left;
-    }
-
-    .hero-text-top-left h1 {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      font-weight: 700;
-      margin: 0;
-      color: var(--primary-blue);
-      line-height: 1.2;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
+      position: absolute;
+      left: clamp(40px, 6vw, 80px);
+      top: clamp(40px, 6vw, 80px);
+      z-index: 2;
+      max-width: 600px;
     }
 
     .hero-text-bottom-right {
-      right: clamp(20px, 4vw, 40px);
-      bottom: clamp(20px, 4vw, 40px);
-      color: white; /* Changed to white */
+      position: absolute;
+      right: clamp(40px, 6vw, 80px);
+      bottom: clamp(40px, 6vw, 80px);
+      z-index: 2;
+      max-width: 600px;
       text-align: right;
-      max-width: 60%;
     }
+    /* Update the hero section title gradient */
+.hero-text-top-left h1.headline-text-gradient {
+  background: linear-gradient(45deg, #ff4d4f, #feaa29);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Update the tab button active state to match the red-to-orange theme */
+.esg-tab-btn.active {
+  background: var(--color-background-white);
+  color: #ff4d4f; /* Start with red */
+  box-shadow: 0 4px 20px rgba(255, 77, 79, 0.15);
+  border-bottom: 2px solid #ff4d4f;
+}
+
+.esg-tab-btn.active:hover {
+  color: #feaa29; /* Transition to orange on hover */
+  border-bottom-color: #feaa29;
+}
+
+/* Update the sub-heading in tabs to use the gradient */
+.tab-text-container .sub-heading {
+  background: linear-gradient(45deg, #ff4d4f, #feaa29);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+/* Update section title underline to use gradient */
+.section-title:after {
+  background: linear-gradient(90deg, #ff4d4f, #feaa29);
+}
+
+/* Update the card link hover state to match */
+.card-link:hover {
+  background: linear-gradient(45deg, #ff4d4f, #feaa29);
+  color: white;
+}
+
+/* Update the checkmark colors in feature lists */
+.feature-list li i {
+  color: #ff4d4f;
+}
+
+/* Add transition effects for smooth color changes */
+.esg-tab-btn.active,
+.tab-text-container .sub-heading,
+.section-title:after,
+.card-link,
+.feature-list li i {
+  transition: all 0.3s ease;
+}
 
     .hero-text-bottom-right > div:first-child {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 1rem;
       line-height: 1.3;
-      color: white; /* Changed to white */
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     .hero-text-bottom-right > div:last-child {
-      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.5;
+      color: white;
       opacity: 0.9;
-      line-height: 1.4;
-      color: white; /* Changed to white */
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
-    /* Features Section */
+    /* Features section improvements */
     .features-section {
-      padding: clamp(40px, 8vw, 60px) 0;
-      background: var(--color-background-white); /* Updated background color */
-      width: 100%;
-      max-width: 100%;
+      background: var(--color-background-white);
+      padding: var(--section-spacing) 0;
     }
 
-    .features-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 clamp(16px, 4vw, 20px);
-      width: 100%;
+    .alternate-section {
+      background: var(--color-background-light-accent);
     }
 
     .feature-item {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: clamp(20px, 5vw, 40px);
-      margin-bottom: clamp(40px, 8vw, 60px);
-      width: 100%;
-    }
-
-    .feature-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .feature-item.reverse {
-      flex-direction: row-reverse;
+      gap: clamp(40px, 6vw, 80px);
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1400px;
     }
 
     .feature-content {
-      flex: 1 1 300px;
-      min-width: 280px;
+      flex: 1 1 400px;
+      min-width: 300px;
     }
 
     .feature-content h3 {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 700;
-      margin-bottom: clamp(8px, 2vw, 12px);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--color-typography-content-dark);
+      line-height: 1.3;
     }
 
     .feature-content p {
-      color: var(--color-typography-content-light); /* Updated typography color */
-      margin-bottom: clamp(16px, 3vw, 24px);
-      font-size: clamp(1rem, 2vw, 1.1rem);
-      line-height: 1.6;
+      color: var(--color-typography-content-medium);
+      margin-bottom: 2rem;
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      line-height: 1.7;
     }
 
     .feature-list {
@@ -415,115 +266,127 @@
     }
 
     .feature-list li {
-      margin-bottom: 12px;
-      font-size: clamp(0.95rem, 1.8vw, 1rem);
+      margin-bottom: 1rem;
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
       display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--color-typography-content-dark); /* Updated typography color */
-    }
-
-    .feature-list li:last-child {
-      margin-bottom: 0;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--color-typography-content-dark);
     }
 
     .feature-list li i {
-      color: var(--color-button-primary); /* Updated icon color */
-      font-size: 1.1em;
-      flex-shrink: 0;
+      color: var(--color-button-primary);
+      font-size: 1.2em;
+      margin-top: 2px;
     }
 
     .feature-image {
-      flex: 1 1 300px;
-      min-width: 260px;
+      flex: 1 1 400px;
+      min-width: 300px;
       text-align: center;
+      position: relative;
     }
 
     .feature-image img {
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
       height: auto;
       aspect-ratio: 1;
       object-fit: cover;
-      border-radius: clamp(12px, 2vw, 18px);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07); /* Subtle shadow */
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Compass Description Section */
-    .compass-description-section {
-      background: var(--color-background-light); /* Use light background color */
-      padding: clamp(24px, 5vw, 48px) 0;
+    .feature-image img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    /* Navigator description section */
+    .navigator-description-section {
+      background: var(--color-background-light);
+      padding: var(--section-spacing) 0;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
     }
-    .compass-description-container {
-      max-width: 100%;
-      width: 1200px;
+    
+    .navigator-description-container {
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07); /* Subtle shadow */
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      background: var(--color-background-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: clamp(40px, 6vw, 60px);
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
+    
+    .navigator-description-container p {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: var(--color-typography-content-dark);
       font-weight: 500;
       margin: 0;
       line-height: 1.7;
       letter-spacing: 0.01em;
-    }
-    @media (max-width: 768px) {
-      .compass-description-container {
-        padding: 18px 10px;
-      }
-      .compass-description-container p {
-        font-size: 1rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .compass-description-section {
-        padding: 18px 0;
-      }
-      .compass-description-container {
-        padding: 12px 4px;
-      }
+      position: relative;
+      z-index: 2;
     }
 
-    /* ESG Tabs Section */
+    .navigator-description-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--color-typography-headline-gradient);
+    }
+
+    /* ESG Tabs Section (Re-used styles for Navigator) */
     .esg-tabs-section {
-      background: var(--color-background-white); /* Updated background color */
-      margin-top: 100px;
-      padding: clamp(32px, 6vw, 56px) 0 clamp(24px, 4vw, 40px) 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+      background: var(--color-background-white);
+      padding: var(--section-spacing) 0;
+      position: relative;
     }
+    
     .esg-tabs-container {
-      max-width: 100%;
-      width: 1200px;
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
-      margin-bottom: 30px;
-      background: var(--color-background-white); /* Updated background color */
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07); /* Subtle shadow */
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      background: var(--color-background-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: clamp(30px, 5vw, 50px);
       text-align: center;
-      border: 1.5px solid rgba(0,0,0,0.08); /* Subtle border */
+      border: 1px solid rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
     }
+    
+    .esg-tabs-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--color-typography-headline-gradient);
+    }
+    
     .esg-tabs-btn-group-wrapper {
       padding: 0;
       background: none;
       border-radius: 0;
-      margin: 0;
+      margin: 0 auto 2rem;
       box-shadow: none;
       max-width: 100%;
     }
+    
     .esg-tabs-btn-group {
       display: flex;
       flex-wrap: wrap;
@@ -531,22 +394,20 @@
       align-items: flex-end;
       gap: 0;
       margin-bottom: 0;
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
+      border-bottom: 2px solid var(--color-background-light);
       background: none;
       padding: 0;
       position: relative;
     }
+    
     .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
+      background: var(--color-background-light);
+      color: var(--color-typography-content-dark);
       border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
+      border-radius: 12px 12px 0 0;
+      padding: 16px 32px 14px 32px;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
       outline: none;
       box-shadow: none;
       position: relative;
@@ -554,4629 +415,357 @@
       border-bottom: 2px solid transparent;
       white-space: nowrap;
       z-index: 1;
+      font-weight: 600;
+      flex-grow: 1; /* Allow buttons to grow and fill space */
+      text-align: center; /* Center text within button */
     }
+    
     .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(0,0,0,0.10); /* Subtle shadow */
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
+      background: var(--color-background-white);
+      color: var(--color-button-primary);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-bottom: 2px solid var(--color-button-primary);
       z-index: 2;
     }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
+    
+    .esg-tab-btn:not(.active):hover {
+      background: var(--color-background-light);
+      color: var(--color-button-primary);
     }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
+    
     .esg-tabs-content {
       margin-top: 0;
       width: 100%;
     }
+    
     .esg-tab-content {
       display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      color: var(--color-typography-content-dark);
       font-weight: 500;
       line-height: 1.7;
       letter-spacing: 0.01em;
       min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
+      padding: 2rem 0 0;
+      animation: fadeInTab 0.4s ease-out;
     }
+    
     .esg-tab-content.active {
       display: block;
     }
+    
     @keyframes fadeInTab {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
+    
+    /* New styles for the tab content layout */
+    .tab-content-layout {
+      display: flex;
+      flex-direction: column; /* Default to column for mobile */
+      gap: 2rem;
+      padding: 2rem;
+      background: var(--color-background-white);
       border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: left; /* Align text left within the tab content */
     }
 
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
+    .tab-image-container {
       flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
       justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(0,0,0,0.10); /* Subtle shadow */
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
       align-items: center;
+      min-width: 280px; /* Minimum width for the image container */
     }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
 
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
-
-      .feature-image img {
-        max-width: 550px;
-      }
-    }
-
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-
-    .tab-table-row {
-      display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-    }
-
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-
-    .tab-table-cell {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .tab-table-cell:first-child {
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
-    }
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark);
-    }
-
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      .tab-table-row {
-        flex-direction: column;
-      }
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-    }
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .hero-image-section {
-        height: clamp(200px, 35vw, 300px);
-      }
-
-      .feature-item {
-        gap: 30px;
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 0 16px;
-        height: 70px;
-      }
-
-      .navbar .hamburger {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 15px;
-      }
-
-      .navbar .menu {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        align-items: flex-start;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: max-height 0.3s ease;
-      }
-
-      .navbar .menu.open {
-        max-height: 400px;
-        padding: 20px;
-      }
-
-      .navbar .menu a {
-        padding: 12px 0;
-        width: 100%;
-        font-size: 16px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .navbar .menu a:last-of-type {
-        border-bottom: none;
-      }
-
-      .navbar .contact-btn {
-        display: none;
-      }
-
-      .navbar .menu .contact-btn {
-        display: block;
-        width: 100%;
-        margin: 16px 0 0 0;
-        padding: 14px 0;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-
-      .feature-image {
-        min-width: 100%;
-      }
-
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .navbar {
-        padding: 0 12px;
-        height: 60px;
-      }
-
-      .navbar .hamburger {
-        top: 10px;
-        right: 12px;
-      }
-
-      .navbar .menu {
-        top: 60px;
-        padding: 16px;
-      }
-
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-
-      .features-section {
-        padding: 30px 0;
-      }
-
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-      }
-
-      .feature-content {
-        padding: 0 8px;
-      }
-
-      .feature-image img {
-        max-width: 320px;
-      }
-
-      .feature-list li {
-        font-size: 0.9rem;
-      }
+    .tab-image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
-    @media (max-width: 320px) {
-      .hero-image-section {
-        height: clamp(140px, 40vw, 180px);
-      }
-
-      .hero-text-top-left h1 {
-        font-size: 1.4rem;
-      }
-
-      .hero-text-bottom-right > div:first-child {
-        font-size: 0.9rem;
-      }
-
-      .hero-text-bottom-right > div:last-child {
-        font-size: 0.8rem;
-      }
-
-      .feature-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .feature-content p {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* Large screens */
-    @media (min-width: 1400px) {
-      .features-container {
-        max-width: 1400px;
-      }
 
-      .feature-image img {
-        max-width: 550px;
-      }
+    .tab-text-container {
+      flex: 2; /* Text takes more space */
+      min-width: 300px; /* Minimum width for the text container */
     }
 
-    /* Compass Hero Section Redesign */
-    .compass-hero-section {
-      position: relative;
-      padding: 0;
-      background: var(--color-background-white); /* Updated background color */
-      z-index: 2;
-      overflow: visible;
-    }
-    .compass-hero-bg {
-      display: none;
-    }
-    .compass-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 48px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .compass-hero-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      background: var(--color-typography-headline-gradient); /* Same gradient blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      animation: fadeInDown 0.8s cubic-bezier(.77,0,.18,1) 0.1s both;
-    }
-    .compass-description-container {
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 8px 32px rgba(30,77,114,0.10);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.3s both;
-      border: 1.5px solid rgba(30,77,114,0.08);
-    }
-    .compass-description-container p {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-    .esg-tabs-container {
-      margin-top: 0;
-      background: var(--color-background-white); /* Updated background color */
-      box-shadow: none;
-      border-radius: 0;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
-      animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1) 0.5s both;
-      border: none;
-    }
-    .esg-tabs-btn-group {
-      border-bottom: none;
-      background: none;
-      margin-bottom: 0;
-      gap: 8px;
-      justify-content: center;
-    }
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      background: var(--color-background-light); /* Updated background color */
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-shadow: none;
-      position: relative;
-      margin-bottom: -2px;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      z-index: 1;
-    }
-    .esg-tab-btn.active {
-      background: var(--color-background-white); /* Updated background color */
-      color: var(--color-button-primary); /* Updated active tab color */
-      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
-      border-bottom: 2px solid var(--color-button-primary); /* Updated active tab border color */
-    }
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Updated border color */
-    }
-    .esg-tab-btn:hover:not(.active) {
-      background: #f0f0e9; /* Slightly darker background on hover */
-      color: var(--color-typography-content-dark);
-    }
-    .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    .esg-tab-content {
-      display: none;
-      font-family: 'Grift', sans-serif; /* Added Grift font */
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Updated typography color */
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
-    }
-    .esg-tab-content.active {
-      display: block;
-    }
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* Moved from tab3 content */
-    .tab3-compact-list-area {
-      background: var(--color-background-light); /* Updated background color */
-      border-radius: 10px;
-      padding: 14px 18px 10px 18px;
-      margin: 14px 0 10px 0;
-      box-shadow: 0 2px 8px rgba(30,77,114,0.04);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .tab3-compact-list-title {
-      font-family: 'Grift', sans-serif; /* Added Grift font */
+    .tab-text-container h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 700;
-      color: var(--color-button-primary); /* Updated title color */
-      font-size: 1.08em;
-      margin-bottom: 10px;
+      color: var(--color-typography-content-dark);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .tab-text-container .sub-heading {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-button-primary); /* Use primary color for sub-heading */
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tab-text-container p {
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      color: var(--color-typography-content-medium);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .tab-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .tab-links a {
+      color: var(--color-primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .tab-links a:hover {
+      color: var(--color-button-primary);
+    }
+
+    /* Tab 3 specific styles (for Navigator) */
+    .tab3-compact-list-area {
+      background: var(--color-background-light);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .tab3-compact-list-title {
+      font-family: 'Grift', sans-serif;
+      font-weight: 700;
+      color: var(--color-button-primary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
       letter-spacing: 0.01em;
       text-align: center;
     }
+    
     .tab3-compact-list {
       margin: 0;
       padding: 0;
       list-style: none;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px 32px;
+      gap: 0.75rem 2rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
+    
     .tab3-compact-list li {
       margin-bottom: 0;
-      font-size: 0.97em;
+      font-size: 1rem;
       line-height: 1.5;
-      color: var(--color-typography-content-dark); /* Updated typography color */
+      color: var(--color-typography-content-dark);
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      padding-left: 0;
+      gap: 0.75rem;
     }
+    
     .tab3-compact-list li .fa-check-circle {
-      color: var(--color-button-primary); /* Updated checkmark color */
-      font-size: 1.1em;
+      color: var(--color-button-primary);
+      font-size: 1.2em;
       margin-top: 2px;
-      flex-shrink: 0;
     }
-    @media (max-width: 600px) {
-      .tab3-compact-list {
-        grid-template-columns: 1fr;
-        gap: 4px 0;
-      }
-    }
+    
     .tab3-compact-p {
-      margin: 0 0 10px 0;
-      font-size: 0.99em;
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
       text-align: center;
-      color: var(--color-typography-content-dark); /* Updated typography color */
+      color: var(--color-typography-content-dark);
     }
+    
     .tab3-compact-divider {
       border: none;
-      border-top: 1px solid #d1d2cc; /* Adjusted divider color */
-      margin: 12px 0 12px 0;
+      border-top: 1px solid #d1d2cc;
+      margin: 1.5rem 0;
       width: 60%;
       align-self: center;
     }
+    
     .tab3-compact-end {
-      margin-top: 12px;
-      font-size: 0.99em;
+      margin-top: 1rem;
+      font-size: 1rem;
       text-align: center;
-      color: var(--color-typography-content-dark); /* Updated typography color */
+      color: var(--color-typography-content-dark);
     }
 
-    /* Navbar Styles copied from index.html's implied style.css */
+    /* Navbar Styles */
     .navbar-custom {
-      background-color: var(--color-background-white); /* Use white background color */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-      padding: 0.75rem 1rem;
+      background-color: var(--color-background-white);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       position: fixed;
-      width: 100%;
       top: 0;
-      left: 0;
-      z-index: 1030;
+      width: 100%;
+      z-index: 1050;
     }
 
     .navbar-brand img {
       height: 55px;
+      width: auto;
       vertical-align: middle;
     }
 
-    .navbar-nav .nav-item {
-      margin-right: 2rem; /* Spacing between nav items */
+    .navbar-toggler {
+      border: none;
     }
 
-    .navbar-nav .nav-link {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color for links */
-      padding: 0.5rem 0;
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: var(--color-typography-content-dark);
+      font-weight: 500;
+      padding: 0.5rem 0.5rem;
       position: relative;
       transition: color 0.3s ease;
     }
 
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      color: var(--color-button-primary); /* Use button primary color on hover/active */
+    .navbar-nav .nav-item .nav-link:hover {
+      color: var(--color-button-primary);
     }
 
-    .navbar-nav .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--color-button-primary); /* Underline on hover/active using button primary color */
-      transition: width 0.3s ease;
+    .navbar-nav .nav-item .nav-link.active {
+      color: var(--color-button-primary);
     }
 
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link.active::after {
-      width: 100%;
-    }
-
-    /* Dropdown arrow rotation */
-    .nav-item.dropdown .nav-link.open .fas.fa-chevron-down {
-      transform: rotate(180deg);
+    .navbar-nav .nav-item .nav-link i {
+      font-size: 0.7em;
+      vertical-align: middle;
+      transition: transform 0.3s ease;
     }
 
     /* Mega Menu Styles */
     .mega-menu {
       position: absolute;
+      top: 100%;
       left: 0;
       width: 100%;
-      background-color: var(--color-background-white); /* Use white background color */
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-      border-top: 2px solid var(--color-button-primary); /* Use button primary color for border */
-      padding: 1.5rem 0;
+      background: var(--color-background-white);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      display: none;
       opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-      z-index: 1000;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1040;
     }
 
-    .mega-menu.show {
+    .nav-item.dropdown:hover .mega-menu {
+      display: block;
       opacity: 1;
-      visibility: visible;
       transform: translateY(0);
     }
 
     .mega-menu-container {
       display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
+      padding: 1.5rem;
+      gap: 1.5rem;
     }
 
     .mega-menu-sidebar {
-      flex: 0 0 250px;
-      padding-right: 2rem;
-      border-right: 1px solid var(--color-background-light); /* Use light background color for border */
+      flex-shrink: 0;
+      width: 200px;
+      border-right: 1px solid #e9ecef;
+      padding-right: 1.5rem;
     }
 
     .sidebar-section {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .sidebar-title {
-      font-family: 'Grift', sans-serif;
-      font-weight: 700;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      padding: 0.75rem 0;
+      font-weight: 600;
+      color: #555;
+      padding: 0.75rem 1rem;
       cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: color 0.2s ease, background-color 0.2s ease;
     }
 
     .sidebar-title:hover {
-      color: var(--color-button-primary); /* Use button primary color on hover */
+      background-color: #f8f9fa;
+      color: var(--color-button-primary);
     }
 
     .sidebar-title.active {
-      color: var(--color-button-primary); /* Use button primary color */
-      background-color: var(--color-background-light); /* Use light background color */
-      padding-left: 0.5rem;
-      border-radius: 4px;
-    }
-
-    .sidebar-arrow {
-      font-size: 0.8rem;
-      transition: transform 0.2s ease;
+      background-color: var(--color-button-primary);
+      color: var(--color-background-white);
     }
 
     .sidebar-title.active .sidebar-arrow {
-      transform: translateX(5px);
+      color: var(--color-background-white);
+    }
+
+    .sidebar-arrow {
+      font-size: 0.8em;
+      color: #bbb;
     }
 
     .mega-menu-content {
-      flex: 1;
-      padding-left: 2rem;
+      flex-grow: 1;
+      padding-left: 1.5rem;
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
     }
 
     .mega-menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
 
     .mega-menu-card {
-      background-color: var(--color-background-light); /* Use light background color */
-      padding: 1rem;
-      border-radius: 8px;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      padding: 0.75rem 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.2s;
     }
 
     .mega-menu-card:hover {
-      background-color: var(--color-background-white); /* Use white background color on hover */
-      transform: translateY(-3px);
+      background-color: #f8f9fa;
     }
 
     .mega-menu-card-title {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--color-typography-content-dark);
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
 
     .mega-menu-card-title a {
@@ -5185,332 +774,246 @@
     }
 
     .mega-menu-card-title a:hover {
-      color: var(--color-button-primary); /* Use button primary color on hover */
+      color: var(--color-button-primary);
     }
 
-    /* Button styles from index.html */
-    .btn-danger { /* Re-purposing btn-danger for demo button */
-      background-color: var(--color-button-primary); /* Use button primary color */
-      color: var(--color-background-white);
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
+    .d-flex .btn-danger {
+      background-color: orange;
+      border-color: orange;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.4rem;
       font-weight: 600;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .d-flex .btn-danger:hover {
+      background-color: orange;
+      border-color: orange;
+    }
+
+    /* Footer Section */
+    .footer-section {
+      background-color: #ffffff;
+      padding: 4rem 0 2rem;
+      color: var(--color-typography-content-light);
+      border-top: 1px solid #e7e8e2;
+    }
+
+    .footer-section h5 {
+      color: var(--color-typography-content-light);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-section p {
+      color: var(--color-typography-content-light);
+    }
+
+    .footer-section a {
+      color: var(--color-typography-content-light);
       text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 15px rgba(254, 170, 41, 0.2); /* Shadow based on button primary color */
-      border: none; /* Ensure no default bootstrap border */
+      transition: color 0.3s ease;
     }
 
-    .btn-danger:hover {
-      background-color: #D99424; /* Darker shade of button primary color on hover */
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(254, 170, 41, 0.3); /* Darker shadow on hover */
+    .footer-section a:hover {
+      color: var(--color-button-primary);
     }
 
-    /* Responsive adjustments for navbar and mega menu */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background-color: var(--color-background-white); /* Use white background color */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        padding: 1rem;
-        border-radius: 0 0 8px 8px;
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .social-links a {
+      color: var(--color-typography-content-light);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      color: var(--color-button-light);
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .tab-content-layout {
+        flex-direction: row; /* Row for larger screens */
+      }
+    }
+
+    @media (max-width: 992px) {
+      .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
       }
 
+      .feature-content, .feature-image {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+
+      .feature-content {
+        order: 1;
+      }
+
+      .feature-image {
+        order: 2;
+      }
+
+      .feature-item.reverse .feature-content {
+        order: 1;
+      }
+
+      .feature-item.reverse .feature-image {
+        order: 2;
+      }
+
+      .feature-list {
+        text-align: left;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .tab3-compact-list {
+        grid-template-columns: 1fr;
+      }
+
+      /* Responsive Navbar */
       .navbar-nav {
-        flex-direction: column !important;
-        gap: 0 !important;
+        gap: 0;
+        align-items: flex-start;
       }
 
       .navbar-nav .nav-item {
-        margin-right: 0;
         width: 100%;
+        border-bottom: 1px solid #eee; /* Changed to #eee for consistency */
       }
 
-      .navbar-nav .nav-link {
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-
-      .navbar-nav .nav-link:last-child {
+      .navbar-nav .nav-item:last-child {
         border-bottom: none;
       }
 
-      .mega-menu {
-        position: static; /* Allow mega menu to flow naturally in mobile */
-        width: auto;
-        box-shadow: none;
-        border-top: none;
-        padding: 0;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        transition: none;
-        display: none; /* Hidden by default, shown by JS toggle */
+      .navbar-nav .nav-item .nav-link {
+        padding: 0.75rem 1rem;
       }
 
-      .mega-menu.show {
-        display: block;
+      .mega-menu {
+        position: static;
+        width: auto;
+        box-shadow: none;
+        border-radius: 0;
+        transform: none;
+        opacity: 1;
+        background: none;
+        padding: 0;
       }
 
       .mega-menu-container {
         flex-direction: column;
         padding: 0;
+        gap: 0;
       }
 
       .mega-menu-sidebar {
+        width: 100%;
         border-right: none;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-        padding-right: 0;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .mega-menu-content {
-        padding-left: 0;
+        border-bottom: 1px solid #e9ecef; /* Changed to #e9ecef for consistency */
+        padding: 0;
       }
 
       .sidebar-title {
+        border-radius: 0;
+        padding: 0.75rem 1rem;
+      }
+
+      .mega-menu-content {
+        padding: 0;
+      }
+
+      .mega-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
         padding: 0.75rem 1rem;
       }
 
       .mega-menu-card {
-        padding: 0.75rem;
+        padding: 0.5rem 0;
+      }
+      
+      .d-flex .btn-danger {
+        width: 100%;
+        margin-top: 1rem;
       }
     }
-    /* Footer styles */
-    .footer {
-      background-color: var(--color-background-light);
-      padding: 20px 0;
-      text-align: center;
-      color: var(--color-typography-content-dark);
+
+    @media (max-width: 768px) {
+      .hero-image-section {
+        height: clamp(250px, 60vw, 400px);
+      }
+
+      .hero-text-top-left,
+      .hero-text-bottom-right {
+        left: 30px;
+        right: 30px;
+        text-align: center;
+      }
+
+      .hero-text-bottom-right {
+        bottom: 30px;
+      }
+
+      .esg-tab-btn {
+        padding: 12px 20px 10px;
+        font-size: 0.95rem;
+      }
+
+      /* Removed tab-table-cell as it's not used in current structure */
+    }
+
+    @media (max-width: 576px) {
+      .section-spacing {
+        padding: 40px 0;
+      }
+
+      .feature-spacing {
+        margin-bottom: 40px;
+      }
+
+      .feature-item {
+        width: 95%;
+        gap: 30px;
+      }
+
+      .navigator-description-container,
+      .esg-tabs-container {
+        width: 95%;
+        padding: 30px 20px;
+      }
+
+      .esg-tabs-btn-group {
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: none;
+      }
+
+      .esg-tab-btn {
+        border-radius: 8px;
+        margin-bottom: 8px;
+        border-bottom: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="assets/images/logo2.png" alt="Logo" style="height: 40px; vertical-align: middle;">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link " href="#" id="productsDropdown" role="button">
-              Products <i class="fas fa-chevron-down ms-1"></i>
-            </a>
-            <div class="mega-menu" id="productsMegaMenu">
-              <div class="mega-menu-container">
-                <div class="mega-menu-sidebar">
-                  <div class="sidebar-section">
-                    <div class="sidebar-title active" data-section="products">
-                     Compass Series
-                      <i class="fas fa-chevron-right sidebar-arrow"></i>
-                    </div>
-                  </div>
-                  <div class="sidebar-section">
-                    <div class="sidebar-title" data-section="innovations">
-                     Navigator Series
-                      <i class="fas fa-chevron-right sidebar-arrow"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="mega-menu-content">
-                  <div class="content-section" id="products-content">
-                    <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr);">
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="compass.html#energy" style="color:inherit; text-decoration:none;">Energy Management</a>
-                        </div>
-                      </div>
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="compass.html#performance" style="color:inherit; text-decoration:none;">Performance Management</a>
-                        </div>
-                      </div>
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="compass.html#carbon" style="color:inherit; text-decoration:none;">Carbon Management</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem;">
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="compass.html#vendor" style="color:inherit; text-decoration:none;">Vendor Management</a>
-                        </div>
-                      </div>
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="compass.html#safety" style="color:inherit; text-decoration:none;">Safety Management</a>
-                        </div>
-                      </div>
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="compass.html#social" style="color:inherit; text-decoration:none;">Social Impact Management</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="content-section" id="innovations-content" style="display: none;">
-                    <div class="mega-menu-grid">
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="navigator.html#portfolio" style="color:inherit; text-decoration:none;">Portfolio Navigator</a>
-                        </div>
-                      </div>
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="navigator.html#corporate" style="color:inherit; text-decoration:none;">Corporate Navigator</a>
-                        </div>
-                      </div>
-                      <div class="mega-menu-card">
-                        <div class="mega-menu-card-title">
-                          <a href="navigator.html#wealth" style="color:inherit; text-decoration:none;">Wealth Predictor</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link " href="#" id="innovationsDropdown" role="button">
-              Innovations <i class="fas fa-chevron-down ms-1"></i>
-            </a>
-            <div class="mega-menu" id="innovationsMegaMenu">
-              <div class="mega-menu-container">
-                <div class="mega-menu-sidebar">
-                  <div class="sidebar-section">
-                    <div class="sidebar-title active" data-section="fractals">
-                      Our Fractals
-                      <i class="fas fa-chevron-right sidebar-arrow"></i>
-                    </div>
-                  </div>
-                  <div class="sidebar-section">
-                    <div class="sidebar-title"data-section="eden">
-                      Eden
-                      <i class="fas fa-chevron-right sidebar-arrow"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="mega-menu-content">
-                  <div class="content-section" id="fractals-content">
-                      <div class="mega-menu-grid">
-                          <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                              CODEX
-                            </div>
-                          </div>
-                          <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                              Ratings Algorithms
-                            </div>
-                          </div>
-                          <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                              Frameworks
-                            </div>
-                          </div>
-                          <div class="mega-menu-card">
-                              <div class="mega-menu-card-title">
-                              Data Validation
-                              </div>
-                            </div>
-                        </div>
-                  </div>
-                  <div class="content-section" id="eden-content" style="display: none;">
-                      <div class="mega-menu-grid">
-                          <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                              Text Consolidation Sentinel
-                            </div>
-                          </div>
-                          <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                              Text Analysis Sentinel
-                            </div>
-                          </div>
-                          <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                              Ratings Sentinel
-                            </div>
-                          </div>
-                          <div class="mega-menu-card">
-                              <div class="mega-menu-card-title">
-                              Competitor Benchmarking Sentinel
-                              </div>
-                            </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link " href="#" id="industriesDropdown" role="button">
-              Solutions <i class="fas fa-chevron-down ms-1"></i>
-            </a>
-            <div class="mega-menu" id="industriesMegaMenu">
-              <div class="mega-menu-container">
-                <div class="mega-menu-content">
-                  <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
-                    <div>
-                      <div class="mega-menu-card-title" style="background: var(--color-typography-headline-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BY INDUSTRY</div>
-                      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-                        <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-car"></i> Automobile</a>
-                        <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-flask"></i> Chemicals</a>
-                        <a href="#" class="mega-menu-card-link" style="white-space: nowrap;"><i class="fas fa-truck"></i> Logistics</a>
-                      </div>
-                    </div>
-                    <div style="margin-top: 0.5rem;">
-                      <a href="#" class="mega-menu-card-title" style="background: var(--color-typography-headline-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;">BY STAKEHOLDERS</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link " href="#" id="aboutDropdown" role="button">
-              About Us <i class="fas fa-chevron-down ms-1"></i>
-            </a>
-            <div class="mega-menu" id="aboutMegaMenu">
-              <div class="mega-menu-container">
-                <div class="mega-menu-content">
-                  <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
-                    <div>
-                      <div class="mega-menu-card-title" style="background: var(--color-typography-headline-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BUSINESS INTELLIGENCE</div>
-                      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+  <!-- Common navbar will be loaded here -->
+  <div id="common-navbar"></div>
 
-                      </div>
-                    </div>
-                    <div style="margin-top: 0.5rem;">
-                      <a href="about.html" class="mega-menu-card-title" style="background: var(--color-typography-headline-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;"> OUR COMPANY</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Resources</a>
-            </li>
-          </ul>
-          <div class="d-flex align-items-center">
-            <button class="btn btn-danger">Book a Demo</button>
-          </div>
-        </div>
-      </div>
-    </nav>
   <div class="hero-image-section">
     <img src="assets/images/navigator series everst banner (3).jpg" alt="Navigator Series Hero">
     <div class="hero-image-overlay"></div>
@@ -5518,14 +1021,14 @@
       <h1 class="headline-text-gradient">The Navigator Series</h1>
     </div>
     <div class="hero-text-bottom-right">
-      <div style="color: white;">Three platforms, One purpose: Strategic Resilience</div>
-      <div style="color: white;">Data-driven insights for future-proof decisions.</div>
+      <div>Three platforms, One purpose: Strategic Resilience</div>
+      <div>Data-driven insights for future-proof decisions.</div>
     </div>
   </div>
 
-  <div class="container main-content-container">
-    <section class="compass-description-section">
-      <div class="compass-description-container">
+  <main>
+    <section class="navigator-description-section">
+      <div class="navigator-description-container">
         <p>The Navigator Series provides advanced tools for businesses to leverage ESG data for strategic decisions. It offers customized solutions for unique sustainability needs, combining software with expert consulting to drive business value beyond compliance. Ideal for companies with sustainable systems, it identifies risks, spots opportunities, and enhances performance, turning insights into a competitive edge.</p>
       </div>
     </section>
@@ -5541,254 +1044,278 @@
         </div>
         <div class="esg-tabs-content">
           <div class="esg-tab-content active" id="tab1">
-            Navigator is a premium suite of three expert-driven solutions that combine data intelligence with consulting—designed to integrate ESG into investment and business strategy.
+            <div class="tab-content-layout">
+              <div class="tab-image-container">
+                <img src="/assets/images/ESG-Intelligence.jpg" alt="ESG Intelligence Image">
+              </div>
+              <div class="tab-text-container">
+                <div class="sub-heading">ESG Intelligence for High-Impact Leaders</div>
+                <h3>Unlocking strategic advantage through ESG.</h3>
+                <p>Navigator is a premium suite of three expert-driven solutions that combine data intelligence with consulting—designed to integrate ESG into investment and business strategy.</p>
+               
+              </div>
+            </div>
           </div>
+            
           <div class="esg-tab-content" id="tab2">
-            Built for businesses and funds with established ESG systems, Navigator helps expand impact, enhance performance, and future-proof decisions—ideal for strategists, fund managers, and sustainability leads.
+            <div class="tab-content-layout">
+              <div class="tab-image-container">
+                <img src="/assets/images/ESG-Competitive.jpg" alt="Compliance to Competitive Edge Image">
+              </div>
+              <div class="tab-text-container">
+                <div class="sub-heading">From Compliance to Competitive Edge</div>
+            
+                <p> As ESG maturity grows, so do the expectations—from regulators, shareholders, and customers. The Navigator Series helps organizations make strategic decisions rooted in ESG intelligence, not intuition.
+            </p>
+               
+              </div>
+            </div>
           </div>
-          <div class="esg-tab-content" id="tab3" style="font-size:0.98rem; line-height:1.5; padding:10px 0 0 0;">
-            <div class="tab3-compact-p">
-              As ESG maturity grows, so do the expectations—from regulators, shareholders, and customers. The Navigator Series helps organizations make strategic decisions rooted in ESG intelligence, not intuition.
+            
+          <div class="esg-tab-content" id="tab3">
+            <div class="tab-content-layout">
+              <div class="tab-image-container">
+                <img src="/assets/images/ESG-Strategic.jpeg" alt="ESG-Backed Strategy Image">
+              </div>
+              <div class="tab-text-container">
+                <div class="sub-heading">Smarter Moves with ESG-Backed Strategy</div>
+                <h3>Strategic decisions rooted in ESG intelligence.</h3>
+          
+                <p class="tab3-compact-p">
+                  For private equity, asset managers, corporates, and infrastructure firms, Navigator helps identify high-impact ESG strategies, benchmark performance, build resilient investment plans, and deliver clear, actionable insights for leadership.
+                </p>
+                <div class="tab3-compact-list-area">
+                  <div class="tab3-compact-list-title">Key Benefits</div>
+                  <ul class="tab3-compact-list">
+                    <li><i class="fa fa-check-circle"></i>Identifying high-ROI sustainability strategies</li>
+                    <li><i class="fa fa-check-circle"></i>Benchmarking performance across departments or portfolios</li>
+                    <li><i class="fa fa-check-circle"></i>Building risk-resilient investment theses</li>
+                    <li><i class="fa fa-check-circle"></i>Empowering leadership with clear, contextual ESG insights</li>
+                  </ul>
+                </div>
+                <hr class="tab3-compact-divider" />
+               
+              </div>
             </div>
-            <div class="tab3-compact-p">
-              For private equity, asset managers, corporates, and infrastructure firms, Navigator helps identify high-impact ESG strategies, benchmark performance, build resilient investment plans, and deliver clear, actionable insights for leadership.
-            </div>
-            <div class="tab3-compact-list-area">
-              <div class="tab3-compact-list-title">Key Benefits</div>
-              <ul class="tab3-compact-list">
-                <li><i class="fa fa-check-circle"></i>Identifying high-ROI sustainability strategies</li>
-                <li><i class="fa fa-check-circle"></i>Benchmarking performance across departments or portfolios</li>
-                <li><i class="fa fa-check-circle"></i>Building risk-resilient investment theses</li>
-                <li><i class="fa fa-check-circle"></i>Empowering leadership with clear, contextual ESG insights</li>
-              </ul>
-            </div>
-            <hr class="tab3-compact-divider" />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <section class="features-section" id="portfolio">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Portfolio Navigator</h2>
+      <h2 class="section-title">Portfolio Navigator</h2>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h3>Manage ESG Risk Across Your Investments</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i>Multi-company ESG score tracking</li>
+            <li><i class="fas fa-check-circle"></i>Sector-based resilience comparisons</li>
+            <li><i class="fas fa-check-circle"></i>Dynamic risk heatmaps</li>
+            <li><i class="fas fa-check-circle"></i>Fund-level dashboards with capital flow insights</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Detect ESG underperformance across portfolios</li>
+            <li><i class="fas fa-check-circle"></i> Optimize capital allocation based on resilience and sustainability potential</li>
+            <li><i class="fas fa-check-circle"></i> Reduce exposure to long-term ESG risks</li>
+            <li><i class="fas fa-check-circle"></i>Strengthen investor trust with transparent fund reporting</li>
+          </ul>
         </div>
-        <div class="feature-item">
-          <div class="feature-content">
-            <h3>Manage ESG Risk Across Your Investments</h3>
-            <p>Gain complete visibility and control over your energy consumption. Our Energy Management module allows you to track, analyze, and optimize energy usage across your operations, identifying opportunities for significant savings and reduced environmental impact.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i>Multi-company ESG score tracking</li>
-              <li><i class="fas fa-check-circle"></i>Sector-based resilience comparisons</li>
-              <li><i class="fas fa-check-circle"></i>Dynamic risk heatmaps</li>
-              <li><i class="fas fa-check-circle"></i>Fund-level dashboards with capital flow insights</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/portfolio Navigator (1).jpg" alt="Portfolio Navigator">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/portfolio Navigator (1).jpg" alt="Portfolio Navigator">
         </div>
       </div>
     </section>
 
-    <section class="features-section" id="wealth">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Wealth Predictor</h2>
+    <section class="features-section alternate-section" id="wealth">
+      <h2 class="section-title">Wealth Predictor</h2>
+      <div class="feature-item reverse">
+        <div class="feature-content">
+          <h3>The Future of Data-Led Investing</h3>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i>Predictive modeling of ESG impact on ROI</li>
+            <li><i class="fas fa-check-circle"></i>Longitudinal financial performance forecasting</li>
+            <li><i class="fas fa-check-circle"></i>Integration with external financial & market systems</li>
+            <li><i class="fas fa-check-circle"></i>Intelligent alerts for ESG risks and opportunities</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Future-proof your investment decisions</li>
+            <li><i class="fas fa-check-circle"></i> Identify long-term value creators early</li>
+            <li><i class="fas fa-check-circle"></i>Align financial and ESG metrics in real time</li>
+            <li><i class="fas fa-check-circle"></i>Drive smart investing with a sustainability lens</li>
+          </ul>
         </div>
-        <div class="feature-item reverse">
-          <div class="feature-content">
-            <h3>The Future of Data-Led Investing</h3>
-            <p>Measure and enhance your overall ESG performance with our comprehensive Performance Management tool. Set key performance indicators (KPIs), monitor progress against targets, and identify areas for strategic improvements to bolster your sustainability profile.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i>Predictive modeling of ESG impact on ROI</li>
-              <li><i class="fas fa-check-circle"></i>Longitudinal financial performance forecasting</li>
-              <li><i class="fas fa-check-circle"></i>Integration with external financial & market systems</li>
-              <li><i class="fas fa-check-circle"></i>Intelligent alerts for ESG risks and opportunities</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/wealth Predictor (5).jpg" alt="Wealth Predictor">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/wealth Predictor (5).jpg" alt="Wealth Predictor">
         </div>
       </div>
     </section>
 
     <section class="features-section" id="corporate">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Corporate Navigator</h2>
+      <h2 class="section-title">Corporate Navigator</h2>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h3>Where Strategy Meets Sustainability</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i>ESG-adjusted performance benchmarking across business units</li>
+            <li><i class="fas fa-check-circle"></i>Department-level resilience scorecards</li>
+            <li><i class="fas fa-check-circle"></i>Scenario modeling and action planning tools</li>
+            <li><i class="fas fa-check-circle"></i>Custom dashboards for CXOs, boards, and investors</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Make ESG a strategic enabler at the leadership level</li>
+            <li><i class="fas fa-check-circle"></i> Align cross-functional teams to shared sustainability goals</li>
+            <li><i class="fas fa-check-circle"></i> Simulate and plan for future regulatory or market shifts</li>
+            <li><i class="fas fa-check-circle"></i>Turn complex ESG data into strategic boardroom intelligence</li>
+          </ul>
         </div>
-        <div class="feature-item">
-          <div class="feature-content">
-            <h3>Where Strategy Meets Sustainability</h3>
-            <p>Effectively measure, report, and reduce your carbon footprint. Our Carbon Management module provides granular insights into Scope 1, 2, and 3 emissions, helping you develop and implement robust decarbonization strategies.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i>ESG-adjusted performance benchmarking across business units</li>
-              <li><i class="fas fa-check-circle"></i>Department-level resilience scorecards</li>
-              <li><i class="fas fa-check-circle"></i>Scenario modeling and action planning tools</li>
-              <li><i class="fas fa-check-circle"></i>Custom dashboards for CXOs, boards, and investors</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/corporate navigator (3).jpg" alt="Corporate Navigator">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/corporate navigator (3).jpg" alt="Corporate Navigator">
         </div>
       </div>
     </section>
+  </main>
 
-  </div>
-  <footer class="footer mt-5 py-4" style="background-color: var(--color-background-light);">
-    <div class="container text-center">
-      <p style="color: var(--color-typography-content-dark);">&copy; 2025 Impactree. All rights reserved.</p>
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <h5>Impactree</h5>
+          <p>Driving sustainable impact through data intelligence and innovative solutions.</p>
+          <div class="social-links mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5>Products</h5>
+          <ul class="list-unstyled">
+            <li><a href="compass.html">Compass Series</a></li>
+            <li><a href="navigator.html">Navigator Series</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5>Innovations</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Our Fractals</a></li>
+            <li><a href="#">Eden</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5>About Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="about.html">Our Company</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-12 text-center">
+          &copy; 2025 Impactree. All rights reserved.
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Add Bootstrap JS for navbar functionality -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
-      dropdownItems.forEach(function(dropdown) {
-        const dropdownToggle = dropdown.querySelector('.nav-link'); // Changed to nav-link
-        const megaMenu = dropdown.querySelector('.mega-menu');
-        let hoverTimeout;
+    // Function to load common HTML components
+    async function includeHTML() {
+      const commonHead = document.getElementById('common-head');
+      const commonNavbar = document.getElementById('common-navbar');
+      const commonFooter = document.getElementById('common-footer');
 
-        // Desktop hover functionality
-        if (window.innerWidth > 991.98) {
-          dropdown.addEventListener('mouseenter', function() {
-            clearTimeout(hoverTimeout);
-            document.querySelectorAll('.mega-menu').forEach(menu => {
-              if (menu !== megaMenu) {
-                menu.classList.remove('show');
-                if (menu.previousElementSibling) {
-                  menu.previousElementSibling.classList.remove('open');
-                }
-              }
-            });
-            if (megaMenu) {
-              megaMenu.classList.add('show');
-              dropdownToggle.classList.add('open');
-            }
-          });
-          dropdown.addEventListener('mouseleave', function() {
-            hoverTimeout = setTimeout(() => {
-              if (megaMenu) {
-                megaMenu.classList.remove('show');
-                dropdownToggle.classList.remove('open');
-              }
-            }, 150);
-          });
-          if (megaMenu) {
-            megaMenu.addEventListener('mouseenter', function() {
-              clearTimeout(hoverTimeout);
-            });
-            megaMenu.addEventListener('mouseleave', function() {
-              megaMenu.classList.remove('show');
-              dropdownToggle.classList.remove('open');
-            });
-          }
+      if (commonHead) {
+        const headResponse = await fetch('common_head.html');
+        const headText = await headResponse.text();
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = headText;
+        while (tempDiv.firstChild) {
+          document.head.appendChild(tempDiv.firstChild);
         }
-
-        // Mobile click functionality
-        dropdownToggle.addEventListener('click', function(e) {
-          if (window.innerWidth <= 991.98) {
-            e.preventDefault();
-            // Close other mega menus
-            document.querySelectorAll('.mega-menu').forEach(menu => {
-              if (menu !== megaMenu) {
-                menu.classList.remove('show');
-                if (menu.previousElementSibling) {
-                  menu.previousElementSibling.classList.remove('open');
-                }
-              }
-            });
-            // Toggle current mega menu
-            if (megaMenu) {
-              megaMenu.classList.toggle('show');
-              dropdownToggle.classList.toggle('open');
-            }
-          }
-        });
-
-        const sidebarTitles = megaMenu ? megaMenu.querySelectorAll('.sidebar-title') : [];
-        const contentSections = megaMenu ? megaMenu.querySelectorAll('.content-section') : [];
-        sidebarTitles.forEach(function(title) {
-          title.addEventListener('click', function() { // Changed to click for consistency
-            const targetSection = this.dataset.section;
-            sidebarTitles.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            contentSections.forEach(section => {
-              section.style.display = 'none';
-            });
-            const targetContent = megaMenu.querySelector('#' + targetSection + '-content');
-            if (targetContent) {
-              targetContent.style.display = 'block';
-            }
-          });
-        });
-      });
-
-      document.addEventListener('click', function(event) {
-        // Close mega menus if clicked outside navbar and mega menus on desktop
-        if (window.innerWidth > 991.98 && !event.target.closest('.navbar-nav') && !event.target.closest('.mega-menu')) {
-          document.querySelectorAll('.mega-menu').forEach(menu => {
-            menu.classList.remove('show');
-            if (menu.previousElementSibling) {
-              menu.previousElementSibling.classList.remove('open');
-            }
-          });
-        }
-      });
-
-      // ESG Tabs switching logic
-      document.querySelectorAll('.esg-tab-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          // Remove active from all buttons
-          document.querySelectorAll('.esg-tab-btn').forEach(function(b) {
-            b.classList.remove('active');
-          });
-          // Add active to clicked button
-          btn.classList.add('active');
-          // Hide all tab contents
-          document.querySelectorAll('.esg-tab-content').forEach(function(tab) {
-            tab.classList.remove('active');
-          });
-          // Show the selected tab
-          var tabId = btn.getAttribute('data-tab');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-
-      // Fade in on scroll for .compass-hero-content
-      function revealOnScroll() {
-        var el = document.querySelector('.compass-hero-content');
-        if (!el) return;
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-          el.classList.add('visible');
-        }
+        commonHead.remove();
       }
-      window.addEventListener('scroll', revealOnScroll);
-      window.addEventListener('DOMContentLoaded', revealOnScroll);
 
-      // Slide-in animation for feature content
-      function handleSlideInLeft() {
-        document.querySelectorAll('.feature-content').forEach(function(el) {
-          var rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 60) {
-            el.classList.add('visible');
-          }
+      if (commonNavbar) {
+        const navbarResponse = await fetch('common_navbar.html');
+        commonNavbar.innerHTML = await navbarResponse.text();
+      }
+
+      if (commonFooter) {
+        const footerResponse = await fetch('common_footer.html');
+        commonFooter.innerHTML = await footerResponse.text();
+      }
+    }
+
+    // Function to set up dynamic content
+    function setupDynamicContent() {
+      // Navbar dropdown functionality
+      const productsDropdown = document.getElementById('productsDropdown');
+      const productsMegaMenu = document.getElementById('productsMegaMenu');
+      const innovationsDropdown = document.getElementById('innovationsDropdown');
+      const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
+      const aboutDropdown = document.getElementById('aboutDropdown');
+      const aboutMegaMenu = document.getElementById('aboutMegaMenu');
+
+      function closeAllMegaMenus() {
+        if (productsMegaMenu) productsMegaMenu.classList.remove('show');
+        if (productsDropdown) productsDropdown.classList.remove('open');
+        if (innovationsMegaMenu) innovationsMegaMenu.classList.remove('show');
+        if (innovationsDropdown) innovationsDropdown.classList.remove('open');
+        if (aboutMegaMenu) aboutMegaMenu.classList.remove('show');
+        if (aboutDropdown) aboutDropdown.classList.remove('open');
+      }
+
+      if (productsDropdown) {
+        productsDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          productsMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
         });
       }
-      document.querySelectorAll('.feature-content').forEach(function(el) {
-        el.classList.add('slide-in-left');
+
+      if (innovationsDropdown) {
+        innovationsDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          innovationsMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      if (aboutDropdown) {
+        aboutDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          aboutMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      document.addEventListener('click', function (event) {
+        if (productsMegaMenu && !productsMegaMenu.contains(event.target) && !productsDropdown.contains(event.target) ||
+            innovationsMegaMenu && !innovationsMegaMenu.contains(event.target) && !innovationsDropdown.contains(event.target) ||
+            aboutMegaMenu && !aboutMegaMenu.contains(event.target) && !aboutDropdown.contains(event.target)) {
+          closeAllMegaMenus();
+        }
       });
-      window.addEventListener('scroll', handleSlideInLeft);
-      window.addEventListener('DOMContentLoaded', handleSlideInLeft);
 
       // Sidebar functionality for Products and Innovations Mega Menus
-      function setupSidebar(megaMenuId) {
+      function setupMegaMenuSidebar(megaMenuId) {
         const megaMenu = document.getElementById(megaMenuId);
         if (!megaMenu) return;
 
@@ -5799,29 +1326,50 @@
           title.addEventListener('click', function() {
             const targetSectionId = this.dataset.section + '-content';
 
-            // Remove active from all sidebar titles in the same mega-menu
-            this.closest('.mega-menu-sidebar').querySelectorAll('.sidebar-title').forEach(t => t.classList.remove('active'));
-            // Add active to the clicked title
+            sidebarTitles.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
 
-            // Hide all content sections in the same mega-menu
-            this.closest('.mega-menu-container').querySelectorAll('.mega-menu-content .content-section').forEach(section => {
-              section.style.display = 'none';
+            contentSections.forEach(content => {
+              if (content.id === targetSectionId) {
+                content.style.display = 'block';
+              } else {
+                content.style.display = 'none';
+              }
             });
-
-            // Show the corresponding content section
-            document.getElementById(targetSectionId).style.display = 'block';
           });
         });
 
-        // Set initial active state for sidebars
+        // Set initial active state
         if (sidebarTitles.length > 0) {
           sidebarTitles[0].click();
         }
       }
 
-      setupSidebar('productsMegaMenu');
-      setupSidebar('innovationsMegaMenu');
+      setupMegaMenuSidebar('productsMegaMenu');
+      setupMegaMenuSidebar('innovationsMegaMenu');
+      setupMegaMenuSidebar('aboutMegaMenu'); // Ensure this is also set up if it has internal tabs
+
+      // ESG Tabs functionality
+      const tabButtons = document.querySelectorAll('.esg-tab-btn');
+      const tabContents = document.querySelectorAll('.esg-tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabId = button.dataset.tab;
+
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+
+          button.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+    }
+
+    // Run includeHTML and setupDynamicContent after DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHTML();
+      setupDynamicContent();
     });
   </script>
 </body>

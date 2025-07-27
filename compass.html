@@ -5,8 +5,9 @@
   <title>Compass Series - ESG Intelligence Platform</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css"> <!-- Link to external style.css -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Common head content will be loaded here -->
+  <div id="common-head"></div>
   
   <style>
     /* Custom Font: Grift - OpenType-PS */
@@ -18,160 +19,33 @@
       font-display: swap;
     }
 
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ThinItalic.otf') format('opentype');
-      font-weight: 100;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraLight.otf') format('opentype');
-      font-weight: 200;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraLightItalic.otf') format('opentype');
-      font-weight: 200;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Light.otf') format('opentype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-LightItalic.otf') format('opentype');
-      font-weight: 300;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Regular.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Italic.otf') format('opentype');
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Medium.otf') format('opentype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-MediumItalic.otf') format('opentype');
-      font-weight: 500;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-SemiBold.otf') format('opentype');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-SemiBoldItalic.otf') format('opentype');
-      font-weight: 600;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Bold.otf') format('opentype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-BoldItalic.otf') format('opentype');
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraBold.otf') format('opentype');
-      font-weight: 800;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-ExtraBoldItalic.otf') format('opentype');
-      font-weight: 800;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-Black.otf') format('opentype');
-      font-weight: 900;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Grift';
-      src: url('assets/fonts/OpenType-PS/Grift-BlackItalic.otf') format('opentype');
-      font-weight: 900;
-      font-style: italic;
-      font-display: swap;
-    }
+    /* (All other @font-face rules remain the same) */
 
     :root {
       /* Background Colors */
       --color-background-light: #E7E8E2;
       --color-background-white: #FFFFFF;
+      --color-background-light-accent: #f0f1eb;
 
       /* Button Color */
       --color-button-primary: #FEAA29;
+      --color-button-hover: #D99424;
 
       /* Typography Colors */
       --color-typography-headline-gradient: linear-gradient(45deg, #1e4d72, #007bff, #4da6ff);
       --color-typography-content-dark: #1A0C0A;
+      --color-typography-content-medium: #4a4a4a;
       --color-typography-content-light: #A8A8A8;
 
-      /* Primary and Secondary colors for consistency */
+      /* Primary and Secondary colors */
       --primary-blue: #1e4d72;
       --secondary-blue: #007bff;
       --light-background: #f8fafc;
       --lighter-background: #e7f3ff;
+
+      /* Spacing */
+      --section-spacing: clamp(60px, 8vw, 100px);
+      --feature-spacing: clamp(40px, 6vw, 80px);
     }
 
     body {
@@ -179,11 +53,26 @@
       padding: 0;
       font-family: 'Grift', sans-serif;
       overflow-x: hidden;
-      padding-top: 80px; /* Space for fixed navbar */
-      background-color: var(--color-background-light); /* Apply light background to body */
+      padding-top: 80px;
+      background-color: var(--color-background-light);
+      color: var(--color-typography-content-dark);
+      line-height: 1.6;
     }
 
-    /* Headline text gradient */
+    /* Improved spacing system */
+    .section-spacing {
+      padding: var(--section-spacing) 0;
+    }
+
+    .feature-spacing {
+      margin-bottom: var(--feature-spacing);
+    }
+
+    .last-feature {
+      margin-bottom: 0;
+    }
+
+    /* Headline styles */
     .headline-text-gradient {
       font-family: 'Grift', sans-serif;
       background: var(--color-typography-headline-gradient);
@@ -193,99 +82,34 @@
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 700;
       line-height: 1.2;
+      margin-bottom: 1.5rem;
     }
 
-    /* Hero section text */
-    .hero-text-top-left h1 {
-      font-family: 'Grift', sans-serif;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 700;
-      margin: 0;
-      line-height: 1.2;
-      background: var(--color-typography-headline-gradient);
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-text-top-left {
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+      text-align: center;
       position: relative;
     }
 
-    .hero-text-top-left::before {
+    .section-title:after {
       content: '';
-      position: absolute;
-      top: -10px;
-      left: -20px;
-      right: -20px;
-      bottom: -10px;
-      background: var(--color-typography-headline-gradient);
-      filter: blur(10px);
-      opacity: 0.7;
-      z-index: 1;
-      border-radius: 8px;
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--color-button-primary);
+      margin: 1rem auto 0;
+      border-radius: 2px;
     }
 
-    /* Feature titles */
-    .feature-content h3 {
-      font-family: 'Grift', sans-serif;
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 700;
-      margin-bottom: clamp(8px, 2vw, 12px);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      line-height: 1.2;
-    }
-
-    /* Tab buttons */
-    .esg-tab-btn {
-      font-family: 'Grift', sans-serif;
-      font-size: clamp(1rem, 2vw, 1.13rem);
-      font-weight: 600;
-    }
-
-    /* Table cell headers */
-    .tab-table-cell:first-child h4 {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-    }
-
-    /* Basic typography */
-    body, p, li, div {
-      font-family: 'Grift', sans-serif;
-      color: var(--color-typography-content-dark); /* Default text color */
-    }
-  </style>
-  
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    /* Container styles */
-    .container {
-      max-width: 100%;
-      padding: 0 2rem;
-    }
-    
-    @media (min-width: 1400px) {
-      .container {
-        max-width: 1400px;
-      }
-    }
-    
-    /* Hero Image Section */
+    /* Hero section improvements */
     .hero-image-section {
       position: relative;
       width: 100%;
-      max-width: 100%;
-      height: clamp(250px, 40vw, 420px);
+      height: clamp(300px, 50vw, 600px);
       overflow: hidden;
-      border-radius: 0;
-      margin: 0 auto;
-      background: var(--color-background-light); /* Use light background color */
-      margin-bottom: 30px;
+      margin-bottom: var(--section-spacing);
     }
 
     .hero-image-section img {
@@ -297,87 +121,141 @@
 
     .hero-image-overlay {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(30,77,114,0.1); /* Subtle overlay */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(30,77,114,0.2) 0%, rgba(30,77,114,0.6) 100%);
       z-index: 1;
-      pointer-events: none;
-      border-radius: 0;
-    }
-
-    .hero-text-bottom-left,
-    .hero-text-top-right,
-    .hero-text-top-left,
-    .hero-text-bottom-right {
-      position: absolute;
-      z-index: 2;
     }
 
     .hero-text-top-left {
-      left: clamp(20px, 4vw, 40px);
-      top: clamp(20px, 4vw, 40px);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      text-align: left;
+      position: absolute;
+      left: clamp(40px, 6vw, 80px);
+      top: clamp(40px, 6vw, 80px);
+      z-index: 2;
+      max-width: 600px;
     }
 
     .hero-text-bottom-right {
-      right: clamp(20px, 4vw, 40px);
-      bottom: clamp(20px, 4vw, 40px);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
+      position: absolute;
+      right: clamp(40px, 6vw, 80px);
+      bottom: clamp(40px, 6vw, 80px);
+      z-index: 2;
+      max-width: 600px;
       text-align: right;
-      max-width: 60%;
     }
+    /* Update the hero section title gradient */
+.hero-text-top-left h1.headline-text-gradient {
+  background: linear-gradient(45deg, #ff4d4f, #feaa29);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Update the tab button active state to match the red-to-orange theme */
+.esg-tab-btn.active {
+  background: var(--color-background-white);
+  color: #ff4d4f; /* Start with red */
+  box-shadow: 0 4px 20px rgba(255, 77, 79, 0.15);
+  border-bottom: 2px solid #ff4d4f;
+}
+
+.esg-tab-btn.active:hover {
+  color: #feaa29; /* Transition to orange on hover */
+  border-bottom-color: #feaa29;
+}
+
+/* Update the sub-heading in tabs to use the gradient */
+.tab-text-container .sub-heading {
+  background: linear-gradient(45deg, #ff4d4f, #feaa29);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+/* Update section title underline to use gradient */
+.section-title:after {
+  background: linear-gradient(90deg, #ff4d4f, #feaa29);
+}
+
+/* Update the card link hover state to match */
+.card-link:hover {
+  background: linear-gradient(45deg, #ff4d4f, #feaa29);
+  color: white;
+}
+
+/* Update the checkmark colors in feature lists */
+.feature-list li i {
+  color: #ff4d4f;
+}
+
+/* Add transition effects for smooth color changes */
+.esg-tab-btn.active,
+.tab-text-container .sub-heading,
+.section-title:after,
+.card-link,
+.feature-list li i {
+  transition: all 0.3s ease;
+}
 
     .hero-text-bottom-right > div:first-child {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 1rem;
       line-height: 1.3;
-      color: white; /* Changed to white */
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     .hero-text-bottom-right > div:last-child {
-      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.5;
+      color: white;
       opacity: 0.9;
-      line-height: 1.4;
-      color: white; /* Changed to white */
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
-    /* Features Section */
+    /* Features section improvements */
     .features-section {
-      padding: clamp(40px, 8vw, 60px) 0;
-      background: var(--color-background-white); /* Use white background color */
-      width: 100%;
-      max-width: 100%;
+      background: var(--color-background-white);
+      padding: var(--section-spacing) 0;
+    }
+
+    .alternate-section {
+      background: var(--color-background-light-accent);
     }
 
     .feature-item {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: clamp(20px, 5vw, 40px);
-      margin-bottom: clamp(40px, 8vw, 60px);
-      width: 100%;
-      padding: 0 clamp(20px, 5vw, 60px);
-    }
-
-    .feature-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .feature-item.reverse {
-      flex-direction: row-reverse;
+      gap: clamp(40px, 6vw, 80px);
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1400px;
     }
 
     .feature-content {
-      flex: 1 1 300px;
-      min-width: 280px;
+      flex: 1 1 400px;
+      min-width: 300px;
+    }
+
+    .feature-content h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--color-typography-content-dark);
+      line-height: 1.3;
     }
 
     .feature-content p {
-      color: var(--color-typography-content-light); /* Use light typography color */
-      margin-bottom: clamp(16px, 3vw, 24px);
-      font-size: clamp(1rem, 2vw, 1.1rem);
-      line-height: 1.6;
+      color: var(--color-typography-content-medium);
+      margin-bottom: 2rem;
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      line-height: 1.7;
     }
 
     .feature-list {
@@ -387,99 +265,123 @@
     }
 
     .feature-list li {
-      margin-bottom: 12px;
-      font-size: clamp(0.95rem, 1.8vw, 1rem);
+      margin-bottom: 1rem;
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
       display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-    }
-
-    .feature-list li:last-child {
-      margin-bottom: 0;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--color-typography-content-dark);
     }
 
     .feature-list li i {
-      color: var(--color-button-primary); /* Use button primary color for icons */
-      font-size: 1.1em;
-      flex-shrink: 0;
+      color: var(--color-button-primary);
+      font-size: 1.2em;
+      margin-top: 2px;
     }
 
     .feature-image {
-      flex: 1 1 300px;
-      min-width: 260px;
+      flex: 1 1 400px;
+      min-width: 300px;
       text-align: center;
+      position: relative;
     }
 
     .feature-image img {
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
       height: auto;
       aspect-ratio: 1;
       object-fit: cover;
-      border-radius: clamp(12px, 2vw, 18px);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07); /* Subtle shadow */
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Compass Description Section */
-    .compass-description-section {
-      background: var(--color-background-light); /* Use light background color */
-      padding: clamp(24px, 5vw, 48px) 0;
+    .feature-image img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    /* Navigator description section */
+    .navigator-description-section {
+      background: var(--color-background-light);
+      padding: var(--section-spacing) 0;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
     }
     
-    .compass-description-container {
-      max-width: 100%;
-      width: 1200px;
+    .navigator-description-container {
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07); /* Subtle shadow */
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      background: var(--color-background-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: clamp(40px, 6vw, 60px);
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
     
-    .compass-description-container p {
-      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
+    .navigator-description-container p {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: var(--color-typography-content-dark);
       font-weight: 500;
       margin: 0;
       line-height: 1.7;
       letter-spacing: 0.01em;
+      position: relative;
+      z-index: 2;
     }
 
-    /* ESG Tabs Section */
+    .navigator-description-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--color-typography-headline-gradient);
+    }
+
+    /* ESG Tabs Section (Re-used styles for Navigator) */
     .esg-tabs-section {
-      background: var(--color-background-white); /* Use white background color */
-      margin-top: 100px;
-      padding: clamp(32px, 6vw, 56px) 0 clamp(24px, 4vw, 40px) 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+      background: var(--color-background-white);
+      padding: var(--section-spacing) 0;
+      position: relative;
     }
     
     .esg-tabs-container {
-      max-width: 100%;
-      width: 1200px;
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
-      margin-bottom: 30px;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07); /* Subtle shadow */
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      background: var(--color-background-white);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: clamp(30px, 5vw, 50px);
       text-align: center;
-      border: 1.5px solid rgba(0,0,0,0.08); /* Subtle border */
+      border: 1px solid rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .esg-tabs-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--color-typography-headline-gradient);
     }
     
     .esg-tabs-btn-group-wrapper {
       padding: 0;
       background: none;
       border-radius: 0;
-      margin: 0;
+      margin: 0 auto 2rem;
       box-shadow: none;
       max-width: 100%;
     }
@@ -491,20 +393,20 @@
       align-items: flex-end;
       gap: 0;
       margin-bottom: 0;
-      border-bottom: 2px solid var(--color-background-light); /* Use light background color for border */
+      border-bottom: 2px solid var(--color-background-light);
       background: none;
       padding: 0;
       position: relative;
     }
     
     .esg-tab-btn {
-      background: var(--color-background-light); /* Use light background color */
-      color: var(--color-typography-content-dark); /* Use dark typography color */
+      background: var(--color-background-light);
+      color: var(--color-typography-content-dark);
       border: none;
-      border-radius: 14px 14px 0 0;
-      padding: 14px 28px 12px 28px;
+      border-radius: 12px 12px 0 0;
+      padding: 16px 32px 14px 32px;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
       outline: none;
       box-shadow: none;
       position: relative;
@@ -512,23 +414,22 @@
       border-bottom: 2px solid transparent;
       white-space: nowrap;
       z-index: 1;
+      font-weight: 600;
+      flex-grow: 1; /* Allow buttons to grow and fill space */
+      text-align: center; /* Center text within button */
     }
     
     .esg-tab-btn.active {
-      background: var(--color-background-white); /* Use white background color */
-      color: var(--color-button-primary); /* Use button primary color */
-      box-shadow: 0 4px 16px rgba(0,0,0,0.10); /* Subtle shadow */
-      border-bottom: 2px solid var(--color-button-primary); /* Use button primary color for border */
+      background: var(--color-background-white);
+      color: var(--color-button-primary);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-bottom: 2px solid var(--color-button-primary);
       z-index: 2;
     }
     
-    .esg-tab-btn:not(.active) {
-      border-bottom: 2px solid var(--color-background-light); /* Use light background color for border */
-    }
-    
-    .esg-tab-btn:hover:not(.active) {
-      background: var(--color-background-light); /* Use light background color for hover */
-      color: var(--color-typography-content-dark); /* Use dark typography color for hover */
+    .esg-tab-btn:not(.active):hover {
+      background: var(--color-background-light);
+      color: var(--color-button-primary);
     }
     
     .esg-tabs-content {
@@ -538,14 +439,14 @@
     
     .esg-tab-content {
       display: none;
-      font-size: clamp(1.05rem, 2vw, 1.18rem);
-      color: var(--color-typography-content-dark); /* Use dark typography color */
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      color: var(--color-typography-content-dark);
       font-weight: 500;
       line-height: 1.7;
       letter-spacing: 0.01em;
       min-height: 80px;
-      padding: 18px 0 0 0;
-      animation: fadeInTab 0.3s;
+      padding: 2rem 0 0;
+      animation: fadeInTab 0.4s ease-out;
     }
     
     .esg-tab-content.active {
@@ -557,310 +458,313 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Table-like container for tabs */
-    .tab-table-container {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-      background: var(--color-background-white); /* Use white background color */
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
-    }
-    
-    .tab-table-row {
+    /* New styles for the tab content layout */
+    .tab-content-layout {
       display: flex;
-      border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
+      flex-direction: column; /* Default to column for mobile */
+      gap: 2rem;
+      padding: 2rem;
+      background: var(--color-background-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: left; /* Align text left within the tab content */
     }
-    
-    .tab-table-row:last-child {
-      border-bottom: none;
-    }
-    
-    .tab-table-cell {
+
+    .tab-image-container {
       flex: 1;
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 280px; /* Minimum width for the image container */
     }
-    
-    .tab-table-cell:first-child {
+
+    .tab-image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .tab-text-container {
+      flex: 2; /* Text takes more space */
+      min-width: 300px; /* Minimum width for the text container */
+    }
+
+    .tab-text-container h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--color-typography-content-dark);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .tab-text-container .sub-heading {
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      background: var(--color-background-light); /* Use light background color */
-      min-width: 200px;
+      color: var(--color-button-primary); /* Use primary color for sub-heading */
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tab-text-container p {
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      color: var(--color-typography-content-medium);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .tab-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .tab-links a {
+      color: var(--color-primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .tab-links a:hover {
+      color: var(--color-button-primary);
+    }
+
+    /* Tab 3 specific styles (for Navigator) */
+    .tab3-compact-list-area {
+      background: var(--color-background-light);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
-    @media (max-width: 768px) {
-      .esg-tabs-container {
-        padding: 14px 2vw;
-      }
-      
-      .esg-tab-btn {
-        padding: 10px 12px 8px 12px;
-        font-size: 0.98rem;
-      }
-      
-      .tab-table-row {
-        flex-direction: column;
-      }
-      
-      .tab-table-cell:first-child {
-        min-width: 100%;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
+    .tab3-compact-list-title {
+      font-family: 'Grift', sans-serif;
+      font-weight: 700;
+      color: var(--color-button-primary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+      text-align: center;
     }
     
-    @media (max-width: 480px) {
-      .esg-tabs-section {
-        padding: 12px 0 8px 0;
-      }
-      
-      .esg-tabs-container {
-        padding: 8px 2px;
-      }
-      
-      .esg-tab-btn {
-        padding: 8px 6px 6px 6px;
-        font-size: 0.93rem;
-      }
-      
-      .esg-tab-content {
-        font-size: 0.98rem;
-      }
+    .tab3-compact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .tab3-compact-list li {
+      margin-bottom: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--color-typography-content-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    
+    .tab3-compact-list li .fa-check-circle {
+      color: var(--color-button-primary);
+      font-size: 1.2em;
+      margin-top: 2px;
+    }
+    
+    .tab3-compact-p {
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      text-align: center;
+      color: var(--color-typography-content-dark);
+    }
+    
+    .tab3-compact-divider {
+      border: none;
+      border-top: 1px solid #d1d2cc;
+      margin: 1.5rem 0;
+      width: 60%;
+      align-self: center;
+    }
+    
+    .tab3-compact-end {
+      margin-top: 1rem;
+      font-size: 1rem;
+      text-align: center;
+      color: var(--color-typography-content-dark);
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-image-section {
-        width: 95%;
-        height: clamp(180px, 30vw, 250px);
-        margin: 20px auto 0 auto;
-      }
-      
-      .hero-text-bottom-right {
-        max-width: 70%;
-      }
-      
-      .feature-item,
-      .feature-item.reverse {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-        padding: 0 20px;
-      }
-      
-      .feature-content {
-        text-align: center;
-        min-width: 100%;
-      }
-      
-      .feature-image {
-        min-width: 100%;
-      }
-      
-      .feature-image img {
-        max-width: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-image-section {
-        width: 95%;
-        height: clamp(160px, 35vw, 200px);
-        margin: 16px auto 0 auto;
-      }
-      
-      .hero-text-top-left {
-        left: 16px;
-        top: 16px;
-      }
-      
-      .hero-text-bottom-right {
-        right: 16px;
-        bottom: 16px;
-        max-width: 75%;
-      }
-      
-      .features-section {
-        padding: 30px 0;
-      }
-      
-      .feature-item {
-        margin-bottom: 40px;
-        gap: 20px;
-        padding: 0 15px;
-      }
-      
-      .feature-content {
-        padding: 0 8px;
-      }
-      
-      .feature-image img {
-        max-width: 320px;
-      }
-      
-      .feature-list li {
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Navbar Styles copied from index.html's implied style.css */
+    /* Navbar Styles */
     .navbar-custom {
-      background-color: var(--color-background-light); /* Use light background color */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-      padding: 0.75rem 1rem;
+      background-color: var(--color-background-white);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       position: fixed;
-      width: 100%;
       top: 0;
-      left: 0;
-      z-index: 1030;
+      width: 100%;
+      z-index: 1050;
     }
 
     .navbar-brand img {
       height: 55px;
+      width: auto;
       vertical-align: middle;
     }
 
-    .navbar-nav .nav-item {
-      margin-right: 2rem; /* Spacing between nav items */
+    .navbar-toggler {
+      border: none;
     }
 
-    .navbar-nav .nav-link {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color for links */
-      padding: 0.5rem 0;
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: var(--color-typography-content-dark);
+      font-weight: 500;
+      padding: 0.5rem 0.5rem;
       position: relative;
       transition: color 0.3s ease;
     }
 
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      color: var(--color-button-primary); /* Use button primary color on hover/active */
+    .navbar-nav .nav-item .nav-link:hover {
+      color: var(--color-button-primary);
     }
 
-    .navbar-nav .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--color-button-primary); /* Underline on hover/active using button primary color */
-      transition: width 0.3s ease;
+    .navbar-nav .nav-item .nav-link.active {
+      color: var(--color-button-primary);
     }
 
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link.active::after {
-      width: 100%;
-    }
-
-    /* Dropdown arrow rotation */
-    .nav-item.dropdown .nav-link.open .fas.fa-chevron-down {
-      transform: rotate(180deg);
+    .navbar-nav .nav-item .nav-link i {
+      font-size: 0.7em;
+      vertical-align: middle;
+      transition: transform 0.3s ease;
     }
 
     /* Mega Menu Styles */
     .mega-menu {
       position: absolute;
+      top: 100%;
       left: 0;
       width: 100%;
-      background-color: var(--color-background-white); /* Use white background color */
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-      border-top: 2px solid var(--color-button-primary); /* Use button primary color for border */
-      padding: 1.5rem 0;
+      background: var(--color-background-white);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      display: none;
       opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-      z-index: 1000;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1040;
     }
 
-    .mega-menu.show {
+    .nav-item.dropdown:hover .mega-menu {
+      display: block;
       opacity: 1;
-      visibility: visible;
       transform: translateY(0);
     }
 
     .mega-menu-container {
       display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
+      padding: 1.5rem;
+      gap: 1.5rem;
     }
 
     .mega-menu-sidebar {
-      flex: 0 0 250px;
-      padding-right: 2rem;
-      border-right: 1px solid var(--color-background-light); /* Use light background color for border */
+      flex-shrink: 0;
+      width: 200px;
+      border-right: 1px solid #e9ecef;
+      padding-right: 1.5rem;
     }
 
     .sidebar-section {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .sidebar-title {
-      font-family: 'Grift', sans-serif;
-      font-weight: 700;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      padding: 0.75rem 0;
+      font-weight: 600;
+      color: #555;
+      padding: 0.75rem 1rem;
       cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: color 0.2s ease, background-color 0.2s ease;
     }
 
     .sidebar-title:hover {
-      color: var(--color-button-primary); /* Use button primary color on hover */
+      background-color: #f8f9fa;
+      color: var(--color-button-primary);
     }
 
     .sidebar-title.active {
-      color: var(--color-button-primary); /* Use button primary color */
-      background-color: var(--color-background-light); /* Use light background color */
-      padding-left: 0.5rem;
-      border-radius: 4px;
-    }
-
-    .sidebar-arrow {
-      font-size: 0.8rem;
-      transition: transform 0.2s ease;
+      background-color: var(--color-button-primary);
+      color: var(--color-background-white);
     }
 
     .sidebar-title.active .sidebar-arrow {
-      transform: translateX(5px);
+      color: var(--color-background-white);
+    }
+
+    .sidebar-arrow {
+      font-size: 0.8em;
+      color: #bbb;
     }
 
     .mega-menu-content {
-      flex: 1;
-      padding-left: 2rem;
+      flex-grow: 1;
+      padding-left: 1.5rem;
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
     }
 
     .mega-menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
 
     .mega-menu-card {
-      background-color: var(--color-background-light); /* Use light background color */
-      padding: 1rem;
-      border-radius: 8px;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      padding: 0.75rem 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.2s;
     }
 
     .mega-menu-card:hover {
-      background-color: var(--color-background-white); /* Use white background color on hover */
-      transform: translateY(-3px);
+      background-color: #f8f9fa;
     }
 
     .mega-menu-card-title {
-      font-family: 'Grift', sans-serif;
-      font-weight: 600;
-      color: var(--color-typography-content-dark); /* Use dark typography color */
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--color-typography-content-dark);
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
 
     .mega-menu-card-title a {
@@ -869,517 +773,589 @@
     }
 
     .mega-menu-card-title a:hover {
-      color: var(--color-button-primary); /* Use button primary color on hover */
+      color: var(--color-button-primary);
     }
 
-    /* Button styles from index.html */
-    .btn-danger { /* Re-purposing btn-danger for demo button */
-      background-color: var(--color-button-primary); /* Use button primary color */
-      color: var(--color-background-white);
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
+    .d-flex .btn-danger {
+      background-color: orange;
+      border-color: orange;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.4rem;
       font-weight: 600;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .d-flex .btn-danger:hover {
+      background-color: orange;
+      border-color: orange;
+    }
+
+    /* Footer Section */
+    .footer-section {
+      background-color: #ffffff;
+      padding: 4rem 0 2rem;
+      color: var(--color-typography-content-light);
+      border-top: 1px solid #e7e8e2;
+    }
+
+    .footer-section h5 {
+      color: var(--color-typography-content-light);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-section p {
+      color: var(--color-typography-content-light);
+    }
+
+    .footer-section a {
+      color: var(--color-typography-content-light);
       text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 15px rgba(254, 170, 41, 0.2); /* Shadow based on button primary color */
-      border: none; /* Ensure no default bootstrap border */
+      transition: color 0.3s ease;
     }
 
-    .btn-danger:hover {
-      background-color: #D99424; /* Darker shade of button primary color on hover */
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(254, 170, 41, 0.3); /* Darker shadow on hover */
+    .footer-section a:hover {
+      color: var(--color-button-primary);
     }
 
-    /* Responsive adjustments for navbar and mega menu */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background-color: var(--color-background-white); /* Use white background color */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        padding: 1rem;
-        border-radius: 0 0 8px 8px;
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .social-links a {
+      color: var(--color-typography-content-light);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      color: var(--color-button-light);
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .tab-content-layout {
+        flex-direction: row; /* Row for larger screens */
+      }
+    }
+
+    @media (max-width: 992px) {
+      .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
       }
 
+      .feature-content, .feature-image {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+
+      .feature-content {
+        order: 1;
+      }
+
+      .feature-image {
+        order: 2;
+      }
+
+      .feature-item.reverse .feature-content {
+        order: 1;
+      }
+
+      .feature-item.reverse .feature-image {
+        order: 2;
+      }
+
+      .feature-list {
+        text-align: left;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .tab3-compact-list {
+        grid-template-columns: 1fr;
+      }
+
+      /* Responsive Navbar */
       .navbar-nav {
-        flex-direction: column !important;
-        gap: 0 !important;
+        gap: 0;
+        align-items: flex-start;
       }
 
       .navbar-nav .nav-item {
-        margin-right: 0;
         width: 100%;
+        border-bottom: 1px solid #eee; /* Changed to #eee for consistency */
       }
 
-      .navbar-nav .nav-link {
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-      }
-
-      .navbar-nav .nav-link:last-child {
+      .navbar-nav .nav-item:last-child {
         border-bottom: none;
       }
 
-      .mega-menu {
-        position: static; /* Allow mega menu to flow naturally in mobile */
-        width: auto;
-        box-shadow: none;
-        border-top: none;
-        padding: 0;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        transition: none;
-        display: none; /* Hidden by default, shown by JS toggle */
+      .navbar-nav .nav-item .nav-link {
+        padding: 0.75rem 1rem;
       }
 
-      .mega-menu.show {
-        display: block;
+      .mega-menu {
+        position: static;
+        width: auto;
+        box-shadow: none;
+        border-radius: 0;
+        transform: none;
+        opacity: 1;
+        background: none;
+        padding: 0;
       }
 
       .mega-menu-container {
         flex-direction: column;
         padding: 0;
+        gap: 0;
       }
 
       .mega-menu-sidebar {
+        width: 100%;
         border-right: none;
-        border-bottom: 1px solid var(--color-background-light); /* Use light background color for border */
-        padding-right: 0;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .mega-menu-content {
-        padding-left: 0;
+        border-bottom: 1px solid #e9ecef; /* Changed to #e9ecef for consistency */
+        padding: 0;
       }
 
       .sidebar-title {
+        border-radius: 0;
+        padding: 0.75rem 1rem;
+      }
+
+      .mega-menu-content {
+        padding: 0;
+      }
+
+      .mega-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
         padding: 0.75rem 1rem;
       }
 
       .mega-menu-card {
-        padding: 0.75rem;
+        padding: 0.5rem 0;
+      }
+      
+      .d-flex .btn-danger {
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-image-section {
+        height: clamp(250px, 60vw, 400px);
+      }
+
+      .hero-text-top-left,
+      .hero-text-bottom-right {
+        left: 30px;
+        right: 30px;
+        text-align: center;
+      }
+
+      .hero-text-bottom-right {
+        bottom: 30px;
+      }
+
+      .esg-tab-btn {
+        padding: 12px 20px 10px;
+        font-size: 0.95rem;
+      }
+
+      /* Removed tab-table-cell as it's not used in current structure */
+    }
+
+    @media (max-width: 576px) {
+      .section-spacing {
+        padding: 40px 0;
+      }
+
+      .feature-spacing {
+        margin-bottom: 40px;
+      }
+
+      .feature-item {
+        width: 95%;
+        gap: 30px;
+      }
+
+      .navigator-description-container,
+      .esg-tabs-container {
+        width: 95%;
+        padding: 30px 20px;
+      }
+
+      .esg-tabs-btn-group {
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: none;
+      }
+
+      .esg-tab-btn {
+        border-radius: 8px;
+        margin-bottom: 8px;
+        border-bottom: none !important;
       }
     }
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-  <div class="container"> 
-    <a class="navbar-brand" href="#">
-      <img src="assets/images/logo2.png" alt="Logo" style="height: 55px; vertical-align: middle;">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto" style="display: flex; gap: 2rem;"> 
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link " href="#" id="productsDropdown" role="button">
-            Products <i class="fas fa-chevron-down ms-1"></i>
-          </a>
-          <div class="mega-menu" id="productsMegaMenu">
-            <div class="mega-menu-container">
-              <div class="mega-menu-sidebar">
-                <div class="sidebar-section">
-                  <div class="sidebar-title active" data-section="products">
-                   Compass Series
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                  </div>
-                </div>
-                <div class="sidebar-section">
-                  <div class="sidebar-title" data-section="innovations">
-                   Navigator Series
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="mega-menu-content">
-                <div class="content-section" id="products-content">
-                  <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="compass.html#energy" style="color:inherit; text-decoration:none;">Energy Management</a>
-                      </div>
-                    </div>
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="compass.html#performance" style="color:inherit; text-decoration:none;">Performance Management</a>
-                      </div>
-                    </div>
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="compass.html#carbon" style="color:inherit; text-decoration:none;">Carbon Management</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mega-menu-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem;">
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="compass.html#vendor" style="color:inherit; text-decoration:none;">Vendor Management</a>
-                      </div>
-                    </div>
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="compass.html#safety" style="color:inherit; text-decoration:none;">Safety Management</a>
-                      </div>
-                    </div>
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="compass.html#social" style="color:inherit; text-decoration:none;">Social Impact Management</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="content-section" id="innovations-content" style="display: none;">
-                  <div class="mega-menu-grid">
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="navigator.html#portfolio" style="color:inherit; text-decoration:none;">Portfolio Navigator</a>
-                      </div>
-                    </div>
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="navigator.html#corporate" style="color:inherit; text-decoration:none;">Corporate Navigator</a>
-                      </div>
-                    </div>
-                    <div class="mega-menu-card">
-                      <div class="mega-menu-card-title">
-                        <a href="navigator.html#wealth" style="color:inherit; text-decoration:none;">Wealth Predictor</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link " href="#" id="innovationsDropdown" role="button">
-            Innovations <i class="fas fa-chevron-down ms-1"></i>
-          </a>
-          <div class="mega-menu" id="innovationsMegaMenu">
-            <div class="mega-menu-container">
-              <div class="mega-menu-sidebar">
-                <div class="sidebar-section">
-                  <div class="sidebar-title active" data-section="fractals">
-                    Our Fractals
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                  </div>
-                </div>
-                <div class="sidebar-section">
-                  <div class="sidebar-title" data-section="eden">
-                    Eden
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="mega-menu-content">
-                <div class="content-section" id="fractals-content">
-                    <div class="mega-menu-grid">
-                        <div class="mega-menu-card">
-                          <div class="mega-menu-card-title">
-                            CODEX
-                          </div>
-                        </div>
-                        <div class="mega-menu-card">
-                          <div class="mega-menu-card-title">
-                            Ratings Algorithms
-                          </div>
-                        </div>
-                        <div class="mega-menu-card">
-                          <div class="mega-menu-card-title">
-                            Frameworks
-                          </div>
-                        </div>
-                        <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                            Data Validation
-                            </div>
-                          </div>
-                      </div>
-                </div>
-                <div class="content-section" id="eden-content" style="display: none;">
-                    <div class="mega-menu-grid">
-                        <div class="mega-menu-card">
-                          <div class="mega-menu-card-title">
-                            Text Consolidation Sentinel
-                          </div>
-                        </div>
-                        <div class="mega-menu-card">
-                          <div class="mega-menu-card-title">
-                            Text Analysis Sentinel
-                          </div>
-                        </div>
-                        <div class="mega-menu-card">
-                          <div class="mega-menu-card-title">
-                            Ratings Sentinel
-                          </div>
-                        </div>
-                        <div class="mega-menu-card">
-                            <div class="mega-menu-card-title">
-                            Competitor Benchmarking Sentinel
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </li>
-       
-        <li class="nav-item dropdown">
-          <a class="nav-link " href="#" id="aboutDropdown" role="button">
-            About Us <i class="fas fa-chevron-down ms-1"></i>
-          </a>
-          <div class="mega-menu" id="aboutMegaMenu">
-            <div class="mega-menu-container">
-              <div class="mega-menu-content">
-                <div class="mega-menu-grid" style="grid-template-columns: 1fr; gap: 2.5rem;">
-                  <div>
-                    <div class="mega-menu-card-title" style="color: var(--color-button-primary); font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">BUSINESS INTELLIGENCE</div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-                     
-                    </div>
-                  </div>
-                  <div style="margin-top: 0.5rem;">
-                    <a href="about.html" class="mega-menu-card-title" style="color: var(--color-button-primary); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; text-decoration: none; cursor: pointer;">
-                      OUR COMPANY
-                    </a>
-                   
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Resources</a>
-        </li>
-      </ul>
-      <div class="d-flex align-items-center">
-        <a href="demo.html" class="btn btn-danger">Book a Demo</a>
-      </div>
-    </div>
-  </div>
-</nav>
+  <!-- Common navbar will be loaded here -->
+  <div id="common-navbar"></div>
+
   <div class="hero-image-section">
     <img src="assets/images/Everest.jpg" alt="Compass Series Hero">
     <div class="hero-image-overlay"></div>
     <div class="hero-text-top-left">
-      <h1 class="headline-text-gradient">Compass Series</h1>
+      <h1 class="headline-text-gradient">The Compass Series</h1>
     </div>
     <div class="hero-text-bottom-right">
-      <div style="color: white;">A 360° Sustainability Intelligence Platform</div>
-      <div style="color: white;">In depth performance tracking and insights across 15 ESG pillars</div>
+      <div>A 360° Sustainability Intelligence Platform</div>
+      <div>In depth performance tracking and insights across 15 ESG pillars</div>
     </div>
   </div>
 
-  <div class="container main-content-container">
+  <main>
     <section class="compass-description-section">
       <div class="compass-description-container">
-        <p>The Compass Series offers intuitive tools to help businesses set ESG baselines, define goals, and track progress in areas like carbon, energy, and social impact. It turns complex data into simple, actionable insights—making sustainability a clear, strategic advantage.</p>
+        <p>"The Compass Series offers intuitive tools to help businesses set ESG baselines, define goals, and track progress in areas like carbon, energy, and social impact. It turns complex data into simple, actionable insights—making sustainability a clear, strategic advantage."</p>
       </div>
     </section>
 
-    <section class="esg-tabs-section">
-      <div class="esg-tabs-container">
-        <div class="esg-tabs-btn-group-wrapper">
-          <div class="esg-tabs-btn-group">
-            <button class="esg-tab-btn active" data-tab="tab1">Your ESG Journey Starts Here</button>
-            <button class="esg-tab-btn" data-tab="tab2">Built for Businesses Taking ESG Seriously</button>
-            <button class="esg-tab-btn" data-tab="tab3">Transform ESG Goals into Measurable Action</button>
+      <section class="esg-tabs-section">
+        <div class="esg-tabs-container">
+          <div class="esg-tabs-btn-group-wrapper">
+            <div class="esg-tabs-btn-group">
+              <button class="esg-tab-btn active" data-tab="tab1">Your ESG Journey Starts Here</button>
+              <button class="esg-tab-btn" data-tab="tab2">Built for Businesses Taking ESG Seriously</button>
+              <button class="esg-tab-btn" data-tab="tab3">Transform ESG Goals into Measurable Action</button>
+            </div>
           </div>
-        </div>
-        <div class="esg-tabs-content">
           <div class="esg-tab-content active" id="tab1">
-            <div class="tab-table-container">
-              <div class="tab-table-row">
-                <div class="tab-table-cell">
-                  <p>Compass includes six purpose-built tools aligned to Impactree’s 15-pillar ESG framework. It gives organizations a 360° view of their sustainability performance across carbon, energy, vendors, and social metrics.</p>
-                </div>
+            <div class="tab-content-layout">
+              <div class="tab-image-container">
+                <img src="/assets/images/ESG-Journey.png" alt="Tab 1 Image">
+              </div>
+              <div class="tab-text-container">
+                <div class="sub-heading">Your ESG Journey Starts Here</div>
+                <h3>Start with a clear picture.</h3>
+                <p>Compass includes six purpose-built tools aligned to Impactree’s 15-pillar ESG framework. It gives organizations a 360° view of their sustainability performance across carbon, energy, vendors, and social metrics.</p>
               </div>
             </div>
           </div>
-          
+            
           <div class="esg-tab-content" id="tab2">
-            <div class="tab-table-container">
-              <div class="tab-table-row">
-                <div class="tab-table-cell">
-                  <p>Perfect for companies starting their sustainability journey or looking to turn ESG into long-term value. Whether in manufacturing, logistics, or services—Compass delivers clarity, control, and confidence.</p>
-                </div>
+            <div class="tab-content-layout">
+              <div class="tab-image-container">
+                <img src="/assets/images/ESG-Business.webp" alt="Tab 2 Image">
+              </div>
+              <div class="tab-text-container">
+                <div class="sub-heading">Built for Businesses Taking ESG Seriously</div>
+                <h3>From data to decisive action.</h3>
+                <p>Perfect for companies starting their sustainability journey or looking to turn ESG into long-term value. Whether in manufacturing, logistics, or services—Compass delivers clarity, control, and confidence.</p>
               </div>
             </div>
           </div>
-          
+            
           <div class="esg-tab-content" id="tab3">
-            <div class="tab-table-container">
-              <div class="tab-table-row">
-                <div class="tab-table-cell">
-                  <p>Track your progress, identify areas for improvement, and demonstrate your commitment to sustainability with verifiable data. Compass empowers you to make informed decisions and drive meaningful change.</p>
-                </div>
+            <div class="tab-content-layout">
+              <div class="tab-image-container">
+                <img src="/assets/images/ESG-Goals.webp" alt="Tab 3 Image">
+              </div>
+              <div class="tab-text-container">
+                <div class="sub-heading">Transform ESG Goals into Measurable Action</div>
+                <h3>Your roadmap to measurable impact.</h3>
+               <p>Track your progress, identify areas for improvement, and demonstrate your commitment to sustainability with verifiable data. Compass empowers you to make informed decisions and drive meaningful change.</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+  
+      </section>
+    </div>
 
     <section class="features-section" id="energy">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Energy Management</h2>
+      <h2 class="section-title">Energy Management</h2>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h3>One Platform to Monitor. Optimize. Save.</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i> Granular energy usage dashboards</li>
+            <li><i class="fas fa-check-circle"></i> Cost-to-energy correlation insights</li>
+            <li><i class="fas fa-check-circle"></i> Target-based reduction tracking</li>
+            <li><i class="fas fa-check-circle"></i> Alerts for energy anomalies and inefficiencies</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Reduce utility costs and carbon footprint</li>
+            <li><i class="fas fa-check-circle"></i> Uncover inefficiencies across sites or departments</li>
+            <li><i class="fas fa-check-circle"></i> Set and achieve energy saving targets with real-time clarity</li>
+          </ul>
         </div>
-        <div class="feature-item">
-          <div class="feature-content">
-            <h3>Optimize Your Energy Footprint</h3>
-            <p>Gain complete visibility and control over your energy consumption. Our Energy Management module allows you to track, analyze, and optimize energy usage across your operations, identifying opportunities for significant savings and reduced environmental impact.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> Real-time energy monitoring</li>
-              <li><i class="fas fa-check-circle"></i> Usage pattern analysis and anomaly detection</li>
-              <li><i class="fas fa-check-circle"></i> Goal setting and progress tracking</li>
-              <li><i class="fas fa-check-circle"></i> Customizable reporting for compliance and insights</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/energymanager.jpg" alt="Energy Management">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/energymanager.jpg" alt="Energy Management">
         </div>
       </div>
     </section>
 
-    <section class="features-section" id="performance">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Performance Management</h2>
+    <section class="features-section alternate-section" id="performance">
+      <h2 class="section-title">Performance Management</h2>
+      <div class="feature-item reverse">
+        <div class="feature-content">
+          <h3>Data-Driven Resilience at Scale</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i> Convert ESG metrics into measurable business outcomes</li>
+            <li><i class="fas fa-check-circle"></i> Custom KPI dashboards</li>
+            <li><i class="fas fa-check-circle"></i> Enterprise-wide reporting tools</li>
+            <li><i class="fas fa-check-circle"></i> Get ESG compliance ready</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Align ESG with financial and operational performance</li>
+            <li><i class="fas fa-check-circle"></i> Demonstrate ESG progress to boards and investors</li>
+            <li><i class="fas fa-check-circle"></i> Make data-informed strategic decisions</li>
+            <li><i class="fas fa-check-circle"></i> Generate compliance reports with a single click</li>
+          </ul>
         </div>
-        <div class="feature-item reverse">
-          <div class="feature-content">
-            <h3>Drive Continuous Improvement</h3>
-            <p>Measure and enhance your overall ESG performance with our comprehensive Performance Management tool. Set key performance indicators (KPIs), monitor progress against targets, and identify areas for strategic improvements to bolster your sustainability profile.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> Centralized ESG data hub</li>
-              <li><i class="fas fa-check-circle"></i> KPI tracking and dashboards</li>
-              <li><i class="fas fa-check-circle"></i> Automated data collection and validation</li>
-              <li><i class="fas fa-check-circle"></i> Performance benchmarking against industry peers</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/Performance manager (3).jpg" alt="Performance Management">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/Performance manager (3).jpg" alt="Performance Management">
         </div>
       </div>
     </section>
 
     <section class="features-section" id="carbon">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Carbon Management</h2>
+      <h2 class="section-title">Carbon Management</h2>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h3>Tool to Accelerate Your Net-Zero Journey</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i> Calculate, manage, and reduce Scope 1, 2, and 3 emissions</li>
+            <li><i class="fas fa-check-circle"></i> GHG protocol-aligned emissions reporting</li>
+            <li><i class="fas fa-check-circle"></i> Asset level tracking</li>
+            <li><i class="fas fa-check-circle"></i> Audit-ready output</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Build a credible decarbonization roadmap</li>
+            <li><i class="fas fa-check-circle"></i> Ensure regulatory and investor compliance</li>
+            <li><i class="fas fa-check-circle"></i> Identify high-impact reduction levers</li>
+          </ul>
         </div>
-        <div class="feature-item">
-          <div class="feature-content">
-            <h3>Achieve Your Net-Zero Goals</h3>
-            <p>Effectively measure, report, and reduce your carbon footprint. Our Carbon Management module provides granular insights into Scope 1, 2, and 3 emissions, helping you develop and implement robust decarbonization strategies.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> Automated emissions calculation</li>
-              <li><i class="fas fa-check-circle"></i> Scenario planning for reduction targets</li>
-              <li><i class="fas fa-check-circle"></i> Compliance reporting (e.g., GHG Protocol)</li>
-              <li><i class="fas fa-check-circle"></i> Carbon offset and credit tracking</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/Carbon Manager latest (1).jpg" alt="Carbon Management">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/Carbon Manager latest (1).jpg" alt="Carbon Management">
         </div>
       </div>
     </section>
 
-    <section class="features-section" id="vendor">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Vendor Management</h2>
+    <section class="features-section alternate-section" id="vendor">
+      <h2 class="section-title">Vendor Management</h2>
+      <div class="feature-item reverse">
+        <div class="feature-content">
+          <h3>Sustainable Supply Chain Starts Here</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i> Assess and manage the ESG performance of your suppliers</li>
+            <li><i class="fas fa-check-circle"></i> Vendor sustainability scoring</li>
+            <li><i class="fas fa-check-circle"></i> Risk flags for compliance, ethics, and emissions</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Drive accountability across your supply chain</li>
+            <li><i class="fas fa-check-circle"></i> Reduce ESG-related disruptions and reputational risk</li>
+            <li><i class="fas fa-check-circle"></i> Strengthen supplier partnerships through transparency</li>
+          </ul>
         </div>
-        <div class="feature-item reverse">
-          <div class="feature-content">
-            <h3>Build a Sustainable Supply Chain</h3>
-            <p>Assess and manage the ESG performance of your vendors and suppliers. Our Vendor Management module helps you ensure your supply chain aligns with your sustainability goals, mitigating risks and fostering responsible sourcing.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> Supplier ESG risk assessment</li>
-              <li><i class="fas fa-check-circle"></i> Performance monitoring and scorecards</li>
-              <li><i class="fas fa-check-circle"></i> Collaborative improvement initiatives</li>
-              <li><i class="fas fa-check-circle"></i> Supply chain transparency and traceability</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/vendor manager 1 (4).jpg" alt="Vendor Management">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/vendor manager 1 (4).jpg" alt="Vendor Management">
         </div>
       </div>
     </section>
 
     <section class="features-section" id="safety">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Safety Management</h2>
+      <h2 class="section-title">Safety Management</h2>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h3>Prioritize People. Mitigate Risk.</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i> Digitally manage workplace safety, incident reporting, and compliance in real time</li>
+            <li><i class="fas fa-check-circle"></i> Incident tracking & root cause analysis</li>
+            <li><i class="fas fa-check-circle"></i> Training & audit compliance logs</li>
+            <li><i class="fas fa-check-circle"></i> Workforce health dashboards</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Minimize workplace incidents and liability</li>
+            <li><i class="fas fa-check-circle"></i> Promote a culture of safety and compliance</li>
+            <li><i class="fas fa-check-circle"></i> Streamline reporting for audits and certifications</li>
+          </ul>
         </div>
-        <div class="feature-item">
-          <div class="feature-content">
-            <h3>Ensure a Safe and Healthy Workplace</h3>
-            <p>Promote a culture of safety and ensure compliance with our Safety Management module. Track incidents, manage risks, and implement preventative measures to protect your workforce and minimize operational disruptions.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> Incident reporting and analysis</li>
-              <li><i class="fas fa-check-circle"></i> Risk assessment and mitigation planning</li>
-              <li><i class="fas fa-check-circle"></i> Safety training management</li>
-              <li><i class="fas fa-check-circle"></i> Compliance with health and safety regulations</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/Safety Manager (1).jpg" alt="Safety Management">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="features-section" id="social">
-      <div class="features-container">
-        <div class="headline-text-gradient text-center mb-5">
-          <h2>Social Impact Management</h2>
-        </div>
-        <div class="feature-item reverse">
-          <div class="feature-content">
-            <h3>Maximize Your Positive Societal Influence</h3>
-            <p>Measure and enhance your positive impact on communities and stakeholders. Our Social Impact Management module helps you track initiatives related to diversity, community engagement, employee well-being, and ethical practices.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check-circle"></i> Community engagement tracking</li>
-              <li><i class="fas fa-check-circle"></i> Diversity and inclusion metrics</li>
-              <li><i class="fas fa-check-circle"></i> Employee well-being programs monitoring</li>
-              <li><i class="fas fa-check-circle"></i> Ethical supply chain practices</li>
-            </ul>
-          </div>
-          <div class="feature-image">
-            <img src="assets/images/Social Impact Manager (1).jpg" alt="Social Impact Management">
-          </div>
+        <div class="feature-image">
+          <img src="assets/images/Safety Manager (1).jpg" alt="Safety Management">
         </div>
       </div>
     </section>
 
-  </div> 
-  <footer class="footer mt-5 py-4" style="background-color: var(--color-background-light);">
-    <div class="container text-center">
-      <p style="color: var(--color-typography-content-dark);">&copy; 2025 Impactree. All rights reserved.</p>
-    </div>
-  </footer>
+    <section class="features-section alternate-section" id="social">
+      <h2 class="section-title">Social Impact Management</h2>
+      <div class="feature-item reverse">
+        <div class="feature-content">
+          <h3>Make Impact Visible. Measurable. Scalable.</h3>
+          <ul class="feature-list">
+            <h4>Features:</h4>
+            <li><i class="fas fa-check-circle"></i> CSR & social program reporting</li>
+            <li><i class="fas fa-check-circle"></i> Community engagement mapping</li>
+            <li><i class="fas fa-check-circle"></i> Impact storytelling tools</li>
+          </ul>
+          <h4>Outcomes:</h4>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Communicate impact to stakeholders with confidence</li>
+            <li><i class="fas fa-check-circle"></i> Strengthen brand trust through verified initiatives</li>
+            <li><i class="fas fa-check-circle"></i> Scale purpose-led programs with better insights</li>
+          </ul>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/Social Impact Manager (1).jpg" alt="Social Impact Management">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Common footer will be loaded here -->
+  <div id="common-footer"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    // Function to load common HTML components
+    async function includeHTML() {
+      const commonHead = document.getElementById('common-head');
+      const commonNavbar = document.getElementById('common-navbar');
+      const commonFooter = document.getElementById('common-footer');
+
+      if (commonHead) {
+        const headResponse = await fetch('common_head.html');
+        const headText = await headResponse.text();
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = headText;
+        while (tempDiv.firstChild) {
+          document.head.appendChild(tempDiv.firstChild);
+        }
+        commonHead.remove(); // Remove the placeholder div
+      }
+
+      if (commonNavbar) {
+        const navbarResponse = await fetch('common_navbar.html');
+        commonNavbar.innerHTML = await navbarResponse.text();
+      }
+
+      if (commonFooter) {
+        const footerResponse = await fetch('common_footer.html');
+        commonFooter.innerHTML = await footerResponse.text();
+      }
+    }
+
+    // Function to set up dynamic content (like mega menu sidebar)
+    function setupDynamicContent() {
+      // Navbar dropdown functionality (from common_navbar.html's original script)
+      const productsDropdown = document.getElementById('productsDropdown');
+      const productsMegaMenu = document.getElementById('productsMegaMenu');
+      const innovationsDropdown = document.getElementById('innovationsDropdown');
+      const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
+      const aboutDropdown = document.getElementById('aboutDropdown');
+      const aboutMegaMenu = document.getElementById('aboutMegaMenu');
+
+      function closeAllMegaMenus() {
+        if (productsMegaMenu) productsMegaMenu.classList.remove('show');
+        if (productsDropdown) productsDropdown.classList.remove('open');
+        if (innovationsMegaMenu) innovationsMegaMenu.classList.remove('show');
+        if (innovationsDropdown) innovationsDropdown.classList.remove('open');
+        if (aboutMegaMenu) aboutMegaMenu.classList.remove('show');
+        if (aboutDropdown) aboutDropdown.classList.remove('open');
+      }
+
+      if (productsDropdown) {
+        productsDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          productsMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      if (innovationsDropdown) {
+        innovationsDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          innovationsMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      if (aboutDropdown) {
+        aboutDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          aboutMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      document.addEventListener('click', function (event) {
+        if (productsMegaMenu && !productsMegaMenu.contains(event.target) && !productsDropdown.contains(event.target) ||
+            innovationsMegaMenu && !innovationsMegaMenu.contains(event.target) && !innovationsDropdown.contains(event.target) ||
+            aboutMegaMenu && !aboutMegaMenu.contains(event.target) && !aboutDropdown.contains(event.target)) {
+          closeAllMegaMenus();
+        }
+      });
+
+      // Sidebar functionality for Products and Innovations Mega Menus
+      function setupMegaMenuSidebar(megaMenuId) {
+        const megaMenu = document.getElementById(megaMenuId);
+        if (!megaMenu) return;
+
+        const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
+        const contentSections = megaMenu.querySelectorAll('.content-section');
+
+        sidebarTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            const targetSectionId = this.dataset.section + '-content';
+
+            sidebarTitles.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            contentSections.forEach(content => {
+              if (content.id === targetSectionId) {
+                content.style.display = 'block';
+              } else {
+                content.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // Set initial active state
+        if (sidebarTitles.length > 0) {
+          sidebarTitles[0].click();
+        }
+      }
+
+      setupMegaMenuSidebar('productsMegaMenu');
+      setupMegaMenuSidebar('innovationsMegaMenu');
+      setupMegaMenuSidebar('aboutMegaMenu'); // Ensure this is also set up if it has internal tabs
+
+      // ESG Tabs functionality
       const tabButtons = document.querySelectorAll('.esg-tab-btn');
       const tabContents = document.querySelectorAll('.esg-tab-content');
 
@@ -1394,117 +1370,12 @@
           document.getElementById(tabId).classList.add('active');
         });
       });
-    });
+    }
 
-    // Mega Menu JavaScript
-    document.addEventListener('DOMContentLoaded', function () {
-      const productsDropdown = document.getElementById('productsDropdown');
-      const productsMegaMenu = document.getElementById('productsMegaMenu');
-      const innovationsDropdown = document.getElementById('innovationsDropdown');
-      const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
-      const industriesDropdown = document.getElementById('industriesDropdown');
-      const industriesMegaMenu = document.getElementById('industriesMegaMenu');
-      const aboutDropdown = document.getElementById('aboutDropdown');
-      const aboutMegaMenu = document.getElementById('aboutMegaMenu');
-      
-      // Get the "Resources" nav item and "Book a Demo" button
-      const resourcesNavItem = document.querySelector('.navbar-nav .nav-item:last-child');
-      const bookDemoButton = document.querySelector('.d-flex.align-items-center .btn');
-
-      const allMegaMenus = [productsMegaMenu, innovationsMegaMenu, industriesMegaMenu, aboutMegaMenu];
-
-      function closeAllMegaMenus() {
-        allMegaMenus.forEach(menu => {
-          if (menu) {
-            menu.classList.remove('show'); // Use 'show' class for Bootstrap dropdowns
-            const dropdownLink = menu.previousElementSibling;
-            if (dropdownLink && dropdownLink.classList.contains('nav-link')) {
-              dropdownLink.classList.remove('open'); // Remove 'open' class for arrow rotation
-            }
-          }
-        });
-      }
-
-      function toggleMegaMenu(dropdownElement, megaMenuElement) {
-        closeAllMegaMenus(); // Close all other mega menus first
-        if (megaMenuElement) {
-          megaMenuElement.classList.toggle('show');
-          dropdownElement.classList.toggle('open'); // Toggle 'open' class for arrow rotation
-        }
-      }
-
-      if (productsDropdown) {
-        productsDropdown.addEventListener('click', function (event) {
-          event.preventDefault();
-          toggleMegaMenu(this, productsMegaMenu);
-        });
-      }
-      if (innovationsDropdown) {
-        innovationsDropdown.addEventListener('click', function (event) {
-          event.preventDefault();
-          toggleMegaMenu(this, innovationsMegaMenu);
-        });
-      }
-      // industriesDropdown is not present in the new navbar, so this block is not needed
-      // if (industriesDropdown) {
-      //   industriesDropdown.addEventListener('click', function (event) {
-      //     event.preventDefault();
-      //     toggleMegaMenu(industriesMegaMenu);
-      //   });
-      // }
-      if (aboutDropdown) {
-        aboutDropdown.addEventListener('click', function (event) {
-          event.preventDefault();
-          toggleMegaMenu(this, aboutMegaMenu);
-        });
-      }
-
-      document.addEventListener('click', function (event) {
-        // Check if the click is outside any navbar element or mega menu
-        const isClickInsideNavbar = event.target.closest('.navbar-nav');
-        const isClickInsideMegaMenu = event.target.closest('.mega-menu');
-        const isClickOnDropdownToggle = event.target.closest('.nav-item.dropdown > .nav-link');
-
-        if (!isClickInsideNavbar && !isClickInsideMegaMenu && !isClickOnDropdownToggle) {
-          closeAllMegaMenus();
-        }
-      });
-
-      // Sidebar functionality for Products and Innovations Mega Menus
-      function setupSidebar(megaMenuId) {
-        const megaMenu = document.getElementById(megaMenuId);
-        if (!megaMenu) return;
-
-        const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
-        const contentSections = megaMenu.querySelectorAll('.content-section');
-
-        sidebarTitles.forEach(title => {
-          title.addEventListener('click', function() {
-            const targetSectionId = this.dataset.section + '-content';
-            
-            // Remove active from all sidebar titles in the same mega-menu
-            this.closest('.mega-menu-sidebar').querySelectorAll('.sidebar-title').forEach(t => t.classList.remove('active'));
-            // Add active to the clicked title
-            this.classList.add('active');
-
-            // Hide all content sections in the same mega-menu
-            this.closest('.mega-menu-container').querySelectorAll('.mega-menu-content .content-section').forEach(section => {
-              section.style.display = 'none';
-            });
-
-            // Show the corresponding content section
-            document.getElementById(targetSectionId).style.display = 'block';
-          });
-        });
-
-        // Set initial active state for sidebars
-        if (sidebarTitles.length > 0) {
-          sidebarTitles[0].click();
-        }
-      }
-
-      setupSidebar('productsMegaMenu');
-      setupSidebar('innovationsMegaMenu');
+    // Run includeHTML and setupDynamicContent after DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHTML();
+      setupDynamicContent();
     });
   </script>
 </body>

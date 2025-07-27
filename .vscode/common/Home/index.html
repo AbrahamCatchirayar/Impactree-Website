@@ -11,369 +11,18 @@
 </head>
 <body>
   <div id="common-navbar"></div>
-  <style>
-
-    /* Navbar Styles */
-.navbar-custom {
-  background-color: var(--color-background-white); /* White background for navbar */
-  padding: 0.8rem 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: fixed; /* Make the navbar fixed at the top */
-  top: 0;
-  width: 100%;
-  z-index: 1050; /* Ensure it's above other content */
-}
-
-.navbar-brand img {
-  height: 55px; /* Fixed height for consistency */
-  width: auto; /* Maintain aspect ratio */
-  vertical-align: middle;
-}
-
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-.navbar-nav {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.navbar-nav .nav-item .nav-link {
-  color: var(--color-typography-content-dark);
-  font-weight: 500;
-  padding: 0.5rem 0.5rem;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-  color: var(--color-button-primary); /* Use a primary color for hover */
-}
-
-.navbar-nav .nav-item .nav-link.active {
-  color: var(--color-button-primary);
-}
-
-.navbar-nav .nav-item .nav-link i {
-  font-size: 0.7em;
-  vertical-align: middle;
-  transition: transform 0.3s ease;
-}
-
-/* Mega Menu Styles */
-.mega-menu {
-  position: absolute;
-  top: 100%; /* Position below the nav-link */
-  left: 0;
-  width: 100%;
-  background: var(--color-background-white);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  display: none; /* Hidden by default */
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1040;
-}
-
-.nav-item.dropdown:hover .mega-menu {
-  display: block; /* Show on hover */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.mega-menu-container {
-  display: flex;
-  padding: 1.5rem;
-  gap: 1.5rem;
-}
-
-.mega-menu-sidebar {
-  flex-shrink: 0;
-  width: 200px; /* Fixed width for sidebar */
-  border-right: 1px solid #e9ecef; /* Light separator */
-  padding-right: 1.5rem;
-}
-
-.sidebar-section {
-  margin-bottom: 0.5rem;
-}
-
-.sidebar-title {
-  font-weight: 600;
-  color: #555;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sidebar-title:hover {
-  background-color: #f8f9fa;
-  color: var(--color-button-primary);
-}
-
-.sidebar-title.active {
-  background-color: var(--color-button-primary);
-  color: var(--color-background-white);
-}
-
-.sidebar-title.active .sidebar-arrow {
-  color: var(--color-background-white);
-}
-
-.sidebar-arrow {
-  font-size: 0.8em;
-  color: #bbb;
-}
-
-.mega-menu-content {
-  flex-grow: 1;
-  padding-left: 1.5rem;
-}
-
-.content-section {
-  display: none; /* Hidden by default, controlled by JS */
-}
-
-.content-section.active {
-  display: block;
-}
-
-.mega-menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
-  gap: 1rem;
-}
-
-.mega-menu-card {
-  padding: 0.75rem 0.5rem;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.mega-menu-card:hover {
-  background-color: #f8f9fa;
-}
-
-.mega-menu-card-title {
-  font-weight: 500;
-  color: var(--color-typography-content-dark);
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.mega-menu-card-title a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.mega-menu-card-title a:hover {
-  color: var(--color-button-primary);
-}
-
-
-    .d-flex .btn-danger {
-      background-color: orange;
-      border-color: orange;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 0.4rem;
-      font-weight: 600;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .d-flex .btn-danger:hover {
-      background-color: orange;
-      border-color: orange;
-    }
-   
-    /* Footer Section */
-    .footer-section {
-      background-color: #ffffff;
-      padding: 4rem 0 2rem;
-      color: var(--color-typography-content-light);
-      border-top: 1px solid #e7e8e2;
-    }
-
-    .footer-section h5 {
-      color: var(--color-typography-content-light);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .footer-section p {
-      color: var(--color-typography-content-light);
-    }
-
-    .footer-section a {
-      color: var(--color-typography-content-light);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--color-button-primary);
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.7rem;
-    }
-
-    .social-links a {
-      color: var(--color-typography-content-light);
-      margin-right: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .social-links a:hover {
-      color: var(--color-button-light);
-    }
-
-
-    /* Responsive adjustments */
-    @media (min-width: 768px) {
-      .tab-content-layout {
-        flex-direction: row; /* Row for larger screens */
-      }
-    }
-
-    @media (max-width: 992px) {
-      .feature-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-      }
-
-      .feature-content, .feature-image {
-        flex: 1 1 100%;
-        min-width: 100%;
-      }
-
-      .feature-content {
-        order: 1;
-      }
-
-      .feature-image {
-        order: 2;
-      }
-
-      .feature-item.reverse .feature-content {
-        order: 1;
-      }
-
-      .feature-item.reverse .feature-image {
-        order: 2;
-      }
-
-      .feature-list {
-        text-align: left;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      /* Responsive Navbar */
-      .navbar-nav {
-        gap: 0; /* Remove gap for stacked items */
-        align-items: flex-start;
-      }
-
-      .navbar-nav .nav-item {
-        width: 100%;
-        border-bottom: 1px solid #eee;
-      }
-
-      .navbar-nav .nav-item:last-child {
-        border-bottom: none;
-      }
-
-      .navbar-nav .nav-item .nav-link {
-        padding: 0.75rem 1rem;
-      }
-
-      .mega-menu {
-        position: static; /* Remove absolute positioning for mobile */
-        width: auto;
-        box-shadow: none;
-        border-radius: 0;
-        transform: none;
-        opacity: 1;
-        background: none;
-        padding: 0;
-      }
-
-      .mega-menu-container {
-        flex-direction: column; /* Stack sidebar and content */
-        padding: 0;
-        gap: 0;
-      }
-
-      .mega-menu-sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #e9ecef;
-        padding: 0;
-      }
-
-      .sidebar-title {
-        border-radius: 0;
-        padding: 0.75rem 1rem;
-      }
-
-      .mega-menu-content {
-        padding: 0;
-      }
-
-      .mega-menu-grid {
-        grid-template-columns: 1fr; /* Single column for cards on mobile */
-        gap: 0.5rem;
-        padding: 0.75rem 1rem;
-      }
-
-      .mega-menu-card {
-        padding: 0.5rem 0;
-      }
-      
-      .d-flex .btn-danger {
-        width: 100%;
-        margin-top: 1rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-image-section {
-        height: clamp(250px, 60vw, 400px);
-      }
-    }
-
-    
-  </style>
+  
   <!-- Load common components -->
   <script>
     // Load common head
-    fetch('/common_head.html')
+    fetch('../common/common_head.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('common-head').innerHTML = html;
       });
 
     // Load common navbar
-    fetch('/common_navbar.html')
+    fetch('../common/common_navbar.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('common-navbar').innerHTML = html;
@@ -618,22 +267,19 @@
   </div>
 </section>
 
-<!-- Climb Your Everest With Confidence Section -->
 <section class="everest-section">
   <div class="container">
     <div class="everest-header text-center">
       <h2 class="everest-title">Climb Your Everest With Confidence</h2>
       <p class="everest-subtitle">
-        Every organization faces its own sustainability Everest. With the right tools, the climb becomes strategic—not overwhelming. 
+        Every organization faces its own sustainability Everest. With the right tools, the climb becomes strategic—not overwhelming.
         <span class="highlight">Impactree's Compass and Navigator Series</span> help you assess your baseline, plan smartly, and scale with resilience.
       </p>
     </div>
-    
+
     <div class="everest-content-wrapper">
-      <div class="everest-background">
-        <!-- Background image will be set via CSS -->
-      </div>
-      
+      <div class="everest-background"></div>
+
       <div class="everest-cards-container">
         <div class="everest-card compass-card">
           <div class="card-icon">
@@ -645,9 +291,9 @@
             Set your sustainability baseline, define clear goals, and track progress across 15 ESG pillars—from insight to action.
           </p>
           <p class="card-tagline">Scope the ground—Everest becomes easy.</p>
-          <a href="compass.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          <a href="../products/compass.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
-        
+
         <div class="everest-card navigator-card">
           <div class="card-icon">
             <i class="fas fa-map-signs"></i>
@@ -658,7 +304,7 @@
             Once you know your path, Navigator helps you climb smarter—with bespoke, customized tools for ESG risk, forecasting, and strategy.
           </p>
           <p class="card-tagline">With the right map, every summit is within reach.</p>
-          <a href="navigator.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          <a href="../products/navigator.html" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -669,7 +315,7 @@
 
 <script>
   // Load common footer
-  fetch('/common_footer.html')
+  fetch('../common/common_footer.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('common-footer').innerHTML = html;
@@ -728,7 +374,6 @@
         closeAllMegaMenus();
       }
     });
-    
 
     // Sidebar functionality for Mega Menus
     function setupMegaMenuSidebar(megaMenuId) {

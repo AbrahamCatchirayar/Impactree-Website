@@ -1,4 +1,3 @@
-/* Custom Font: Grift - OpenType-PS */
 @font-face {
   font-family: 'Grift';
   src: url('assets/fonts/OpenType-PS/Grift-Thin.otf') format('opentype');
@@ -138,8 +137,21 @@
 @font-face {
   font-family: 'Grift';
   src: url('assets/fonts/OpenType-PS/Grift-BlackItalic.otf') format('opentype');
-  font-weight: 900; /* Black */
+  font-weight: 900;
   font-style: italic;
+  font-display: swap;
+}
+
+/*
+  NOTE: 'Orlean' font files were not provided.
+  Using 'Grift' with medium weight for content as a placeholder.
+  If 'Orlean' is a different font, please upload its files.
+*/
+@font-face {
+  font-family: 'Orlean';
+  src: url('assets/fonts/Orlean-Medium.otf') format('opentype'); /* Placeholder path */
+  font-weight: 500; /* Medium */
+  font-style: normal;
   font-display: swap;
 }
 
@@ -154,24 +166,43 @@
 
   /* Button Color */
   --color-button-primary: #FEAA29; /* Orange */
+  --color-button-primary-dark: #D99424; /* Darker orange for hover */
+  --color-button-gradient-start: #FF8C00; /* Darker orange for gradient start */
+  --color-button-gradient-end: #FFA500; /* Lighter orange for gradient end */
+
 
   /* Typography Colors */
-  --color-typography-headline-gradient: linear-gradient(45deg, #1e4d72, #007bff, #4da6ff); /* Existing blue gradient */
+  --impactree-blue: orange; /* Updated to orange as requested */
+  --impactree-darkblue: #1e4d72; /* Used for titles and headers */
+  --impactree-lightgray: #f8fafc; /* For the very light background */
+  --impactree-lightblue: #e7f3ff; /* For the gradient and benefit icon background */
+  --impactree-text-gray: #4a5568; /* For subtitles and general text */
+  --impactree-form-footer: #718096; /* For form footer text */
+  --impactree-quote-red: #ff4d4f; /* For testimonial quote */
+  --impactree-dark-bg: #181818; /* For testimonial card background */
+  --impactree-white: #fff;
+  --impactree-form-border: #e5e7eb; /* A light border for inputs */
+
+  --color-typography-headline-gradient: linear-gradient(45deg, #1e4d72, orange, #4da6ff); /* Updated to include orange */
   --color-typography-content-dark: #1A0C0A; /* Dark typography color */
   --color-typography-content-light: #A8A8A8; /* Light gray typography color */
+
+  /* New colors for demo page sections */
+  --demo-left-bg: #e7e8e2;
+  --demo-right-bg: #ffffff;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  font-family: 'Grift', sans-serif; /* Using the custom 'Grift' font */
-  padding-top: 80px;
-  background: var(--page-background-main); /* Applying main page background */
-  background-attachment: fixed; /* Ensures the background covers the entire viewport even on scroll */
-}
-
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Grift', Arial, sans-serif;
+    /* Remove this line: padding-top: 80px; */
+    background: var(--page-background-main);
+    background-attachment: fixed;
+    font-weight: 500;
+  }
 /* Full width container override */
 .container {
   max-width: 100%;
@@ -184,82 +215,721 @@ body {
   }
 }
 
-/* Navbar - fixed and consistent */
+
+/* Button changes for "Request Demo" and "Book Demo" to orange gradient glow */
+.btn-orange-glow {
+  background: linear-gradient(45deg, var(--color-button-gradient-start), var(--color-button-gradient-end));
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: 'Grift', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(254, 170, 41, 0.6); /* Initial glow */
+  position: relative;
+  overflow: hidden; /* For pseudo-element glow */
+  z-index: 1;
+}
+
+.btn-orange-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.btn-orange-glow:hover::before {
+  transform: translateX(0%);
+}
+
+.btn-orange-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(254, 170, 41, 0.8), 0 8px 20px rgba(254, 170, 41, 0.4); /* Enhanced glow on hover */
+  color: white;
+  filter: brightness(1.1); /* Slight brightness increase */
+}
+
+/* Navbar Styles (from user's provided navbar + new responsive styles) */
 .navbar-custom {
-  background: var(--color-background-light) !important; /* Changed to requested navbar color */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: fixed;
+  background-color: #fff!important;
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: fixed; 
   top: 0;
   width: 100%;
-  z-index: 1001;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  z-index: 1050; 
+  height: 80px;
 }
 
-.navbar-custom .navbar-brand {
-  color: var(--color-typography-content-dark); /* Using dark typography color */
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-decoration: none;
+.navbar-brand img {
+  height: 55px; 
+  width: auto; 
+  vertical-align: middle;
 }
 
-.navbar-custom .nav-link {
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: var(--color-typography-content-dark);
   font-weight: 500;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 0.5rem;
   position: relative;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  transition: color 0.3s ease;
+  font-family: 'Grift', sans-serif; 
 }
 
-.navbar-custom .nav-link:hover {
-  color: var(--color-button-primary); /* Hover color for nav links */
+.navbar-nav .nav-item .nav-link:hover {
+  color: var(--color-button-primary); 
 }
 
-.navbar-custom .nav-link i {
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+.navbar-nav .nav-item .nav-link.active {
+  color: var(--color-button-primary);
 }
 
-.navbar-custom .navbar-toggler .navbar-toggler-icon {
-  background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'><path stroke=\'rgba(26,12,10,1)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/></svg>');
+.navbar-nav .nav-item .nav-link i {
+  font-size: 0.7em;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
 }
 
-.navbar-custom .btn-primary {
-  background-color: var(--color-button-primary); /* Applying new button color */
-  border-color: var(--color-button-primary); /* Applying new button color */
+.mega-menu {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+  background: var(--color-background-white);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1040;
+}
+
+.nav-item.dropdown:hover .mega-menu {
+  display: block; 
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mega-menu-container {
+  display: flex;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.mega-menu-sidebar {
+  flex-shrink: 0;
+  width: 200px; 
+  border-right: 1px solid #e9ecef; 
+  padding-right: 1.5rem;
+}
+
+.sidebar-section {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-title {
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  color: #555;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
   border-radius: 6px;
-  margin-left: 1rem;
-  font-size: 0.95rem;
-  color: var(--color-background-white); /* Ensure text is white on button */
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Grift', sans-serif;
 }
 
-.navbar-custom .btn-danger {
-  background-color: #D9310B;
-  border-color: #D9310B;
-  color: #FAFAFA;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
+.sidebar-title:hover {
+  background-color: #ffa500;
+  color: var(--color-button-primary);
+}
+
+.sidebar-title.active {
+  background-color: var(--color-button-primary);
+  color: var(--color-background-white);
+}
+
+.sidebar-title.active .sidebar-arrow {
+  color: var(--color-background-white);
+}
+
+.sidebar-arrow {
+  font-size: 0.8em;
+  color: #bbb;
+}
+
+.mega-menu-content {
+  flex-grow: 1;
+  padding-left: 1.5rem;
+}
+
+.content-section {
+  display: none; /* Hidden by default, controlled by JS */
+}
+
+.content-section.active {
+  display: block;
+}
+
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
+  gap: 1rem;
+}
+
+.mega-menu-card {
+  padding: 0.75rem 0.5rem;
   border-radius: 6px;
-  margin-left: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.mega-menu-card:hover {
+  background-color: #f8f9fa;
+}
+
+.mega-menu-card-title {
+  font-weight: 500;
+  color: var(--color-typography-content-dark);
   font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: 'Grift', sans-serif; /* Explicitly set Grift for card titles */
+}
+
+.mega-menu-card-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mega-menu-card-title a:hover {
+  color: var(--color-button-primary);
+}
+
+/* Changing btn-hero-secondary to be a solid orange button */
+.btn-hero-secondary {
+  background: var(--color-button-primary); /* Solid orange */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: 'Grift', sans-serif; /* Buttons - Grift SemiBold */
+  font-weight: 600; /* SemiBold */
+  font-size: 1.1rem;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(254, 170, 41, 0.4); /* Add shadow for consistency */
 }
 
-.navbar-custom .btn-primary:hover {
-  background-color: #D99424; /* Darker shade of #FEAA29 */
-  border-color: #D99424;
-}
-
-.navbar-custom .btn-danger:hover {
-  background-color: #b92508;
-  border-color: #b92508;
-  color: #FAFAFA;
+.btn-hero-secondary:hover {
+  background: #D99424; /* Slightly darker orange on hover */
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(217, 49, 11, 0.3);
+  box-shadow: 0 8px 25px rgba(254, 170, 41, 0.6); /* Consistent hover shadow */
+}
+
+
+.d-flex .btn-danger {
+  background-color: orange; /* Bootstrap danger color */
+  border-color: orange;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.d-flex .btn-danger:hover {
+  background-color: orange;
+  border-color: orange;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .navbar-nav {
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    padding: 0.75rem 1rem;
+  }
+
+  .mega-menu {
+    position: static;
+    width: auto;
+    box-shadow: none;
+    border-radius: 0;
+    transform: none;
+    opacity: 1;
+    background: none;
+    padding: 0;
+  }
+
+  .mega-menu-container {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+
+  .mega-menu-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0;
+  }
+
+  .sidebar-title {
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+  }
+
+  .mega-menu-content {
+    padding: 0;
+  }
+
+  .mega-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .mega-menu-card {
+    padding: 0.5rem 0;
+  }
+
+  .d-flex .btn-danger {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+
+.hero-image-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: clamp(250px, 40vw, 420px);
+  overflow: hidden;
+  border-radius: 0;
+  margin: 0 auto;
+  background: #e7f3ff;
+  margin-bottom: 30px;
+}
+.hero-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-image-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,77,114,0.25);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 0;
+}
+.hero-text-top-left,
+.hero-text-bottom-right {
+  position: absolute;
+  z-index: 2;
+}
+.hero-text-top-left {
+  left: clamp(20px, 4vw, 40px);
+  top: clamp(20px, 4vw, 40px);
+  color: #1e4d72;
+  text-align: left;
+}
+.hero-text-top-left h1 {
+  font-family: 'Grift', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0;
+  color: #1e4d72;
+  line-height: 1.2;
+  background: var(--color-typography-headline-gradient);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.hero-text-bottom-right {
+  right: clamp(20px, 4vw, 40px);
+  bottom: clamp(20px, 4vw, 40px);
+  color: #1e4d72;
+  text-align: right;
+  max-width: 60%;
+}
+.hero-text-bottom-right > div:first-child {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.hero-text-bottom-right > div:last-child {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* Features Section (from compass.html) */
+.features-section {
+  padding: clamp(40px, 8vw, 60px) 0;
+  background: #f8fafc;
+  width: 100%;
+  max-width: 100%;
+}
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 20px);
+  width: 100%;
+}
+.feature-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(20px, 5vw, 40px);
+  margin-bottom: clamp(40px, 8vw, 60px);
+  width: 100%;
+}
+.feature-item:last-child {
+  margin-bottom: 0;
+}
+.feature-item.reverse {
+  flex-direction: row-reverse;
+}
+.feature-content {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+.feature-content h3 {
+  font-family: 'Grift', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: clamp(8px, 2vw, 12px);
+  color: #007bff;
+  line-height: 1.2;
+}
+.feature-content p {
+  color: #4a5568;
+  margin-bottom: clamp(16px, 3vw, 24px);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.feature-list li {
+  margin-bottom: 12px;
+  font-size: clamp(0.95rem, 1.8vw, 1rem);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1e4d72;
+}
+.feature-list li:last-child {
+  margin-bottom: 0;
+}
+.feature-list li i {
+  color: #007bff;
+  font-size: 1.1em;
+  flex-shrink: 0;
+}
+.feature-image {
+  flex: 1 1 300px;
+  min-width: 260px;
+  text-align: center;
+}
+.feature-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: clamp(12px, 2vw, 18px);
+  box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+}
+
+/* Compass Description Section (from compass.html) */
+.compass-description-section {
+  background: linear-gradient(90deg, #e7f3ff 0%, #f8fafc 100%);
+  padding: clamp(24px, 5vw, 48px) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.compass-description-container {
+  max-width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+  text-align: center;
+}
+.compass-description-container p {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  color: #1e4d72;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* ESG Tabs Section (from compass.html) */
+.esg-tabs-section {
+  background: #fff;
+  margin-top: 100px;
+  padding: clamp(32px, 6vw, 56px) 0 clamp(24px, 4vw, 40px) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.esg-tabs-container {
+  max-width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+  text-align: center;
+  border: 1.5px solid rgba(30,77,114,0.08);
+}
+.esg-tabs-btn-group-wrapper {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  max-width: 100%;
+}
+.esg-tabs-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 2px solid #e7f3ff;
+  background: none;
+  padding: 0;
+  position: relative;
+}
+.esg-tab-btn {
+  background: #e7f3ff;
+  color: #007bff;
+  border: none;
+  border-radius: 14px 14px 0 0;
+  padding: 14px 28px 12px 28px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-shadow: none;
+  position: relative;
+  margin-bottom: -2px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  z-index: 1;
+}
+.esg-tab-btn.active {
+  background: #fff;
+  color: #007bff;
+  box-shadow: 0 4px 16px rgba(30,77,114,0.10);
+  border-bottom: 2px solid #007bff;
+  z-index: 2;
+}
+.esg-tab-btn:not(.active) {
+  border-bottom: 2px solid #e7f3ff;
+}
+.esg-tab-btn:hover:not(.active) {
+  background: #f8fafc;
+  color: #1e4d72;
+}
+.esg-tabs-content {
+  margin-top: 0;
+  width: 100%;
+}
+.esg-tab-content {
+  display: none;
+  font-size: clamp(1.05rem, 2vw, 1.18rem);
+  color: #1e4d72;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  min-height: 80px;
+  padding: 18px 0 0 0;
+  animation: fadeInTab 0.3s;
+}
+.esg-tab-content.active {
+  display: block;
+}
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Table-like container for tabs */
+.tab-table-container {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.tab-table-row {
+  display: flex;
+  border-bottom: 1px solid #e7f3ff;
+}
+.tab-table-row:last-child {
+  border-bottom: none;
+}
+.tab-table-cell {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+.tab-table-cell:first-child {
+  font-weight: 600;
+  color: #007bff;
+  background: #f8fafc;
+  min-width: 200px;
+}
+/* Responsive Design (from compass.html) */
+@media (max-width: 768px) {
+  .esg-tabs-container {
+    padding: 14px 2vw;
+  }
+  .esg-tab-btn {
+    padding: 10px 12px 8px 12px;
+    font-size: 0.98rem;
+  }
+  .tab-table-row {
+    flex-direction: column;
+  }
+  .tab-table-cell:first-child {
+    min-width: 100%;
+    border-bottom: 1px solid #e7f3ff;
+  }
+  .hero-image-section {
+    width: 95%;
+    height: clamp(180px, 30vw, 250px);
+    margin: 20px auto 0 auto;
+  }
+  .hero-text-bottom-right {
+    max-width: 70%;
+  }
+  .feature-item,
+  .feature-item.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .feature-content {
+    text-align: center;
+    min-width: 100%;
+  }
+  .feature-image {
+    min-width: 100%;
+  }
+  .feature-image img {
+    max-width: 400px;
+  }
+}
+@media (max-width: 480px) {
+  .esg-tabs-section {
+    padding: 12px 0 8px 0;
+  }
+  .esg-tabs-container {
+    padding: 8px 2px;
+  }
+  .esg-tab-btn {
+    padding: 8px 6px 6px 6px;
+    font-size: 0.93rem;
+  }
+  .esg-tab-content {
+    font-size: 0.98rem;
+  }
+  .hero-image-section {
+    width: 95%;
+    height: clamp(160px, 35vw, 200px);
+    margin: 16px auto 0 auto;
+  }
+  .hero-text-top-left {
+    left: 16px;
+    top: 16px;
+  }
+  .hero-text-bottom-right {
+    right: 16px;
+    bottom: 16px;
+    max-width: 75%;
+  }
+  .features-section {
+    padding: 30px 0;
+  }
+  .feature-item {
+    margin-bottom: 40px;
+    gap: 20px;
+  }
+  .feature-content {
+    padding: 0 8px;
+  }
+  .feature-image img {
+    max-width: 320px;
+  }
+  .feature-list li {
+    font-size: 0.9rem;
+  }
 }
 
 /* Mega menu styles */
@@ -268,7 +938,7 @@ body {
   top: 100%;
   left: 0;
   width: 100vw;
-  background-color: var(--color-background-white); /* Applying new background color */
+  background-color: var(--color-background-white);
   border: none;
   border-radius: 0;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -290,7 +960,7 @@ body {
 
 .mega-menu-sidebar {
   width: 250px;
-  background-color: var(--color-background-light); /* Using light background color */
+  background-color: var(--color-background-light);
   padding: 1.5rem 0;
   border-right: 1px solid #e9ecef;
   flex-shrink: 0;
@@ -301,13 +971,14 @@ body {
 }
 
 .sidebar-title {
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+  color: var(--color-typography-content-dark);
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 600; /* SemiBold */
   padding: 0.75rem 1.5rem;
   margin-bottom: 0.5rem;
-  background-color: var(--color-background-light); /* Using light gray for sidebar title */
-  border-left: 4px solid var(--color-button-primary); /* Using primary button color */
+  background-color: var(--color-background-light);
+  border-left: 4px solid var(--color-button-primary);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -315,12 +986,12 @@ body {
 }
 
 .sidebar-title:hover {
-  background-color: #D1D2CB; /* Darker shade of light gray on hover */
+  background-color: #D1D2CB;
 }
 
 .sidebar-title.active {
-  background-color: var(--color-background-white); /* White for active sidebar title */
-  color: var(--color-button-primary); /* Primary button color for active text */
+  background-color: var(--color-background-white);
+  color: var(--color-button-primary);
 }
 
 .sidebar-arrow {
@@ -335,7 +1006,7 @@ body {
 .mega-menu-content {
   flex: 1;
   padding: 1.5rem;
-  background-color: var(--color-background-white); /* Applying new background color */
+  background-color: var(--color-background-white);
   overflow-y: auto;
 }
 
@@ -357,16 +1028,17 @@ body {
 }
 
 .mega-menu-card:hover {
-  background-color: var(--color-background-white) !important; /* Applying new background color */
+  background-color: var(--color-background-white) !important;
   border: 1px solid #e9ecef !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
   transform: translateY(-2px);
 }
 
 .mega-menu-card-title {
-  color: var(--color-typography-content-dark); /* Applying new content color */
+  color: var(--color-typography-content-dark);
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600; /* SemiBold */
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -374,22 +1046,40 @@ body {
 
 .mega-menu-card-title i {
   margin-right: 0.5rem;
-  color: var(--color-button-primary); /* Using primary button color for icons */
+  color: var(--color-button-primary);
 }
 
 .mega-menu-card-subtitle {
-  color: var(--color-typography-content-light); /* Applying new content subtitle color */
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  font-size: 0.85rem; /* Smaller font size for subtitles */
+  font-weight: 500; /* Medium weight from demo.html */
+  color: var(--color-typography-content-light);
+  margin-bottom: 0.5rem;
   line-height: 1.4;
+}
+
+.mega-menu-card-title {
+  font-size: 1.1rem;
+  font-weight: 600; /* Semi-bold for titles */
+  color: var(--color-typography-content-dark);
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure consistent styling across all pages */
+.navbar-nav .nav-item .nav-link {
+  font-weight: 500; /* Medium weight for nav items */
+}
+
+.sidebar-title {
+  font-weight: 600; /* Semi-bold for sidebar titles */
 }
 
 .mega-menu-card-link {
   display: block;
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+  color: var(--color-typography-content-dark);
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
   text-decoration: none;
   padding: 0.5rem 0;
-  font-weight: 500;
+  font-weight: 500; /* Medium weight */
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
   padding-left: 0.75rem;
@@ -398,18 +1088,19 @@ body {
 }
 
 .mega-menu-card-link:hover {
-  color: var(--color-button-primary); /* Using primary button color for hover */
+  color: var(--color-button-primary);
   border-left-color: var(--color-button-primary);
-  background-color: var(--color-background-light); /* Using light background color for hover */
+  background-color: var(--color-background-light);
   text-decoration: none;
 }
 
 .new-badge {
-  background-color: var(--color-button-primary); /* Using primary button color */
+  background-color: var(--color-button-primary);
   color: #000;
   font-size: 0.7rem;
   padding: 0.2rem 0.5rem;
   border-radius: 12px;
+  font-family: 'Grift', sans-serif; /* Badges - Grift SemiBold */
   font-weight: 600;
   margin-left: 0.5rem;
 }
@@ -425,31 +1116,33 @@ body {
 
 
 .language-selector {
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+  color: var(--color-typography-content-dark);
   background: none;
-  border: 1px solid rgba(0,0,0,0.3); /* Darker border for contrast */
+  border: 1px solid rgba(0,0,0,0.3);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.9rem;
   margin-left: 1rem;
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
+  font-weight: 500; /* Medium weight */
 }
 
 .language-selector:hover {
-  background-color: rgba(0,0,0,0.1); /* Darker hover background */
+  background-color: rgba(0,0,0,0.1);
   color: var(--color-typography-content-dark);
 }
 
 .innovation-card {
-  background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-background-white) 100%); /* Using light gray to white gradient */
-  border: 1px solid #D1D2CB; /* Adjusted border color */
+  background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-background-white) 100%);
+  border: 1px solid #D1D2CB;
 }
 
 .innovation-card .mega-menu-card-title {
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+  color: var(--color-typography-content-dark);
 }
 
 .innovation-card .mega-menu-card-link:hover {
-  color: var(--color-button-primary); /* Using primary button color */
+  color: var(--color-button-primary);
   border-left-color: var(--color-button-primary);
 }
 
@@ -458,7 +1151,7 @@ body {
   width: 100%;
   padding: 2rem 0;
   position: relative;
-  background-color: var(--color-background-light); /* Light gray background for hero section */
+  background-color: var(--color-background-light);
 }
 
 .hero-image-section {
@@ -468,7 +1161,7 @@ body {
   overflow: hidden;
   border-radius: clamp(12px, 1.5vw, 16px);
   margin: clamp(20px, 4vw, 40px) auto 0 auto;
-  background: var(--color-background-light); /* Using light background color */
+  background: var(--color-background-light);
   margin-bottom: 30px;
 }
 
@@ -482,7 +1175,7 @@ body {
 .hero-image-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.1); /* Subtle overlay */
+  background: rgba(0,0,0,0.1);
   z-index: 1;
   pointer-events: none;
   border-radius: clamp(12px, 1.5vw, 16px);
@@ -497,13 +1190,13 @@ body {
 }
 
 .hero-text-top-left h1 {
-  font-family: 'Grift', sans-serif; /* Applying custom font */
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: clamp(1.8rem, 5vw, 2.5rem);
-  font-weight: 700; /* Ensure this matches a defined weight in @font-face */
+  font-weight: 600; /* SemiBold */
   margin: 0;
   color: #1e4d72;
   line-height: 1.2;
-  background: var(--color-typography-headline-gradient); /* Applying new headline gradient */
+  background: var(--color-typography-headline-gradient);
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -512,22 +1205,25 @@ body {
 .hero-text-bottom-right {
   right: clamp(20px, 4vw, 40px);
   bottom: clamp(20px, 4vw, 40px);
-  color: var(--color-typography-content-dark); /* Using dark typography color */
+  color: var(--color-typography-content-dark);
   text-align: right;
   max-width: 60%;
 }
 
 .hero-text-bottom-right > div:first-child {
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  font-weight: 600;
+  font-weight: 600; /* SemiBold */
   margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .hero-text-bottom-right > div:last-child {
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
   font-size: clamp(0.9rem, 2vw, 1rem);
   opacity: 0.9;
   line-height: 1.4;
+  font-weight: 500; /* Medium weight */
 }
 
 .hero-section::before {
@@ -538,8 +1234,8 @@ body {
   right: 0;
   bottom: 0;
   background:
-      radial-gradient(circle at 20% 80%, rgba(231, 232, 226, 0.05) 0%, transparent 50%), /* Reduced opacity */
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%); /* Reduced opacity */
+      radial-gradient(circle at 20% 80%, rgba(231, 232, 226, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   animation: gradientShift 20s ease infinite;
 }
 
@@ -577,14 +1273,15 @@ body {
 
 .hero-badge {
   display: inline-block;
-  background: var(--color-button-primary); /* Using button primary color */
-  color: var(--color-background-white); /* White text */
+  background: var(--color-button-primary);
+  color: var(--color-background-white);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   font-size: 0.9rem;
+  font-family: 'Grift', sans-serif; /* Badges - Grift SemiBold */
   font-weight: 600;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 15px rgba(254, 170, 41, 0.4); /* Shadow based on button color */
+  box-shadow: 0 4px 15px rgba(254, 170, 41, 0.4);
   animation: pulse 2s infinite;
 }
 
@@ -594,20 +1291,34 @@ body {
   100% { transform: scale(1); }
 }
 
-.hero-title {
-  font-family: 'Grift', sans-serif; /* Applying custom font */
-  font-size: clamp(2rem, 5vw, 3.7rem);
-  font-weight: 900; /* Made bold */
-  line-height: 1.2;
-  margin-bottom: 0.7rem;
-  background: var(--color-typography-headline-gradient); /* Applying new headline gradient */
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  animation: textGlow 3s ease-in-out infinite alternate;
-  font-style: normal; /* Override italic for this specific headline */
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% } /* Adjust to content width */
 }
 
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--color-button-primary); }
+}
+
+.hero-title {
+  font-family: 'Grift', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.7rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.7rem;
+  background: linear-gradient(45deg, #1e4d72, blue, #4da6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: normal;
+  /* Removed typing animation properties */
+  white-space: normal; /* Changed from nowrap to allow text wrapping */
+  overflow: visible; /* Changed from hidden to show all text */
+  /* Removed border-right (cursor) and animation properties */
+}
 
 @keyframes textGlow {
   from { filter: brightness(1); }
@@ -616,22 +1327,22 @@ body {
 
 /* New class for headline style text */
 .headline-text-gradient {
-  font-family: 'Grift', sans-serif; /* Applying custom font */
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   background: var(--color-typography-headline-gradient);
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  /* You can add default font-size, font-weight, line-height here or apply them directly in HTML */
-  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Example size, adjust as needed */
-  font-weight: 700; /* Using bold for this class */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600; /* SemiBold */
   line-height: 1.2;
 }
 
 
 .hero-subtitle {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increased size */
-  color: var(--color-typography-content-dark); /* Changed from light to dark */
-  font-weight: 700; /* Added bold weight */
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--color-typography-content-dark);
+  font-family: 'Grift', sans-serif; /* Subheadings - Grift Medium */
+  font-weight: 500; /* Medium weight */
   line-height: 1.5;
   margin-bottom: 1.5rem;
   max-width: 95%;
@@ -651,52 +1362,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.btn-hero-primary {
-  background: var(--color-button-primary); /* Applying new button color */
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(254, 170, 41, 0.4); /* Shadow based on button color */
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  backdrop-filter: blur(10px);
-}
 
-.btn-hero-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(254, 170, 41, 0.6); /* Darker shadow on hover */
-  color: white;
-  background: #D99424; /* Darker shade of #FEAA29 */
-}
-
-.btn-hero-secondary {
-  background: var(--color-background-white); /* White background */
-  border: 2px solid var(--color-button-primary); /* Applying new button color */
-  color: var(--color-button-primary); /* Applying new button color */
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  backdrop-filter: blur(10px);
-}
-
-.btn-hero-secondary:hover {
-  background: var(--color-button-primary); /* Applying new button color */
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(254, 170, 41, 0.3); /* Shadow based on button color */
-}
 
 .hero-stats {
   display: flex;
@@ -712,43 +1378,73 @@ body {
 }
 
 .stat-number {
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-typography-content-dark); /* Applying new content color */
+  font-weight: 600; /* SemiBold */
+  color: var(--color-typography-content-dark);
   display: block;
 }
 
 .stat-label {
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
   font-size: 0.9rem;
-  color: var(--color-typography-content-light); /* Applying new content subtitle color */
+  color: var(--color-typography-content-light);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-weight: 500; /* Medium weight */
 }
 
-/* Enhanced Video Section */
+/* Background Video Container */
+.video-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Ensure it's behind other content */
+}
+
+.video-background-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Ensures video covers the area */
+  filter: blur(5px); /* Apply blur directly to the video */
+  opacity: 0.8; /* Slightly reduce opacity for content readability */
+}
+
+.video-background-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dark overlay for better contrast */
+  z-index: 1;
+}
+
+
+/* Enhanced Video Section (Existing, might be redundant if using video-background-container) */
+/* Keeping for now, but assess if this section is still needed or how it integrates */
 .video-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: slideInRight 1s ease-out 0.3s both;
+  animation: 1s ease-out 0.3s both;
   margin-top: 0;
-  max-height: 450px; /* Increased video height */
+  max-height: 450px;
   width: 100%;
   padding: 0 1rem;
   margin-left: -1rem;
   margin-right: -1rem;
-}
-
-@keyframes slideInRight {
-  from {
-      opacity: 0;
-      transform: translateX(50px);
-  }
-  to {
-      opacity: 1;
-      transform: translateX(0);
-  }
 }
 
 .video-wrapper {
@@ -758,29 +1454,29 @@ body {
   border-radius: 24px;
   overflow: hidden;
   box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.05), /* Subtle shadow */
-      0 10px 20px rgba(0, 0, 0, 0.03); /* Subtle shadow */
+      0 20px 40px rgba(0, 0, 0, 0.05),
+      0 10px 20px rgba(0, 0, 0, 0.03);
   background: transparent;
   padding: 0;
-  transition: all 0.5s ease; /* Smoother transition */
-  max-height: 450px; /* Increased video height */
+  transition: all 0.5s ease;
+  max-height: 450px;
   margin: 0 auto;
 }
 
 .video-wrapper:hover {
   transform: translateY(-10px);
   box-shadow:
-      0 30px 60px rgba(0, 0, 0, 0.1), /* Subtle shadow on hover */
-      0 15px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow on hover */
+      0 30px 60px rgba(0, 0, 0, 0.1),
+      0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
 .hero-video {
   width: 100%;
   height: 100%;
-  max-height: 450px; /* Increased video height */
+  max-height: 450px;
   border-radius: 20px;
   display: block;
-  transition: all 0.5s ease; /* Smoother transition */
+  transition: all 0.5s ease;
   object-fit: cover;
 }
 
@@ -790,9 +1486,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, rgba(231, 232, 226, 0.05), rgba(255, 255, 255, 0.05)); /* Using light gray and white for overlay */
+  background: linear-gradient(45deg, rgba(231, 232, 226, 0.05), rgba(255, 255, 255, 0.05));
   opacity: 0;
-  transition: opacity 0.5s ease; /* Smoother transition */
+  transition: opacity 0.5s ease;
   border-radius: 20px;
 }
 
@@ -803,7 +1499,7 @@ body {
 /* Floating Elements */
 .floating-element {
   position: absolute;
-  opacity: 0.05; /* Even more subtle */
+  opacity: 0.05;
   animation: float 6s ease-in-out infinite;
 }
 
@@ -833,7 +1529,7 @@ body {
 
 /* International Sustainability Benchmarks Section */
 .benchmarks-section {
-  background-color: var(--color-background-white); /* Applying new background color */
+  background-color: var(--color-background-white);
   padding: 0;
   width: 100%;
   overflow: hidden;
@@ -875,9 +1571,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-background-white); /* Applying new background color */
+  background: var(--color-background-white);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Subtle shadow */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 8px;
 }
 
@@ -891,7 +1587,7 @@ body {
 }
 
 .benchmarks-logo img:hover {
-  filter: grayscale(0) contrast(1.2) drop-shadow(0 2px 8px rgba(0,0,0,0.08)); /* Subtle shadow on hover */
+  filter: grayscale(0) contrast(1.2) drop-shadow(0 2px 8px rgba(0,0,0,0.08));
   transform: scale(1.08);
 }
 
@@ -903,43 +1599,35 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.everest-section { /* Corrected from everest-section to .everest-section */
-  padding: 5rem 0;
-  background-color: var(--color-background-light); /* Changed to #E7E8E2 */
-  position: relative;
-  overflow: hidden;
-}
-
-
-  
 
 /* Impact Outcomes Section */
 .impact-outcomes-section {
-  background-color: var(--color-background-white); /* Applying new background color */
+  background-color: var(--color-background-white);
   padding: 2.5rem 0;
   width: 100%;
 }
 
 /* Industries Map Section */
 .industries-map-section {
-  background-color: var(--color-background-white); /* Applying new background color */
+  background-color: var(--color-background-white);
   padding: 2.5rem 0;
   width: 100%;
 }
 
 /* Client Section: Trusted by teams at */
 .trusted-by-section {
-  background-color: var(--color-background-white); /* Applying new background color */
+  background-color: var(--color-background-white);
   padding: 2.5rem 0;
   width: 100%;
 }
 
 .trusted-by-section p {
   text-align: center;
-  color: var(--color-typography-content-light); /* Applying new content subtitle color */
+  color: var(--color-typography-content-light);
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
   font-size: 1.15rem;
   margin-bottom: 2rem;
-  font-weight: 500;
+  font-weight: 500; /* Medium weight */
 }
 
 .scrolling-logos-wrapper {
@@ -964,9 +1652,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-background-white); /* Applying new background color */
+  background: var(--color-background-white);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Subtle shadow */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 8px;
 }
 
@@ -979,7 +1667,7 @@ body {
 }
 
 .company-logo img:hover {
-  filter: grayscale(0) contrast(1.2) drop-shadow(0 2px 8px rgba(0,0,0,0.08)); /* Subtle shadow on hover */
+  filter: grayscale(0) contrast(1.2) drop-shadow(0 2px 8px rgba(0,0,0,0.08));
   transform: scale(1.08);
 }
 
@@ -1017,7 +1705,7 @@ body {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08); /* Subtle shadow */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -1027,40 +1715,42 @@ body {
 }
 
 .flip-card-front {
-  background: var(--color-background-white); /* Applying new background color */
+  background: var(--color-background-white);
 }
 
 .flip-card-back {
-  background: linear-gradient(135deg, #1e4d72 0%, #007bff 100%); /* Keeping blue gradient for back */
+  background: linear-gradient(135deg, #1e4d72 0%, #007bff 100%);
   color: white;
   transform: rotateY(180deg);
 }
 
 .flip-number {
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: 5rem;
-  font-weight: 800;
+  font-weight: 600; /* SemiBold */
   margin-bottom: 0;
   letter-spacing: -2px;
   line-height: 1;
 }
 
 .flip-desc {
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
   font-size: 1.18rem;
-  font-weight: 500;
+  font-weight: 500; /* Medium weight */
   margin-bottom: 0;
   line-height: 1.3;
 }
 
 .flip-card-front .flip-number {
-  color: var(--color-button-primary); /* Using primary button color for front number */
+  color: var(--color-button-primary);
 }
 
 .flip-card-front .flip-desc {
-  color: var(--color-typography-content-dark); /* Applying new content color */
+  color: var(--color-typography-content-dark);
 }
 
 .flip-card-back .flip-number {
-  color: var(--color-background-white); /* Applying new background color */
+  color: var(--color-background-white);
 }
 
 .flip-card-back .flip-desc {
@@ -1069,20 +1759,24 @@ body {
 
 /* Sustainability Matters Section - Enhanced Spacing */
 .sustainability-matters-content-section {
-  background-color: var(--color-background-white); /* Applying new background color */
-  padding: 4rem 0; /* Increased base padding */
+  background-color: var(--color-background-white);
+  padding: 4rem 0;
   width: 100%;
 }
 
 .sm-main-title {
-  color: var(--color-typography-content-dark); /* Applying new content color */
-  font-size: 2.25rem; /* Slightly larger base size */
-  font-weight: 800;
-  margin-bottom: 2rem; /* Increased from 1.5rem */
+  color: var(--color-typography-content-dark);
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
+  font-size: 2.25rem;
+  font-weight: 600; /* SemiBold */
+  margin-bottom: 2rem;
   letter-spacing: -0.75px;
   position: relative;
-  padding-bottom: 1.25rem; /* Increased padding */
+  padding-bottom: 1.25rem;
   text-align: center;
+}
+main {
+  padding-top: 80px; /* This should match your navbar height */
 }
 
 .sm-main-title::after {
@@ -1093,16 +1787,17 @@ body {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: var(--color-button-primary); /* Using primary button color */
+  background: var(--color-button-primary);
   border-radius: 2px;
 }
 
 .sm-top-text {
   font-size: 1.2rem;
-  color: var(--color-typography-content-dark); /* Applying new content color */
-  font-weight: 600;
-  margin-bottom: 2.5rem; /* Increased from 1.5rem */
-  line-height: 1.6; /* More breathing room */
+  color: var(--color-typography-content-dark);
+  font-family: 'Grift', sans-serif; /* Subheadings - Grift Medium */
+  font-weight: 500; /* Medium weight */
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
   text-align: center;
   max-width: 800px;
   margin-left: auto;
@@ -1113,41 +1808,41 @@ body {
 .sm-cards-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Increased from 1.5rem */
+  gap: 2rem;
   padding: 0 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .sm-card {
-  background: var(--color-background-white); /* Applying new background color */
-  border-left: 5px solid var(--color-button-primary); /* Using primary button color */
+  background: var(--color-background-white);
+  border-left: 5px solid var(--color-button-primary);
   border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10); /* Subtle shadow */
-  padding: 2rem; /* Increased from 1.8rem */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding: 2rem;
   display: flex;
   align-items: flex-start;
-  gap: 1.75rem; /* Increased from 1.5rem */
+  gap: 1.75rem;
   transition: all 0.3s ease;
-  margin-bottom: 1.5rem; /* Added extra bottom margin */
+  margin-bottom: 1.5rem;
 }
 
 .sm-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15); /* Subtle shadow on hover */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 
 .sm-card-icon {
-  background: var(--color-background-light); /* Using light background color */
-  color: var(--color-button-primary); /* Using primary button color for icons */
+  background: var(--color-background-light);
+  color: var(--color-button-primary);
   border-radius: 50%;
-  padding: 1.25rem; /* Increased from 1rem */
+  padding: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  min-width: 70px; /* Increased from 60px */
-  min-height: 70px; /* Increased from 60px */
+  min-width: 70px;
+  min-height: 70px;
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
@@ -1157,38 +1852,43 @@ body {
 }
 
 .sm-card-title {
-  font-size: 1.3rem; /* Increased from 1.2rem */
-  font-weight: 700;
-  color: var(--color-typography-content-dark); /* Applying new content color */
-  margin-bottom: 1rem; /* Increased from 0.5rem */
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
+  font-size: 1.3rem;
+  font-weight: 600; /* SemiBold */
+  color: var(--color-typography-content-dark);
+  margin-bottom: 1rem;
   line-height: 1.4;
 }
 
 .sm-card-desc {
-  color: var(--color-typography-content-light); /* Applying new content subtitle color */
-  font-size: 1.05rem; /* Slightly larger */
-  line-height: 1.7; /* More breathing room */
-  margin-bottom: 0.5rem; /* Added space below description */
+  color: var(--color-typography-content-light);
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  font-weight: 500; /* Medium weight */
 }
 
 .sm-card-cta {
-  color: var(--color-button-primary); /* Using primary button color for CTA */
-  font-weight: 600;
-  margin-top: 1rem; /* Added space above CTA */
+  color: var(--color-button-primary);
+  font-family: 'Grift', sans-serif; /* CTA - Grift SemiBold */
+  font-weight: 600; /* SemiBold */
+  margin-top: 1rem;
   display: inline-block;
 }
 
 /* Callout section */
 .sm-callout {
-  background: var(--color-background-light); /* Using light background color */
+  background: var(--color-background-light);
   border-radius: 12px;
   padding: 2rem;
-  margin-top: 3rem; /* Added space above callout */
+  margin-top: 3rem;
   text-align: center;
-  font-weight: 700;
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
+  font-weight: 600; /* SemiBold (as it's a prominent callout) */
   font-size: 1.3rem;
-  color: var(--color-typography-content-dark); /* Applying new content color */
-  border: 1px solid rgba(0,0,0,0.1); /* Subtle border */
+  color: var(--color-typography-content-dark);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Responsive adjustments */
@@ -1261,31 +1961,29 @@ body {
   color: #dc3545;
 }
 
-.everest-section {
-  padding: 5rem 0;
-  background-color: var(--color-background-light); /* Changed to #E7E8E2 */
-  position: relative;
-  overflow: hidden;
-}
 
-/* Everest Section Text Alignment */
 .everest-header {
   max-width: 800px;
   margin: 0 auto 3rem;
   text-align: left;
   padding: 0 1rem;
+  position: relative;
+  z-index: 4;
 }
 
 .everest-title {
-  font-family: 'Grift', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 900; /* Changed to Grift-Black */
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
+  font-size:  clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 300; /* SemiBold */
   color: var(--color-typography-content-dark);
   margin-bottom: 1.5rem;
   position: relative;
   text-align: left;
 }
-
+.everest-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
 .everest-title::after {
   content: '';
   position: absolute;
@@ -1293,34 +1991,41 @@ body {
   left: 0;
   width: 80px;
   height: 4px;
-  background: var(--color-button-primary); /* Using primary button color */
+  background: var(--color-button-primary);
   border-radius: 2px;
 }
 
 .everest-subtitle {
-  font-family: 'Grift', sans-serif;
+  font-family: 'Grift', sans-serif; /* Subheadings - Grift Medium */
   font-size: 1.2rem;
-  font-weight: 400; /* Regular weight */
+  font-weight: 500; /* Medium weight */
   color: var(--color-typography-content-light);
   line-height: 1.6;
-  text-align: left;
+  text-align: center;
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
 }
 
 .highlight {
+  font-family: 'Orlean', sans-serif;
   font-weight: 600;
   font-style: italic;
   color: var(--color-typography-content-dark);
+  background: linear-gradient(120deg, rgba(254,170,41,0.2) 0%, rgba(254,170,41,0) 100%);
+  padding: 0 0.2em;
+  border-radius: 4px;
 }
+
 
 .everest-content-wrapper {
   position: relative;
   min-height: 500px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15); /* Subtle shadow */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .everest-background {
@@ -1329,12 +2034,14 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('assets/images/Everest landing.jpg');
-  background-size: cover; /* Ensures the image covers the entire area */
-  background-position: center; /* Centers the image */
-  margin-bottom: 2rem;
+  background-image: url('../assets/images/Everest-landing.jpg');
+  background-size: cover;
+  background-position: center top;
   z-index: 1;
+  filter: blur(3px); /* Added subtle blur back */
+  transition: filter 0.5s ease;
 }
+
 
 .everest-background::after {
   content: '';
@@ -1343,19 +2050,26 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.1); /* Subtle overlay */
+  background: rgba(0,0,0,0.2);
   z-index: 2;
-}
-
+} 
+*/
 .everest-cards-container {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2rem;
-  padding: 3rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
 
 .everest-card {
@@ -1364,49 +2078,61 @@ body {
   -webkit-backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 1.5rem;
-  max-width: 400px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.1); /* Subtle shadow */
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  margin: auto;
 }
 
 .everest-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2); /* Subtle shadow on hover */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.everest-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.everest-card:nth-child(2) {
+  animation-delay: 0.4s;
 }
 
 /* Card Content Styling */
 .card-title {
-  font-family: 'Grift', sans-serif;
+  font-family: 'Grift', sans-serif; /* Headings - Grift SemiBold */
   font-size: 1.5rem;
-  font-weight: 900; /* Grift-Black */
+  font-weight: 600; /* SemiBold */
   color: var(--color-typography-content-dark);
   margin-bottom: 0.8rem;
-  margin-top: 0; /* Removed negative margin since icons are hidden */
+  margin-top: 0;
 }
 
 .card-subtitle {
-  font-family: 'Grift', sans-serif;
+  font-family: 'Grift', sans-serif; /* Subheadings - Grift Medium */
   font-size: 1.1rem;
-  font-weight: 900; /* Grift-Black */
-  color: var(--color-typography-content-light);
+  font-weight: 500; /* Medium weight */
+  color: var(--color-typography-content-dark);
   margin-bottom: 0.8rem;
 }
 
 .navigator-card .card-subtitle {
-  color: var(--color-typography-content-light); 
+  color: var(--color-typography-content-dark);
 }
 
 .card-description {
-  font-family: 'Grift', sans-serif;
-  font-weight: 400; /* Regular weight */
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
+  font-weight: 500; /* Medium weight */
   color: var(--color-typography-content-light);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .card-tagline {
-  font-family: 'Grift', sans-serif;
-  font-weight: 400; /* Regular weight */
+  font-family: 'Orlean', sans-serif; /* Content - Orlean (medium) */
+  font-weight: 500; /* Medium weight */
   font-style: italic;
   color: var(--color-typography-content-light);
   margin-bottom: 1.5rem;
@@ -1415,9 +2141,9 @@ body {
 /* Learn More Link Styling */
 .compass-card .card-link,
 .navigator-card .card-link {
-  font-family: 'Grift', sans-serif;
-  font-weight: 600; /* Semi-bold */
-  background-color: var(--color-background-light); /* Using light background color */
+  font-family: 'Grift', sans-serif; /* Links/Buttons - Grift SemiBold */
+  font-weight: 600; /* SemiBold */
+  background-color: var(--color-background-light);
   color: var(--color-typography-content-dark);
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
@@ -1429,7 +2155,7 @@ body {
 
 .compass-card .card-link:hover,
 .navigator-card .card-link:hover {
-  background-color: #D1D2CB; /* Slightly darker light gray on hover */
+  background-color: #D1D2CB;
 }
 
 .compass-card .card-link i,
@@ -1444,28 +2170,6 @@ body {
   display: none;
 }
 
-/* Footer Styles (unchanged) */
-.footer-section {
-  background-color: #FFFFFF;
-  color: #FFFFFF;
-  padding: 4rem 0 2rem;
-  font-size: 0.95rem;
-}
-
-
-@media (max-width: 768px) {
-  .everest-header {
-    padding: 0 1rem;
-  }
-  
-  .everest-title {
-    font-size: 2rem;
-  }
-  
-  .everest-subtitle {
-    font-size: 1rem;
-  }
-}
 
 
 /* Responsive Design */
@@ -1478,7 +2182,7 @@ body {
     position: relative;
     width: 100%;
     box-shadow: none;
-    background-color: var(--color-background-light); /* Using light background color */
+    background-color: var(--color-background-light);
     padding: 1rem;
     margin-top: 0.5rem;
     max-height: none;
@@ -1531,6 +2235,10 @@ body {
 
   .hero-title {
     font-size: 1.8rem;
+    white-space: normal; /* Allow text to wrap on smaller screens */
+    border-right: none; /* Remove cursor on smaller screens if desired */
+    animation: none; /* Disable typing animation on smaller screens if desired */
+    width: auto; /* Reset width */
   }
 
   .hero-subtitle {
@@ -1538,23 +2246,39 @@ body {
   }
   
   .video-container, .video-wrapper, .hero-video {
-    max-height: 300px; /* Adjusted for smaller screens */
+    max-height: 300px;
   }
   
-  .everest-image-wrapper {
+  .everest-section {
+    padding: 5rem 0;
+    background-color: var(--color-background-light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+
+  .everest-content-wrapper {
+    min-height: unset;
+    border-radius: 12px;
+  }
+
+  .everest-cards-container {
+    position: relative;
+    top: unset;
+    left: unset;
+    transform: unset;
     flex-direction: column;
-    min-height: auto;
     padding: 1rem;
+    gap: 1.5rem;
   }
-  
-  @media (min-width: 992px) {
-    .everest-card-left {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 3%;
-      width: 300px;
-    }
+
+  .everest-card {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
   }
 }
 
@@ -1576,7 +2300,7 @@ body {
   }
   
   .video-container, .video-wrapper, .hero-video {
-    max-height: 200px; /* Adjusted for even smaller screens */
+    max-height: 200px;
   }
   
   .section-title {
@@ -1594,3 +2318,4 @@ body {
     padding: 4px;
   }
 }
+

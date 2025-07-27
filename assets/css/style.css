@@ -6469,7 +6469,7 @@
     flex-wrap: wrap-reverse;
 }
 
-.news-block_three-meta li {
+.news-block_three-meta li {x
     position: relative;
     display: flex;
     gap: 8px;
