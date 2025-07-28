@@ -245,6 +245,185 @@
       color: var(--color-button-light);
     }
 
+    /* Navbar spacing fix */
+    .hero-section {
+        padding-top: 90px; /* Adjust based on your fixed navbar's height */
+    }
+
+    /* Industries Section Styles */
+    .industries-section {
+        padding: 4rem 0; /* py-12 equivalent */
+    }
+
+    .industries-section .container-industries { /* New container class for industries section */
+        max-width: 1200px; /* mx-auto equivalent */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem 1rem; /* px-4 py-8 equivalent */
+    }
+
+    .industries-section .impact-scale-title {
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 600; /* font-semibold */
+        color: #6c757d; /* text-gray-600 */
+        margin-bottom: 1rem; /* mb-4 */
+    }
+
+    .industries-section .impact-scale-numbers {
+        display: flex;
+        flex-direction: column; /* flex-col */
+        justify-content: center;
+        align-items: center;
+        gap: 2rem; /* gap-8 */
+        margin-bottom: 4rem; /* mb-16 */
+    }
+
+    @media (min-width: 768px) {
+        .industries-section .impact-scale-numbers {
+            flex-direction: row; /* md:flex-row */
+            gap: 4rem; /* md:gap-16 */
+        }
+    }
+
+    .industries-section .number-block {
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* transition-transform duration-300 */
+        border-radius: 0.5rem; /* rounded-lg */
+        padding: 1rem; /* p-4 */
+    }
+
+    .industries-section .number-block:hover {
+        transform: scale(1.05); /* hover:scale-105 */
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* hover:shadow-lg */
+    }
+
+    .industries-section .number-block h3 {
+        font-size: 3.5rem; /* text-5xl, md:text-6xl */
+        font-weight: 800; /* font-extrabold */
+        margin-bottom: 0.5rem; /* mb-2 */
+        background: linear-gradient(to right, #1f508e, #6ba1e0); /* from-blue-800 to-blue-400 */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent; /* Fallback for browsers not supporting text fill color */
+        font-family: 'Grift_Medium', sans-serif; /* font-['Grift_Medium'] */
+    }
+
+    .industries-section .number-block.orange h3 {
+        background: linear-gradient(to right, #f97316, #ef4444); /* from-orange-500 to-red-500 */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .industries-section .number-block p {
+        font-size: 1.125rem; /* text-lg */
+        color: #6c757d; /* text-gray-500 */
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+        .industries-section .vertical-separator {
+            height: 5rem; /* h-20 */
+            width: 1px; /* w-px */
+            background-color: #dee2e6; /* bg-gray-300 */
+        }
+    }
+
+    .industries-section .industries-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem; /* gap-x-8 */
+        margin-bottom: 4rem; /* mb-16 */
+        overflow-x: auto; /* overflow-x-auto */
+        padding: 1rem 0.5rem; /* py-4 px-2 */
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: #ccc transparent; /* For Firefox */
+    }
+
+    .industries-section .industries-list::-webkit-scrollbar {
+        height: 8px;
+    }
+    .industries-section .industries-list::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 4px;
+    }
+    .industries-section .industries-list::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    .industries-section .industry-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex-shrink: 0; /* flex-shrink-0 */
+        background-color: white; /* bg-white */
+        border-radius: 0.75rem; /* rounded-xl */
+        padding: 2rem; /* p-8 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+        transition: all 0.3s ease; /* transition-all duration-300 */
+    }
+
+    .industries-section .industry-item:hover {
+        transform: scale(1.05); /* hover:scale-105 */
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* hover:shadow-xl */
+    }
+
+    .industries-section .industry-item img {
+        width: 13rem; /* w-52 (52*0.25rem = 13rem) */
+        height: 13rem; /* h-52 */
+        object-fit: contain;
+        margin-bottom: 0.5rem; /* mb-2 */
+    }
+
+    .industries-section .industry-item p {
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 600; /* font-semibold */
+        color: #343a40; /* text-gray-800 */
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 640px) { /* sm breakpoint */
+        .industries-section .industry-item p {
+            font-size: 1.25rem; /* sm:text-xl */
+        }
+    }
+
+    .industries-section .global-reach-flags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem; /* gap-8 */
+    }
+
+    .industries-section .flag-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .industries-section .flag-item img {
+        width: 4rem; /* w-16 */
+        height: 3rem; /* h-12 */
+        border-radius: 0.375rem; /* rounded-md */
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+        margin-bottom: 0.5rem; /* mb-2 */
+    }
+
+    .industries-section .flag-item img.saudi-arabia {
+        width: 3.5rem; /* w-14 */
+        height: 2.5rem; /* h-10 */
+    }
+
+    .industries-section .flag-item p {
+        font-size: 0.875rem; /* text-sm */
+        color: #495057; /* text-gray-700 */
+        margin-bottom: 0;
+    }
+
 
     /* Responsive adjustments */
     @media (min-width: 768px) {
@@ -361,9 +540,7 @@
       }
     }
 
-    
   </style>
-  <!-- Load common components -->
   <script>
     // Load common head
     fetch('/common_head.html')
@@ -428,7 +605,7 @@
           </p>
 
           <div class="d-flex align-items-center">
-            <a href="../demo/index.html" class="btn btn-danger">Book your Demo</a>
+            <a href="./demo.html" class="btn btn-danger">Book your Demo</a>
           </div>
         </div>
       </div>
@@ -485,11 +662,11 @@
         <div class="flip-card-container">
           <div class="flip-card">
             <div class="flip-card-front">
-              <div class="flip-number">388cr</div>
+              <div class="flip-number">44M</div>
               <div class="flip-desc">Cumulative Cost Savings, Increased Revenue and New Fundraise by Clients using Impactree's Compass platforms</div>
             </div>
             <div class="flip-card-back">
-              <div class="flip-number">388cr</div>
+              <div class="flip-number">44M</div>
               <div class="flip-desc">Impactree clients have collectively achieved ₹388 crores in financial benefits through cost savings, revenue growth, and new funding.</div>
             </div>
           </div>
@@ -499,10 +676,75 @@
   </div>
 </section>
 
-<section class="industries-map-section" style="background: #E7E8E2; padding: 2.5rem 0 2rem 0;">
-  <div class="container d-flex justify-content-center align-items-center flex-column">
-    <h2 style="text-align:center; color:#1e4d72; font-size:2rem; font-weight:700; margin-bottom:2rem;">Industries We Serve. Impact We Deliver.</h2>
-    <img src="../assets/images/Industries_map.svg" alt="Industries Map" style="max-width:100%; height:auto; border-radius: 18px; box-shadow: 0 4px 24px rgba(30,77,114,0.08); background: #fff; padding: 1rem;">
+
+<section class="industries-section">
+  <div class="container-industries">
+      <div class="text-center mb-5">
+          <p class="impact-scale-title">Impact That Scales Globally</p>
+          <div class="impact-scale-numbers">
+              <div class="number-block">
+                  <h3>26 Million</h3>
+                  <p>Data Points Tracked</p>
+              </div>
+              <div class="d-none d-md-block vertical-separator"></div>
+              <div class="number-block orange">
+                  <h3>2 Million</h3>
+                  <p>People Impacted</p>
+              </div>
+          </div>
+      </div>
+
+      <h2 class="text-center sm-main-title mb-5">Industries We Empower</h2>
+      <div class="industries-list">
+          <div class="industry-item">
+              <img src="./assets/images/Icons-Industry/1.png" alt="Oil and Gas Icon">
+              <p>Oil and Gas</p>
+          </div>
+          <div class="industry-item">
+              <img src="../assets/images/Icons-Industry/2.png" alt="Commercial Real Estate Icon">
+              <p>Commercial real estate</p>
+          </div>
+          <div class="industry-item">
+              <img src="../assets/images/Icons-Industry/3.png" alt="Chemical Icon">
+              <p>Chemical</p>
+          </div>
+          <div class="industry-item">
+              <img src="../assets/images/Icons-Industry/4.png" alt="Retail Icon">
+              <p>Retail</p>
+          </div>
+          <div class="industry-item">
+              <img src="../assets/images/Icons-Industry/6.png" alt="Luxury Brand Icon">
+              <p>Luxury Brand</p>
+          </div>
+          <div class="industry-item">
+              <img src="../assets/images/Icons-Industry/5.png" alt="Pharma Icon">
+              <p>Pharma</p>
+          </div>
+      </div>
+
+      <h2 class="text-center sm-main-title mb-4">Global Reach</h2>
+      <div class="global-reach-flags">
+          <div class="flag-item">
+              <img src="https://flagcdn.com/in.svg" alt="India Flag">
+              <p>India</p>
+          </div>
+          <div class="flag-item">
+              <img src="https://flagcdn.com/sa.svg" alt="Saudi Arabia Flag" class="saudi-arabia">
+              <p>Saudi Arabia</p>
+          </div>
+          <div class="flag-item">
+              <img src="https://flagcdn.com/ae.svg" alt="UAE Flag">
+              <p>UAE</p>
+          </div>
+          <div class="flag-item">
+              <img src="https://flagcdn.com/vn.svg" alt="Vietnam Flag">
+              <p>Vietnam</p>
+          </div>
+          <div class="flag-item">
+              <img src="https://flagcdn.com/sg.svg" alt="Singapore Flag">
+              <p>Singapore</p>
+          </div>
+      </div>
   </div>
 </section>
 
@@ -618,7 +860,6 @@
   </div>
 </section>
 
-<!-- Climb Your Everest With Confidence Section -->
 <section class="everest-section">
   <div class="container">
     <div class="everest-header text-center">
@@ -631,8 +872,7 @@
     
     <div class="everest-content-wrapper">
       <div class="everest-background">
-        <!-- Background image will be set via CSS -->
-      </div>
+        </div>
       
       <div class="everest-cards-container">
         <div class="everest-card compass-card">

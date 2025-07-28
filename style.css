@@ -645,7 +645,7 @@ body{
   min-width: 280px;
 }
 .feature-content h3 {
-  font-family: 'Grift', sans-serif;
+  font-family: 'Orlean', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   margin-bottom: clamp(8px, 2vw, 12px);
@@ -2187,7 +2187,6 @@ main {
     margin-top: 0.5rem;
     max-height: none;
   }
-  
   .mega-menu-container {
     flex-direction: column;
     max-height: none;

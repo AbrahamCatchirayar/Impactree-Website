@@ -6,7 +6,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Common head content will be loaded here -->
   <div id="common-head"></div>
   
   <style>
@@ -18,7 +17,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     /* (All other @font-face rules remain the same) */
 
     :root {
@@ -44,8 +42,8 @@
       --lighter-background: #e7f3ff;
 
       /* Spacing */
-      --section-spacing: clamp(60px, 8vw, 100px);
-      --feature-spacing: clamp(40px, 6vw, 80px);
+      --section-spacing: clamp(40px, 6vw, 80px);
+      --feature-spacing: clamp(30px, 5vw, 60px);
     }
 
     body {
@@ -109,7 +107,7 @@
       width: 100%;
       height: clamp(300px, 50vw, 600px);
       overflow: hidden;
-      margin-bottom: var(--section-spacing);
+      margin-bottom: 0; /* Adjusted to remove spacing */
     }
 
     .hero-image-section img {
@@ -146,60 +144,60 @@
       text-align: right;
     }
     /* Update the hero section title gradient */
-.hero-text-top-left h1.headline-text-gradient {
-  background: linear-gradient(45deg, #ff4d4f, #feaa29);
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-}
+    .hero-text-top-left h1.headline-text-gradient {
+      background: linear-gradient(45deg, #ff4d4f, #feaa29);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
 
-/* Update the tab button active state to match the red-to-orange theme */
-.esg-tab-btn.active {
-  background: var(--color-background-white);
-  color: #ff4d4f; /* Start with red */
-  box-shadow: 0 4px 20px rgba(255, 77, 79, 0.15);
-  border-bottom: 2px solid #ff4d4f;
-}
+    /* Update the tab button active state to match the red-to-orange theme */
+    .esg-tab-btn.active {
+      background: var(--color-background-white);
+      color: #ff4d4f; /* Start with red */
+      box-shadow: 0 4px 20px rgba(255, 77, 79, 0.15);
+      border-bottom: 2px solid #ff4d4f;
+    }
 
-.esg-tab-btn.active:hover {
-  color: #feaa29; /* Transition to orange on hover */
-  border-bottom-color: #feaa29;
-}
+    .esg-tab-btn.active:hover {
+      color: #feaa29; /* Transition to orange on hover */
+      border-bottom-color: #feaa29;
+    }
 
-/* Update the sub-heading in tabs to use the gradient */
-.tab-text-container .sub-heading {
-  background: linear-gradient(45deg, #ff4d4f, #feaa29);
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  display: inline-block;
-  padding-bottom: 0.2em;
-}
+    /* Update the sub-heading in tabs to use the gradient */
+    .tab-text-container .sub-heading {
+      background: linear-gradient(45deg, #ff4d4f, #feaa29);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      display: inline-block;
+      padding-bottom: 0.2em;
+    }
 
-/* Update section title underline to use gradient */
-.section-title:after {
-  background: linear-gradient(90deg, #ff4d4f, #feaa29);
-}
+    /* Update section title underline to use gradient */
+    .section-title:after {
+      background: linear-gradient(90deg, #ff4d4f, #feaa29);
+    }
 
-/* Update the card link hover state to match */
-.card-link:hover {
-  background: linear-gradient(45deg, #ff4d4f, #feaa29);
-  color: white;
-}
+    /* Update the card link hover state to match */
+    .card-link:hover {
+      background: linear-gradient(45deg, #ff4d4f, #feaa29);
+      color: white;
+    }
 
-/* Update the checkmark colors in feature lists */
-.feature-list li i {
-  color: #ff4d4f;
-}
+    /* Update the checkmark colors in feature lists */
+    .feature-list li i {
+      color: #ff4d4f;
+    }
 
-/* Add transition effects for smooth color changes */
-.esg-tab-btn.active,
-.tab-text-container .sub-heading,
-.section-title:after,
-.card-link,
-.feature-list li i {
-  transition: all 0.3s ease;
-}
+    /* Add transition effects for smooth color changes */
+    .esg-tab-btn.active,
+    .tab-text-container .sub-heading,
+    .section-title:after,
+    .card-link,
+    .feature-list li i {
+      transition: all 0.3s ease;
+    }
 
     .hero-text-bottom-right > div:first-child {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
@@ -302,72 +300,50 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     }
 
-    /* Navigator description section */
-    .navigator-description-section {
-      background: var(--color-background-light);
-      padding: var(--section-spacing) 0;
+    /* Compass Description Section - Aligned with Navigator style */
+    .compass-description-section {
+      background-color: #E7E8E2; /* Use #e7e8e2 as background */
+      padding: clamp(24px, 5vw, 48px) 0;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+      margin-top: 0; /* Added to ensure no spacing */
+      padding-top: 0; /* Remove top padding for seamless connection */
     }
-    
-    .navigator-description-container {
-      width: 90%;
+    .compass-description-section p { /* Apply directly to the paragraph */
       max-width: 1200px;
+      width: 90%; /* Maintain width from original container */
       margin: 0 auto;
-      background: var(--color-background-white);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      padding: clamp(40px, 6vw, 60px);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .navigator-description-container p {
-      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-      color: var(--color-typography-content-dark);
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: #1e4d72; /* Keep existing text color or adjust if needed */
       font-weight: 500;
-      margin: 0;
       line-height: 1.7;
       letter-spacing: 0.01em;
-      position: relative;
-      z-index: 2;
+      text-align: left;
+      background-color: #FFFFFF; /* White background for the text area */
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px); /* Add padding to the text itself */
     }
 
-    .navigator-description-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: var(--color-typography-headline-gradient);
-    }
-
-    /* ESG Tabs Section (Re-used styles for Navigator) */
+    /* ESG Tabs Section - Aligned with Navigator style */
     .esg-tabs-section {
       background: var(--color-background-white);
-      padding: var(--section-spacing) 0;
-      position: relative;
-    }
-    
-    .esg-tabs-container {
+      margin: clamp(10px, 2vw, 20px) auto 30px auto;
       width: 90%;
       max-width: 1200px;
-      margin: 0 auto;
-      background: var(--color-background-white);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      padding: clamp(30px, 5vw, 50px);
-      text-align: center;
-      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      border: 1.5px solid rgba(30,77,114,0.08);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    
-    .esg-tabs-container::before {
+    .esg-tabs-section::before {
       content: '';
       position: absolute;
       top: 0;
@@ -376,37 +352,35 @@
       height: 6px;
       background: var(--color-typography-headline-gradient);
     }
-    
     .esg-tabs-btn-group-wrapper {
       padding: 0;
       background: none;
       border-radius: 0;
-      margin: 0 auto 2rem;
+      margin: 0;
       box-shadow: none;
       max-width: 100%;
+      width: 100%;
     }
-    
     .esg-tabs-btn-group {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-end;
       gap: 0;
       margin-bottom: 0;
-      border-bottom: 2px solid var(--color-background-light);
+      border-bottom: 2px solid #e7f3ff;
       background: none;
       padding: 0;
       position: relative;
     }
-    
     .esg-tab-btn {
-      background: var(--color-background-light);
-      color: var(--color-typography-content-dark);
+      background: #e7f3ff;
+      color: #007bff;
       border: none;
-      border-radius: 12px 12px 0 0;
-      padding: 16px 32px 14px 32px;
+      border-radius: 14px 14px 0 0;
+      padding: 14px 28px 12px 28px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       outline: none;
       box-shadow: none;
       position: relative;
@@ -414,80 +388,69 @@
       border-bottom: 2px solid transparent;
       white-space: nowrap;
       z-index: 1;
-      font-weight: 600;
-      flex-grow: 1; /* Allow buttons to grow and fill space */
-      text-align: center; /* Center text within button */
+      flex-grow: 1;
+      text-align: center;
     }
-    
     .esg-tab-btn.active {
-      background: var(--color-background-white);
-      color: var(--color-button-primary);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-bottom: 2px solid var(--color-button-primary);
+      background: #fff;
+      color: #007bff;
+      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
+      border-bottom: 2px solid #007bff;
       z-index: 2;
     }
-    
-    .esg-tab-btn:not(.active):hover {
-      background: var(--color-background-light);
-      color: var(--color-button-primary);
+    .esg-tab-btn:not(.active) {
+      border-bottom: 2px solid #e7f3ff;
     }
-    
+    .esg-tab-btn:hover:not(.active) {
+      background: #f8fafc;
+      color: #1e4d72;
+    }
     .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    
-    .esg-tab-content {
       display: none;
-      font-size: clamp(1.1rem, 2vw, 1.25rem);
-      color: var(--color-typography-content-dark);
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 2rem 0 0;
-      animation: fadeInTab 0.4s ease-out;
-    }
-    
-    .esg-tab-content.active {
-      display: block;
-    }
-    
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* New styles for the tab content layout */
-    .tab-content-layout {
-      display: flex;
-      flex-direction: column; /* Default to column for mobile */
+      width: 100%;
+      flex-direction: column;
       gap: 2rem;
       padding: 2rem;
       background: var(--color-background-white);
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      text-align: left; /* Align text left within the tab content */
+      text-align: left;
+      margin-top: 0;
+      font-size: clamp(1.05rem, 2vw, 1.18rem);
+      color: #1e4d72;
+      font-weight: 500;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      min-height: 80px;
+      animation: fadeInTab 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    .esg-tab-content.active {
+      display: flex;
+    }
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .tab-image-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 280px; /* Minimum width for the image container */
+        flex: 1;
+        min-width: 250px;
+        max-width: 400px;
+        text-align: center;
     }
 
     .tab-image-container img {
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    .tab-text-container {
-      flex: 2; /* Text takes more space */
-      min-width: 300px; /* Minimum width for the text container */
+    .tab-text-container{
+      flex:2;
+      min-width: 300px;
     }
 
     .tab-text-container h3 {
@@ -501,7 +464,7 @@
     .tab-text-container .sub-heading {
       font-size: 0.9rem;
       font-weight: 600;
-      color: var(--color-button-primary); /* Use primary color for sub-heading */
+      color: var(--color-button-primary);
       text-transform: uppercase;
       margin-bottom: 0.5rem;
       letter-spacing: 0.05em;
@@ -535,10 +498,9 @@
       color: var(--color-button-primary);
     }
 
-    /* Tab 3 specific styles (for Navigator) */
     .tab3-compact-list-area {
       background: var(--color-background-light);
-      border-radius: 10px;
+      border-radius: 0px;
       padding: 1.5rem;
       margin: 1.5rem 0;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -607,7 +569,6 @@
       color: var(--color-typography-content-dark);
     }
 
-    /* Navbar Styles */
     .navbar-custom {
       background-color: var(--color-background-white);
       padding: 0.8rem 0;
@@ -840,8 +801,8 @@
 
     /* Responsive adjustments */
     @media (min-width: 768px) {
-      .tab-content-layout {
-        flex-direction: row; /* Row for larger screens */
+      .esg-tab-content {
+        flex-direction: row;
       }
     }
 
@@ -891,7 +852,7 @@
 
       .navbar-nav .nav-item {
         width: 100%;
-        border-bottom: 1px solid #eee; /* Changed to #eee for consistency */
+        border-bottom: 1px solid #eee;
       }
 
       .navbar-nav .nav-item:last-child {
@@ -922,7 +883,7 @@
       .mega-menu-sidebar {
         width: 100%;
         border-right: none;
-        border-bottom: 1px solid #e9ecef; /* Changed to #e9ecef for consistency */
+        border-bottom: 1px solid #e9ecef;
         padding: 0;
       }
 
@@ -971,8 +932,14 @@
         padding: 12px 20px 10px;
         font-size: 0.95rem;
       }
-
-      /* Removed tab-table-cell as it's not used in current structure */
+      .esg-tab-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .tab-text-container {
+        min-width: unset;
+        text-align: center;
+      }
     }
 
     @media (max-width: 576px) {
@@ -989,8 +956,14 @@
         gap: 30px;
       }
 
-      .navigator-description-container,
-      .esg-tabs-container {
+      .compass-description-section p { /* Apply padding directly to the paragraph on smaller screens */
+        width: 95%;
+        padding: 30px 20px;
+        border-radius: 0 0 18px 18px; /* Round only bottom corners if desired */
+      }
+
+
+      .esg-tabs-section {
         width: 95%;
         padding: 30px 20px;
       }
@@ -1010,7 +983,6 @@
   </style>
 </head>
 <body>
-  <!-- Common navbar will be loaded here -->
   <div id="common-navbar"></div>
 
   <div class="hero-image-section">
@@ -1027,13 +999,10 @@
 
   <main>
     <section class="compass-description-section">
-      <div class="compass-description-container">
-        <p>"The Compass Series offers intuitive tools to help businesses set ESG baselines, define goals, and track progress in areas like carbon, energy, and social impact. It turns complex data into simple, actionable insights—making sustainability a clear, strategic advantage."</p>
-      </div>
+      <p>The Compass Series offers intuitive tools to help businesses set ESG baselines, define goals, and track progress in areas like carbon, energy, and social impact. It turns complex data into simple, actionable insights—making sustainability a clear, strategic advantage.</p>
     </section>
 
       <section class="esg-tabs-section">
-        <div class="esg-tabs-container">
           <div class="esg-tabs-btn-group-wrapper">
             <div class="esg-tabs-btn-group">
               <button class="esg-tab-btn active" data-tab="tab1">Your ESG Journey Starts Here</button>
@@ -1042,341 +1011,332 @@
             </div>
           </div>
           <div class="esg-tab-content active" id="tab1">
-            <div class="tab-content-layout">
-              <div class="tab-image-container">
-                <img src="/assets/images/ESG-Journey.png" alt="Tab 1 Image">
-              </div>
-              <div class="tab-text-container">
-                <div class="sub-heading">Your ESG Journey Starts Here</div>
-                <h3>Start with a clear picture.</h3>
-                <p>Compass includes six purpose-built tools aligned to Impactree’s 15-pillar ESG framework. It gives organizations a 360° view of their sustainability performance across carbon, energy, vendors, and social metrics.</p>
-              </div>
+            <div class="tab-image-container">
+              <img src="/assets/images/ESG-Journey.png" alt="Tab 1 Image">
+            </div>
+            <div class="tab-text-container">
+              <div class="sub-heading">Your ESG Journey Starts Here</div>
+              <h3>Start with a clear picture.</h3>
+              <p>Compass includes six purpose-built tools aligned to Impactree's 15-pillar ESG framework. It gives organizations a 360° view of their sustainability performance across carbon, energy, vendors, and social metrics.</p>
             </div>
           </div>
             
           <div class="esg-tab-content" id="tab2">
-            <div class="tab-content-layout">
-              <div class="tab-image-container">
-                <img src="/assets/images/ESG-Business.webp" alt="Tab 2 Image">
-              </div>
-              <div class="tab-text-container">
-                <div class="sub-heading">Built for Businesses Taking ESG Seriously</div>
-                <h3>From data to decisive action.</h3>
-                <p>Perfect for companies starting their sustainability journey or looking to turn ESG into long-term value. Whether in manufacturing, logistics, or services—Compass delivers clarity, control, and confidence.</p>
-              </div>
+            <div class="tab-image-container">
+              <img src="/assets/images/ESG-Business.webp" alt="Tab 2 Image">
+            </div>
+            <div class="tab-text-container">
+              <div class="sub-heading">Built for Businesses Taking ESG Seriously</div>
+              <h3>From data to decisive action.</h3>
+              <p>Perfect for companies starting their sustainability journey or looking to turn ESG into long-term value. Whether in manufacturing, logistics, or services—Compass delivers clarity, control, and confidence.</p>
             </div>
           </div>
             
           <div class="esg-tab-content" id="tab3">
-            <div class="tab-content-layout">
-              <div class="tab-image-container">
-                <img src="/assets/images/ESG-Goals.webp" alt="Tab 3 Image">
-              </div>
-              <div class="tab-text-container">
-                <div class="sub-heading">Transform ESG Goals into Measurable Action</div>
-                <h3>Your roadmap to measurable impact.</h3>
-               <p>Track your progress, identify areas for improvement, and demonstrate your commitment to sustainability with verifiable data. Compass empowers you to make informed decisions and drive meaningful change.</p>
-              </div>
+            <div class="tab-image-container">
+              <img src="/assets/images/ESG-Goals.webp" alt="Tab 3 Image">
+            </div>
+            <div class="tab-text-container">
+              <div class="sub-heading">Transform ESG Goals into Measurable Action</div>
+              <h3>Your roadmap to measurable impact.</h3>
+             <p>Track your progress, identify areas for improvement, and demonstrate your commitment to sustainability with verifiable data. Compass empowers you to make informed decisions and drive meaningful change.</p>
             </div>
           </div>
-  
       </section>
-    </div>
 
-    <section class="features-section" id="energy">
-      <h2 class="section-title">Energy Management</h2>
-      <div class="feature-item">
-        <div class="feature-content">
-          <h3>One Platform to Monitor. Optimize. Save.</h3>
-          <ul class="feature-list">
-            <h4>Features:</h4>
-            <li><i class="fas fa-check-circle"></i> Granular energy usage dashboards</li>
-            <li><i class="fas fa-check-circle"></i> Cost-to-energy correlation insights</li>
-            <li><i class="fas fa-check-circle"></i> Target-based reduction tracking</li>
-            <li><i class="fas fa-check-circle"></i> Alerts for energy anomalies and inefficiencies</li>
-          </ul>
-          <h4>Outcomes:</h4>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Reduce utility costs and carbon footprint</li>
-            <li><i class="fas fa-check-circle"></i> Uncover inefficiencies across sites or departments</li>
-            <li><i class="fas fa-check-circle"></i> Set and achieve energy saving targets with real-time clarity</li>
-          </ul>
+      <section class="features-section" id="energy">
+        <h2 class="section-title">Energy Management</h2>
+        <div class="feature-item">
+          <div class="feature-content">
+            <h3>One Platform to Monitor. Optimize. Save.</h3>
+            <ul class="feature-list">
+              <h4>Features:</h4>
+              <li><i class="fas fa-check-circle"></i> Granular energy usage dashboards</li>
+              <li><i class="fas fa-check-circle"></i> Cost-to-energy correlation insights</li>
+              <li><i class="fas fa-check-circle"></i> Target-based reduction tracking</li>
+              <li><i class="fas fa-check-circle"></i> Alerts for energy anomalies and inefficiencies</li>
+            </ul>
+            <h4>Outcomes:</h4>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Reduce utility costs and carbon footprint</li>
+              <li><i class="fas fa-check-circle"></i> Uncover inefficiencies across sites or departments</li>
+              <li><i class="fas fa-check-circle"></i> Set and achieve energy saving targets with real-time clarity</li>
+            </ul>
+          </div>
+          <div class="feature-image">
+            <img src="assets/images/energymanager.jpg" alt="Energy Management">
+          </div>
         </div>
-        <div class="feature-image">
-          <img src="assets/images/energymanager.jpg" alt="Energy Management">
+      </section>
+  
+      <section class="features-section alternate-section" id="performance">
+        <h2 class="section-title">Performance Management</h2>
+        <div class="feature-item reverse">
+          <div class="feature-content">
+            <h3>Data-Driven Resilience at Scale</h3>
+            <ul class="feature-list">
+              <h4>Features:</h4>
+              <li><i class="fas fa-check-circle"></i> Convert ESG metrics into measurable business outcomes</li>
+              <li><i class="fas fa-check-circle"></i> Custom KPI dashboards</li>
+              <li><i class="fas fa-check-circle"></i> Enterprise-wide reporting tools</li>
+              <li><i class="fas fa-check-circle"></i> Get ESG compliance ready</li>
+            </ul>
+            <h4>Outcomes:</h4>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Align ESG with financial and operational performance</li>
+              <li><i class="fas fa-check-circle"></i> Demonstrate ESG progress to boards and investors</li>
+              <li><i class="fas fa-check-circle"></i> Make data-informed strategic decisions</li>
+              <li><i class="fas fa-check-circle"></i> Generate compliance reports with a single click</li>
+            </ul>
+          </div>
+          <div class="feature-image">
+            <img src="assets/images/Performance manager (3).jpg" alt="Performance Management">
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="features-section alternate-section" id="performance">
-      <h2 class="section-title">Performance Management</h2>
-      <div class="feature-item reverse">
-        <div class="feature-content">
-          <h3>Data-Driven Resilience at Scale</h3>
-          <ul class="feature-list">
-            <h4>Features:</h4>
-            <li><i class="fas fa-check-circle"></i> Convert ESG metrics into measurable business outcomes</li>
-            <li><i class="fas fa-check-circle"></i> Custom KPI dashboards</li>
-            <li><i class="fas fa-check-circle"></i> Enterprise-wide reporting tools</li>
-            <li><i class="fas fa-check-circle"></i> Get ESG compliance ready</li>
-          </ul>
-          <h4>Outcomes:</h4>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Align ESG with financial and operational performance</li>
-            <li><i class="fas fa-check-circle"></i> Demonstrate ESG progress to boards and investors</li>
-            <li><i class="fas fa-check-circle"></i> Make data-informed strategic decisions</li>
-            <li><i class="fas fa-check-circle"></i> Generate compliance reports with a single click</li>
-          </ul>
+      </section>
+  
+      <section class="features-section" id="carbon">
+        <h2 class="section-title">Carbon Management</h2>
+        <div class="feature-item">
+          <div class="feature-content">
+            <h3>Tool to Accelerate Your Net-Zero Journey</h3>
+            <ul class="feature-list">
+              <h4>Features:</h4>
+              <li><i class="fas fa-check-circle"></i> Calculate, manage, and reduce Scope 1, 2, and 3 emissions</li>
+              <li><i class="fas fa-check-circle"></i> GHG protocol-aligned emissions reporting</li>
+              <li><i class="fas fa-check-circle"></i> Asset level tracking</li>
+              <li><i class="fas fa-check-circle"></i> Audit-ready output</li>
+            </ul>
+            <h4>Outcomes:</h4>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Build a credible decarbonization roadmap</li>
+              <li><i class="fas fa-check-circle"></i> Ensure regulatory and investor compliance</li>
+              <li><i class="fas fa-check-circle"></i> Identify high-impact reduction levers</li>
+            </ul>
+          </div>
+          <div class="feature-image">
+            <img src="assets/images/Carbon Manager latest (1).jpg" alt="Carbon Management">
+          </div>
         </div>
-        <div class="feature-image">
-          <img src="assets/images/Performance manager (3).jpg" alt="Performance Management">
+      </section>
+  
+      <section class="features-section alternate-section" id="vendor">
+        <h2 class="section-title">Vendor Management</h2>
+        <div class="feature-item reverse">
+          <div class="feature-content">
+            <h3>Sustainable Supply Chain Starts Here</h3>
+            <ul class="feature-list">
+              <h4>Features:</h4>
+              <li><i class="fas fa-check-circle"></i> Assess and manage the ESG performance of your suppliers</li>
+              <li><i class="fas fa-check-circle"></i> Vendor sustainability scoring</li>
+              <li><i class="fas fa-check-circle"></i> Risk flags for compliance, ethics, and emissions</li>
+            </ul>
+            <h4>Outcomes:</h4>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Drive accountability across your supply chain</li>
+              <li><i class="fas fa-check-circle"></i> Reduce ESG-related disruptions and reputational risk</li>
+              <li><i class="fas fa-check-circle"></i> Strengthen supplier partnerships through transparency</li>
+            </ul>
+          </div>
+          <div class="feature-image">
+            <img src="assets/images/vendor manager 1 (4).jpg" alt="Vendor Management">
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="features-section" id="carbon">
-      <h2 class="section-title">Carbon Management</h2>
-      <div class="feature-item">
-        <div class="feature-content">
-          <h3>Tool to Accelerate Your Net-Zero Journey</h3>
-          <ul class="feature-list">
-            <h4>Features:</h4>
-            <li><i class="fas fa-check-circle"></i> Calculate, manage, and reduce Scope 1, 2, and 3 emissions</li>
-            <li><i class="fas fa-check-circle"></i> GHG protocol-aligned emissions reporting</li>
-            <li><i class="fas fa-check-circle"></i> Asset level tracking</li>
-            <li><i class="fas fa-check-circle"></i> Audit-ready output</li>
-          </ul>
-          <h4>Outcomes:</h4>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Build a credible decarbonization roadmap</li>
-            <li><i class="fas fa-check-circle"></i> Ensure regulatory and investor compliance</li>
-            <li><i class="fas fa-check-circle"></i> Identify high-impact reduction levers</li>
-          </ul>
+      </section>
+  
+      <section class="features-section" id="safety">
+        <h2 class="section-title">Safety Management</h2>
+        <div class="feature-item">
+          <div class="feature-content">
+            <h3>Prioritize People. Mitigate Risk.</h3>
+            <ul class="feature-list">
+              <h4>Features:</h4>
+              <li><i class="fas fa-check-circle"></i> Digitally manage workplace safety, incident reporting, and compliance in real time</li>
+              <li><i class="fas fa-check-circle"></i> Incident tracking & root cause analysis</li>
+              <li><i class="fas fa-check-circle"></i> Training & audit compliance logs</li>
+              <li><i class="fas fa-check-circle"></i> Workforce health dashboards</li>
+            </ul>
+            <h4>Outcomes:</h4>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Minimize workplace incidents and liability</li>
+              <li><i class="fas fa-check-circle"></i> Promote a culture of safety and compliance</li>
+              <li><i class="fas fa-check-circle"></i> Streamline reporting for audits and certifications</li>
+            </ul>
+          </div>
+          <div class="feature-image">
+            <img src="assets/images/Safety Manager (1).jpg" alt="Safety Management">
+          </div>
         </div>
-        <div class="feature-image">
-          <img src="assets/images/Carbon Manager latest (1).jpg" alt="Carbon Management">
+      </section>
+  
+      <section class="features-section alternate-section" id="social">
+        <h2 class="section-title">Social Impact Management</h2>
+        <div class="feature-item reverse">
+          <div class="feature-content">
+            <h3>Make Impact Visible. Measurable. Scalable.</h3>
+            <ul class="feature-list">
+              <h4>Features:</h4>
+              <li><i class="fas fa-check-circle"></i> CSR & social program reporting</li>
+              <li><i class="fas fa-check-circle"></i> Community engagement mapping</li>
+              <li><i class="fas fa-check-circle"></i> Impact storytelling tools</li>
+            </ul>
+            <h4>Outcomes:</h4>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Communicate impact to stakeholders with confidence</li>
+              <li><i class="fas fa-check-circle"></i> Strengthen brand trust through verified initiatives</li>
+              <li><i class="fas fa-check-circle"></i> Scale purpose-led programs with better insights</li>
+            </ul>
+          </div>
+          <div class="feature-image">
+            <img src="assets/images/Social Impact Manager (1).jpg" alt="Social Impact Management">
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="features-section alternate-section" id="vendor">
-      <h2 class="section-title">Vendor Management</h2>
-      <div class="feature-item reverse">
-        <div class="feature-content">
-          <h3>Sustainable Supply Chain Starts Here</h3>
-          <ul class="feature-list">
-            <h4>Features:</h4>
-            <li><i class="fas fa-check-circle"></i> Assess and manage the ESG performance of your suppliers</li>
-            <li><i class="fas fa-check-circle"></i> Vendor sustainability scoring</li>
-            <li><i class="fas fa-check-circle"></i> Risk flags for compliance, ethics, and emissions</li>
-          </ul>
-          <h4>Outcomes:</h4>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Drive accountability across your supply chain</li>
-            <li><i class="fas fa-check-circle"></i> Reduce ESG-related disruptions and reputational risk</li>
-            <li><i class="fas fa-check-circle"></i> Strengthen supplier partnerships through transparency</li>
-          </ul>
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/vendor manager 1 (4).jpg" alt="Vendor Management">
-        </div>
-      </div>
-    </section>
-
-    <section class="features-section" id="safety">
-      <h2 class="section-title">Safety Management</h2>
-      <div class="feature-item">
-        <div class="feature-content">
-          <h3>Prioritize People. Mitigate Risk.</h3>
-          <ul class="feature-list">
-            <h4>Features:</h4>
-            <li><i class="fas fa-check-circle"></i> Digitally manage workplace safety, incident reporting, and compliance in real time</li>
-            <li><i class="fas fa-check-circle"></i> Incident tracking & root cause analysis</li>
-            <li><i class="fas fa-check-circle"></i> Training & audit compliance logs</li>
-            <li><i class="fas fa-check-circle"></i> Workforce health dashboards</li>
-          </ul>
-          <h4>Outcomes:</h4>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Minimize workplace incidents and liability</li>
-            <li><i class="fas fa-check-circle"></i> Promote a culture of safety and compliance</li>
-            <li><i class="fas fa-check-circle"></i> Streamline reporting for audits and certifications</li>
-          </ul>
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/Safety Manager (1).jpg" alt="Safety Management">
-        </div>
-      </div>
-    </section>
-
-    <section class="features-section alternate-section" id="social">
-      <h2 class="section-title">Social Impact Management</h2>
-      <div class="feature-item reverse">
-        <div class="feature-content">
-          <h3>Make Impact Visible. Measurable. Scalable.</h3>
-          <ul class="feature-list">
-            <h4>Features:</h4>
-            <li><i class="fas fa-check-circle"></i> CSR & social program reporting</li>
-            <li><i class="fas fa-check-circle"></i> Community engagement mapping</li>
-            <li><i class="fas fa-check-circle"></i> Impact storytelling tools</li>
-          </ul>
-          <h4>Outcomes:</h4>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i> Communicate impact to stakeholders with confidence</li>
-            <li><i class="fas fa-check-circle"></i> Strengthen brand trust through verified initiatives</li>
-            <li><i class="fas fa-check-circle"></i> Scale purpose-led programs with better insights</li>
-          </ul>
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/Social Impact Manager (1).jpg" alt="Social Impact Management">
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Common footer will be loaded here -->
-  <div id="common-footer"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Function to load common HTML components
-    async function includeHTML() {
-      const commonHead = document.getElementById('common-head');
-      const commonNavbar = document.getElementById('common-navbar');
-      const commonFooter = document.getElementById('common-footer');
-
-      if (commonHead) {
-        const headResponse = await fetch('common_head.html');
-        const headText = await headResponse.text();
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = headText;
-        while (tempDiv.firstChild) {
-          document.head.appendChild(tempDiv.firstChild);
+      </section>
+    </main>
+  
+    <div id="common-footer"></div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Function to load common HTML components
+      async function includeHTML() {
+        const commonHead = document.getElementById('common-head');
+        const commonNavbar = document.getElementById('common-navbar');
+        const commonFooter = document.getElementById('common-footer');
+  
+        if (commonHead) {
+          const headResponse = await fetch('common_head.html');
+          const headText = await headResponse.text();
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = headText;
+          while (tempDiv.firstChild) {
+            document.head.appendChild(tempDiv.firstChild);
+          }
+          commonHead.remove(); // Remove the placeholder div
         }
-        commonHead.remove(); // Remove the placeholder div
-      }
-
-      if (commonNavbar) {
-        const navbarResponse = await fetch('common_navbar.html');
-        commonNavbar.innerHTML = await navbarResponse.text();
-      }
-
-      if (commonFooter) {
-        const footerResponse = await fetch('common_footer.html');
-        commonFooter.innerHTML = await footerResponse.text();
-      }
-    }
-
-    // Function to set up dynamic content (like mega menu sidebar)
-    function setupDynamicContent() {
-      // Navbar dropdown functionality (from common_navbar.html's original script)
-      const productsDropdown = document.getElementById('productsDropdown');
-      const productsMegaMenu = document.getElementById('productsMegaMenu');
-      const innovationsDropdown = document.getElementById('innovationsDropdown');
-      const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
-      const aboutDropdown = document.getElementById('aboutDropdown');
-      const aboutMegaMenu = document.getElementById('aboutMegaMenu');
-
-      function closeAllMegaMenus() {
-        if (productsMegaMenu) productsMegaMenu.classList.remove('show');
-        if (productsDropdown) productsDropdown.classList.remove('open');
-        if (innovationsMegaMenu) innovationsMegaMenu.classList.remove('show');
-        if (innovationsDropdown) innovationsDropdown.classList.remove('open');
-        if (aboutMegaMenu) aboutMegaMenu.classList.remove('show');
-        if (aboutDropdown) aboutDropdown.classList.remove('open');
-      }
-
-      if (productsDropdown) {
-        productsDropdown.addEventListener('click', function (event) {
-          event.stopPropagation();
-          closeAllMegaMenus();
-          productsMegaMenu.classList.toggle('show');
-          this.classList.toggle('open');
-        });
-      }
-
-      if (innovationsDropdown) {
-        innovationsDropdown.addEventListener('click', function (event) {
-          event.stopPropagation();
-          closeAllMegaMenus();
-          innovationsMegaMenu.classList.toggle('show');
-          this.classList.toggle('open');
-        });
-      }
-
-      if (aboutDropdown) {
-        aboutDropdown.addEventListener('click', function (event) {
-          event.stopPropagation();
-          closeAllMegaMenus();
-          aboutMegaMenu.classList.toggle('show');
-          this.classList.toggle('open');
-        });
-      }
-
-      document.addEventListener('click', function (event) {
-        if (productsMegaMenu && !productsMegaMenu.contains(event.target) && !productsDropdown.contains(event.target) ||
-            innovationsMegaMenu && !innovationsMegaMenu.contains(event.target) && !innovationsDropdown.contains(event.target) ||
-            aboutMegaMenu && !aboutMegaMenu.contains(event.target) && !aboutDropdown.contains(event.target)) {
-          closeAllMegaMenus();
+  
+        if (commonNavbar) {
+          const navbarResponse = await fetch('common_navbar.html');
+          commonNavbar.innerHTML = await navbarResponse.text();
         }
-      });
-
-      // Sidebar functionality for Products and Innovations Mega Menus
-      function setupMegaMenuSidebar(megaMenuId) {
-        const megaMenu = document.getElementById(megaMenuId);
-        if (!megaMenu) return;
-
-        const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
-        const contentSections = megaMenu.querySelectorAll('.content-section');
-
-        sidebarTitles.forEach(title => {
-          title.addEventListener('click', function() {
-            const targetSectionId = this.dataset.section + '-content';
-
-            sidebarTitles.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-
-            contentSections.forEach(content => {
-              if (content.id === targetSectionId) {
-                content.style.display = 'block';
-              } else {
-                content.style.display = 'none';
-              }
+  
+        if (commonFooter) {
+          const footerResponse = await fetch('common_footer.html');
+          commonFooter.innerHTML = await footerResponse.text();
+        }
+      }
+  
+      // Function to set up dynamic content (like mega menu sidebar)
+      function setupDynamicContent() {
+        // Navbar dropdown functionality (from common_navbar.html's original script)
+        const productsDropdown = document.getElementById('productsDropdown');
+        const productsMegaMenu = document.getElementById('productsMegaMenu');
+        const innovationsDropdown = document.getElementById('innovationsDropdown');
+        const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
+        const aboutDropdown = document.getElementById('aboutDropdown');
+        const aboutMegaMenu = document.getElementById('aboutMegaMenu');
+  
+        function closeAllMegaMenus() {
+          if (productsMegaMenu) productsMegaMenu.classList.remove('show');
+          if (productsDropdown) productsDropdown.classList.remove('open');
+          if (innovationsMegaMenu) innovationsMegaMenu.classList.remove('show');
+          if (innovationsDropdown) innovationsDropdown.classList.remove('open');
+          if (aboutMegaMenu) aboutMegaMenu.classList.remove('show');
+          if (aboutDropdown) aboutDropdown.classList.remove('open');
+        }
+  
+        if (productsDropdown) {
+          productsDropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+            closeAllMegaMenus();
+            productsMegaMenu.classList.toggle('show');
+            this.classList.toggle('open');
+          });
+        }
+  
+        if (innovationsDropdown) {
+          innovationsDropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+            closeAllMegaMenus();
+            innovationsMegaMenu.classList.toggle('show');
+            this.classList.toggle('open');
+          });
+        }
+  
+        if (aboutDropdown) {
+          aboutDropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+            closeAllMegaMenus();
+            aboutMegaMenu.classList.toggle('show');
+            this.classList.toggle('open');
+          });
+        }
+  
+        document.addEventListener('click', function (event) {
+          if (productsMegaMenu && !productsMegaMenu.contains(event.target) && !productsDropdown.contains(event.target) ||
+              innovationsMegaMenu && !innovationsMegaMenu.contains(event.target) && !innovationsDropdown.contains(event.target) ||
+              aboutMegaMenu && !aboutMegaMenu.contains(event.target) && !aboutDropdown.contains(event.target)) {
+            closeAllMegaMenus();
+          }
+        });
+  
+        // Sidebar functionality for Products and Innovations Mega Menus
+        function setupMegaMenuSidebar(megaMenuId) {
+          const megaMenu = document.getElementById(megaMenuId);
+          if (!megaMenu) return;
+  
+          const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
+          const contentSections = megaMenu.querySelectorAll('.content-section');
+  
+          sidebarTitles.forEach(title => {
+            title.addEventListener('click', function() {
+              const targetSectionId = this.dataset.section + '-content';
+  
+              sidebarTitles.forEach(t => t.classList.remove('active'));
+              this.classList.add('active');
+  
+              contentSections.forEach(content => {
+                if (content.id === targetSectionId) {
+                  content.style.display = 'block';
+                } else {
+                  content.style.display = 'none';
+                }
+              });
             });
           });
-        });
-
-        // Set initial active state
-        if (sidebarTitles.length > 0) {
-          sidebarTitles[0].click();
+  
+          // Set initial active state
+          if (sidebarTitles.length > 0) {
+            sidebarTitles[0].click();
+          }
         }
-      }
-
-      setupMegaMenuSidebar('productsMegaMenu');
-      setupMegaMenuSidebar('innovationsMegaMenu');
-      setupMegaMenuSidebar('aboutMegaMenu'); // Ensure this is also set up if it has internal tabs
-
-      // ESG Tabs functionality
-      const tabButtons = document.querySelectorAll('.esg-tab-btn');
-      const tabContents = document.querySelectorAll('.esg-tab-content');
-
-      tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const tabId = button.dataset.tab;
-
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(content => content.classList.remove('active'));
-
-          button.classList.add('active');
-          document.getElementById(tabId).classList.add('active');
+  
+        setupMegaMenuSidebar('productsMegaMenu');
+        setupMegaMenuSidebar('innovationsMegaMenu');
+        setupMegaMenuSidebar('aboutMegaMenu'); // Ensure this is also set up if it has internal tabs
+  
+        // ESG Tabs functionality
+        const tabButtons = document.querySelectorAll('.esg-tab-btn');
+        const tabContents = document.querySelectorAll('.esg-tab-content');
+  
+        tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const tabId = button.dataset.tab;
+  
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+  
+            button.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+          });
         });
+      }
+  
+      // Run includeHTML and setupDynamicContent after DOM is fully loaded
+      document.addEventListener('DOMContentLoaded', async () => {
+        await includeHTML();
+        setupDynamicContent();
       });
-    }
-
-    // Run includeHTML and setupDynamicContent after DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', async () => {
-      await includeHTML();
-      setupDynamicContent();
-    });
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>

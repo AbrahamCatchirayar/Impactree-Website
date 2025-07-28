@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impactree - Our Innovation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        :root {
+            --color-background-light: #e7e8e2;
+            --color-background-white: #ffffff;
+            --color-button-primary: #FEAA29;
+            --color-button-primary-dark: #D99424;
+            --color-typography-content-dark: #1A0C0A;
+            --color-typography-content-light: #A8A8A8;
+        }
+
+        body {
+            font-family: 'Grift', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-typography-content-dark);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background-light);
+            padding-top: 80px; /* For fixed navbar */
+        }
+        
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .gray-bg {
+            background-color: var(--color-background-light);
+        }
+        
+        .white-bg {
+            background-color: var(--color-background-white);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--color-typography-content-dark);
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--color-typography-content-dark);
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            color: #444;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+            margin: 40px auto;
+            width: 80%;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        /* Navbar Styles - Updated to match index.html */
+        .navbar-custom {
+            background-color: var(--color-background-white) !important;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1050;
+            height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand img {
+            height: 55px;
+            width: auto;
+            vertical-align: middle;
+            transition: height 0.3s ease;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--color-typography-content-dark);
+            font-weight: 500;
+            padding: 0.5rem 0.5rem;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: 'Grift', sans-serif;
+        }
+
+        .nav-link:hover {
+            color: var(--color-button-primary);
+        }
+
+        .nav-link i {
+            font-size: 0.7em;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        /* Mega Menu Styles */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--color-background-white);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1040;
+        }
+
+        .nav-item.dropdown:hover .mega-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mega-menu-container {
+            display: flex;
+            padding: 1.5rem;
+            gap: 1.5rem;
+        }
+
+        .mega-menu-sidebar {
+            flex-shrink: 0;
+            width: 200px;
+            border-right: 1px solid #e9ecef;
+            padding-right: 1.5rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-title {
+            font-weight: 600;
+            color: #555;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Grift', sans-serif;
+        }
+
+        .sidebar-title:hover {
+            background-color: rgba(254, 170, 41, 0.1);
+            color: var(--color-button-primary);
+        }
+
+        .sidebar-title.active {
+            background-color: var(--color-button-primary);
+            color: #fff;
+        }
+
+        .sidebar-title.active .sidebar-arrow {
+            color: #fff;
+        }
+
+        .sidebar-arrow {
+            font-size: 0.8em;
+            color: #bbb;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-title.active .sidebar-arrow {
+            transform: rotate(90deg);
+        }
+
+        .mega-menu-content {
+            flex-grow: 1;
+            padding-left: 1.5rem;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .mega-menu-card {
+            padding: 0.75rem 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .mega-menu-card:hover {
+            background-color: #f8f9fa;
+        }
+
+        .mega-menu-card-title {
+            font-weight: 500;
+            color: var(--color-typography-content-dark);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            font-family: 'Grift', sans-serif;
+        }
+
+        .mega-menu-card-title a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mega-menu-card-title a:hover {
+            color: var(--color-button-primary);
+        }
+
+        /* Demo Button */
+        .btn-demo {
+            background-color: var(--color-button-primary);
+            border-color: var(--color-button-primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Grift', sans-serif;
+        }
+
+        .btn-demo:hover {
+            background-color: var(--color-button-primary-dark);
+            border-color: var(--color-button-primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(254, 170, 41, 0.3);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background-color: var(--color-background-white);
+            padding: 4rem 0 2rem;
+            color: var(--color-typography-content-light);
+            border-top: 1px solid var(--color-background-light);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-section h5 {
+            color: var(--color-typography-content-dark);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-family: 'Grift', sans-serif;
+        }
+
+        .footer-section p {
+            color: var(--color-typography-content-light);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .footer-section a {
+            color: var(--color-typography-content-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-button-primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .social-links a {
+            color: var(--color-typography-content-light);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--color-button-primary);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-typography-content-light);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .navbar-custom {
+                height: 60px;
+            }
+            
+            .navbar-logo {
+                height: 40px;
+            }
+            
+            .navbar-nav {
+                gap: 0;
+                align-items: flex-start;
+                padding: 1rem 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-link {
+                padding: 0.75rem 1rem;
+                display: block;
+            }
+            
+            .mega-menu {
+                position: static;
+                width: auto;
+                box-shadow: none;
+                border-radius: 0;
+                transform: none;
+                opacity: 1;
+                background: none;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .mega-menu.active {
+                max-height: 1000px;
+            }
+            
+            .mega-menu-container {
+                flex-direction: column;
+                padding: 0;
+                gap: 0;
+            }
+            
+            .mega-menu-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+                padding: 0;
+            }
+            
+            .sidebar-title {
+                color: var(--color-typography-content-dark);
+                background-color: #f8f9fa;
+                border-left: 4px solid var(--color-button-primary);
+            }
+            
+            .sidebar-title:hover {
+                background-color: #e9ecef;
+                color: var(--color-typography-content-dark);
+            }
+            
+            .sidebar-title.active {
+                background-color: var(--color-button-primary);
+                color: white;
+            }
+            
+            .sidebar-arrow {
+                color: #6c757d;
+            }
+            
+            .sidebar-title.active .sidebar-arrow {
+                color: white;
+            }
+            
+            .mega-menu-card {
+                background-color: white;
+                border-left: 3px solid var(--color-button-primary);
+                margin: 0.25rem 0;
+                padding: 0.75rem 1rem;
+            }
+            
+            .mega-menu-card:hover {
+                background-color: #f1f3f5;
+            }
+            
+            .mega-menu-card-title a {
+                color: var(--color-typography-content-dark);
+            }
+            
+            .mega-menu-card-title a:hover {
+                color: var(--color-button-primary);
+            }
+            
+            .mega-menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-demo {
+                width: calc(100% - 2rem);
+                margin: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 56px;
+            }
+            
+            .navbar-custom {
+                height: 56px;
+                padding: 0.5rem 0;
+            }
+            
+            .mega-menu {
+                max-height: calc(100vh - 56px);
+                overflow-y: auto;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-nav {
+                padding: 0.5rem 0;
+            }
+            
+            .nav-item {
+                padding: 0.25rem 0;
+            }
+            
+            .mega-menu-container {
+                padding: 0.5rem;
+            }
+            
+            .mega-menu-card {
+                padding: 0.5rem;
+            }
+            
+            .btn-demo {
+                width: calc(100% - 1rem);
+                margin: 0.5rem;
+            }
+
+            .section {
+                padding: 50px 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .intro {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container"> 
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo2.png" alt="Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto"> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="productsDropdown" role="button">
+                            Products <i class="fas fa-chevron-down ms-1"></i>
+                        </a>
+                        <div class="mega-menu" id="productsMegaMenu">
+                            <div class="mega-menu-container">
+                                <div class="mega-menu-sidebar">
+                                    <div class="sidebar-section">
+                                        <div class="sidebar-title active" data-section="products">
+                                            Compass Series
+                                            <i class="fas fa-chevron-right sidebar-arrow"></i>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-section">
+                                        <div class="sidebar-title" data-section="innovations">
+                                            Navigator Series
+                                            <i class="fas fa-chevron-right sidebar-arrow"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mega-menu-content">
+                                    <div class="content-section" id="products-content">
+                                        <div class="mega-menu-grid">
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="compass.html#energy">Energy Management</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="compass.html#performance">Performance Management</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="compass.html#carbon">Carbon Management</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="compass.html#vendor">Vendor Management</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="compass.html#safety">Safety Management</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="compass.html#social">Social Impact Management</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-section" id="innovations-content">
+                                        <div class="mega-menu-grid">
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="navigator.html#supply-chain">Portfolio Navigator</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="navigator.html#market-risk">Corporate Navigator</a>
+                                                </div>
+                                            </div>
+                                            <div class="mega-menu-card">
+                                                <div class="mega-menu-card-title">
+                                                    <a href="navigator.html#stakeholder">Wealth Predictor</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="innovations.html">Innovations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="aboutDropdown" role="button">
+                            About Us <i class="fas fa-chevron-down ms-1"></i>
+                        </a>
+                        <div class="dropdown-menu" id="aboutDropdownMenu">
+                            <a class="dropdown-item" href="about-impactree.html">About Impactree</a>
+                            <a class="dropdown-item" href="achievements.html">Achievements</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="demo.html" class="btn btn-demo">Try a Demo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="section gray-bg">
+        <h1>Our Innovation</h1>
+        <p class="intro">Where Nature Meets Intelligence. Where Data Becomes Decision.</p>
+    </div>
+    
+    <div class="section white-bg">
+        <h2>Inspired by Nature, Engineered for Impact</h2>
+        <p>At Impactree, we looked to nature's most powerful structures for inspiration—the <strong>fractal</strong>. Just as fractals form the intricate building blocks of the natural world, our <strong>Fractals</strong> represent the foundational data layers within our system. These aren't just static templates—they are <strong>industry-specific</strong>, <strong>purpose-built frameworks</strong>, engineered through years of research to model ESG priorities in the real world.</p>
+        
+        <p>Each Fractal reflects the complex needs of your organization, your sector, and your sustainability journey. From resource use and emissions to governance risk and social impact, these modular structures <strong>capture frameworks</strong>, enable <strong>benchmarking</strong>, and <strong>contextualize data</strong> across use cases.</p>
+    </div>
+    
+    <div class="section gray-bg">
+        <h3>CODEX: The Engine Room</h3>
+        <p>At the heart of our system lies <strong>CODEX</strong>—our intelligent data pipeline. It powers every layer of the platform by <strong>streamlining and transforming</strong> incoming data across departments, business units, suppliers, and partners.</p>
+        
+        <p>CODEX acts as a unifying layer—bringing together operations and functions. Whether you're a factory manager tracking energy use or a CEO making capital allocation decisions, <strong>CODEX ensures that everyone works from a shared, trusted source of truth.</strong></p>
+    </div>
+    
+    <div class="section white-bg">
+        <h3>EDEN: Decision Intelligence, Powered by AI</h3>
+        <p>Eden our proprietary suite of AI engines. At its core are the <strong>Sentinels</strong>—autonomous AI agents designed to <strong>decipher data</strong>, <strong>extract signals</strong>, <strong>score performance</strong>, and <strong>generate real-time recommendations</strong>. From text consolidation to competitor benchmarking, each Sentinel works independently and collaboratively, forming an intelligent layer that continuously learns and adapts.</p>
+        
+        <p><strong>EDEN doesn't just visualize data</strong>—it understands it. It translates complexity into clarity, so your team can move from data awareness to <strong>data-driven action</strong>.</p>
+    </div>
+    
+    <div class="section gray-bg">
+        <h2>Why It Matters</h2>
+        <p>While most platforms stop at reporting, we go deeper.<br>
+        We engineer for <strong>understanding</strong>, for <strong>automation</strong>, and for <strong>impact</strong>.<br>
+        We bring together the <strong>structured clarity of Fractals</strong>, the <strong>connected intelligence of CODEX</strong>, and the <strong>learning power of EDEN</strong> to create a system that's not just built for ESG—but for the <strong>future of responsible business</strong>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>About Impactree</h5>
+                    <p>Transforming ESG data into actionable intelligence for a sustainable future.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="compass.html">Compass Series</a></li>
+                        <li><a href="navigator.html">Navigator Series</a></li>
+                        <li><a href="innovation.html">Innovations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="resources.html">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Whitepapers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-impactree.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Impactree. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.nav-link');
+                const menu = dropdown.querySelector('.mega-menu') || dropdown.querySelector('.dropdown-menu');
+                
+                // Desktop hover
+                dropdown.addEventListener('mouseenter', () => {
+                    if (window.innerWidth > 992) {
+                        document.querySelectorAll('.mega-menu, .dropdown-menu').forEach(m => {
+                            if (m !== menu) {
+                                m.style.display = 'none';
+                                m.style.opacity = '0';
+                            }
+                        });
+                        menu.style.display = 'block';
+                        setTimeout(() => {
+                            menu.style.opacity = '1';
+                            menu.style.transform = 'translateY(0)';
+                        }, 10);
+                    }
+                });
+                
+                dropdown.addEventListener('mouseleave', () => {
+                    if (window.innerWidth > 992) {
+                        menu.style.opacity = '0';
+                        menu.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            menu.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // Mobile click
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        const isOpen = menu.classList.contains('active');
+                        
+                        // Close all other menus first
+                        document.querySelectorAll('.mega-menu, .dropdown-menu').forEach(m => {
+                            if (m !== menu) {
+                                m.classList.remove('active');
+                                m.style.maxHeight = '0';
+                            }
+                        });
+                        
+                        if (isOpen) {
+                            menu.classList.remove('active');
+                            menu.style.maxHeight = '0';
+                        } else {
+                            menu.classList.add('active');
+                            menu.style.maxHeight = menu.scrollHeight + 'px';
+                        }
+                    }
+                });
+            });
+            
+            // Sidebar navigation for mega menus
+            document.querySelectorAll('.sidebar-title').forEach(title => {
+                title.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    const menu = this.closest('.mega-menu');
+                    
+                    // Set active state
+                    menu.querySelectorAll('.sidebar-title').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    menu.querySelectorAll('.content-section').forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    document.getElementById(`${section}-content`).style.display = 'block';
+                    
+                    // For mobile, adjust height
+                    if (window.innerWidth <= 992) {
+                        menu.style.maxHeight = menu.scrollHeight + 'px';
+                    }
+                });
+            });
+            
+            // Close menus when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992 && !e.target.closest('.nav-item.dropdown')) {
+                    document.querySelectorAll('.mega-menu, .dropdown-menu').forEach(menu => {
+                        menu.classList.remove('active');
+                        menu.style.maxHeight = '0';
+                    });
+                }
+            });
+            
+            // Make navbar sticky on scroll
+            const navbar = document.querySelector('.navbar-custom');
+            const originalOffset = navbar.offsetTop;
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > originalOffset) {
+                    navbar.classList.add('sticky');
+                } else {
+                    navbar.classList.remove('sticky');
+                }
+            });
+            
+            // Initialize first content section as active
+            document.querySelectorAll('.mega-menu').forEach(menu => {
+                const firstContent = menu.querySelector('.content-section');
+                if (firstContent) {
+                    firstContent.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

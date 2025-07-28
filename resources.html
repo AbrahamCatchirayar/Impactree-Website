@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | Impactree</title>
+  <div id="common-head"></div>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --light-bg: #e7e8e2;
+      --white: #ffffff;
+      --accent-orange: #FEAA29;
+      --dark-text: #1A0C0A;
+      --medium-text: #4a5568;
+      --blue-dark: #1e4d72;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      padding-top: 80px;
+    }
+
+    /* Hero Section */
+    .resources-hero {
+      background-color: var(--white);
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resources-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--blue-dark);
+      position: relative;
+      z-index: 2;
+    }
+
+    .resources-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: var(--medium-text);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(30, 77, 114, 0.1) 2px, transparent 2px);
+      background-size: 40px 40px;
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    /* Animated Carousel Section */
+    .articles-carousel {
+      padding: 80px 0;
+      background-color: var(--white);
+      position: relative;
+    }
+
+    .carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 30px;
+      padding: 20px 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      flex: 0 0 350px;
+      scroll-snap-align: start;
+      background-color: var(--light-bg);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .carousel-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, var(--accent-orange), var(--blue-dark));
+    }
+
+    .carousel-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--blue-dark);
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--medium-text);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .article-meta .author {
+      font-weight: 500;
+      color: var(--dark-text);
+    }
+
+    .article-meta .date {
+      margin-left: 10px;
+    }
+
+    .carousel-item p {
+      color: var(--medium-text);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      color: var(--accent-orange);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .read-more i {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: var(--blue-dark);
+    }
+
+    .read-more:hover i {
+      transform: translateX(5px);
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 10px;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background-color: var(--accent-orange);
+      transform: scale(1.2);
+    }
+
+    /* Blog Sections */
+    .blog-section {
+      padding: 80px 0;
+      background-color: var(--light-bg);
+    }
+
+    .blog-section.white-bg {
+      background-color: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      color: var(--blue-dark);
+    }
+
+    .section-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-orange);
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--medium-text);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .blog-card {
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-orange), var(--blue-dark));
+    }
+
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: var(--medium-text);
+    }
+
+    .blog-card-meta .author {
+      font-weight: 500;
+      color: var(--dark-text);
+    }
+
+    .blog-card-meta .date {
+      margin-left: 10px;
+    }
+
+    .blog-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      color: var(--blue-dark);
+    }
+
+    .blog-card p {
+      color: var(--medium-text);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating-element {
+      position: absolute;
+      background-color: rgba(254, 170, 41, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1200px) {
+      .carousel-item {
+        flex: 0 0 300px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .resources-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resources-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-item {
+        flex: 0 0 280px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .resources-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .resources-hero p {
+        font-size: 1rem;
+      }
+    
+    /* Footer Section */
+    .footer-section {
+      background-color: #ffffff;
+      padding: 4rem 0 2rem;
+      color: var(--color-typography-content-light);
+      border-top: 1px solid #e7e8e2;
+    }
+
+    .footer-section h5 {
+      color: var(--color-typography-content-light);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-section p {
+      color: var(--color-typography-content-light);
+    }
+
+    .footer-section a {
+      color: var(--color-typography-content-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--color-button-primary);
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .social-links a {
+      color: var(--color-typography-content-light);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      color: var(--color-button-light);
+    }
+
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .tab-content-layout {
+        flex-direction: row; /* Row for larger screens */
+      }
+    }
+
+    @media (max-width: 992px) {
+      .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .feature-content, .feature-image {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="common-navbar"></div>
+
+  <!-- Hero Section -->
+  <section class="resources-hero">
+    <div class="hero-pattern"></div>
+    <div class="floating-element" style="width: 150px; height: 150px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-element" style="width: 100px; height: 100px; top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="floating-element" style="width: 120px; height: 120px; top: 70%; left: 15%; animation-delay: 2s;"></div>
+    <div class="container">
+      <h1>Impactree Resources</h1>
+      <p>Discover insights, stories, and practical guidance to drive sustainable transformation in your organization.</p>
+    </div>
+  </section>
+
+  <!-- Featured Articles Carousel -->
+  <section class="articles-carousel">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Articles</h2>
+        <p>Explore our most popular articles on sustainability and social impact.</p>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-item">
+            <h3>Demystifying Carbon Markets</h3>
+            <div class="article-meta">
+              <span class="author">By Vivek Shankaranarayanan & Ashlesha Kshirsagar</span>
+              <span class="date">June 10, 2023</span>
+            </div>
+            <p>A practical deep dive into how carbon markets work and their potential for climate-smart growth.</p>
+            <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="carousel-item">
+            <h3>The Future of ESG Reporting</h3>
+            <div class="article-meta">
+              <span class="author">By Maria Rodriguez</span>
+              <span class="date">May 22, 2023</span>
+            </div>
+            <p>How evolving regulations are shaping corporate sustainability disclosures worldwide.</p>
+            <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="carousel-item">
+            <h3>Circular Economy in Action</h3>
+            <div class="article-meta">
+              <span class="author">By James Wilson</span>
+              <span class="date">April 15, 2023</span>
+            </div>
+            <p>Case studies of companies successfully implementing circular business models.</p>
+            <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="carousel-item">
+            <h3>Measuring Social Impact</h3>
+            <div class="article-meta">
+              <span class="author">By Priya Patel</span>
+              <span class="date">March 28, 2023</span>
+            </div>
+            <p>Quantitative approaches to assessing your organization's social footprint.</p>
+            <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="carousel-item">
+            <h3>Sustainable Finance Trends</h3>
+            <div class="article-meta">
+              <span class="author">By David Chen</span>
+              <span class="date">February 10, 2023</span>
+            </div>
+            <p>How green bonds and other instruments are reshaping capital markets.</p>
+            <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="carousel-nav">
+          <div class="carousel-dot active"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sustainability Blogs Section -->
+  <section class="blog-section white-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>Sustainability Blogs</h2>
+        <p>Explore our latest insights on environmental sustainability, climate action, and green business practices.</p>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-card-meta">
+            <span class="author">Sarah Johnson</span>
+            <span class="date">June 15, 2023</span>
+          </div>
+          <h3>5 ESG Trends Shaping 2023</h3>
+          <p>Discover the key environmental, social, and governance trends that will dominate corporate agendas this year.</p>
+          <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-meta">
+            <span class="author">Michael Brown</span>
+            <span class="date">May 28, 2023</span>
+          </div>
+          <h3>Reducing Your Carbon Footprint</h3>
+          <p>Practical strategies for businesses to measure and reduce their carbon emissions effectively.</p>
+          <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-meta">
+            <span class="author">Emma Wilson</span>
+            <span class="date">April 12, 2023</span>
+          </div>
+          <h3>The Renewable Energy Revolution</h3>
+          <p>How solar, wind, and other renewables are transforming global energy markets.</p>
+          <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Impact Blogs Section -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Social Impact Blogs</h2>
+        <p>Learn about creating positive social change through responsible business practices and community engagement.</p>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-card-meta">
+            <span class="author">Lisa Chen</span>
+            <span class="date">March 22, 2023</span>
+          </div>
+          <h3>Building Inclusive Workplaces</h3>
+          <p>Strategies for fostering diversity, equity, and inclusion in your organization.</p>
+          <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-meta">
+            <span class="author">Robert Taylor</span>
+            <span class="date">February 18, 2023</span>
+          </div>
+          <h3>Community Engagement Done Right</h3>
+          <p>How to create meaningful partnerships with local communities for mutual benefit.</p>
+          <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-meta">
+            <span class="author">Anika Patel</span>
+            <span class="date">January 5, 2023</span>
+          </div>
+          <h3>Ethical Supply Chain Management</h3>
+          <p>Ensuring fair labor practices and human rights throughout your supply chain.</p>
+          <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="common-footer"></div>
+
+  <script>
+    // Load common components
+    fetch('/common_head.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('common-head').innerHTML = html;
+      });
+
+    fetch('/common_navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('common-navbar').innerHTML = html;
+        setupDynamicContent();
+      });
+
+    fetch('/common_footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('common-footer').innerHTML = html;
+      });
+
+    // Carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.querySelector('.carousel-track');
+      const dots = document.querySelectorAll('.carousel-dot');
+      let currentIndex = 0;
+      
+      // Update dots based on scroll position
+      track.addEventListener('scroll', function() {
+        const scrollPosition = track.scrollLeft;
+        const itemWidth = track.querySelector('.carousel-item').offsetWidth + 30; // width + gap
+        currentIndex = Math.round(scrollPosition / itemWidth);
+        
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      });
+      
+      // Click on dots to scroll to item
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+          const itemWidth = track.querySelector('.carousel-item').offsetWidth + 30;
+          track.scrollTo({
+            left: index * itemWidth,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Auto-scroll carousel
+      let autoScroll = setInterval(() => {
+        const itemCount = track.querySelectorAll('.carousel-item').length;
+        currentIndex = (currentIndex + 1) % itemCount;
+        
+        const itemWidth = track.querySelector('.carousel-item').offsetWidth + 30;
+        track.scrollTo({
+          left: currentIndex * itemWidth,
+          behavior: 'smooth'
+        });
+      }, 5000);
+      
+      // Pause auto-scroll on hover
+      track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+      track.addEventListener('mouseleave', () => {
+        autoScroll = setInterval(() => {
+          const itemCount = track.querySelectorAll('.carousel-item').length;
+          currentIndex = (currentIndex + 1) % itemCount;
+          
+          const itemWidth = track.querySelector('.carousel-item').offsetWidth + 30;
+          track.scrollTo({
+            left: currentIndex * itemWidth,
+            behavior: 'smooth'
+          });
+        }, 5000);
+      });
+    });
+
+    // Function to set up dynamic content (like mega menu sidebar)
+    function setupDynamicContent() {
+      // Navbar dropdown functionality
+      const productsDropdown = document.getElementById('productsDropdown');
+      const productsMegaMenu = document.getElementById('productsMegaMenu');
+      const innovationsDropdown = document.getElementById('innovationsDropdown');
+      const innovationsMegaMenu = document.getElementById('innovationsMegaMenu');
+      const aboutDropdown = document.getElementById('aboutDropdown');
+      const aboutMegaMenu = document.getElementById('aboutMegaMenu');
+
+      function closeAllMegaMenus() {
+        if (productsMegaMenu) productsMegaMenu.classList.remove('show');
+        if (productsDropdown) productsDropdown.classList.remove('open');
+        if (innovationsMegaMenu) innovationsMegaMenu.classList.remove('show');
+        if (innovationsDropdown) innovationsDropdown.classList.remove('open');
+        if (aboutMegaMenu) aboutMegaMenu.classList.remove('show');
+        if (aboutDropdown) aboutDropdown.classList.remove('open');
+      }
+
+      if (productsDropdown) {
+        productsDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          productsMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      if (innovationsDropdown) {
+        innovationsDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          innovationsMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      if (aboutDropdown) {
+        aboutDropdown.addEventListener('click', function (event) {
+          event.stopPropagation();
+          closeAllMegaMenus();
+          aboutMegaMenu.classList.toggle('show');
+          this.classList.toggle('open');
+        });
+      }
+
+      document.addEventListener('click', function (event) {
+        if (productsMegaMenu && !productsMegaMenu.contains(event.target) && !productsDropdown.contains(event.target) ||
+            innovationsMegaMenu && !innovationsMegaMenu.contains(event.target) && !innovationsDropdown.contains(event.target) ||
+            aboutMegaMenu && !aboutMegaMenu.contains(event.target) && !aboutDropdown.contains(event.target)) {
+          closeAllMegaMenus();
+        }
+      });
+      
+
+      // Sidebar functionality for Mega Menus
+      function setupMegaMenuSidebar(megaMenuId) {
+        const megaMenu = document.getElementById(megaMenuId);
+        if (!megaMenu) return;
+
+        const sidebarTitles = megaMenu.querySelectorAll('.sidebar-title');
+        const contentSections = megaMenu.querySelectorAll('.content-section');
+
+        sidebarTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            const targetSectionId = this.dataset.section + '-content';
+
+            sidebarTitles.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            contentSections.forEach(content => {
+              if (content.id === targetSectionId) {
+                content.style.display = 'block';
+              } else {
+                content.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        if (sidebarTitles.length > 0) {
+          sidebarTitles[0].click();
+        }
+      }
+
+      setupMegaMenuSidebar('productsMegaMenu');
+      setupMegaMenuSidebar('innovationsMegaMenu');
+      setupMegaMenuSidebar('aboutMegaMenu');
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

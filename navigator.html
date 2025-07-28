@@ -5,9 +5,7 @@
   <title>Navigator Series - ESG Intelligence Platform</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Common head content will be loaded here -->
   <div id="common-head"></div>
   
   <style>
@@ -45,8 +43,8 @@
       --lighter-background: #e7f3ff;
 
       /* Spacing */
-      --section-spacing: clamp(60px, 8vw, 100px);
-      --feature-spacing: clamp(40px, 6vw, 80px);
+      --section-spacing: clamp(40px, 6vw, 80px);
+      --feature-spacing: clamp(30px, 5vw, 60px);
     }
 
     body {
@@ -110,7 +108,7 @@
       width: 100%;
       height: clamp(300px, 50vw, 600px);
       overflow: hidden;
-      margin-bottom: var(--section-spacing);
+      margin-bottom: 0; /* Adjusted to remove spacing */
     }
 
     .hero-image-section img {
@@ -147,60 +145,60 @@
       text-align: right;
     }
     /* Update the hero section title gradient */
-.hero-text-top-left h1.headline-text-gradient {
-  background: linear-gradient(45deg, #ff4d4f, #feaa29);
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-}
+    .hero-text-top-left h1.headline-text-gradient {
+      background: linear-gradient(45deg, #ff4d4f, #feaa29);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
 
-/* Update the tab button active state to match the red-to-orange theme */
-.esg-tab-btn.active {
-  background: var(--color-background-white);
-  color: #ff4d4f; /* Start with red */
-  box-shadow: 0 4px 20px rgba(255, 77, 79, 0.15);
-  border-bottom: 2px solid #ff4d4f;
-}
+    /* Update the tab button active state to match the red-to-orange theme */
+    .esg-tab-btn.active {
+      background: var(--color-background-white);
+      color: #ff4d4f; /* Start with red */
+      box-shadow: 0 4px 20px rgba(255, 77, 79, 0.15);
+      border-bottom: 2px solid #ff4d4f;
+    }
 
-.esg-tab-btn.active:hover {
-  color: #feaa29; /* Transition to orange on hover */
-  border-bottom-color: #feaa29;
-}
+    .esg-tab-btn.active:hover {
+      color: #feaa29; /* Transition to orange on hover */
+      border-bottom-color: #feaa29;
+    }
 
-/* Update the sub-heading in tabs to use the gradient */
-.tab-text-container .sub-heading {
-  background: linear-gradient(45deg, #ff4d4f, #feaa29);
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  display: inline-block;
-  padding-bottom: 0.2em;
-}
+    /* Update the sub-heading in tabs to use the gradient */
+    .tab-text-container .sub-heading {
+      background: linear-gradient(45deg, #ff4d4f, #feaa29);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      display: inline-block;
+      padding-bottom: 0.2em;
+    }
 
-/* Update section title underline to use gradient */
-.section-title:after {
-  background: linear-gradient(90deg, #ff4d4f, #feaa29);
-}
+    /* Update section title underline to use gradient */
+    .section-title:after {
+      background: linear-gradient(90deg, #ff4d4f, #feaa29);
+    }
 
-/* Update the card link hover state to match */
-.card-link:hover {
-  background: linear-gradient(45deg, #ff4d4f, #feaa29);
-  color: white;
-}
+    /* Update the card link hover state to match */
+    .card-link:hover {
+      background: linear-gradient(45deg, #ff4d4f, #feaa29);
+      color: white;
+    }
 
-/* Update the checkmark colors in feature lists */
-.feature-list li i {
-  color: #ff4d4f;
-}
+    /* Update the checkmark colors in feature lists */
+    .feature-list li i {
+      color: #ff4d4f;
+    }
 
-/* Add transition effects for smooth color changes */
-.esg-tab-btn.active,
-.tab-text-container .sub-heading,
-.section-title:after,
-.card-link,
-.feature-list li i {
-  transition: all 0.3s ease;
-}
+    /* Add transition effects for smooth color changes */
+    .esg-tab-btn.active,
+    .tab-text-container .sub-heading,
+    .section-title:after,
+    .card-link,
+    .feature-list li i {
+      transition: all 0.3s ease;
+    }
 
     .hero-text-bottom-right > div:first-child {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
@@ -303,72 +301,50 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     }
 
-    /* Navigator description section */
+    /* Navigator Description Section */
     .navigator-description-section {
-      background: var(--color-background-light);
-      padding: var(--section-spacing) 0;
+      background-color: #E7E8E2; /* Use #e7e8e2 as background */
+      padding: clamp(24px, 5vw, 48px) 0;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+      margin-top: 0; /* Added to ensure no spacing */
+      padding-top: 0; /* Remove top padding for seamless connection */
     }
-    
-    .navigator-description-container {
-      width: 90%;
+    .navigator-description-section p { /* Apply directly to the paragraph */
       max-width: 1200px;
+      width: 90%; /* Maintain width from original container */
       margin: 0 auto;
-      background: var(--color-background-white);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      padding: clamp(40px, 6vw, 60px);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .navigator-description-container p {
-      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-      color: var(--color-typography-content-dark);
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: #1e4d72; /* Keep existing text color or adjust if needed */
       font-weight: 500;
-      margin: 0;
       line-height: 1.7;
       letter-spacing: 0.01em;
-      position: relative;
-      z-index: 2;
-    }
-
-    .navigator-description-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: var(--color-typography-headline-gradient);
+      text-align: left;
+      background-color: #FFFFFF; /* White background for the text area */
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px); /* Add padding to the text itself */
     }
 
     /* ESG Tabs Section (Re-used styles for Navigator) */
     .esg-tabs-section {
-      background: var(--color-background-white);
-      padding: var(--section-spacing) 0;
-      position: relative;
-    }
-    
-    .esg-tabs-container {
+      background: var(--color-background-white); /* Changed to white */
+      margin: clamp(10px, 2vw, 20px) auto 30px auto; /* Adjusted top margin to remove space */
       width: 90%;
       max-width: 1200px;
-      margin: 0 auto;
-      background: var(--color-background-white);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      padding: clamp(30px, 5vw, 50px);
-      text-align: center;
-      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,77,114,0.07);
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+      border: 1.5px solid rgba(30,77,114,0.08);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    
-    .esg-tabs-container::before {
+    .esg-tabs-section::before { /* Moved from .esg-tabs-container::before */
       content: '';
       position: absolute;
       top: 0;
@@ -377,37 +353,35 @@
       height: 6px;
       background: var(--color-typography-headline-gradient);
     }
-    
     .esg-tabs-btn-group-wrapper {
       padding: 0;
       background: none;
       border-radius: 0;
-      margin: 0 auto 2rem;
+      margin: 0;
       box-shadow: none;
       max-width: 100%;
+      width: 100%; /* Ensure it takes full width */
     }
-    
     .esg-tabs-btn-group {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start; /* Left-align tab buttons */
       align-items: flex-end;
       gap: 0;
       margin-bottom: 0;
-      border-bottom: 2px solid var(--color-background-light);
+      border-bottom: 2px solid #e7f3ff;
       background: none;
       padding: 0;
       position: relative;
     }
-    
     .esg-tab-btn {
-      background: var(--color-background-light);
-      color: var(--color-typography-content-dark);
+      background: #e7f3ff;
+      color: #007bff;
       border: none;
-      border-radius: 12px 12px 0 0;
-      padding: 16px 32px 14px 32px;
+      border-radius: 14px 14px 0 0;
+      padding: 14px 28px 12px 28px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       outline: none;
       box-shadow: none;
       position: relative;
@@ -415,53 +389,27 @@
       border-bottom: 2px solid transparent;
       white-space: nowrap;
       z-index: 1;
-      font-weight: 600;
       flex-grow: 1; /* Allow buttons to grow and fill space */
       text-align: center; /* Center text within button */
     }
-    
     .esg-tab-btn.active {
-      background: var(--color-background-white);
-      color: var(--color-button-primary);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-bottom: 2px solid var(--color-button-primary);
+      background: #fff;
+      color: #007bff;
+      box-shadow: 0 4px 16px rgba(30,77,114,0.10);
+      border-bottom: 2px solid #007bff;
       z-index: 2;
     }
-    
-    .esg-tab-btn:not(.active):hover {
-      background: var(--color-background-light);
-      color: var(--color-button-primary);
+    .esg-tab-btn:not(.active) {
+      border-bottom: 2px solid #e7f3ff;
     }
-    
+    .esg-tab-btn:hover:not(.active) {
+      background: #f8fafc;
+      color: #1e4d72;
+    }
     .esg-tabs-content {
-      margin-top: 0;
-      width: 100%;
-    }
-    
-    .esg-tab-content {
-      display: none;
-      font-size: clamp(1.1rem, 2vw, 1.25rem);
-      color: var(--color-typography-content-dark);
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      min-height: 80px;
-      padding: 2rem 0 0;
-      animation: fadeInTab 0.4s ease-out;
-    }
-    
-    .esg-tab-content.active {
-      display: block;
-    }
-    
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* New styles for the tab content layout */
-    .tab-content-layout {
-      display: flex;
+      /* This element is now the direct content container, taking styles from the old .tab-content-layout */
+      display: none; /* Controlled by JS */
+      width: 100%; /* Ensure it takes full width */
       flex-direction: column; /* Default to column for mobile */
       gap: 2rem;
       padding: 2rem;
@@ -469,18 +417,38 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       text-align: left; /* Align text left within the tab content */
+      margin-top: 0; /* Override default margin */
+      font-size: clamp(1.05rem, 2vw, 1.18rem);
+      color: #1e4d72;
+      font-weight: 500;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      min-height: 80px;
+      animation: fadeInTab 0.3s;
+      display: flex; /* Set to flex for layout */
+      align-items: center; /* Center items vertically */
     }
-
+    
+    .esg-tab-content.active {
+      display: flex; /* Show as flex when active */
+    }
+    
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
     .tab-image-container {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-width: 280px; /* Minimum width for the image container */
+      min-width: 250px; /* Minimum width for the image container */
+      max-width: 400px; /* Max width for image container */
     }
 
     .tab-image-container img {
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -841,8 +809,8 @@
 
     /* Responsive adjustments */
     @media (min-width: 768px) {
-      .tab-content-layout {
-        flex-direction: row; /* Row for larger screens */
+      .esg-tab-content { /* Apply flex-direction row for larger screens */
+        flex-direction: row;
       }
     }
 
@@ -972,8 +940,14 @@
         padding: 12px 20px 10px;
         font-size: 0.95rem;
       }
-
-      /* Removed tab-table-cell as it's not used in current structure */
+      .esg-tab-content { /* Ensure column layout on smaller screens */
+        flex-direction: column;
+        align-items: center; /* Center items when in column layout */
+      }
+      .tab-text-container {
+        min-width: unset; /* Remove min-width constraint on smaller screens */
+        text-align: center; /* Center text in tab content on smaller screens */
+      }
     }
 
     @media (max-width: 576px) {
@@ -990,8 +964,13 @@
         gap: 30px;
       }
 
-      .navigator-description-container,
-      .esg-tabs-container {
+      .navigator-description-section p { /* Apply padding directly to the paragraph on smaller screens */
+        width: 95%;
+        padding: 30px 20px;
+        border-radius: 0 0 18px 18px; /* Round only bottom corners if desired */
+      }
+
+      .esg-tabs-section {
         width: 95%;
         padding: 30px 20px;
       }
@@ -1011,7 +990,6 @@
   </style>
 </head>
 <body>
-  <!-- Common navbar will be loaded here -->
   <div id="common-navbar"></div>
 
   <div class="hero-image-section">
@@ -1028,79 +1006,52 @@
 
   <main>
     <section class="navigator-description-section">
-      <div class="navigator-description-container">
-        <p>The Navigator Series provides advanced tools for businesses to leverage ESG data for strategic decisions. It offers customized solutions for unique sustainability needs, combining software with expert consulting to drive business value beyond compliance. Ideal for companies with sustainable systems, it identifies risks, spots opportunities, and enhances performance, turning insights into a competitive edge.</p>
-      </div>
+      <p>The Navigator Series provides advanced tools for businesses to leverage ESG data for strategic decisions. It offers customized solutions for unique sustainability needs, combining software with expert consulting to drive business value beyond compliance. Ideal for companies with sustainable systems, it identifies risks, spots opportunities, and enhances performance, turning insights into a competitive edge.</p>
     </section>
 
     <section class="esg-tabs-section">
-      <div class="esg-tabs-container">
-        <div class="esg-tabs-btn-group-wrapper">
-          <div class="esg-tabs-btn-group">
-            <button class="esg-tab-btn active" data-tab="tab1">ESG Intelligence for High-Impact Leaders</button>
-            <button class="esg-tab-btn" data-tab="tab2">From Compliance to Competitive Edge</button>
-            <button class="esg-tab-btn" data-tab="tab3">Smarter Moves with ESG-Backed Strategy</button>
-          </div>
+      <div class="esg-tabs-btn-group-wrapper">
+        <div class="esg-tabs-btn-group">
+          <button class="esg-tab-btn active" data-tab="tab1">ESG Intelligence for High-Impact Leaders</button>
+          <button class="esg-tab-btn" data-tab="tab2">From Compliance to Competitive Edge</button>
+          <button class="esg-tab-btn" data-tab="tab3">Smarter Moves with ESG-Backed Strategy</button>
         </div>
-        <div class="esg-tabs-content">
-          <div class="esg-tab-content active" id="tab1">
-            <div class="tab-content-layout">
-              <div class="tab-image-container">
-                <img src="/assets/images/ESG-Intelligence.jpg" alt="ESG Intelligence Image">
-              </div>
-              <div class="tab-text-container">
-                <div class="sub-heading">ESG Intelligence for High-Impact Leaders</div>
-                <h3>Unlocking strategic advantage through ESG.</h3>
-                <p>Navigator is a premium suite of three expert-driven solutions that combine data intelligence with consulting—designed to integrate ESG into investment and business strategy.</p>
-               
-              </div>
-            </div>
-          </div>
-            
-          <div class="esg-tab-content" id="tab2">
-            <div class="tab-content-layout">
-              <div class="tab-image-container">
-                <img src="/assets/images/ESG-Competitive.jpg" alt="Compliance to Competitive Edge Image">
-              </div>
-              <div class="tab-text-container">
-                <div class="sub-heading">From Compliance to Competitive Edge</div>
-            
-                <p> As ESG maturity grows, so do the expectations—from regulators, shareholders, and customers. The Navigator Series helps organizations make strategic decisions rooted in ESG intelligence, not intuition.
-            </p>
-               
-              </div>
-            </div>
-          </div>
-            
-          <div class="esg-tab-content" id="tab3">
-            <div class="tab-content-layout">
-              <div class="tab-image-container">
-                <img src="/assets/images/ESG-Strategic.jpeg" alt="ESG-Backed Strategy Image">
-              </div>
-              <div class="tab-text-container">
-                <div class="sub-heading">Smarter Moves with ESG-Backed Strategy</div>
-                <h3>Strategic decisions rooted in ESG intelligence.</h3>
-          
-                <p class="tab3-compact-p">
-                  For private equity, asset managers, corporates, and infrastructure firms, Navigator helps identify high-impact ESG strategies, benchmark performance, build resilient investment plans, and deliver clear, actionable insights for leadership.
-                </p>
-                <div class="tab3-compact-list-area">
-                  <div class="tab3-compact-list-title">Key Benefits</div>
-                  <ul class="tab3-compact-list">
-                    <li><i class="fa fa-check-circle"></i>Identifying high-ROI sustainability strategies</li>
-                    <li><i class="fa fa-check-circle"></i>Benchmarking performance across departments or portfolios</li>
-                    <li><i class="fa fa-check-circle"></i>Building risk-resilient investment theses</li>
-                    <li><i class="fa fa-check-circle"></i>Empowering leadership with clear, contextual ESG insights</li>
-                  </ul>
-                </div>
-                <hr class="tab3-compact-divider" />
-               
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="esg-tab-content active" id="tab1">
+        <div class="tab-image-container">
+          <img src="/assets/images/ESG-Intelligence.jpg" alt="ESG Intelligence Image">
         </div>
-      </section>
-    </div>
+        <div class="tab-text-container">
+          <div class="sub-heading">ESG Intelligence for High-Impact Leaders</div>
+          <h3>Unlocking strategic advantage through ESG.</h3>
+          <p>Navigator is a premium suite of three expert-driven solutions that combine data intelligence with consulting—designed to integrate ESG into investment and business strategy.</p>
+        </div>
+      </div>
+        
+      <div class="esg-tab-content" id="tab2">
+        <div class="tab-image-container">
+          <img src="/assets/images/ESG-Competitive.jpg" alt="Compliance to Competitive Edge Image">
+        </div>
+        <div class="tab-text-container">
+          <div class="sub-heading">From Compliance to Competitive Edge</div>
+          <p>As ESG maturity grows, so do the expectations—from regulators, shareholders, and customers. The Navigator Series helps organizations make strategic decisions rooted in ESG intelligence, not intuition.</p>
+        </div>
+      </div>
+        
+      <div class="esg-tab-content" id="tab3">
+        <div class="tab-image-container">
+          <img src="/assets/images/ESG-Strategic.jpeg" alt="ESG-Backed Strategy Image">
+        </div>
+        <div class="tab-text-container">
+          <div class="sub-heading">Smarter Moves with ESG-Backed Strategy</div>
+          <h3>Strategic decisions rooted in ESG intelligence.</h3>
+          <p class="tab3-compact-p">
+            For private equity, asset managers, corporates, and infrastructure firms, Navigator helps identify high-impact ESG strategies, benchmark performance, build resilient investment plans, and deliver clear, actionable insights for leadership.
+          </p>
+
+        </div>
+      </div>
+    </section>
 
     <section class="features-section" id="portfolio">
       <h2 class="section-title">Portfolio Navigator</h2>
